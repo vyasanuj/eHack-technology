@@ -9,6 +9,7 @@ import {
   ClipboardCheckIcon,
   HeadsetIcon
 } from './components/FeatureIcons';
+import TrustedCompanies from './components/TrustedCompanies'; // Import new component
 
 export default function Home() {
   const services = [
@@ -16,73 +17,85 @@ export default function Home() {
       image: '/images/services/security.png',
       title: 'Web Application Security',
       description: 'Comprehensive testing for web apps against OWASP Top 10 and beyond.',
-      href: '/services/web-application-security'
+      href: '/services/web-application-security',
+      badges: ['OWASP Top 10', 'Penetration Testing']
     },
     {
       image: '/images/mobileapp_service_image.png',
       title: 'Mobile App Security',
       description: 'iOS and Android security assessment with source code review.',
-      href: '/services/mobile-application-security'
+      href: '/services/mobile-application-security',
+      badges: ['iOS & Android', 'Source Code Analysis']
     },
     {
       image: '/images/API_service_image.png',
       title: 'API Security',
       description: 'REST, GraphQL, and SOAP API vulnerability testing.',
-      href: '/services/api-security'
+      href: '/services/api-security',
+      badges: ['REST & GraphQL', 'Logic Flaws']
     },
     {
       image: '/images/Source Code Review.png',
       title: 'Source Code Review',
       description: 'Manual and automated secure code analysis across 30+ languages.',
-      href: '/services/source-code-review'
+      href: '/services/source-code-review',
+      badges: ['SAST', 'DAST', '30+ Languages']
     },
     {
       image: '/images/Red Team Assessment.png',
       title: 'Red Team Assessment',
       description: 'Real-world attack simulation to test your defenses.',
-      href: '/services/red-team-assessment'
+      href: '/services/red-team-assessment',
+      badges: ['Adversary Simulation', 'Exfiltration']
     },
     {
       image: '/images/services/general.png',
       title: 'Infrastructure Security',
       description: 'Network, cloud, and Active Directory security assessment.',
-      href: '/services/infrastructure-security'
+      href: '/services/infrastructure-security',
+      badges: ['Network', 'Cloud', 'Active Directory']
     },
     {
       image: '/images/Thick Client Security.png',
       title: 'Thick Client Security',
       description: 'Desktop application penetration testing and hardening.',
-      href: '/services/thick-client-security'
+      href: '/services/thick-client-security',
+      badges: ['Binary Analysis', 'Memory Corruptions']
     },
     {
       image: '/images/Firewall Security Assessment.png',
       title: 'Firewall Security',
       description: 'Rule audit, configuration review, and penetration testing.',
-      href: '/services/firewall-security'
+      href: '/services/firewall-security',
+      badges: ['Rule Audit', 'Egress Filtering']
     },
     {
       image: '/images/services/forensics.png',
       title: 'Digital Forensics',
       description: 'Investigation, evidence collection, and incident response.',
-      href: '/services/digital-forensics'
+      href: '/services/digital-forensics',
+      badges: ['Incident Response', 'Evidence Artifacts']
     },
     {
       image: '/images/Malware Analysis and Root Cause Detection.png',
       title: 'Malware Analysis',
       description: 'Threat detection, behavior analysis, and IOC extraction.',
-      href: '/services/malware-analysis'
+      href: '/services/malware-analysis',
+      badges: ['Reverse Engineering', 'IOCs']
     },
     {
       image: '/images/services/compliance.png',
       title: 'GDPR Consulting',
       description: 'Gap analysis, risk assessment, and compliance support.',
-      href: '/services/gdpr-consulting'
+      href: '/services/gdpr-consulting',
+      badges: ['Gap Analysis', 'Data Privacy']
     },
     {
       image: '/images/PCI DSS Compliance Audit.png',
       title: 'PCI DSS Compliance',
       description: 'QSA-led audits and certification assistance.',
-      href: '/services/pci-dss-compliance'
+      href: '/services/pci-dss-compliance',
+      badges: ['QSA Audit', 'Certification']
     }
   ];
 
@@ -121,69 +134,183 @@ export default function Home() {
 
   return (
     <>
-      {/* Hero Section */}
-      <section className="hero">
-        <div className="container">
-          <div className="hero-grid">
+      {/* Modern Hero Section */}
+      <section className="hero" style={{
+        padding: '3rem 0 4rem',
+        background: 'linear-gradient(135deg, #FFF5F2 0%, #FFFFFF 100%)',
+        position: 'relative',
+        overflow: 'hidden'
+      }}>
+        {/* Background Graphic Removed */}
+
+        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: '1fr 1fr',
+            gap: '3rem',
+            alignItems: 'start'
+          }}>
+            {/* Left Content */}
             <div className="hero-content">
-              <div className="hero-badge animate-fadeInDown">
-                🛡️ Trusted by 500+ Enterprises Worldwide
+              <div className="animate-fadeInDown" style={{
+                display: 'inline-block',
+                padding: '0.5rem 1rem',
+                background: '#F26C29', // Brand Orange
+                border: '1px solid rgba(255, 255, 255, 0.2)',
+                borderRadius: '50px',
+                marginBottom: '1.5rem',
+                boxShadow: '0 4px 6px rgba(242, 108, 41, 0.2)'
+              }}>
+                <span style={{
+                  color: 'white',
+                  fontWeight: '600',
+                  fontSize: '0.9rem',
+                  letterSpacing: '0.02em'
+                }}>
+                  Trusted by 500+ Enterprises Worldwide
+                </span>
               </div>
-              <h1 className="animate-fadeInUp">
-                Protect Your Business with <span>Enterprise-Grade</span> Cybersecurity
+
+              <h1 className="animate-fadeInUp" style={{
+                fontSize: 'clamp(2.5rem, 5vw, 3.75rem)',
+                fontWeight: '800',
+                lineHeight: '1.1',
+                color: '#1a1a1a',
+                marginBottom: '1.5rem',
+                letterSpacing: '-0.02em'
+              }}>
+                Protect Your Business with <span style={{ color: '#F26C29' }}>Enterprise-Grade</span> Cybersecurity
               </h1>
-              <p className="hero-description animate-fadeInUp delay-200">
-                We identify vulnerabilities before attackers do. Our expert team delivers comprehensive
-                security assessments, penetration testing, and compliance solutions to safeguard your
-                digital assets.
+
+              <p className="hero-description animate-fadeInUp delay-200" style={{
+                fontSize: '1.25rem',
+                lineHeight: '1.6',
+                color: '#555',
+                marginBottom: '2.5rem',
+                maxWidth: '90%'
+              }}>
+                We identify vulnerabilities before attackers do. Our expert team delivers comprehensive security assessments to safeguard your digital assets.
               </p>
-              <div style={{ display: 'flex', gap: '1rem', marginBottom: '2rem' }} className="animate-fadeInUp delay-300">
-                <Link href="/contact" className="btn btn-primary btn-lg">
+
+              <div style={{ display: 'flex', gap: '1rem', marginBottom: '3rem' }} className="animate-fadeInUp delay-300">
+                <Link href="/contact" className="btn btn-primary btn-lg" style={{
+                  padding: '1rem 2.5rem',
+                  fontSize: '1.125rem',
+                  fontWeight: '600',
+                  borderRadius: '12px',
+                  boxShadow: '0 10px 20px rgba(242, 108, 41, 0.25)',
+                  transition: 'transform 0.2s ease',
+                  border: 'none'
+                }}>
                   Get Free Assessment
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg>
                 </Link>
-                <Link href="/services/web-application-security" className="btn btn-secondary btn-lg">
+                <Link href="/services/web-application-security" className="btn btn-white btn-lg" style={{
+                  padding: '1rem 2.5rem',
+                  fontSize: '1.125rem',
+                  fontWeight: '600',
+                  borderRadius: '12px',
+                  border: '1px solid #e5e5e5',
+                  background: 'white',
+                  color: '#1a1a1a'
+                }}>
                   View Services
                 </Link>
               </div>
-              <div className="hero-stats animate-fadeInUp delay-400">
-                <div className="hero-stat-item">
-                  <h3>500+</h3>
-                  <p>Clients Secured</p>
+
+              <div className="hero-stats animate-fadeInUp delay-400" style={{
+                display: 'flex',
+                gap: '3rem',
+                borderTop: '1px solid rgba(0,0,0,0.05)',
+                paddingTop: '2rem'
+              }}>
+                <div>
+                  <h3 style={{ fontSize: '2rem', fontWeight: '800', color: '#1a1a1a', marginBottom: '0.25rem' }}>500+</h3>
+                  <p style={{ color: '#666', fontSize: '0.9rem', fontWeight: '500' }}>Clients Secured</p>
                 </div>
-                <div className="hero-stat-item">
-                  <h3>10K+</h3>
-                  <p>Vulnerabilities Found</p>
+                <div>
+                  <h3 style={{ fontSize: '2rem', fontWeight: '800', color: '#1a1a1a', marginBottom: '0.25rem' }}>10K+</h3>
+                  <p style={{ color: '#666', fontSize: '0.9rem', fontWeight: '500' }}>Vulnerabilities Found</p>
                 </div>
-                <div className="hero-stat-item">
-                  <h3>99%</h3>
-                  <p>Client Retention</p>
+                <div>
+                  <h3 style={{ fontSize: '2rem', fontWeight: '800', color: '#1a1a1a', marginBottom: '0.25rem' }}>99%</h3>
+                  <p style={{ color: '#666', fontSize: '0.9rem', fontWeight: '500' }}>Client Retention</p>
                 </div>
               </div>
             </div>
-            <div className="hero-form-card animate-scaleIn delay-300">
-              <LeadForm
-                title="Request a Free Consultation"
-                subtitle="Get expert security advice within 24 hours"
-              />
+
+            {/* Right Content - Hero Image & Form Combined */}
+            <div className="hero-right-column animate-scaleIn delay-300" style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              marginTop: '1rem'
+            }}>
+              {/* Unified Card Container */}
+              <div style={{
+                position: 'relative',
+                width: '100%',
+                maxWidth: '600px', // Increased from 450px
+                borderRadius: '20px',
+                boxShadow: '0 20px 40px -10px rgba(0, 0, 0, 0.1)',
+                overflow: 'hidden',
+                background: 'white'
+              }}>
+                {/* Image Part */}
+                <div style={{
+                  position: 'relative',
+                  width: '100%',
+                  height: '320px', // Increased from 240px
+                }}>
+                  <Image
+                    src="/service-web-hero.png"
+                    alt="Cybersecurity Assessment"
+                    fill
+                    style={{
+                      objectFit: 'cover',
+                      objectPosition: 'center top'
+                    }}
+                    priority
+                  />
+                </div>
+
+                {/* Form Part - Attached below */}
+                <div>
+                  <LeadForm
+                    title="Get Started"
+                    subtitle="Free Expert Consultation"
+                    serviceName="General Inquiry"
+                    compact={true}
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
+      {/* Trusted By Section */}
+      <TrustedCompanies />
+
       {/* Services Section */}
-      <section className="section">
+      <section className="section" style={{ padding: '2rem 0 4rem' }}>
         <div className="container">
-          <div className="section-header">
-            <span className="section-label">Our Expertise</span>
-            <h2 className="section-title">Comprehensive Security Solutions</h2>
+          <div className="section-header" style={{ marginBottom: '2rem' }}>
+            <span className="section-label" style={{
+              background: '#F26C29',
+              color: 'white',
+              fontSize: '1rem',
+              padding: '0.5rem 1.5rem',
+              borderRadius: '50px',
+              display: 'inline-block',
+              marginBottom: '1rem',
+              fontWeight: '600'
+            }}>Our Expertise</span>
+            <h2 className="section-title">Comprehensive Security <span style={{ color: '#F26C29' }}>Solutions</span></h2>
             <p className="section-subtitle">
               From web applications to infrastructure, we cover every aspect of your security needs
             </p>
           </div>
-          <div className="services-grid">
+          <div className="services-grid" style={{ marginTop: '0' }}>
             {services.map((service, index) => (
               <Link href={service.href} key={index} className="service-card group">
                 <div className="service-card-image">
@@ -194,9 +321,29 @@ export default function Home() {
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
-                <div className="service-card-content">
-                  <h3>{service.title}</h3>
-                  <p>{service.description}</p>
+                <div className="service-card-content" style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
+                  <h3 style={{ marginBottom: '0.5rem' }}>{service.title}</h3>
+                  <p style={{ marginBottom: '1.5rem' }}>{service.description}</p>
+
+                  {/* Service Badges - Pushed to bottom */}
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginTop: 'auto', marginBottom: '1.5rem' }}>
+                    {service.badges?.map((badge, idx) => (
+                      <span key={idx} style={{
+                        fontSize: '0.7rem',
+                        padding: '0.3rem 0.8rem',
+                        background: 'rgba(242, 108, 41, 0.08)',
+                        color: '#F26C29',
+                        borderRadius: '6px',
+                        fontWeight: '600',
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.02em',
+                        border: '1px solid rgba(242, 108, 41, 0.15)'
+                      }}>
+                        {badge}
+                      </span>
+                    ))}
+                  </div>
+
                   <span className="arrow">
                     Learn More
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">

@@ -741,6 +741,14 @@ h6 {
   padding: 4rem 0 2rem;
 }
 
+.foot.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* Changed to 3 columns */
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
 .footer-grid {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr;
@@ -972,8 +980,10 @@ h6 {
 /* ===== SERVICES GRID ===== */
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
+  grid-template-columns: repeat(3, 1fr);
+  /* 3 columns */
+  gap: 2rem;
+  margin-top: 3rem;
 }
 
 .service-card {

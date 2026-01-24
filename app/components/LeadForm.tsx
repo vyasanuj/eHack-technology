@@ -72,7 +72,7 @@ export default function LeadForm({
     }
 
     return (
-        <div className={compact ? '' : (dark ? 'card-dark' : 'card')} style={compact ? {} : { padding: '2rem' }}>
+        <div className={compact ? '' : (dark ? 'card-dark' : 'card')} style={compact ? { padding: '1.5rem', paddingTop: '1rem' } : { padding: '2rem' }}>
             {!compact && (
                 <>
                     <h3 style={{
@@ -93,8 +93,8 @@ export default function LeadForm({
             )}
 
             <form onSubmit={handleSubmit}>
-                <div style={{ display: 'grid', gridTemplateColumns: compact ? '1fr' : '1fr 1fr', gap: '1rem' }}>
-                    <div className="form-group">
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: compact ? '0.75rem' : '1rem' }}>
+                    <div className="form-group" style={compact ? { marginBottom: '0' } : {}}>
                         <input
                             type="text"
                             name="name"
@@ -103,9 +103,10 @@ export default function LeadForm({
                             value={formData.name}
                             onChange={handleChange}
                             required
+                            style={compact ? { padding: '0.6rem 1rem', fontSize: '0.9rem' } : {}}
                         />
                     </div>
-                    <div className="form-group">
+                    <div className="form-group" style={compact ? { marginBottom: '0' } : {}}>
                         <input
                             type="email"
                             name="email"
@@ -114,12 +115,13 @@ export default function LeadForm({
                             value={formData.email}
                             onChange={handleChange}
                             required
+                            style={compact ? { padding: '0.6rem 1rem', fontSize: '0.9rem' } : {}}
                         />
                     </div>
                 </div>
 
-                <div style={{ display: 'grid', gridTemplateColumns: compact ? '1fr' : '1fr 1fr', gap: '1rem' }}>
-                    <div className="form-group">
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: compact ? '0.75rem' : '1rem', marginTop: compact ? '0.75rem' : '0' }}>
+                    <div className="form-group" style={compact ? { marginBottom: '0' } : {}}>
                         <input
                             type="tel"
                             name="phone"
@@ -128,29 +130,32 @@ export default function LeadForm({
                             value={formData.phone}
                             onChange={handleChange}
                             required
+                            style={compact ? { padding: '0.6rem 1rem', fontSize: '0.9rem' } : {}}
                         />
                     </div>
-                    <div className="form-group">
+                    <div className="form-group" style={compact ? { marginBottom: '0' } : {}}>
                         <input
                             type="text"
                             name="company"
-                            placeholder="Company Name"
+                            placeholder="Company"
                             className="form-input"
                             value={formData.company}
                             onChange={handleChange}
+                            style={compact ? { padding: '0.6rem 1rem', fontSize: '0.9rem' } : {}}
                         />
                     </div>
                 </div>
 
-                <div className="form-group">
+                <div className="form-group" style={compact ? { marginTop: '0.75rem', marginBottom: '0' } : {}}>
                     <select
                         name="service"
                         className="form-select"
                         value={formData.service}
                         onChange={handleChange}
                         required
+                        style={compact ? { padding: '0.6rem 1rem', fontSize: '0.9rem' } : {}}
                     >
-                        <option value="">Select Service of Interest *</option>
+                        <option value="">Select Service *</option>
                         <optgroup label="Security Assessment">
                             <option value="web-security">Web Application Security</option>
                             <option value="mobile-security">Mobile Application Security</option>
@@ -190,7 +195,7 @@ export default function LeadForm({
                 <button
                     type="submit"
                     className="btn btn-primary"
-                    style={{ width: '100%', marginTop: '0.5rem' }}
+                    style={{ width: '100%', marginTop: '1rem', padding: compact ? '0.75rem' : '1rem' }}
                     disabled={isSubmitting}
                 >
                     {isSubmitting ? (
