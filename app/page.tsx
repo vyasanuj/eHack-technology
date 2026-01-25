@@ -420,12 +420,16 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Industries Section */}
-      <section className="section">
+      <section className="section" style={{ padding: '0.5rem 0' }}>
         <div className="container">
           <div className="section-header">
-            <span className="section-label">Industries We Serve</span>
-            <h2 className="section-title">Trusted Across Industries</h2>
+            <span className="section-label" style={{
+              background: '#F26C29',
+              color: 'white',
+              fontSize: '1.1rem',
+              padding: '0.6rem 1.8rem'
+            }}>Industries We Serve</span>
+            <h2 className="section-title">Trusted Across <span style={{ color: '#F26C29' }}>Industries</span></h2>
             <p className="section-subtitle">
               From fintech to healthcare, we secure organizations across all sectors
             </p>
@@ -433,34 +437,40 @@ export default function Home() {
           <div className="features-grid">
             {[
               {
-                image: '/images/industries/banking.png',
+                image: '/images/bank-security.png',
                 name: 'Banking & Finance',
-                description: 'Securing digital transactions and financial data.'
+                description: 'Securing digital transactions and financial data with enterprise-grade security protocols.',
+                badges: ['Compliance', 'Fraud Prevention']
               },
               {
-                image: '/images/industries/healthcare.png',
+                image: '/images/Healthcare.png',
                 name: 'Healthcare',
-                description: 'Protecting patient records and medical IoT devices.'
+                description: 'Protecting patient records and medical IoT devices through advanced encryption and monitoring.',
+                badges: ['HIPAA', 'Device Security']
               },
               {
-                image: '/images/industries/ecommerce.png',
+                image: '/images/E-commers.png',
                 name: 'E-Commerce',
-                description: 'Safeguarding online stores and customer payments.'
+                description: 'Safeguarding online stores and customer payments against emerging cyber threats.',
+                badges: ['PCI DSS', 'Data Protection']
               },
               {
-                image: '/images/industries/government.png',
+                image: '/images/Government.png',
                 name: 'Government',
-                description: 'Defending critical infrastructure and citizen data.'
+                description: 'Defending critical infrastructure and citizen data with high-level military grade security.',
+                badges: ['VAPT', 'Infrastructure']
               },
               {
-                image: '/images/industries/education.png',
+                image: '/images/Education.png',
                 name: 'Education',
-                description: 'Securing learning platforms and student information.'
+                description: 'Securing learning platforms and student information for a safe digital campus environment.',
+                badges: ['LMS Security', 'Student Data']
               },
               {
-                image: '/images/industries/manufacturing.png',
+                image: '/images/Manufacturing.png',
                 name: 'Manufacturing',
-                description: 'Protecting smart factories and industrial control systems.'
+                description: 'Protecting smart factories and industrial control systems from disruptive cyber attacks.',
+                badges: ['ICS/SCADA', 'IIoT']
               }
             ].map((industry, index) => (
               <div key={index} className="service-card group">
@@ -472,9 +482,27 @@ export default function Home() {
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
-                <div className="service-card-content">
-                  <h3>{industry.name}</h3>
-                  <p>{industry.description}</p>
+                <div className="service-card-content" style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
+                  <h3 style={{ marginBottom: '0.8rem', color: '#1a1a1a' }}>{industry.name}</h3>
+                  <p style={{ marginBottom: '1.5rem', color: '#444', lineHeight: '1.6' }}>{industry.description}</p>
+
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginTop: 'auto' }}>
+                    {industry.badges.map((badge, idx) => (
+                      <span key={idx} style={{
+                        fontSize: '0.7rem',
+                        padding: '0.3rem 0.8rem',
+                        background: 'rgba(242, 108, 41, 0.08)',
+                        color: '#F26C29',
+                        borderRadius: '6px',
+                        fontWeight: '700',
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.02em',
+                        border: '1px solid rgba(242, 108, 41, 0.15)'
+                      }}>
+                        {badge}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
             ))}
