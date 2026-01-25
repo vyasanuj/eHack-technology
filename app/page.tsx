@@ -13,6 +13,7 @@ import TrustedCompanies from './components/TrustedCompanies'; // Import new comp
 import CaseStudySection from './components/CaseStudySection';
 import IndustriesSection from './components/IndustriesSection';
 import ServicesSection from './components/ServicesSection';
+import StickySectionNav from './components/StickySectionNav';
 
 export default function Home() {
   const features = [
@@ -50,8 +51,11 @@ export default function Home() {
 
   return (
     <>
+      {/* Sticky Section Nav */}
+      <StickySectionNav />
+
       {/* Modern Hero Section */}
-      <section className="hero" style={{
+      <section id="start" className="hero" style={{
         padding: '3rem 0 4rem',
         background: 'linear-gradient(135deg, #FFF5F2 0%, #FFFFFF 100%)',
         position: 'relative',
@@ -208,7 +212,9 @@ export default function Home() {
       <TrustedCompanies />
 
       {/* Services Section */}
-      <ServicesSection />
+      <div id="services">
+        <ServicesSection />
+      </div>
 
       {/* Stats Section */}
       <section className="stats-section">
@@ -234,8 +240,20 @@ export default function Home() {
         </div>
       </section>
 
+      {/* previously here -- now moved Why Choose Us Section */}
+
+
+      <div id="industries">
+        <IndustriesSection />
+      </div>
+
+      {/* Case Studies Section */}
+      <div id="case-studies">
+        <CaseStudySection />
+      </div>
+
       {/* Why Choose Us Section */}
-      <section className="section section-light">
+      <section id="why-ehack" className="section section-light">
         <div className="container">
           <div className="section-header">
             <span className="section-label" style={{
@@ -302,13 +320,8 @@ export default function Home() {
         </div>
       </section>
 
-      <IndustriesSection />
-
-      {/* Case Studies Section */}
-      <CaseStudySection />
-
       {/* Certifications Section */}
-      <section className="section" style={{ background: 'var(--primary-bg)' }}>
+      <section id="certifications" className="section" style={{ background: 'var(--primary-bg)' }}>
         <div className="container">
           <div className="section-header" style={{ marginBottom: '2rem' }}>
             <h2 className="section-title">Certifications & Partnerships</h2>
