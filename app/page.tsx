@@ -385,8 +385,16 @@ export default function Home() {
       <section className="section section-light">
         <div className="container">
           <div className="section-header">
-            <span className="section-label">Why Ehack</span>
-            <h2 className="section-title">Your Trusted Security Partner</h2>
+            <span className="section-label" style={{
+              background: '#D45A1F',
+              color: 'white',
+              fontSize: '1.1rem',
+              padding: '0.75rem 2rem',
+              borderRadius: '50px',
+              fontWeight: '700',
+              marginBottom: '1.5rem'
+            }}>Why Ehack</span>
+            <h2 className="section-title">Your Trusted <span style={{ color: '#F26C29' }}>Security</span> Partner</h2>
             <p className="section-subtitle">
               We combine cutting-edge tools with expert human analysis to deliver unmatched security insights
             </p>
