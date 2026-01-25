@@ -1548,3 +1548,113 @@ h6 {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* ===== NEW FOOTER STYLES ===== */
+.footer-contact-strip {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-xl);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.contact-strip-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.contact-strip-item svg {
+  color: var(--primary);
+  width: 18px;
+  height: 18px;
+}
+
+.contact-strip-item span {
+  color: var(--gray-300);
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.footer .container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.contact-divider {
+  width: 1px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.footer-branding {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+}
+
+.branding-text {
+  text-transform: none;
+  letter-spacing: .15em;
+  background: linear-gradient(#fff 0%, #f0f0f0 15%, #fff 30%, #e5e5e5 50%, #fff 65%, #dcdcdc 85%, #fff 100%);
+  -webkit-text-fill-color: transparent;
+  color: #0000;
+  filter: drop-shadow(0 2px 4px #0006);
+  text-shadow: 0 0 10px #fff3;
+  -webkit-background-clip: text;
+  background-clip: text;
+  max-width: 800px;
+  margin-bottom: 0;
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1.5;
+  display: inline-block;
+}
+
+.branding-logos {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.branding-logo-img {
+  height: 70px;
+  width: auto;
+  opacity: 0.9;
+  transition: opacity var(--transition-fast);
+}
+
+.branding-logo-img:hover {
+  opacity: 1;
+}
+
+@media (max-width: 1024px) {
+  .footer-contact-strip {
+    justify-content: center;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+
+  .contact-divider {
+    display: none;
+  }
+
+  .footer-branding {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .branding-logos {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
