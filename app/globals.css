@@ -256,6 +256,43 @@ h6 {
   animation: float 3s ease-in-out infinite;
 }
 
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 200s linear infinite;
+}
+
+@keyframes stripe-flow {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 50px 0;
+  }
+}
+
+.animate-stripe-pattern {
+  background-image: linear-gradient(45deg,
+      rgba(255, 255, 255, 0.15) 25%,
+      transparent 25%,
+      transparent 50%,
+      rgba(255, 255, 255, 0.15) 50%,
+      rgba(255, 255, 255, 0.15) 75%,
+      transparent 75%,
+      transparent);
+  background-size: 50px 50px;
+  animation: stripe-flow 5s linear infinite;
+}
+
 /* Stagger delays */
 .delay-100 {
   animation-delay: 100ms;

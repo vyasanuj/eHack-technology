@@ -10,6 +10,7 @@ import {
   HeadsetIcon
 } from './components/FeatureIcons';
 import TrustedCompanies from './components/TrustedCompanies'; // Import new component
+import CaseStudySection from './components/CaseStudySection';
 
 export default function Home() {
   const services = [
@@ -509,6 +510,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Case Studies Section */}
+      <CaseStudySection />
 
       {/* Certifications Section */}
       <section className="section" style={{ background: 'var(--primary-bg)' }}>
