@@ -11,7 +11,7 @@ export default function Footer() {
                             <img
                                 src="/images/ehack-logo-white.png"
                                 alt="eHack Technology Logo"
-                                style={{ height: '120px', width: 'auto', marginBottom: '1rem' }}
+                                style={{ height: '80px', width: 'auto', marginBottom: '1rem' }}
                             />
                         </Link>
                         <p>
@@ -55,37 +55,66 @@ export default function Footer() {
 
                     {/* Contact Info */}
                     <div>
-                        <h4 className="footer-title">Contact Us</h4>
+                        <h4 className="footer-title">Quick Links</h4>
                         <ul className="footer-links">
-                            <li>
-                                <a href="mailto:info@ehacktechnology.com">
-                                    📧 info@ehacktechnology.com
-                                </a>
-                            </li>
-                            <li>
-                                <a href="tel:+919886035330">
-                                    📞 +91-9886035330
-                                </a>
-                            </li>
-                            <li>
-                                <span style={{ color: 'var(--gray-300)' }}>
-                                    📍 Bangalore, India
-                                </span>
-                            </li>
+                            <li><Link href="/about">About Us</Link></li>
+                            <li><Link href="/contact">Contact</Link></li>
+                            <li><Link href="/blog">Blog</Link></li>
+                            <li><Link href="/careers">Careers</Link></li>
+                            <li><Link href="/privacy-policy">Privacy Policy</Link></li>
+                            <li><Link href="/terms">Terms of Service</Link></li>
                         </ul>
-                        <div style={{ marginTop: '1.5rem' }}>
-                            <h4 className="footer-title">Quick Links</h4>
-                            <ul className="footer-links">
-                                <li><Link href="/about">About Us</Link></li>
-                                <li><Link href="/contact">Contact</Link></li>
-                            </ul>
-                        </div>
+                    </div>
+                </div>
+                {/* Contact Strip */}
+                <div className="footer-contact-strip">
+                    <div className="contact-strip-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.12 2h3a2 2 0 012 1.72 12.05 12.05 0 00.57 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.05 12.05 0 002.81.57A2 2 0 0122 16.92z"></path>
+                        </svg>
+                        <span>+91 98860 35330</span>
+                    </div>
+                    <div className="contact-divider"></div>
+                    <div className="contact-strip-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                        <span>info@ehacktechnology.com</span>
+                    </div>
+                    <div className="contact-divider"></div>
+                    <div className="contact-strip-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                        <span>Bangalore, India</span>
+                    </div>
+                    <div className="contact-divider"></div>
+                    <div className="contact-strip-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        <span>Tue - Sun: 9:30 AM - 6:30 PM</span>
+                    </div>
+                </div>
+
+                {/* Branding Section */}
+                <div className="footer-branding">
+                    <span className="branding-text">
+                        DRIVING GLOBAL CYBERSECURITY EXCELLENCE
+                        AS A STRATEGIC INITIATIVE OF eHACK GROUP
+                    </span>
+                    <div className="branding-logos">
+                        <img src="/images/white-global.png" alt="eHack Global Technology" className="branding-logo-img" />
+                        <img src="/images/ehack-group-white.png" alt="eHack Academy" className="branding-logo-img" />
                     </div>
                 </div>
 
                 {/* Bottom Bar */}
                 <div className="footer-bottom">
-                    <p>© {new Date().getFullYear()} Ehack Technology. All rights reserved.</p>
+                    <p>© {new Date().getFullYear()} eHack Technology. All rights reserved.</p>
                     <div className="social-links">
                         <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
