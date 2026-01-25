@@ -11,6 +11,7 @@ export default function FirewallSecurityPage() {
         <ServicePageLayout
             title="Firewall Security Assessment"
             description="Comprehensive firewall audit to ensure your configuration and rules meet business and compliance needs."
+            heroImage="/images/Firewall Security Assessment.png"
             whatIs="Every business, regardless of size, uses firewall technology to establish limits of trust and security and access the internet for inter-business communication. Next-generation firewalls provide increasing complexity, and functionality requires you to manage firewalls appropriately. The list of regulations will be thoroughly investigated following the operational assessment and based on the level of trust needed from the security apparatus. A weak/outdated firewall may have made the target systems vulnerable to information disclosure and compromise."
             whatWeOffer={[
                 'Firewall Security Audit',

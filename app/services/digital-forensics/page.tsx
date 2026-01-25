@@ -11,6 +11,7 @@ export default function DigitalForensicsPage() {
         <ServicePageLayout
             title="Digital Forensics & Incident Response"
             description="Expert investigation and evidence collection services to address cyber breaches, fraud, and corporate investigations."
+            heroImage="/images/services/forensics.png"
             whatIs="Today, we live in a turbulent business environment where criminals are growing toward a virulent edge, as fraud risks are on the level of a crisis, and stakeholder expectations are far away. Various fraud strategies including bribery, misconducts, cybercrimes, and other fraudulent activities are impacting every business's branding value. Forensic Investigation and Consulting Services help you address these inevitable irreparable problems. We offer a wide range of Forensic Services and acknowledge the importance of self-reliance in dealing with different areas of concern."
             whatWeOffer={[
                 'Financial Statement Fraud Investigation',

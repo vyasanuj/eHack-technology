@@ -11,6 +11,7 @@ export default function PCIDSSCompliancePage() {
         <ServicePageLayout
             title="PCI DSS Compliance Audit"
             description="Comprehensive PCI DSS compliance services to safeguard cardholder data and ensure payment security standards."
+            heroImage="/images/PCI DSS Compliance Audit.png"
             whatIs="PCI DSS is an internationally recognized data security standard that applies to businesses that process credit card information. The Payment Card Industry Security Standards Council (PCI SSC) is responsible for overseeing the Standard, which is intended to safeguard credit card and debit card transactions against theft and fraud. While the Standard is not a legal requirement, it is necessary to safeguard cardholder data and debit/credit card transactions. All businesses that accept and process debit and credit card payments must conduct a PCI DSS audit on an annual basis."
             whatWeOffer={[
                 'PCI DSS Gap Analysis',

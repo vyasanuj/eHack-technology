@@ -11,6 +11,7 @@ export default function ISOCertificationPage() {
         <ServicePageLayout
             title="ISO 27001 Certification Advisory"
             description="Comprehensive ISO 27001 advisory services to implement and certify your Information Security Management System (ISMS)."
+            heroImage="/images/services/compliance.png"
             whatIs="Any organization faces challenges in implementing the ISO 27001 standard. Certification to any standard is frequently mandated by contractual obligations, regulatory requirements, or simply because it is the right thing to do for an organization. For those interested in determining their current security posture, our services can be used to establish a baseline and guide the evolution of their information security strategy—even if they do not wish to pursue full certification."
             whatWeOffer={[
                 'Gap Analysis of the Information Security Management System',

@@ -11,6 +11,7 @@ export default function SourceCodeReviewPage() {
         <ServicePageLayout
             title="Secure Source Code Review"
             description="Thorough code analysis to identify vulnerabilities at the source level before they become exploitable in production."
+            heroImage="/images/Source Code Review.png"
             whatIs="Secure Source Code reviews are an effective way to identify difficult or impossible bugs during black-box or grey-box testing. Our security architects and specialist developers conduct a thorough code analysis using a detailed checklist of common implementation and architecture errors. The source code review identifies the vulnerable assertion line of code and the corrupted variable that introduces the vulnerability. This demonstrates how an event spreads from its source to its conclusion, providing application developers with a comprehensive view of each vulnerability."
             whatWeOffer={[
                 'Manual Secure Source Code Review',

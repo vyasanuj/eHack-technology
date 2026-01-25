@@ -11,6 +11,7 @@ export default function InfrastructureSecurityPage() {
         <ServicePageLayout
             title="Infrastructure Security Assessment"
             description="Comprehensive evaluation of your network infrastructure, cloud environments, and security devices to identify vulnerabilities and misconfigurations."
+            heroImage="/images/services/security.png"
             whatIs="The IT facilities of a company are pillared over the network components they use. It's just as important to plan where each unit will go to configure it safely. The bugs are exploited as much for their design flaws as they are for their misconfiguration. Daily enforcement, configuration, and security reviews of the network assist the company in maintaining a current view of the network and IT infrastructure. Modern-day attacks are also looking for non-traditional entry points, such as wireless and VoIP infrastructure."
             whatWeOffer={[
                 'Network Security Assessment',

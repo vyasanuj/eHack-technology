@@ -1245,7 +1245,6 @@ h6 {
   font-size: 1.25rem;
   color: var(--gray-300);
   max-width: 700px;
-  margin: 0 auto;
 }
 
 .service-content {
@@ -1278,12 +1277,19 @@ h6 {
   font-size: 1.25rem;
 }
 
+.service-sidebar {
+  position: sticky;
+  top: 6rem;
+  height: fit-content;
+}
+
 .sidebar-form {
   background: var(--white);
   border-radius: var(--radius-xl);
   padding: 2rem;
-  position: sticky;
-  top: 6rem;
+  position: relative;
+  z-index: 10;
+  box-shadow: var(--shadow-lg);
 }
 
 @media (max-width: 1024px) {

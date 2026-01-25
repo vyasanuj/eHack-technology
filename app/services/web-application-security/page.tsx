@@ -11,6 +11,7 @@ export default function WebApplicationSecurityPage() {
         <ServicePageLayout
             title="Web Application Security Assessment"
             description="Comprehensive security evaluation of your web applications using industry-standard practices and specialized testing tools."
+            heroImage="/images/cybersecurity.jpg"
             whatIs="Web application security evaluation combines industry-standard information security practices with tools explicitly designed to test websites, web-based services, and web applications. Web application security assessments can be carried out manually or automatically and carried out throughout the software development lifecycle (SDLC). It will typically include security measures, security audits, periodic inspections, secure coding practices, secure firewalls, vulnerability scanning, and the implementation of protocols that ensure safe operation."
             whatWeOffer={[
                 'Web Application Security Assessment',
