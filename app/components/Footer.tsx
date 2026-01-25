@@ -7,21 +7,23 @@ export default function Footer() {
                 <div className="footer-grid">
                     {/* Brand Column */}
                     <div className="footer-brand">
-                        <div className="logo">
-                            <div>
-                                <div className="logo-text" style={{ color: 'white' }}>
-                                    <span style={{ color: 'var(--primary)' }}>E</span>HACK
-                                </div>
-                                <div className="logo-subtitle" style={{ color: 'var(--gray-400)' }}>Technology Services</div>
-                            </div>
-                        </div>
+                        <Link href="/" className="footer-logo">
+                            <img
+                                src="/images/ehack-logo-white.png"
+                                alt="eHack Technology Logo"
+                                style={{ height: '120px', width: 'auto', marginBottom: '1rem' }}
+                            />
+                        </Link>
                         <p>
                             Empowering enterprises with cutting-edge cybersecurity solutions.
                             We are your trusted partner in securing digital assets and ensuring compliance.
                         </p>
-                        <div className="footer-newsletter">
-                            <input type="email" placeholder="Enter your email" />
-                            <button type="button">Subscribe</button>
+                        <div style={{ marginTop: '1.5rem' }}>
+                            <h4 className="footer-title" style={{ fontSize: '1rem', marginBottom: '0.75rem' }}>Subscribe to Our Newsletter</h4>
+                            <div className="footer-newsletter">
+                                <input type="email" placeholder="Enter your email" />
+                                <button type="button">Subscribe</button>
+                            </div>
                         </div>
                     </div>
 
