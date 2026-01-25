@@ -11,6 +11,7 @@ export default function RedTeamAssessmentPage() {
         <ServicePageLayout
             title="Red Team Assessment"
             description="Simulated real-world intrusion assault against your enterprise to test defenses without affecting normal operations."
+            heroImage="/images/Red Team Assessment.png"
             whatIs="A Red Team Assessment is a simulated real-world intrusion assault against an enterprise that does not affect its normal operations. For a limited time span, attacks will be launched from various entry points to satisfy the organization's testing tasks and specifications. The Red Teaming concept begins with the challenge of comprehending the adversary's motivations and actions. We can anticipate an attacker's moves and develop effective countermeasures if we understand how they think."
             whatWeOffer={[
                 'Red Teaming',

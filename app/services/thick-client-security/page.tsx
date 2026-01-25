@@ -11,6 +11,7 @@ export default function ThickClientSecurityPage() {
         <ServicePageLayout
             title="Thick Client Security Assessment"
             description="Comprehensive security testing for desktop applications to identify memory corruption, injection, and cryptographic vulnerabilities."
+            heroImage="/images/Thick Client Security.png"
             whatIs="Many thick client applications are not thoroughly examined because security testing efforts are frequently focused on web and mobile applications. However, these applications could have serious security flaws like memory corruption, injection, cryptographic flaws, and client-side trust issues. These flaws can lead to complete system compromise and unauthorized access to server-side data on systems where the thick client software is installed. Thick client applications process data on both the client and server sides and use proprietary protocols to communicate."
             whatWeOffer={[
                 'Thick Client Application Penetration Testing',

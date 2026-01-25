@@ -11,6 +11,7 @@ export default function GDPRConsultingPage() {
         <ServicePageLayout
             title="GDPR Consulting and Audit"
             description="Comprehensive GDPR compliance services to protect citizen data privacy rights and avoid significant penalties."
+            heroImage="/images/services/general.png"
             whatIs="The General Data Protection Regulation (GDPR) is a regulatory standard designed to protect citizens' data privacy rights in the European Union. It creates a legal framework for businesses that collect and process EU citizens' data. Organizations must ensure that personal data is collected legally and protected from misuse and exploitation to comply with GDPR. It also requires businesses that collect, process, and transmit personal data to respect the rights of data owners or face sanctions. Organizations will face significant penalties of up to 4% of annual revenue or 20 million euros if they do not comply."
             whatWeOffer={[
                 'GDPR Gap Analysis',

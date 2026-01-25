@@ -11,6 +11,7 @@ export default function MobileApplicationSecurityPage() {
         <ServicePageLayout
             title="Mobile Application Security Assessment"
             description="Comprehensive security evaluation of iOS and Android applications to identify vulnerabilities and protect sensitive user data."
+            heroImage="/images/mobileapp_service_image.png"
             whatIs="Over the last few years, mobile technology has accelerated its growth and seen a massive increase in its user base. Mobile applications store and process a wide variety of sensitive data, from credit card information to intellectual property to medical records. Malicious attackers easily target this sensitive information. Due to the blurring of the lines between secure and exposed data, Mobile Application Security Testing evaluates an application's security and a large pool of mobile application threat vectors to identify inherent vulnerabilities and ensure the application's secure state while in use."
             whatWeOffer={[
                 'Mobile Application Security Assessment',

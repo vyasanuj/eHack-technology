@@ -11,6 +11,7 @@ export default function APISecurityPage() {
         <ServicePageLayout
             title="API Security Assessment"
             description="Comprehensive security evaluation of your APIs to identify vulnerabilities and protect against unauthorized access and data exposure."
+            heroImage="/images/API_service_image.png"
             whatIs="Increased API services with web applications and mobiles make them vulnerable to various attack vectors. Integration of these APIs into your system can make the system prone to known vulnerabilities or unknown vulnerabilities if the functionality and endpoints are not secured. API loophole detection can take time, and by the time it is known, the next challenge lies in patches and remediation. At Ehack Technology, a comprehensive API security assessment ensures that all the organization's primary concerns are addressed and remediations are deployed on a priority basis."
             whatWeOffer={[
                 'API Discovery',

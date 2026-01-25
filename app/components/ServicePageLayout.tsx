@@ -14,6 +14,7 @@ interface ServicePageLayoutProps {
     relatedServices?: Array<{ title: string; href: string }>;
     serviceName: string;
     children?: ReactNode;
+    heroImage?: string;
 }
 
 export default function ServicePageLayout({
@@ -26,18 +27,56 @@ export default function ServicePageLayout({
     benefits,
     whyChooseUs,
     relatedServices,
-    serviceName
+    serviceName,
+    heroImage
 }: ServicePageLayoutProps) {
+    const bgImage = heroImage ? `url("${heroImage}")` : undefined;
+
     return (
         <>
             {/* Hero Section */}
-            <section className="service-hero">
+            <section
+                className="service-hero"
+                style={{
+                    backgroundImage: bgImage ? `linear-gradient(rgba(10, 20, 35, 0.85), rgba(10, 20, 35, 0.7)), ${bgImage}` : undefined,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    textAlign: 'left',
+                    minHeight: '60vh',
+                    display: 'flex',
+                    alignItems: 'center'
+                }}
+            >
                 <div className="container">
-                    <span className="section-label" style={{ background: 'rgba(255,255,255,0.1)', color: 'var(--primary-light)' }}>
-                        Security Assessment
-                    </span>
-                    <h1>{title}</h1>
-                    <p>{description}</p>
+                    <div style={{ maxWidth: '900px' }}>
+                        <span className="section-label" style={{
+                            background: 'rgba(242, 108, 41, 0.1)',
+                            color: 'var(--primary)',
+                            border: '1px solid rgba(242, 108, 41, 0.2)',
+                            backdropFilter: 'blur(4px)'
+                        }}>
+                            Security Assessment
+                        </span>
+                        <h1 style={{
+                            fontSize: '3.5rem',
+                            fontWeight: '800',
+                            lineHeight: '1.1',
+                            marginBottom: '1.5rem',
+                            marginTop: '1rem',
+                            textShadow: '0 2px 10px rgba(0,0,0,0.3)'
+                        }}>
+                            {title}
+                        </h1>
+                        <p style={{
+                            fontSize: '1.25rem',
+                            lineHeight: '1.6',
+                            color: 'rgba(255,255,255,0.9)',
+                            maxWidth: '700px',
+                            fontWeight: '400'
+                        }}>
+                            {description}
+                        </p>
+                    </div>
                 </div>
             </section>
 
@@ -141,7 +180,7 @@ export default function ServicePageLayout({
                         </div>
 
                         {/* Sidebar */}
-                        <div>
+                        <div className="service-sidebar">
                             <div className="sidebar-form">
                                 <LeadForm
                                     title="Get a Free Assessment"
