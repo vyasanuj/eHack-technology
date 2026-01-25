@@ -1,6 +1,15 @@
 "use client";
 import { useState } from 'react';
 import Image from 'next/image';
+import {
+    Landmark,
+    Stethoscope,
+    ShoppingCart,
+    Building2,
+    GraduationCap,
+    Factory,
+    Shield
+} from 'lucide-react';
 
 const industries = [
     {
@@ -10,6 +19,7 @@ const industries = [
         description: 'In an ecosystem where trust is currency, we provide an impenetrable shield for your digital assets. Our approach goes beyond simple compliance, deploying predictive threat modeling and real-time transaction analysis to neutralize financial fraud and SWIFT vulnerabilities before they can destabilize operations.',
         badges: ['Compliance', 'Fraud Prevention'],
         image: '/images/bank-security.png',
+        icon: Landmark,
         stripText: "SECURE TRANSACTIONS // FRAUD DETECTION ACTIVE // PCI-DSS COMPLIANT // ENCRYPTED DATA STREAMS // ZERO TRUST ARCHITECTURE // REAL-TIME MONITORING //",
         keyFeatures: [
             "Real-time Transaction Monitoring",
@@ -25,6 +35,7 @@ const industries = [
         description: 'Patient safety now depends on digital security. We safeguard the entire healthcare continuum—from protecting sensitive EHR data against ransomware to hardening the firmware of life-critical IoMT devices. Our protocols ensure that technology advances capabilities without compromising privacy.',
         badges: ['HIPAA', 'Device Security'],
         image: '/images/Healthcare.png',
+        icon: Stethoscope,
         stripText: "HIPAA COMPLIANT // IOT DEVICE SECURITY // PATIENT DATA PROTECTION // RANSOMWARE DEFENSE // SECURE EHR SYSTEMS // TELEMEDICINE ENCRYPTION //",
         keyFeatures: [
             "IoMT (Internet of Medical Things) Security",
@@ -40,6 +51,7 @@ const industries = [
         description: 'Trust is the engine of conversion. We fortify your entire retail stack, securing payment gateways from skimming attacks and your inventory APIs from bot-driven exploitation. By ensuring a glitch-free, secure shopping experience, we help you protect revenue and customer loyalty simultaneously.',
         badges: ['PCI DSS', 'Data Protection'],
         image: '/images/E-commers.png',
+        icon: ShoppingCart,
         stripText: "PAYMENT GATEWAY SECURITY // DDOS PROTECTION // CUSTOMER DATA DISCOVERY // FRAUD ANALYSIS // SECURE CHECKOUT // INVENTORY PROTECTION //",
         keyFeatures: [
             "Secure Payment Gateway Integration",
@@ -55,6 +67,7 @@ const industries = [
         description: 'National security requires next-generation defense. We architect military-grade cybersecurity perimeters for public sector infrastructure, neutralizing state-sponsored espionage and hardening citizen data registries against persistent threats (APTs) with sovereign-level encryption standards.',
         badges: ['VAPT', 'Infrastructure'],
         image: '/images/Government.png',
+        icon: Building2,
         stripText: "CRITICAL INFRASTRUCTURE DEFENSE // MILITARY GRADE ENCRYPTION // CITIZEN DATA PRIVACY // NATION STATE THREAT PREVENTION // COMPLIANCE AUDITS //",
         keyFeatures: [
             "Critical Infrastructure Protection",
@@ -70,6 +83,7 @@ const industries = [
         description: 'Educational institutions are open environments, making them unique targets. We secure the digital campus by protecting research IP from theft and safeguarding student PII, while maintaining the open accessibility required for academic collaboration and remote learning platforms.',
         badges: ['LMS Security', 'Student Data'],
         image: '/images/Education.png',
+        icon: GraduationCap,
         stripText: "CAMPUS NETWORK SECURITY // STUDENT DATA PRIVACY // EXAM PORTAL INTEGRITY // RESEARCH DATA PROTECTION // VIRTUAL CLASSROOM SECURITY //",
         keyFeatures: [
             "Learning Management System (LMS) Security",
@@ -85,6 +99,7 @@ const industries = [
         description: 'As factories get smarter, the attack surface grows. We bridge the gap between IT and OT security, hardening SCADA systems and industrial control networks against sabotage. Our solutions prevent production line downtime and ensure the integrity of your global supply chain.',
         badges: ['ICS/SCADA', 'IIoT'],
         image: '/images/Manufacturing.png',
+        icon: Factory,
         stripText: "SCADA SYSTEM DEFENSE // OPERATIONAL TECHNOLOGY SECURITY // SUPPLY CHAIN INTEGRITY // IIOT VULNERABILITY MANAGEMENT // FACTORY AUTOMATION PROTECTION //",
         keyFeatures: [
             "ICS & SCADA System Security",
@@ -124,7 +139,7 @@ export default function IndustriesSection() {
                     borderRadius: '24px',
                     padding: '2rem',
                     boxShadow: '0 20px 40px -10px rgba(0,0,0,0.05)',
-                    border: '3px solid #F26C29',
+                    border: '1px solid #F26C29',
                     height: '650px', // Fixed height for alignment
                     overflow: 'hidden'
                 }}>
@@ -201,8 +216,21 @@ export default function IndustriesSection() {
                         flexDirection: 'column',
                         // gap: '3rem', // Removed gap for seamless look
                         height: '100%',
-                        position: 'relative'
+                        position: 'relative',
+                        zIndex: 1
                     }}>
+                        {/* Background Industry Icon Watermark */}
+                        <div style={{
+                            position: 'absolute',
+                            bottom: '-50px',
+                            right: '-50px',
+                            opacity: '0.05',
+                            transform: 'rotate(-15deg)',
+                            pointerEvents: 'none',
+                            zIndex: 0
+                        }}>
+                            <activeIndustry.icon size={400} color="#F26C29" />
+                        </div>
                         {/* Image Content (Top Banner) */}
                         <div style={{
                             position: 'relative',

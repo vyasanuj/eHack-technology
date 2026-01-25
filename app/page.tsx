@@ -403,18 +403,47 @@ export default function Home() {
           </div>
           <div className="features-grid">
             {features.map((feature, index) => (
-              <div key={index} className="service-card group">
-                <div className="service-card-image">
-                  <Image
-                    src={feature.image}
-                    alt={feature.title}
-                    fill
-                    className="object-contain p-8 transition-transform duration-500 group-hover:scale-110"
-                  />
+              <div key={index} className="service-card group" style={{
+                padding: '0', // Remove default padding for full-width header
+                overflow: 'hidden', // Ensure header stays inside rounded corners
+                display: 'flex',
+                flexDirection: 'column'
+              }}>
+                {/* Full Width Header */}
+                <div style={{
+                  background: '#F26C29',
+                  padding: '1rem 1.5rem', // Reduced padding
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  minHeight: '60px' // Reduced height
+                }}>
+                  <h3 style={{
+                    color: 'white',
+                    fontSize: '1.2rem', // Slightly refined size
+                    fontWeight: '700',
+                    margin: 0,
+                    textAlign: 'center',
+                    lineHeight: '1.2'
+                  }}>{feature.title}</h3>
                 </div>
-                <div className="service-card-content">
-                  <h3>{feature.title}</h3>
-                  <p>{feature.description}</p>
+
+                {/* Content Area */}
+                <div className="service-card-content" style={{
+                  padding: '1.5rem 1.25rem', // Reduced padding
+                  flex: 1, // Fill remaining space
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}>
+                  <p style={{
+                    color: '#444', // Slightly softer black for professionalism
+                    fontSize: '1rem', // Cleaner standard size
+                    lineHeight: '1.5',
+                    fontWeight: '500',
+                    textAlign: 'center',
+                    margin: 0
+                  }}>{feature.description}</p>
                 </div>
               </div>
             ))}
