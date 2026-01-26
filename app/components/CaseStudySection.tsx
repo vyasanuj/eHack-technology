@@ -114,7 +114,7 @@ export default function CaseStudySection() {
                     }}>Real World Impact</span>
                     <h2 className="section-title">Security in <span style={{ color: '#F26C29' }}>Action</span></h2>
                     <p className="section-subtitle">
-                        See how eHack Academy protects organizations from critical threats
+                        See how eHack Global Technology protects organizations from critical threats
                     </p>
                 </div>
 
