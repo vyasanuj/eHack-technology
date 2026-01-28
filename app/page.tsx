@@ -14,6 +14,7 @@ import CaseStudySection from './components/CaseStudySection';
 import IndustriesSection from './components/IndustriesSection';
 import ServicesSection from './components/ServicesSection';
 import StickySectionNav from './components/StickySectionNav';
+import GlobalDefenseSection from './components/GlobalDefenseSection';
 
 export default function Home() {
   const features = [
@@ -250,6 +251,11 @@ export default function Home() {
       {/* Case Studies Section */}
       <div id="case-studies">
         <CaseStudySection />
+      </div>
+
+      {/* Global Defense Section */}
+      <div id="global-defense">
+        <GlobalDefenseSection />
       </div>
 
       {/* Why Choose Us Section */}
