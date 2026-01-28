@@ -15,6 +15,7 @@ import IndustriesSection from './components/IndustriesSection';
 import ServicesSection from './components/ServicesSection';
 import StickySectionNav from './components/StickySectionNav';
 import GlobalDefenseSection from './components/GlobalDefenseSection';
+import AcademySection from './components/AcademySection';
 
 export default function Home() {
   const features = [
@@ -256,6 +257,11 @@ export default function Home() {
       {/* Global Defense Section */}
       <div id="global-defense">
         <GlobalDefenseSection />
+      </div>
+
+      {/* Academy Section */}
+      <div id="academy">
+        <AcademySection />
       </div>
 
       {/* Why Choose Us Section */}
