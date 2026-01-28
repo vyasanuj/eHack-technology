@@ -48,58 +48,99 @@ export default function Header() {
             <Image
               src="/eHack.png"
               alt="Ehack Group of Technologies"
-              width={280}
-              height={80}
+              width={220}
+              height={64}
               style={{ objectFit: 'contain' }}
               priority
             />
           </Link>
 
           <ul className={`nav-links ${mobileMenuOpen ? 'active' : ''}`}>
-            <li>
+            <li style={{ marginRight: '1rem' }}>
               <Link href="/" className="nav-link">Home</Link>
             </li>
+            {/* Security Assessment Dropdown */}
             <li className="nav-dropdown">
-              <div className="nav-link nav-dropdown-trigger">
-                Services
+              <div
+                className="nav-link nav-dropdown-trigger"
+                style={{
+                  backgroundColor: 'rgba(242, 108, 41, 0.08)',
+                  padding: '0.5rem 1rem',
+                  borderRadius: '8px'
+                }}
+              >
+                Security Assessment
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M6 9l6 6 6-6" />
                 </svg>
               </div>
               <div className="nav-dropdown-menu">
-                <div className="dropdown-grid">
-                  <div className="dropdown-category">
-                    <h4>Security Assessment</h4>
-                    <ul>
-                      <li><Link href="/services/web-application-security">Web Application Security</Link></li>
-                      <li><Link href="/services/mobile-application-security">Mobile App Security</Link></li>
-                      <li><Link href="/services/api-security">API Security Assessment</Link></li>
-                      <li><Link href="/services/source-code-review">Source Code Review</Link></li>
-                      <li><Link href="/services/red-team-assessment">Red Team Assessment</Link></li>
-                      <li><Link href="/services/infrastructure-security">Infrastructure Security</Link></li>
-                      <li><Link href="/services/thick-client-security">Thick Client Security</Link></li>
-                      <li><Link href="/services/firewall-security">Firewall Security</Link></li>
-                    </ul>
-                  </div>
-                  <div className="dropdown-category">
-                    <h4>Forensics & Response</h4>
-                    <ul>
-                      <li><Link href="/services/digital-forensics">Digital Forensics</Link></li>
-                      <li><Link href="/services/malware-analysis">Malware Analysis</Link></li>
-                    </ul>
-                  </div>
-                  <div className="dropdown-category">
-                    <h4>Compliance Audit</h4>
-                    <ul>
-                      <li><Link href="/services/gdpr-consulting">GDPR Consulting</Link></li>
-                      <li><Link href="/services/pci-dss-compliance">PCI DSS Compliance</Link></li>
-                      <li><Link href="/services/iso-certification">ISO Certification</Link></li>
-                    </ul>
-                  </div>
+                <div>
+                  <ul className="dropdown-list-simple">
+                    <li><Link href="/services/web-application-security">Web Application Security</Link></li>
+                    <li><Link href="/services/mobile-application-security">Mobile App Security</Link></li>
+                    <li><Link href="/services/api-security">API Security Assessment</Link></li>
+                    <li><Link href="/services/source-code-review">Source Code Review</Link></li>
+                    <li><Link href="/services/red-team-assessment">Red Team Assessment</Link></li>
+                    <li><Link href="/services/infrastructure-security">Infrastructure Security</Link></li>
+                    <li><Link href="/services/thick-client-security">Thick Client Security</Link></li>
+                    <li><Link href="/services/firewall-security">Firewall Security</Link></li>
+                  </ul>
                 </div>
               </div>
             </li>
-            <li>
+
+            {/* Compliance Audit Dropdown */}
+            <li className="nav-dropdown">
+              <div
+                className="nav-link nav-dropdown-trigger"
+                style={{
+                  backgroundColor: 'rgba(242, 108, 41, 0.08)',
+                  padding: '0.5rem 1rem',
+                  borderRadius: '8px'
+                }}
+              >
+                Compliance Audit
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
+              </div>
+              <div className="nav-dropdown-menu">
+                <div>
+                  <ul className="dropdown-list-simple">
+                    <li><Link href="/services/gdpr-consulting">GDPR Consulting</Link></li>
+                    <li><Link href="/services/pci-dss-compliance">PCI DSS Compliance</Link></li>
+                    <li><Link href="/services/iso-certification">ISO Certification</Link></li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+
+            {/* Forensics & Malware Dropdown */}
+            <li className="nav-dropdown">
+              <div
+                className="nav-link nav-dropdown-trigger"
+                style={{
+                  backgroundColor: 'rgba(242, 108, 41, 0.08)',
+                  padding: '0.5rem 1rem',
+                  borderRadius: '8px'
+                }}
+              >
+                Forensics & Malware
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
+              </div>
+              <div className="nav-dropdown-menu">
+                <div>
+                  <ul className="dropdown-list-simple">
+                    <li><Link href="/services/digital-forensics">Digital Forensics</Link></li>
+                    <li><Link href="/services/malware-analysis">Malware Analysis</Link></li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <li style={{ marginLeft: '1rem' }}>
               <Link href="/about" className="nav-link">About Us</Link>
             </li>
             <li className="lg:hidden">
