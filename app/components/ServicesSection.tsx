@@ -1,246 +1,160 @@
 "use client";
-import { useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
-import { ShieldCheck, FileCheck, Search } from 'lucide-react'; // Import icons
-
-const categories = {
-    'assessment': {
-        id: 'assessment',
-        label: 'Security Assessment',
-        icon: ShieldCheck,
-        headline: 'Proactive Vulnerability Assessment',
-        description: 'Identify and remediate security gaps across your entire digital attack surface before adversaries exploit them.',
-        services: [
-            {
-                image: '/images/services/security.png',
-                title: 'Web App Security',
-                description: 'Comprehensive testing against OWASP Top 10 and advanced attack vectors.',
-                href: '/services/web-application-security',
-                badges: ['OWASP Top 10', 'Penetration Testing']
-            },
-            {
-                image: '/images/mobileapp_service_image.png',
-                title: 'Mobile App Security',
-                description: 'In-depth assessment of iOS and Android apps including source code analysis.',
-                href: '/services/mobile-application-security',
-                badges: ['iOS & Android', 'Static & Dynamic']
-            },
-            {
-                image: '/images/API_service_image.png',
-                title: 'API Security',
-                description: 'Securing REST, GraphQL, and SOAP APIs from logic flaws and data leaks.',
-                href: '/services/api-security',
-                badges: ['REST & GraphQL', 'Logic Flaws']
-            },
-            {
-                image: '/images/Source Code Review.png',
-                title: 'Source Code Review',
-                description: 'Automated and manual code audit across 30+ languages to find bugs early.',
-                href: '/services/source-code-review',
-                badges: ['SAST', 'DAST', '30+ Languages']
-            },
-            {
-                image: '/images/Red Team Assessment.png',
-                title: 'Red Team Assessment',
-                description: 'Full-scope attack simulation to test your detection and response capabilities.',
-                href: '/services/red-team-assessment',
-                badges: ['Adversary Simulation', 'Exfiltration']
-            },
-            {
-                image: '/images/services/general.png',
-                title: 'Infrastructure Security',
-                description: 'Hardening networks, cloud environments, and Active Directory structures.',
-                href: '/services/infrastructure-security',
-                badges: ['Network', 'Cloud', 'AD Security']
-            },
-            {
-                image: '/images/Thick Client Security.png',
-                title: 'Thick Client Security',
-                description: 'Security testing for desktop applications to prevent local privilege escalation.',
-                href: '/services/thick-client-security',
-                badges: ['Binary Analysis', 'Memory Corruptions']
-            },
-            {
-                image: '/images/Firewall Security Assessment.png',
-                title: 'Firewall Security',
-                description: 'Configuration reviews and rule audits to optimize network perimeter defense.',
-                href: '/services/firewall-security',
-                badges: ['Rule Audit', 'Egress Filtering']
-            }
-        ]
-    },
-    'compliance': {
-        id: 'compliance',
-        label: 'Compliance Audit',
-        icon: FileCheck,
-        headline: 'Regulatory Compliance & Governance',
-        description: 'Ensure your organization meets global security standards and avoids costly regulatory penalties.',
-        services: [
-            {
-                image: '/images/services/compliance.png',
-                title: 'GDPR Consulting',
-                description: 'Gap analysis and implementation support for EU data protection laws.',
-                href: '/services/gdpr-consulting',
-                badges: ['Gap Analysis', 'Data Privacy']
-            },
-            {
-                image: '/images/PCI DSS Compliance Audit.png',
-                title: 'PCI DSS Compliance',
-                description: 'End-to-end support for Payment Card Industry Data Security Standard.',
-                href: '/services/pci-dss-compliance',
-                badges: ['QSA Audit', 'Certification']
-            },
-            {
-                image: '/images/services/compliance.png', // Placeholder image
-                title: 'ISO Certification Advisory',
-                description: 'Guidance and preparation for ISO 27001 information security certification.',
-                href: '/services/iso-certification', // New link
-                badges: ['ISO 27001', 'Risk Management']
-            }
-        ]
-    },
-    'forensics': {
-        id: 'forensics',
-        label: 'Forensics & Malware',
-        icon: Search,
-        headline: 'Incident Response & Forensics',
-        description: 'Rapid response capabilities to contain threats, analyze breaches, and recover operations.',
-        services: [
-            {
-                image: '/images/services/forensics.png',
-                title: 'Digital Forensics',
-                description: 'Forensic investigation to recover evidence and trace cyber incidents.',
-                href: '/services/digital-forensics',
-                badges: ['Incident Response', 'Evidence Artifacts']
-            },
-            {
-                image: '/images/Malware Analysis and Root Cause Detection.png',
-                title: 'Malware Analysis',
-                description: 'Dissecting malicious software to understand behavior and find indicators of compromise.',
-                href: '/services/malware-analysis',
-                badges: ['Reverse Engineering', 'IOCs']
-            }
-        ]
-    }
-};
+import { categories } from '../data/categories';
+import { ArrowRight } from 'lucide-react';
 
 export default function ServicesSection() {
-    const [activeCategory, setActiveCategory] = useState<keyof typeof categories>('assessment');
-
     return (
-        <section className="section" style={{ padding: '4rem 0' }}>
+        <section className="section" style={{ padding: '3rem 0', background: '#f8f9fa' }}>
             <div className="container">
                 {/* Section Header */}
-                <div className="section-header" style={{ marginBottom: '3rem' }}>
+                <div className="section-header" style={{ marginBottom: '3rem', textAlign: 'center' }}>
                     <span className="section-label" style={{
                         background: '#F26C29',
                         color: 'white',
-                        fontSize: '1rem',
-                        padding: '0.5rem 1.5rem',
+                        fontSize: '1.1rem',
+                        padding: '0.6rem 2rem',
                         borderRadius: '50px',
                         display: 'inline-block',
                         marginBottom: '1rem',
-                        fontWeight: '600'
+                        fontWeight: '600',
+                        letterSpacing: '0.5px'
                     }}>Our Expertise</span>
-                    <h2 className="section-title">Comprehensive Security <span style={{ color: '#F26C29' }}>Solutions</span></h2>
-                    <p className="section-subtitle">
-                        Segregated expertise to address every dimension of your cybersecurity needs
+                    <h2 className="section-title" style={{ fontSize: '2.5rem', fontWeight: '800', marginBottom: '1rem' }}>
+                        Comprehensive Security <span style={{ color: '#F26C29' }}>Solutions</span>
+                    </h2>
+                    <p className="section-subtitle" style={{ maxWidth: '600px', margin: '0 auto', color: '#666', fontSize: '1.1rem' }}>
+                        Specialized dimensions of cybersecurity tailored to protect your assets, compliance, and future.
                     </p>
                 </div>
 
-                {/* Tabs */}
+                {/* Categories Cards Grid */}
                 <div style={{
-                    display: 'flex',
-                    justifyContent: 'center',
-                    gap: '1rem',
-                    marginBottom: '3rem',
-                    flexWrap: 'wrap'
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+                    gap: '2.5rem',
+                    marginBottom: '3rem'
                 }}>
                     {(Object.values(categories) as any[]).map((cat) => (
-                        <button
-                            key={cat.id}
-                            onClick={() => setActiveCategory(cat.id)}
-                            style={{
-                                padding: '1rem 2rem',
-                                borderRadius: '50px',
-                                border: activeCategory === cat.id ? '2px solid #F26C29' : '2px solid #eee',
-                                background: activeCategory === cat.id ? '#F26C29' : 'transparent',
-                                color: activeCategory === cat.id ? 'white' : '#555',
-                                fontSize: '1.05rem',
-                                fontWeight: '700',
-                                cursor: 'pointer',
-                                transition: 'all 0.3s ease',
+                        <Link href={`/solutions/${cat.id}`} key={cat.id} className="group" style={{ textDecoration: 'none' }}>
+                            <div style={{
+                                background: 'white',
+                                borderRadius: '20px',
+                                border: '2px solid #F26C29', // Orange border added
+                                boxShadow: '0 10px 30px rgba(0,0,0,0.05)',
+                                height: '100%',
                                 display: 'flex',
-                                alignItems: 'center',
-                                gap: '0.5rem',
-                                boxShadow: activeCategory === cat.id ? '0 10px 20px rgba(242, 108, 41, 0.2)' : 'none'
+                                flexDirection: 'column',
+                                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                                position: 'relative',
+                                overflow: 'hidden'
                             }}
-                        >
-                            <cat.icon size={20} />
-                            {cat.label}
-                        </button>
-                    ))}
-                </div>
+                                className="hover:transform hover:-translate-y-2 hover:shadow-xl"
+                            >
+                                {/* Image at the top */}
+                                <div style={{ position: 'relative', width: '100%', height: '240px' }}>
+                                    {cat.image ? (
+                                        <div style={{ width: '100%', height: '100%', position: 'relative' }}>
+                                            <img
+                                                src={cat.image}
+                                                alt={cat.label}
+                                                style={{
+                                                    width: '100%',
+                                                    height: '100%',
+                                                    objectFit: 'cover'
+                                                }}
+                                            />
+                                        </div>
+                                    ) : (
+                                        <div style={{ width: '100%', height: '100%', background: '#eee' }}></div>
+                                    )}
+                                    {/* Overlay Gradient */}
+                                    <div style={{
+                                        position: 'absolute',
+                                        bottom: 0,
+                                        left: 0,
+                                        width: '100%',
+                                        height: '60%',
+                                        background: 'linear-gradient(to top, rgba(0,0,0,0.6), transparent)'
+                                    }}></div>
 
-                {/* Active Category Content */}
-                <div key={activeCategory} className="animate-fadeIn">
-
-                    {/* Category Description Area */}
-                    <div style={{ textAlign: 'center', marginBottom: '3rem', maxWidth: '800px', margin: '0 auto 3rem' }}>
-                        <h3 style={{ fontSize: '1.75rem', fontWeight: '800', color: '#333', marginBottom: '0.75rem' }}>
-                            {categories[activeCategory].headline}
-                        </h3>
-                        <p style={{ color: '#666', fontSize: '1.1rem', lineHeight: '1.6' }}>
-                            {categories[activeCategory].description}
-                        </p>
-                    </div>
-
-                    {/* Services Grid */}
-                    <div className="services-grid" style={{ marginTop: '0' }}>
-                        {categories[activeCategory].services.map((service, index) => (
-                            <Link href={service.href} key={index} className="service-card group">
-                                <div className="service-card-image">
-                                    <Image
-                                        src={service.image}
-                                        alt={service.title}
-                                        fill
-                                        className="object-cover transition-transform duration-500 group-hover:scale-105"
-                                    />
+                                    {/* Service Count Badge */}
+                                    <div style={{
+                                        position: 'absolute',
+                                        top: '1rem',
+                                        right: '1rem',
+                                        background: 'rgba(255, 255, 255, 0.95)',
+                                        backdropFilter: 'blur(4px)',
+                                        padding: '0.4rem 1rem',
+                                        borderRadius: '50px',
+                                        fontSize: '0.85rem',
+                                        fontWeight: '700',
+                                        color: '#F26C29',
+                                        boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        gap: '0.4rem'
+                                    }}>
+                                        <span style={{ width: '6px', height: '6px', background: '#F26C29', borderRadius: '50%' }}></span>
+                                        {cat.services.length}+ Services
+                                    </div>
                                 </div>
-                                <div className="service-card-content" style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
-                                    <h3 style={{ marginBottom: '0.5rem' }}>{service.title}</h3>
-                                    <p style={{ marginBottom: '1.5rem' }}>{service.description}</p>
 
-                                    {/* Service Badges */}
-                                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginTop: 'auto', marginBottom: '1.5rem' }}>
-                                        {service.badges?.map((badge, idx) => (
-                                            <span key={idx} style={{
-                                                fontSize: '0.7rem',
-                                                padding: '0.3rem 0.8rem',
-                                                background: 'rgba(242, 108, 41, 0.08)',
-                                                color: '#F26C29',
-                                                borderRadius: '6px',
-                                                fontWeight: '600',
-                                                textTransform: 'uppercase',
-                                                letterSpacing: '0.02em',
-                                                border: '1px solid rgba(242, 108, 41, 0.15)'
-                                            }}>
-                                                {badge}
-                                            </span>
-                                        ))}
+                                {/* Content */}
+                                <div style={{
+                                    padding: '2rem',
+                                    flex: 1,
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    position: 'relative'
+                                }}>
+                                    <h3 style={{ fontSize: '1.75rem', fontWeight: '800', color: '#1a1a1a', marginBottom: '1rem' }}>
+                                        {cat.label}
+                                    </h3>
+
+                                    <p style={{ color: '#666', lineHeight: '1.6', marginBottom: '2rem', flex: 1 }}>
+                                        {cat.description}
+                                    </p>
+
+                                    {/* Trust Badges / Key Features */}
+                                    <div style={{
+                                        display: 'flex',
+                                        gap: '1rem',
+                                        marginBottom: '2rem',
+                                        flexWrap: 'wrap',
+                                        borderTop: '1px solid #eee',
+                                        paddingTop: '1.5rem',
+                                        fontSize: '0.9rem',
+                                        color: '#555'
+                                    }}>
+                                        <div style={{ display: 'flex', flexDirection: 'column' }}>
+                                            <span style={{ fontWeight: '700', color: '#1a1a1a', fontSize: '1.1rem' }}>{cat.industriesCount} Industries</span>
+                                            <span style={{ fontSize: '0.8rem', color: '#666' }}>Trusted by {cat.keySectors}</span>
+                                        </div>
                                     </div>
 
-                                    <span className="arrow">
-                                        Learn More
-                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                            <path d="M5 12h14M12 5l7 7-7 7" />
-                                        </svg>
-                                    </span>
+                                    <div style={{
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'space-between',
+                                        marginTop: 'auto'
+                                    }}>
+                                        <span style={{
+                                            color: '#F26C29',
+                                            fontWeight: '700',
+                                            fontSize: '1rem',
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            gap: '0.5rem'
+                                        }}>
+                                            Explore Solutions
+                                            <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
+                                        </span>
+                                    </div>
                                 </div>
-                            </Link>
-                        ))}
-                    </div>
+                            </div>
+                        </Link>
+                    ))}
                 </div>
             </div>
         </section>
