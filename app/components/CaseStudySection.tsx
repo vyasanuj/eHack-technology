@@ -4,10 +4,104 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export default function CaseStudySection() {
-    const [activeTab, setActiveTab] = useState<'education' | 'fintech'>('education');
+    const [activeTab, setActiveTab] = useState<'education' | 'fintech' | 'healthcare' | 'government' | 'manufacturing' | 'ecommerce'>('education');
     const [typedLines, setTypedLines] = useState<string[]>([]);
     const [currentLineIndex, setCurrentLineIndex] = useState(0);
     const [currentCharIndex, setCurrentCharIndex] = useState(0);
+
+    // Data definitions for Case Studies
+    const caseStudies = {
+        education: {
+            alert: "⚠ CRITICAL ALERT: SQL INJECTION DETECTED // PROTECTING STUDENT DATABASE // DEPLOYING WAF RULES // SCANNING FOR VULNERABILITIES // SYSTEM SECURE ⚠",
+            tag: "CASE STUDY: DELHI HERITAGE UNIVERSITY",
+            tagColor: { bg: '#fee2e2', text: '#dc2626', border: '#fecaca' },
+            title: <>Securing <span style={{ color: '#F26C29' }}>10L+ Student Records</span> from a Critical SQL Injection</>,
+            breach: "A critical vulnerability in the university's examination portal exposed sensitive personal data and grade sheets of over 10 lakh students to potential dark web leaks.",
+            solutions: [
+                'Identified blind SQL injection points within 2 hours',
+                'Deployed emergency WAF patches immediately',
+                'Sanitized database queries & implemented RBAC'
+            ],
+            quote: "\"eHack's rapid response saved our reputation. Their team identified holes our previous auditors missed in months.\"",
+            author: "— Dr. Rajesh Verma, Dean of Technology",
+            terminalType: 'metasploit-framework'
+        },
+        fintech: {
+            alert: "⚠ SECURITY WARNING: RANSOMWARE SIGNATURE MATCHED // ISOLATING INFECTED HOSTS // BLOCKING PORT 445 // DECRYPTING TRAFFIC // THREAT NEUTRALIZED ⚠",
+            tag: "CASE STUDY: MUMBAI PAYSAFE FINTECH",
+            tagColor: { bg: '#fef3c7', text: '#d97706', border: '#fde68a' },
+            title: <>Preventing a <span style={{ color: '#F26C29' }}>₹50 Crore</span> Ransomware Attack</>,
+            breach: "A sophisticated ransomware group targeted the payment gateway infrastructure, threatening to encrypt transaction logs and demand a massive ransom.",
+            solutions: [
+                'Detecting lateral movement in internal network',
+                'Isolated compromised endpoints instantly',
+                'Reverse-engineered malware strain to block execution'
+            ],
+            quote: "\"We were hours away from a total shutdown. The forensic analysis by eHack was world-class.\"",
+            author: "— Vikram Malhotra, CTO Paysafe",
+            terminalType: 'incident-response'
+        },
+        healthcare: {
+            alert: "⚠ MEDICAL ALERT: IOT ANOMALY DETECTED // SEGMENTING NETWORK // BLOCKING UNAUTHORIZED FIRMWARE // PATIENT DATA DATA SECURE ⚠",
+            tag: "CASE STUDY: PREMIER HOSPITAL CHAIN",
+            tagColor: { bg: '#e0f2fe', text: '#0284c7', border: '#bae6fd' },
+            title: <>Protecting <span style={{ color: '#F26C29' }}>Million+ Patient Records</span></>,
+            breach: "IoT vulnerability in smart infusion pumps used as a gateway to access the main Hems (Hospital Management System) database.",
+            solutions: [
+                'Network segmentation for IoT devices',
+                'Real-time anomaly detection for medical devices',
+                'Zero-trust architecture implementation'
+            ],
+            quote: "\"eHack secured our critical infrastructure without disrupting patient care. Their understanding of medical IoT is unmatched.\"",
+            author: "— Dr. Sarah Chen, Chief Medical Officer",
+            terminalType: 'iot-security'
+        },
+        government: {
+            alert: "⚠ INFRASTRUCTURE ALERT: SCADA INTRUSION ATTEMPT // HARDENING PLC CONTROLLERS // ACTIVATING DEFENSE PROTOCOLS // GRID STABLE ⚠",
+            tag: "CASE STUDY: NATIONAL MUNICIPALITY",
+            tagColor: { bg: '#f3e8ff', text: '#7e22ce', border: '#d8b4fe' },
+            title: <>Securing <span style={{ color: '#F26C29' }}>Smart City Infrastructure</span></>,
+            breach: "Advanced Persistent Threat (APT) targeting traffic control systems and public utility grids.",
+            solutions: [
+                'SCADA system hardening',
+                '24/7 SOC monitoring establishment',
+                'Strict API security controls'
+            ],
+            quote: "\"A breach would have halted the city. eHack's strategic defense kept our lights on and traffic moving.\"",
+            author: "— City CTO",
+            terminalType: 'scada-defense'
+        },
+        manufacturing: {
+            alert: "⚠ INTEL ALERT: UNUSUAL DATA EXFILTRATION // LOCKING DOWN PLANS // TRACING INSIDER THREAT // IP SECURED ⚠",
+            tag: "CASE STUDY: AUTOMOTIVE GIANT",
+            tagColor: { bg: '#fce7f3', text: '#be185d', border: '#fbcfe8' },
+            title: <>Defending <span style={{ color: '#F26C29' }}>Global Supply Chain</span></>,
+            breach: "Industrial espionage attempt targeting proprietary EV battery blueprints via supplier portal access.",
+            solutions: [
+                'Third-party risk assessment',
+                'Data Loss Prevention (DLP) deployment',
+                'Insider threat monitoring'
+            ],
+            quote: "\"Our intellectual property is our future. eHack ensured our latest designs stayed within our walls.\"",
+            author: "— VP of Engineering",
+            terminalType: 'dlp-monitoring'
+        },
+        ecommerce: {
+            alert: "⚠ FRAUD ALERT: MAGEART INJECTION BLOCKED // SANITIZING CHECKOUT // REMOVING MALICIOUS JS // PAYMENTS SECURE ⚠",
+            tag: "CASE STUDY: GLOBAL RETAILER",
+            tagColor: { bg: '#dcfce7', text: '#15803d', border: '#86efac' },
+            title: <>Stopping <span style={{ color: '#F26C29' }}>Magecart Attacks</span></>,
+            breach: "Malicious JavaScript injection on checkout pages stealing credit card information (Digital Skimming).",
+            solutions: [
+                'Content Security Policy (CSP) enforcement',
+                'Subresource Integrity (SRI) checks',
+                'Automated script behavior monitoring'
+            ],
+            quote: "\"In peak season, trust is everything. eHack neutralized the skimming attack before a single customer was affected.\"",
+            author: "— Director of eCommerce",
+            terminalType: 'web-defense'
+        }
+    };
 
     // Terminal Content Configuration
     const terminalContent = {
@@ -34,6 +128,44 @@ export default function CaseStudySection() {
             { text: "root@kali:~# analyze_malware --sample ransom_v2.exe", type: "input", prompt: "root@kali:~# " },
             { text: "[*] Extracting IOCs... Killswitch domain found.", type: "warning" },
             { text: "[+] Attack Neutralized. 0 items encrypted.", type: "successish" }
+        ],
+        healthcare: [
+            { text: "sysadmin@med-iot:~# iot-scanner --subnet 192.168.4.0/24", type: "input", prompt: "sysadmin@med-iot:~# " },
+            { text: "[*] Scanning for infusion pumps (Version < 4.2)", type: "info" },
+            { text: "[!] ALERT: Device ID #8842 detected with unauthorized firmware", type: "error" },
+            { text: "sysadmin@med-iot:~# segment-device --id 8842 --vlan quarantine", type: "input", prompt: "sysadmin@med-iot:~# " },
+            { text: "[*] Moving device to Quarantine VLAN...", type: "warning" },
+            { text: "[+] Device Isolated. Main Hems DB Secure.", type: "success" },
+            { text: "sysadmin@med-iot:~# patch --remote --id 8842 --force", type: "input", prompt: "sysadmin@med-iot:~# " },
+            { text: "[+] Patch applied successfully. Device rebooting...", type: "successish" }
+        ],
+        government: [
+            { text: "soc@city-control:~$ scada-monitor --live", type: "input", prompt: "soc@city-control:~$ " },
+            { text: "[*] Monitoring Traffic Light Protocol (TLP)...", type: "info" },
+            { text: "[!] CRITICAL: Unauthorized PLC Write Command from IP 45.2.x.x", type: "error" },
+            { text: "soc@city-control:~$ firewall-cmd --drop 45.2.x.x --permanent", type: "input", prompt: "soc@city-control:~$ " },
+            { text: "[+] IP Blocked. Signature added to blacklist.", type: "success" },
+            { text: "soc@city-control:~$ verify-grid-integrity", type: "input", prompt: "soc@city-control:~$ " },
+            { text: "[*] Checking checksums of all controllers...", type: "info" },
+            { text: "[+] All systems nominal. Grid stability 100%.", type: "successish" }
+        ],
+        manufacturing: [
+            { text: "dlp-bot@auto-corp:~$ tail -f /var/log/dlp/alerts.log", type: "input", prompt: "dlp-bot@auto-corp:~$ " },
+            { text: "[*] Monitoring outbound traffic for 'Classified' tags...", type: "info" },
+            { text: "[!] ALERT: User 'j.doe' attempting upload of 'EV_Battery_Blueprints.zip' (2GB)", type: "error" },
+            { text: "dlp-bot@auto-corp:~$ block-transfer --session-id 9931", type: "input", prompt: "dlp-bot@auto-corp:~$ " },
+            { text: "[+] Transfer Interrupted. Connection Reset.", type: "success" },
+            { text: "dlp-bot@auto-corp:~$ lock-user --account j.doe --reason 'Policy Violation'", type: "input", prompt: "dlp-bot@auto-corp:~$ " },
+            { text: "[+] Account Locked. HR Notified.", type: "successish" }
+        ],
+        ecommerce: [
+            { text: "web-guard@shop-global:~$ scan-scripts --url checkout.html", type: "input", prompt: "web-guard@shop-global:~$ " },
+            { text: "[*] analyzing specific 3rd party scripts...", type: "info" },
+            { text: "[!] WARNING: Tampered script detected: 'analytics.js' (Magecart Signature)", type: "error" },
+            { text: "web-guard@shop-global:~$ block-domain --url malicious-cdn.xyz", type: "input", prompt: "web-guard@shop-global:~$ " },
+            { text: "[+] Domain sinkholed via DNS.", type: "success" },
+            { text: "web-guard@shop-global:~$ revert-script --file analytics.js --version latest-stable", type: "input", prompt: "web-guard@shop-global:~$ " },
+            { text: "[+] Script restored. CSP Violation Report sent.", type: "successish" }
         ]
     };
 
@@ -114,7 +246,8 @@ export default function CaseStudySection() {
                     }}>Real World Impact</span>
                     <h2 className="section-title">Security in <span style={{ color: '#F26C29' }}>Action</span></h2>
                     <p className="section-subtitle">
-                        See how eHack Global Technology protects organizations from critical threats
+                        See how eHack Global Technology protects organizations from critical threats <br />
+                        <span style={{ fontSize: '0.9rem', opacity: 0.8, fontStyle: 'italic' }}>(Names changed for confidentiality)</span>
                     </p>
                 </div>
 
@@ -122,7 +255,9 @@ export default function CaseStudySection() {
                 <div style={{
                     display: 'flex',
                     justifyContent: 'center',
-                    marginBottom: '3rem'
+                    marginBottom: '3rem',
+                    flexWrap: 'wrap',
+                    gap: '1rem'
                 }}>
                     <div style={{
                         background: 'white',
@@ -130,38 +265,29 @@ export default function CaseStudySection() {
                         borderRadius: '50px',
                         boxShadow: '0 4px 20px rgba(0,0,0,0.05)',
                         display: 'inline-flex',
+                        flexWrap: 'wrap',
+                        justifyContent: 'center',
                         gap: '0.5rem'
                     }}>
-                        <button
-                            onClick={() => setActiveTab('education')}
-                            style={{
-                                padding: '0.75rem 2rem',
-                                borderRadius: '40px',
-                                border: 'none',
-                                background: activeTab === 'education' ? '#F26C29' : 'transparent',
-                                color: activeTab === 'education' ? 'white' : '#666',
-                                fontWeight: '600',
-                                cursor: 'pointer',
-                                transition: 'all 0.3s ease'
-                            }}
-                        >
-                            Education Breach
-                        </button>
-                        <button
-                            onClick={() => setActiveTab('fintech')}
-                            style={{
-                                padding: '0.75rem 2rem',
-                                borderRadius: '40px',
-                                border: 'none',
-                                background: activeTab === 'fintech' ? '#F26C29' : 'transparent',
-                                color: activeTab === 'fintech' ? 'white' : '#666',
-                                fontWeight: '600',
-                                cursor: 'pointer',
-                                transition: 'all 0.3s ease'
-                            }}
-                        >
-                            FinTech Ransomware
-                        </button>
+                        {Object.keys(caseStudies).map((key) => (
+                            <button
+                                key={key}
+                                onClick={() => setActiveTab(key as any)}
+                                style={{
+                                    padding: '0.75rem 1.5rem',
+                                    borderRadius: '40px',
+                                    border: 'none',
+                                    background: activeTab === key ? '#F26C29' : 'transparent',
+                                    color: activeTab === key ? 'white' : '#666',
+                                    fontWeight: '600',
+                                    cursor: 'pointer',
+                                    transition: 'all 0.3s ease',
+                                    textTransform: 'capitalize'
+                                }}
+                            >
+                                {key === 'ecommerce' ? 'E-Commerce' : key === 'fintech' ? 'FinTech' : key}
+                            </button>
+                        ))}
                     </div>
                 </div>
 
@@ -196,10 +322,7 @@ export default function CaseStudySection() {
                             {/* Repeat text to ensure continuous scroll */}
                             {[...Array(10)].map((_, i) => (
                                 <span key={i}>
-                                    {activeTab === 'education'
-                                        ? "⚠ CRITICAL ALERT: SQL INJECTION DETECTED // PROTECTING STUDENT DATABASE // DEPLOYING WAF RULES // SCANNING FOR VULNERABILITIES // SYSTEM SECURE ⚠"
-                                        : "⚠ SECURITY WARNING: RANSOMWARE SIGNATURE MATCHED // ISOLATING INFECTED HOSTS // BLOCKING PORT 445 // DECRYPTING TRAFFIC // THREAT NEUTRALIZED ⚠"
-                                    }
+                                    {caseStudies[activeTab].alert}
                                 </span>
                             ))}
                         </div>
@@ -260,10 +383,7 @@ export default function CaseStudySection() {
                             {/* Repeat text to ensure continuous scroll */}
                             {[...Array(10)].map((_, i) => (
                                 <span key={i}>
-                                    {activeTab === 'education'
-                                        ? "⚠ CRITICAL ALERT: SQL INJECTION DETECTED // PROTECTING STUDENT DATABASE // DEPLOYING WAF RULES // SCANNING FOR VULNERABILITIES // SYSTEM SECURE ⚠"
-                                        : "⚠ SECURITY WARNING: RANSOMWARE SIGNATURE MATCHED // ISOLATING INFECTED HOSTS // BLOCKING PORT 445 // DECRYPTING TRAFFIC // THREAT NEUTRALIZED ⚠"
-                                    }
+                                    {caseStudies[activeTab].alert}
                                 </span>
                             ))}
                         </div>
@@ -272,7 +392,7 @@ export default function CaseStudySection() {
                     {/* Main Content Box (Wrapped) */}
                     <div className="glass" style={{
                         borderRadius: '16px',
-                        padding: '4rem 4rem', // Increased side padding
+                        padding: '3rem 2rem', // Reduced side padding to give more space
                         background: 'linear-gradient(145deg, #ffffff, #fff5f0)',
                         // No solid border here, moving frame handles it
                         borderTop: 'none',
@@ -289,160 +409,79 @@ export default function CaseStudySection() {
                         {/* Content Grid */}
                         <div style={{
                             display: 'grid',
-                            gridTemplateColumns: '1fr 1.2fr',
-                            gap: '4rem',
+                            gridTemplateColumns: '0.9fr 1.4fr', // Giving more space to the right (terminal)
+                            gap: '2rem', // Reduced gap
                             alignItems: 'center'
                         }}>
 
                             {/* Left: Text Content */}
                             <div className={`animate-fadeIn`} key={`${activeTab}-text`}>
-                                {activeTab === 'education' ? (
-                                    <>
-                                        <div style={{
-                                            display: 'inline-block',
-                                            padding: '0.4rem 1rem',
-                                            background: '#fee2e2',
-                                            color: '#dc2626',
-                                            borderRadius: '8px',
-                                            fontSize: '0.85rem',
-                                            fontWeight: '700',
-                                            marginBottom: '1.5rem',
-                                            border: '1px solid #fecaca'
-                                        }}>
-                                            CASE STUDY: DELHI HERITAGE UNIVERSITY
-                                        </div>
-                                        <h3 style={{
-                                            fontSize: '2.5rem',
-                                            marginBottom: '1.5rem',
-                                            lineHeight: '1.2',
-                                            color: '#1a1a1a'
-                                        }}>
-                                            Securing <span style={{ color: '#F26C29' }}>10L+ Student Records</span> from a Critical SQL Injection
-                                        </h3>
-                                        <p style={{ color: '#555', marginBottom: '2rem', fontSize: '1.1rem' }}>
-                                            <strong>The Breach:</strong> A critical vulnerability in the university's examination portal exposed sensitive personal data and grade sheets of over 10 lakh students to potential dark web leaks.
-                                        </p>
+                                <div style={{
+                                    display: 'inline-block',
+                                    padding: '0.4rem 1rem',
+                                    background: caseStudies[activeTab].tagColor.bg,
+                                    color: caseStudies[activeTab].tagColor.text,
+                                    borderRadius: '8px',
+                                    fontSize: '0.85rem',
+                                    fontWeight: '700',
+                                    marginBottom: '1.5rem',
+                                    border: `1px solid ${caseStudies[activeTab].tagColor.border}`
+                                }}>
+                                    {caseStudies[activeTab].tag}
+                                </div>
+                                <h3 style={{
+                                    fontSize: '2.5rem',
+                                    marginBottom: '1.5rem',
+                                    lineHeight: '1.2',
+                                    color: '#1a1a1a'
+                                }}>
+                                    {caseStudies[activeTab].title}
+                                </h3>
+                                <p style={{ color: '#555', marginBottom: '2rem', fontSize: '1.1rem' }}>
+                                    <strong>The Breach:</strong> {caseStudies[activeTab].breach}
+                                </p>
 
-                                        <div style={{ marginBottom: '2.5rem' }}>
-                                            <h4 style={{ fontSize: '1.1rem', marginBottom: '1rem', color: '#333' }}>The eHack Academy Solution:</h4>
-                                            <ul style={{ listStyle: 'none', padding: 0 }}>
-                                                {[
-                                                    'Identified blind SQL injection points within 2 hours',
-                                                    'Deployed emergency WAF patches immediately',
-                                                    'Sanitized database queries & implemented RBAC'
-                                                ].map((item, i) => (
-                                                    <li key={i} style={{
-                                                        display: 'flex',
-                                                        alignItems: 'center',
-                                                        gap: '0.75rem',
-                                                        marginBottom: '0.75rem',
-                                                        color: '#555'
-                                                    }}>
-                                                        <span style={{
-                                                            color: '#F26C29',
-                                                            background: 'rgba(242,108,41,0.1)',
-                                                            borderRadius: '50%',
-                                                            width: '20px',
-                                                            height: '20px',
-                                                            display: 'flex',
-                                                            alignItems: 'center',
-                                                            justifyContent: 'center',
-                                                            fontSize: '0.8rem'
-                                                        }}>✓</span>
-                                                        {item}
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                        </div>
+                                <div style={{ marginBottom: '2.5rem' }}>
+                                    <h4 style={{ fontSize: '1.1rem', marginBottom: '1rem', color: '#333' }}>The eHack Academy Solution:</h4>
+                                    <ul style={{ listStyle: 'none', padding: 0 }}>
+                                        {caseStudies[activeTab].solutions.map((item, i) => (
+                                            <li key={i} style={{
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                gap: '0.75rem',
+                                                marginBottom: '0.75rem',
+                                                color: '#555'
+                                            }}>
+                                                <span style={{
+                                                    color: '#F26C29',
+                                                    background: 'rgba(242,108,41,0.1)',
+                                                    borderRadius: '50%',
+                                                    width: '20px',
+                                                    height: '20px',
+                                                    display: 'flex',
+                                                    alignItems: 'center',
+                                                    justifyContent: 'center',
+                                                    fontSize: '0.8rem'
+                                                }}>✓</span>
+                                                {item}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
 
-                                        <div style={{
-                                            borderLeft: '4px solid #F26C29',
-                                            paddingLeft: '1.5rem',
-                                            background: 'rgba(242,108,41,0.03)',
-                                            padding: '1rem 1.5rem'
-                                        }}>
-                                            <p style={{ fontStyle: 'italic', marginBottom: '0.5rem', color: '#444' }}>
-                                                "eHack's rapid response saved our reputation. Their team identified holes our previous auditors missed in months."
-                                            </p>
-                                            <p style={{ fontWeight: '700', color: '#1a1a1a', fontSize: '0.9rem' }}>
-                                                — Dr. Rajesh Verma, Dean of Technology
-                                            </p>
-                                        </div>
-                                    </>
-                                ) : (
-                                    <>
-                                        <div style={{
-                                            display: 'inline-block',
-                                            padding: '0.4rem 1rem',
-                                            background: '#fef3c7',
-                                            color: '#d97706',
-                                            borderRadius: '8px',
-                                            fontSize: '0.85rem',
-                                            fontWeight: '700',
-                                            marginBottom: '1.5rem',
-                                            border: '1px solid #fde68a'
-                                        }}>
-                                            CASE STUDY: MUMBAI PAYSAFE FINTECH
-                                        </div>
-                                        <h3 style={{
-                                            fontSize: '2.5rem',
-                                            marginBottom: '1.5rem',
-                                            lineHeight: '1.2',
-                                            color: '#1a1a1a'
-                                        }}>
-                                            Preventing a <span style={{ color: '#F26C29' }}>₹50 Crore</span> Ransomware Attack
-                                        </h3>
-                                        <p style={{ color: '#555', marginBottom: '2rem', fontSize: '1.1rem' }}>
-                                            <strong>The Threat:</strong> A sophisticated ransomware group targeted the payment gateway infrastructure, threatening to encrypt transaction logs and demand a massive ransom.
-                                        </p>
-
-                                        <div style={{ marginBottom: '2.5rem' }}>
-                                            <h4 style={{ fontSize: '1.1rem', marginBottom: '1rem', color: '#333' }}>The eHack Academy Solution:</h4>
-                                            <ul style={{ listStyle: 'none', padding: 0 }}>
-                                                {[
-                                                    'Detecting lateral movement in internal network',
-                                                    'Isolated compromised endpoints instantly',
-                                                    'Reverse-engineered malware strain to block execution'
-                                                ].map((item, i) => (
-                                                    <li key={i} style={{
-                                                        display: 'flex',
-                                                        alignItems: 'center',
-                                                        gap: '0.75rem',
-                                                        marginBottom: '0.75rem',
-                                                        color: '#555'
-                                                    }}>
-                                                        <span style={{
-                                                            color: '#F26C29',
-                                                            background: 'rgba(242,108,41,0.1)',
-                                                            borderRadius: '50%',
-                                                            width: '20px',
-                                                            height: '20px',
-                                                            display: 'flex',
-                                                            alignItems: 'center',
-                                                            justifyContent: 'center',
-                                                            fontSize: '0.8rem'
-                                                        }}>✓</span>
-                                                        {item}
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                        </div>
-
-                                        <div style={{
-                                            borderLeft: '4px solid #F26C29',
-                                            paddingLeft: '1.5rem',
-                                            background: 'rgba(242,108,41,0.03)',
-                                            padding: '1rem 1.5rem'
-                                        }}>
-                                            <p style={{ fontStyle: 'italic', marginBottom: '0.5rem', color: '#444' }}>
-                                                "We were hours away from a total shutdown. The forensic analysis by eHack was world-class."
-                                            </p>
-                                            <p style={{ fontWeight: '700', color: '#1a1a1a', fontSize: '0.9rem' }}>
-                                                — Vikram Malhotra, CTO Paysafe
-                                            </p>
-                                        </div>
-                                    </>
-                                )}
+                                <div style={{
+                                    borderLeft: '4px solid #F26C29',
+                                    paddingLeft: '1.5rem',
+                                    background: 'rgba(242,108,41,0.03)',
+                                    padding: '1rem 1.5rem'
+                                }}>
+                                    <p style={{ fontStyle: 'italic', marginBottom: '0.5rem', color: '#444' }}>
+                                        {caseStudies[activeTab].quote}
+                                    </p>
+                                    <p style={{ fontWeight: '700', color: '#1a1a1a', fontSize: '0.9rem' }}>
+                                        {caseStudies[activeTab].author}
+                                    </p>
+                                </div>
                             </div>
 
                             {/* Right: Visual (Kali Linux Code Lab Panel) */}
@@ -456,7 +495,7 @@ export default function CaseStudySection() {
                                     fontFamily: "'Courier New', Courier, monospace",
                                     overflow: 'hidden',
                                     border: '1px solid #333',
-                                    height: '450px',
+                                    height: '550px', // Increased height
                                     display: 'flex',
                                     flexDirection: 'column'
                                 }}>
@@ -475,7 +514,7 @@ export default function CaseStudySection() {
                                             <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#27c93f' }}></div>
                                         </div>
                                         <div style={{ color: '#ccc', fontSize: '0.8rem', fontWeight: 'bold' }}>
-                                            root@kali:~/{activeTab === 'education' ? 'metasploit-framework' : 'incident-response'}
+                                            root@kali:~/{caseStudies[activeTab].terminalType}
                                         </div>
                                         <div style={{ width: '40px' }}></div> {/* Spacer */}
                                     </div>
