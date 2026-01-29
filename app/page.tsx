@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import LeadForm from './components/LeadForm';
+
 import {
   GlobalIcon,
   ZapIcon,
@@ -10,6 +10,7 @@ import {
   HeadsetIcon
 } from './components/FeatureIcons';
 import TrustedCompanies from './components/TrustedCompanies'; // Import new component
+import HeroSlider from './components/HeroSlider';
 import CaseStudySection from './components/CaseStudySection';
 import IndustriesSection from './components/IndustriesSection';
 import ServicesSection from './components/ServicesSection';
@@ -56,159 +57,10 @@ export default function Home() {
       {/* Sticky Section Nav */}
       <StickySectionNav />
 
-      {/* Modern Hero Section */}
-      <section id="start" className="hero" style={{
-        padding: '3rem 0 4rem',
-        background: 'linear-gradient(135deg, #FFF5F2 0%, #FFFFFF 100%)',
-        position: 'relative',
-        overflow: 'hidden'
-      }}>
-        {/* Background Graphic Removed */}
-
-        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: '1fr 1fr',
-            gap: '3rem',
-            alignItems: 'start'
-          }}>
-            {/* Left Content */}
-            <div className="hero-content">
-              <div className="animate-fadeInDown" style={{
-                display: 'inline-block',
-                padding: '0.5rem 1rem',
-                background: '#F26C29', // Brand Orange
-                border: '1px solid rgba(255, 255, 255, 0.2)',
-                borderRadius: '50px',
-                marginBottom: '1.5rem',
-                boxShadow: '0 4px 6px rgba(242, 108, 41, 0.2)'
-              }}>
-                <span style={{
-                  color: 'white',
-                  fontWeight: '600',
-                  fontSize: '0.9rem',
-                  letterSpacing: '0.02em'
-                }}>
-                  Trusted by 500+ Enterprises Worldwide
-                </span>
-              </div>
-
-              <h1 className="animate-fadeInUp" style={{
-                fontSize: 'clamp(2.5rem, 5vw, 3.75rem)',
-                fontWeight: '800',
-                lineHeight: '1.1',
-                color: '#1a1a1a',
-                marginBottom: '1.5rem',
-                letterSpacing: '-0.02em'
-              }}>
-                Protect Your Business with <span style={{ color: '#F26C29' }}>Enterprise-Grade</span> Cybersecurity
-              </h1>
-
-              <p className="hero-description animate-fadeInUp delay-200" style={{
-                fontSize: '1.25rem',
-                lineHeight: '1.6',
-                color: '#555',
-                marginBottom: '2.5rem',
-                maxWidth: '90%'
-              }}>
-                We identify vulnerabilities before attackers do. Our expert team delivers comprehensive security assessments to safeguard your digital assets.
-              </p>
-
-              <div style={{ display: 'flex', gap: '1rem', marginBottom: '3rem' }} className="animate-fadeInUp delay-300">
-                <Link href="/contact" className="btn btn-primary btn-lg" style={{
-                  padding: '1rem 2.5rem',
-                  fontSize: '1.125rem',
-                  fontWeight: '600',
-                  borderRadius: '12px',
-                  boxShadow: '0 10px 20px rgba(242, 108, 41, 0.25)',
-                  transition: 'transform 0.2s ease',
-                  border: 'none'
-                }}>
-                  Get Free Assessment
-                </Link>
-                <Link href="/services/web-application-security" className="btn btn-white btn-lg" style={{
-                  padding: '1rem 2.5rem',
-                  fontSize: '1.125rem',
-                  fontWeight: '600',
-                  borderRadius: '12px',
-                  border: '1px solid #e5e5e5',
-                  background: 'white',
-                  color: '#1a1a1a'
-                }}>
-                  View Services
-                </Link>
-              </div>
-
-              <div className="hero-stats animate-fadeInUp delay-400" style={{
-                display: 'flex',
-                gap: '3rem',
-                borderTop: '1px solid rgba(0,0,0,0.05)',
-                paddingTop: '2rem'
-              }}>
-                <div>
-                  <h3 style={{ fontSize: '2rem', fontWeight: '800', color: '#1a1a1a', marginBottom: '0.25rem' }}>500+</h3>
-                  <p style={{ color: '#666', fontSize: '0.9rem', fontWeight: '500' }}>Clients Secured</p>
-                </div>
-                <div>
-                  <h3 style={{ fontSize: '2rem', fontWeight: '800', color: '#1a1a1a', marginBottom: '0.25rem' }}>10K+</h3>
-                  <p style={{ color: '#666', fontSize: '0.9rem', fontWeight: '500' }}>Vulnerabilities Found</p>
-                </div>
-                <div>
-                  <h3 style={{ fontSize: '2rem', fontWeight: '800', color: '#1a1a1a', marginBottom: '0.25rem' }}>99%</h3>
-                  <p style={{ color: '#666', fontSize: '0.9rem', fontWeight: '500' }}>Client Retention</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Content - Hero Image & Form Combined */}
-            <div className="hero-right-column animate-scaleIn delay-300" style={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              marginTop: '1rem'
-            }}>
-              {/* Unified Card Container */}
-              <div style={{
-                position: 'relative',
-                width: '100%',
-                maxWidth: '600px', // Increased from 450px
-                borderRadius: '20px',
-                boxShadow: '0 20px 40px -10px rgba(0, 0, 0, 0.1)',
-                overflow: 'hidden',
-                background: 'white'
-              }}>
-                {/* Image Part */}
-                <div style={{
-                  position: 'relative',
-                  width: '100%',
-                  height: '320px', // Increased from 240px
-                }}>
-                  <Image
-                    src="/service-web-hero.png"
-                    alt="Cybersecurity Assessment"
-                    fill
-                    style={{
-                      objectFit: 'cover',
-                      objectPosition: 'center top'
-                    }}
-                    priority
-                  />
-                </div>
-
-                {/* Form Part - Attached below */}
-                <div>
-                  <LeadForm
-                    title="Get Started"
-                    subtitle="Free Expert Consultation"
-                    serviceName="General Inquiry"
-                    compact={true}
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Hero Slider Section */}
+      <div id="start">
+        <HeroSlider />
+      </div>
 
       {/* Trusted By Section */}
       <TrustedCompanies />
