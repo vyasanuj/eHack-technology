@@ -5,6 +5,9 @@ import { categories } from '../../data/categories';
 import LeadForm from '../../components/LeadForm';
 import TrustedCompanies from '../../components/TrustedCompanies';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import GlobalDefenseSection from '@/app/components/GlobalDefenseSection';
+import CaseStudySection from '@/app/components/CaseStudySection';
+import IndustriesSection from '@/app/components/IndustriesSection';
 
 // Using Next.js 15+ async params
 export default async function CategoryLandingPage({ params }: { params: Promise<{ category: string }> }) {
@@ -255,6 +258,20 @@ export default async function CategoryLandingPage({ params }: { params: Promise<
                     </div>
                 </div>
             </section>
+
+            <div id="industries">
+                <IndustriesSection />
+            </div>
+
+            {/* Case Studies Section */}
+            <div id="case-studies">
+                <CaseStudySection />
+            </div>
+
+            {/* Global Defense Section */}
+            <div id="global-defense">
+                <GlobalDefenseSection />
+            </div>
 
             {/* Why Choose Us for this Category */}
             <section className="section" style={{ padding: '6rem 0' }}>
