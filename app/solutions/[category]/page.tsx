@@ -17,77 +17,160 @@ export default async function CategoryLandingPage({ params }: { params: Promise<
 
     return (
         <main>
-            {/* Hero Section */}
+            {/* Modern Hero Section */}
             <section style={{
-                background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)',
-                color: 'white',
-                padding: '6rem 0 4rem',
+                padding: '3rem 0 4rem',
+                background: 'linear-gradient(135deg, #FFF5F2 0%, #FFFFFF 100%)',
                 position: 'relative',
                 overflow: 'hidden'
             }}>
-                {/* Background Pattern */}
-                <div style={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    width: '100%',
-                    height: '100%',
-                    opacity: 0.1,
-                    backgroundImage: 'radial-gradient(#F26C29 1px, transparent 1px)',
-                    backgroundSize: '30px 30px'
-                }}></div>
+                <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+                    <div style={{
+                        display: 'grid',
+                        gridTemplateColumns: '1fr 1fr',
+                        gap: '3rem',
+                        alignItems: 'start'
+                    }}>
+                        {/* Left Content */}
+                        <div className="hero-content">
+                            <div className="animate-fadeInDown" style={{
+                                display: 'inline-block',
+                                padding: '0.5rem 1rem',
+                                background: '#F26C29', // Brand Orange
+                                border: '1px solid rgba(255, 255, 255, 0.2)',
+                                borderRadius: '50px',
+                                marginBottom: '1.5rem',
+                                boxShadow: '0 4px 6px rgba(242, 108, 41, 0.2)'
+                            }}>
+                                <span style={{
+                                    color: 'white',
+                                    fontWeight: '600',
+                                    fontSize: '0.9rem',
+                                    letterSpacing: '0.02em',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    gap: '0.5rem'
+                                }}>
+                                    <catData.icon size={16} />
+                                    Trusted {catData.label} Solutions
+                                </span>
+                            </div>
 
-                <div className="container" style={{ position: 'relative', zIndex: 1, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'center' }}>
-                    {/* Left Content */}
-                    <div className="animate-fadeInUp">
-                        <div style={{
-                            display: 'inline-flex',
+                            <h1 className="animate-fadeInUp" style={{
+                                fontSize: 'clamp(2.5rem, 5vw, 3.75rem)',
+                                fontWeight: '800',
+                                lineHeight: '1.1',
+                                color: '#1a1a1a',
+                                marginBottom: '1.5rem',
+                                letterSpacing: '-0.02em'
+                            }}>
+                                {catData.headline}
+                            </h1>
+
+                            <p className="hero-description animate-fadeInUp delay-200" style={{
+                                fontSize: '1.25rem',
+                                lineHeight: '1.6',
+                                color: '#555',
+                                marginBottom: '2.5rem',
+                                maxWidth: '90%'
+                            }}>
+                                {catData.longDescription || catData.description}
+                            </p>
+
+                            <div style={{ display: 'flex', gap: '1rem', marginBottom: '3rem' }} className="animate-fadeInUp delay-300">
+                                <Link href="#contact" className="btn btn-primary btn-lg" style={{
+                                    padding: '1rem 2.5rem',
+                                    fontSize: '1.125rem',
+                                    fontWeight: '600',
+                                    borderRadius: '12px',
+                                    boxShadow: '0 10px 20px rgba(242, 108, 41, 0.25)',
+                                    transition: 'transform 0.2s ease',
+                                    border: 'none',
+                                    display: 'inline-flex',
+                                    alignItems: 'center',
+                                    gap: '0.5rem'
+                                }}>
+                                    Get Started
+                                </Link>
+                                <Link href="#services" className="btn btn-white btn-lg" style={{
+                                    padding: '1rem 2.5rem',
+                                    fontSize: '1.125rem',
+                                    fontWeight: '600',
+                                    borderRadius: '12px',
+                                    border: '1px solid #e5e5e5',
+                                    background: 'white',
+                                    color: '#1a1a1a'
+                                }}>
+                                    View Services
+                                </Link>
+                            </div>
+
+                            <div className="hero-stats animate-fadeInUp delay-400" style={{
+                                display: 'flex',
+                                gap: '3rem',
+                                borderTop: '1px solid rgba(0,0,0,0.05)',
+                                paddingTop: '2rem'
+                            }}>
+                                <div>
+                                    <h3 style={{ fontSize: '2rem', fontWeight: '800', color: '#1a1a1a', marginBottom: '0.25rem' }}>{catData.industriesCount || '500+'}</h3>
+                                    <p style={{ color: '#666', fontSize: '0.9rem', fontWeight: '500' }}>Clients Secured</p>
+                                </div>
+                                <div>
+                                    <h3 style={{ fontSize: '2rem', fontWeight: '800', color: '#1a1a1a', marginBottom: '0.25rem' }}>10K+</h3>
+                                    <p style={{ color: '#666', fontSize: '0.9rem', fontWeight: '500' }}>Vulnerabilities Found</p>
+                                </div>
+                                <div>
+                                    <h3 style={{ fontSize: '2rem', fontWeight: '800', color: '#1a1a1a', marginBottom: '0.25rem' }}>99%</h3>
+                                    <p style={{ color: '#666', fontSize: '0.9rem', fontWeight: '500' }}>Client Retention</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Right Content - Hero Image & Form Combined */}
+                        <div className="hero-right-column animate-scaleIn delay-300" style={{
+                            display: 'flex',
+                            flexDirection: 'column',
                             alignItems: 'center',
-                            gap: '0.5rem',
-                            background: 'rgba(242, 108, 41, 0.15)',
-                            color: '#F26C29',
-                            padding: '0.5rem 1rem',
-                            borderRadius: '50px',
-                            marginBottom: '1.5rem',
-                            border: '1px solid rgba(242, 108, 41, 0.3)'
+                            marginTop: '1rem'
                         }}>
-                            <catData.icon size={18} />
-                            <span style={{ fontWeight: '600', fontSize: '0.9rem' }}>{catData.label} Solutions</span>
-                        </div>
+                            {/* Unified Card Container */}
+                            <div style={{
+                                position: 'relative',
+                                width: '100%',
+                                maxWidth: '600px',
+                                borderRadius: '20px',
+                                boxShadow: '0 20px 40px -10px rgba(0, 0, 0, 0.1)',
+                                overflow: 'hidden',
+                                background: 'white'
+                            }}>
+                                {/* Image Part */}
+                                <div style={{
+                                    position: 'relative',
+                                    width: '100%',
+                                    height: '320px',
+                                }}>
+                                    <Image
+                                        src={catData.image}
+                                        alt={catData.label}
+                                        fill
+                                        style={{
+                                            objectFit: 'cover',
+                                            objectPosition: 'center top'
+                                        }}
+                                        priority
+                                    />
+                                </div>
 
-                        <h1 style={{ fontSize: '3.5rem', fontWeight: '800', lineHeight: '1.1', marginBottom: '1.5rem' }}>
-                            {catData.headline}
-                        </h1>
-
-                        <p style={{ fontSize: '1.25rem', color: '#ccc', lineHeight: '1.6', marginBottom: '2.5rem', maxWidth: '90%' }}>
-                            {catData.longDescription || catData.description}
-                        </p>
-
-                        <div style={{ display: 'flex', gap: '1rem' }}>
-                            <Link href="#contact" className="btn btn-primary btn-lg" style={{ padding: '1rem 2.5rem', display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
-                                Get Started
-                                <ArrowRight size={18} />
-                            </Link>
-                            <Link href="#services" className="btn btn-white btn-lg" style={{ background: 'transparent', color: 'white', border: '1px solid rgba(255,255,255,0.3)' }}>
-                                View Services
-                            </Link>
-                        </div>
-                    </div>
-
-                    {/* Right Content - Lead Form */}
-                    <div className="animate-fadeInUp delay-200">
-                        <div style={{
-                            background: 'white',
-                            borderRadius: '24px',
-                            padding: '0.5rem', // Inner padding wrapper
-                            boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)'
-                        }}>
-                            <LeadForm
-                                title="Speak to an Expert"
-                                subtitle="Get a detailed quote for your security needs"
-                                serviceName={catData.id}
-                                compact={false}
-                            />
+                                {/* Form Part - Attached below */}
+                                <div>
+                                    <LeadForm
+                                        title="Speak to an Expert"
+                                        subtitle="Get a free consultation today"
+                                        serviceName={catData.id}
+                                        compact={true}
+                                    />
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
