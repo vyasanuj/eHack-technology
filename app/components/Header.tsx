@@ -44,7 +44,7 @@ export default function Header() {
       {/* Main Navigation */}
       <nav className="main-nav">
         <div className="nav-container">
-          <Link href="/" className="logo">
+          <Link href="/" className="logo" style={{ flexShrink: 0 }}>
             <Image
               src="/eHack.png"
               alt="Ehack Group of Technologies"
@@ -56,7 +56,7 @@ export default function Header() {
           </Link>
 
           <ul className={`nav-links ${mobileMenuOpen ? 'active' : ''}`}>
-            <li style={{ marginRight: '1rem' }}>
+            <li>
               <Link href="/" className="nav-link">Home</Link>
             </li>
             {/* Security Assessment Dropdown */}
@@ -65,7 +65,7 @@ export default function Header() {
                 className="nav-link nav-dropdown-trigger"
                 style={{
                   backgroundColor: 'rgba(242, 108, 41, 0.08)',
-                  padding: '0.5rem 1rem',
+                  padding: '0.5rem 0.75rem',
                   borderRadius: '8px'
                 }}
               >
@@ -96,7 +96,7 @@ export default function Header() {
                 className="nav-link nav-dropdown-trigger"
                 style={{
                   backgroundColor: 'rgba(242, 108, 41, 0.08)',
-                  padding: '0.5rem 1rem',
+                  padding: '0.5rem 0.75rem',
                   borderRadius: '8px'
                 }}
               >
@@ -122,7 +122,7 @@ export default function Header() {
                 className="nav-link nav-dropdown-trigger"
                 style={{
                   backgroundColor: 'rgba(242, 108, 41, 0.08)',
-                  padding: '0.5rem 1rem',
+                  padding: '0.5rem 0.75rem',
                   borderRadius: '8px'
                 }}
               >
@@ -140,15 +140,18 @@ export default function Header() {
                 </div>
               </div>
             </li>
-            <li style={{ marginLeft: '1rem' }}>
+            <li>
               <Link href="/about" className="nav-link">About Us</Link>
+            </li>
+            <li>
+              <Link href="/careers" className="nav-link">Careers</Link>
             </li>
             <li className="lg:hidden">
               <Link href="/contact" className="nav-link nav-cta">Get a Quote</Link>
             </li>
           </ul>
 
-          <Link href="/contact" className="nav-cta hidden lg:inline-flex">Get a Quote</Link>
+          <Link href="/contact" className="nav-cta hidden lg:inline-flex" style={{ whiteSpace: 'nowrap' }}>Get a Quote</Link>
 
           <div
             className="mobile-toggle"

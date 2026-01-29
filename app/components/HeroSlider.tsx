@@ -1,16 +1,76 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowLeft, ArrowRight, ArrowRightCircle } from 'lucide-react';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
 
 import { categories } from '../data/categories';
+
+interface SearchResult {
+    type: 'category' | 'service';
+    title: string;
+    description: string;
+    href: string;
+    categoryLabel?: string;
+}
 
 export default function HeroSlider() {
     const slides = Object.values(categories);
     const [currentSlide, setCurrentSlide] = useState(0);
     const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+    const [searchQuery, setSearchQuery] = useState('');
+    const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
+    const [showResults, setShowResults] = useState(false);
+    const searchRef = useRef<HTMLDivElement>(null);
+
+    // Search function
+    const handleSearch = useCallback((query: string) => {
+        setSearchQuery(query);
+        if (!query.trim()) {
+            setSearchResults([]);
+            setShowResults(false);
+            return;
+        }
+
+        const lowerQuery = query.toLowerCase();
+        const results: SearchResult[] = [];
+
+        // Search through services only
+        Object.values(categories).forEach((category) => {
+
+            // Check services within each category
+            category.services.forEach((service) => {
+                if (
+                    service.title.toLowerCase().includes(lowerQuery) ||
+                    service.description.toLowerCase().includes(lowerQuery) ||
+                    service.badges?.some(badge => badge.toLowerCase().includes(lowerQuery))
+                ) {
+                    results.push({
+                        type: 'service',
+                        title: service.title,
+                        description: service.description,
+                        href: service.href,
+                        categoryLabel: category.label,
+                    });
+                }
+            });
+        });
+
+        setSearchResults(results.slice(0, 5)); // Limit to 5 results (no scrollbar)
+        setShowResults(results.length > 0);
+    }, []);
+
+    // Close dropdown when clicking outside
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (searchRef.current && !searchRef.current.contains(event.target as Node)) {
+                setShowResults(false);
+            }
+        };
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => document.removeEventListener('mousedown', handleClickOutside);
+    }, []);
 
     const nextSlide = useCallback(() => {
         setCurrentSlide((prev) => (prev + 1) % slides.length);
@@ -71,9 +131,113 @@ export default function HeroSlider() {
                         {activeSlide.headline.split(' ').slice(0, -1).join(' ')} <span className="text-orange-500">{activeSlide.headline.split(' ').slice(-1)}</span>
                     </h1>
 
-                    <p className="text-lg md:text-xl text-gray-100 leading-relaxed max-w-2xl drop-shadow-lg font-medium">
+                    <p className="text-lg md:text-xl text-gray-100 leading-relaxed max-w-2xl drop-shadow-lg font-bold">
                         {activeSlide.description}
                     </p>
+
+                    {/* Search Bar - Fixed size with dropdown */}
+                    <div
+                        ref={searchRef}
+                        className="relative"
+                        style={{
+                            width: '650px',
+                            maxWidth: '90vw',
+                        }}
+                    >
+                        <div
+                            className="bg-white rounded-full flex items-center shadow-xl transition-all duration-300 hover:shadow-2xl"
+                            style={{
+                                padding: '6px 6px 6px 24px',
+                                border: '3px solid rgba(255, 125, 30, 0.15)',
+                            }}
+                        >
+                            <input
+                                type="text"
+                                value={searchQuery}
+                                onChange={(e) => handleSearch(e.target.value)}
+                                onFocus={() => searchQuery && setShowResults(true)}
+                                placeholder="Search courses, certifications, or topics..."
+                                className="flex-1 text-gray-600 text-base outline-none placeholder:text-gray-400 bg-transparent font-normal"
+                                style={{ minWidth: 0 }}
+                            />
+                            <button
+                                className="bg-[#FF7D1E] hover:bg-[#e06510] text-white font-semibold rounded-full transition-all duration-300 whitespace-nowrap flex-shrink-0"
+                                style={{
+                                    padding: '12px 32px',
+                                    fontSize: '15px',
+                                }}
+                            >
+                                Search
+                            </button>
+                        </div>
+
+                        {/* Search Results Dropdown - Professional UI/UX Design */}
+                        {showResults && searchResults.length > 0 && (
+                            <div
+                                className="absolute top-full left-0 right-0 z-50"
+                                style={{
+                                    marginTop: '12px',
+                                    animation: 'dropdownFadeIn 0.2s ease-out',
+                                }}
+                            >
+                                {/* Dropdown Container */}
+                                <div
+                                    className="rounded-2xl"
+                                    style={{
+                                        background: '#ffffff',
+                                        boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(0, 0, 0, 0.05)',
+                                    }}
+                                >
+                                    {/* Results List - Scrollable with subtle scrollbar */}
+                                    <div
+                                        className="py-4 px-4 custom-scrollbar"
+                                        style={{
+                                            maxHeight: '340px',
+                                            overflowY: 'auto',
+                                        }}
+                                    >
+                                        {searchResults.map((result, index) => (
+                                            <div key={index}>
+                                                <Link
+                                                    href={result.href}
+                                                    onClick={() => {
+                                                        setShowResults(false);
+                                                        setSearchQuery('');
+                                                    }}
+                                                    className="group flex items-center justify-center rounded-lg transition-all duration-200"
+                                                    style={{
+                                                        minHeight: '52px',
+                                                        padding: '14px 16px',
+                                                    }}
+                                                    onMouseEnter={(e) => {
+                                                        e.currentTarget.style.background = 'linear-gradient(90deg, #fff7ed 0%, #fffbf7 100%)';
+                                                    }}
+                                                    onMouseLeave={(e) => {
+                                                        e.currentTarget.style.background = 'transparent';
+                                                    }}
+                                                >
+                                                    {/* Service Title - Bold, Centered */}
+                                                    <span className="font-bold text-gray-800 text-base group-hover:text-orange-600 transition-colors">
+                                                        {result.title}
+                                                    </span>
+                                                </Link>
+                                                {/* Separator line between items */}
+                                                {index < searchResults.length - 1 && (
+                                                    <div
+                                                        className="mx-4 my-2"
+                                                        style={{
+                                                            height: '1px',
+                                                            background: 'linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.08) 20%, rgba(0,0,0,0.08) 80%, transparent 100%)',
+                                                        }}
+                                                    />
+                                                )}
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+                        )}
+                    </div>
                 </div>
 
                 {/* Stats Row - Centered and compact */}
