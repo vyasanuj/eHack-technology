@@ -1,12 +1,14 @@
 "use client";
 import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
+import styles from './AcademySection.module.css';
 
 export default function AcademySection() {
     return (
         <section className="section section-dark" style={{
             background: '#0F0F1A',
             position: 'relative',
-            padding: '6rem 0',
+            padding: '3rem 0',
             overflow: 'hidden'
         }}>
             {/* Background Glow */}
@@ -27,14 +29,14 @@ export default function AcademySection() {
                     <span style={{
                         color: '#F26C29',
                         fontWeight: '800',
-                        fontSize: '1.5rem',
+                        fontSize: '2rem',
                         letterSpacing: '0.05em',
                         display: 'block',
                         marginBottom: '0.5rem'
                     }}>
                         eHack Academy
                     </span>
-                    <p style={{ color: '#888', fontSize: '1rem', maxWidth: '600px', margin: '0 auto' }}>
+                    <p style={{ color: '#888', fontSize: '1.25rem', maxWidth: '600px', margin: '0 auto' }}>
                         Empowering Cyber Defenders with Intelligence and Action
                     </p>
                 </div>
@@ -128,7 +130,6 @@ export default function AcademySection() {
                                 Coursework developed in collaboration with leading C-CISOs to ensure relevance in the modern job market.
                             </p>
                         </div>
-
                     </div>
 
                 </div>

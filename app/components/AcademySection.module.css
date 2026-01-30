@@ -1,0 +1,266 @@
+/* AcademySection.module.css */
+
+/* ===== Ribbons Section ===== */
+.ribbonsWrapper {
+    padding: 4rem 0 2rem;
+    background: #ffffff;
+}
+
+.ribbonsGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 992px) {
+    .ribbonsGrid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.ribbonCard {
+    display: flex;
+    flex-direction: column;
+    padding: 3rem 2.5rem;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.ribbonCard:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.csrRibbon {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0 !important;
+    /* Flush banner alignment */
+    display: flex;
+    flex-direction: column;
+}
+
+.csrRibbon .ribbonContent {
+    padding: 2.5rem;
+}
+
+.franchiseRibbon {
+    background: linear-gradient(135deg, #fff7ed 0%, #c38532 100%);
+    border: 1px solid rgba(236, 124, 0, 0.15);
+    padding: 0 !important;
+    /* Truly flush image */
+    display: flex;
+    flex-direction: column;
+}
+
+.franchiseRibbon .ribbonContent {
+    padding: 2.5rem;
+}
+
+.ribbonContent {
+    position: relative;
+    z-index: 2;
+    flex: 1;
+}
+
+.ribbonTag {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-radius: 50px;
+    margin-bottom: 1.5rem;
+}
+
+.csrRibbon .ribbonTag {
+    background: rgba(255, 107, 0, 0.15);
+    color: #FF6B00;
+}
+
+.franchiseRibbon .ribbonTag {
+    background: rgba(236, 124, 0, 0.2);
+    color: #ec7c00;
+}
+
+.ribbonTitle {
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+}
+
+.csrRibbon .ribbonTitle {
+    color: #ffffff;
+}
+
+.franchiseRibbon .ribbonTitle {
+    color: #0f172a;
+    font-weight: 900;
+}
+
+.ribbonText {
+    font-size: 1.15rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.csrRibbon .ribbonText {
+    color: #e2e8f0;
+    font-weight: 500;
+}
+
+.franchiseRibbon .ribbonText {
+    color: #1e293b;
+    font-weight: 600;
+    font-size: 1.15rem;
+}
+
+.ribbonAction {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+}
+
+.csrRibbon .ribbonAction {
+    color: #FF6B00;
+}
+
+.franchiseRibbon .ribbonAction {
+    color: #0f172a;
+    font-weight: 800;
+}
+
+.ribbonCard:hover .ribbonAction {
+    gap: 1.25rem;
+}
+
+/* Decorative Background Elements */
+.ribbonPattern {
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 60%;
+    height: 140%;
+    background: linear-gradient(135deg, rgba(255, 107, 0, 0.1) 0%, transparent 100%);
+    transform: rotate(15deg);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.franchiseRibbon .ribbonPattern {
+    background: linear-gradient(135deg, rgba(236, 124, 0, 0.08) 0%, transparent 100%);
+}
+
+/* Standard Banner Image Styles - TOP PLACEMENT */
+.ribbonImageWrapper {
+    width: 100%;
+    position: relative;
+    z-index: 2;
+    padding: 0;
+    /* Flush with card top */
+    overflow: hidden;
+}
+
+.floatingImage {
+    width: 100%;
+    /* No transformation or perspective */
+    border-radius: 0;
+    /* Clipped by parent card overflow */
+    overflow: hidden;
+    background: #fff;
+}
+
+.ribbonImage {
+    width: 100%;
+    height: 280px;
+    /* Standard banner height */
+    display: block;
+    object-fit: cover;
+    /* Fills the area completely */
+    object-position: center 70%;
+    transition: transform 0.5s ease;
+}
+
+/* Simple zoom on hover instead of 3D rotation */
+.ribbonCard:hover .ribbonImage {
+    transform: scale(1.05);
+}
+
+.ribbonTitleStrip {
+    width: 100%;
+    background: linear-gradient(135deg, #e65100 0%, #f57c00 100%);
+    /* Default fallback */
+    color: white;
+    padding: 0.75rem 1rem;
+    text-align: center;
+    font-weight: 800;
+    font-size: 1.125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: 20px 20px 0 0;
+    margin-bottom: 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 5;
+}
+
+.csrTitleStrip {
+    background: #222736;
+}
+
+.franchiseTitleStrip {
+    background: #ce9851;
+}
+
+.ribbonGridItem .ribbonCard {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.ribbonGridItem {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    height: 100%;
+    align-items: center;
+}
+
+/* Premium Badge Styles for Ribbon Cards */
+.ribbonBadge {
+    display: inline-block;
+    background: linear-gradient(135deg, #FF6B00 0%, #FF8533 100%);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    padding: 0.625rem 1.5rem;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(255, 107, 0, 0.35);
+    letter-spacing: 0.8px;
+    transition: all 0.3s ease;
+    margin-bottom: 1.25rem;
+}
+
+.ribbonBadge:hover {
+    box-shadow: 0 6px 20px rgba(255, 107, 0, 0.45);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .ribbonBadge {
+        font-size: 0.65rem;
+        padding: 0.5rem 1.25rem;
+        letter-spacing: 0.5px;
+        margin-bottom: 1rem;
+    }
+}

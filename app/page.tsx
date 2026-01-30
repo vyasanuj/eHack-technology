@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { ArrowRight } from 'lucide-react';
+import styles from './components/AcademySection.module.css';
 
 import {
   GlobalIcon,
@@ -223,6 +225,67 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Ribbons Section */}
+      <section style={{ borderBottom: 'solid 2px orange', padding: '2rem 0', borderTop: 'solid 2px orange', marginTop: '2rem' }}>
+        <div className="container">
+          <div className="section-header" style={{ marginBottom: '3rem' }}>
+            <h2 className="section-title">Social Impact & <span style={{ color: '#F26C29' }}>Strategic Growth</span></h2>
+            <p className="section-subtitle">
+              Driving positive change through cyber literacy while expanding our global footprint through strategic partnerships.
+            </p>
+          </div>
+          <div className={styles.ribbonsGrid}>
+            <div className={styles.ribbonGridItem}>
+              <div className={`${styles.ribbonTitleStrip} ${styles.csrTitleStrip}`}>Corporate Social Responsibility </div>
+              <Link href="/csr" className={`${styles.ribbonCard} ${styles.csrRibbon}`}>
+                <div className={styles.ribbonImageWrapper}>
+                  <div className={styles.floatingImage}>
+                    <img
+                      src="/images/csr-banner-image.jpg"
+                      alt="eHack CSR Initiatives"
+                      className={styles.ribbonImage}
+                    />
+                  </div>
+                </div>
+                <div className={styles.ribbonContent}>
+                  <span className={styles.ribbonBadge}>Cyber Literacy | AI Awareness</span>
+                  <h3 className={styles.ribbonTitle}>Empowering Society Through Cybersecurity, Employability & Emerging Technologies</h3>
+                  <p className={styles.ribbonText}>Join our mission to bridge the skill gap and build a safer digital future for everyone.</p>
+                  <div className={styles.ribbonAction}>
+                    Explore CSR Initiatives <ArrowRight size={20} />
+                  </div>
+                </div>
+                <div className={styles.ribbonPattern}></div>
+              </Link>
+            </div>
+
+            <div className={styles.ribbonGridItem}>
+              <div className={`${styles.ribbonTitleStrip} ${styles.franchiseTitleStrip}`}>Franchise Opportunities</div>
+              <Link href="/franchise" className={`${styles.ribbonCard} ${styles.franchiseRibbon}`}>
+                <div className={styles.ribbonImageWrapper}>
+                  <div className={styles.floatingImage}>
+                    <img
+                      src="/images/franchise-popup-image.jpg"
+                      alt="Franchise Laboratory"
+                      className={styles.ribbonImage}
+                    />
+                  </div>
+                </div>
+                <div className={styles.ribbonContent}>
+                  <span className={styles.ribbonBadge}>Collaborative Growth</span>
+                  <h3 className={styles.ribbonTitle}>Build Your Educational Empire with eHack Academy Franchise</h3>
+                  <p className={styles.ribbonText}>Build a thriving educational venture with India's premier cybersecurity academy.</p>
+                  <div className={styles.ribbonAction}>
+                    Start Your Franchise <ArrowRight size={20} />
+                  </div>
+                </div>
+                <div className={styles.ribbonPattern}></div>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="cta-section">
         <div className="container">
@@ -234,9 +297,7 @@ export default function Home() {
           <div className="cta-buttons">
             <Link href="/contact" className="btn btn-primary btn-lg">
               Schedule Consultation
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
+              <ArrowRight size={16} />
             </Link>
             <Link href="/about" className="btn btn-white btn-lg">
               Learn About Us
