@@ -38,7 +38,6 @@ export default function HeroSlider() {
 
         // Search through services only
         Object.values(categories).forEach((category) => {
-
             // Check services within each category
             category.services.forEach((service) => {
                 if (
@@ -57,7 +56,7 @@ export default function HeroSlider() {
             });
         });
 
-        setSearchResults(results.slice(0, 5)); // Limit to 5 results (no scrollbar)
+        setSearchResults(results.slice(0, 5)); // Limit to 5 results
         setShowResults(results.length > 0);
     }, []);
 
@@ -91,11 +90,9 @@ export default function HeroSlider() {
     }, [isAutoPlaying, nextSlide]);
 
     const handleManualNavigation = (direction: 'next' | 'prev') => {
-        setIsAutoPlaying(false); // Pause auto-play on interaction
+        setIsAutoPlaying(false);
         if (direction === 'next') nextSlide();
         else prevSlide();
-        // Resume auto-play after 10 seconds of inactivity if desired, 
-        // or just leave it paused. Let's restart it after a delay.
         setTimeout(() => setIsAutoPlaying(true), 10000);
     };
 
@@ -117,8 +114,8 @@ export default function HeroSlider() {
                         className="object-cover"
                         priority={index === 0}
                     />
-                    {/* Stronger Dark Overlay for better text visibility */}
-                    <div className="absolute inset-0 bg-black/40 bg-gradient-to-b from-black/70 via-black/30 to-black/70" />
+                    {/* Lightened Overlays for better image visibility */}
+                    <div className="absolute inset-0 bg-black/25 bg-gradient-to-b from-black/50 via-black/10 to-black/50" />
                 </div>
             ))}
 
@@ -126,12 +123,12 @@ export default function HeroSlider() {
             <div className="container relative z-10 h-full flex flex-col justify-center items-center text-center pb-32 gap-16">
 
                 {/* Main Content */}
-                <div className="max-w-5xl flex flex-col items-center gap-10">
-                    <h1 className="text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight drop-shadow-2xl !text-white" style={{ color: 'white', whiteSpace: 'nowrap' }}>
-                        {activeSlide.headline.split(' ').slice(0, -1).join(' ')} <span className="text-orange-500">{activeSlide.headline.split(' ').slice(-1)}</span>
+                <div className="max-w-5xl flex flex-col items-center gap-4">
+                    <h1 className="font-extrabold leading-tight tracking-tight drop-shadow-2xl" style={{ color: '#FFFFFF', fontSize: '56px', maxWidth: '800px' }}>
+                        {activeSlide.headline.split(' ').slice(0, -1).join(' ')} <span style={{ color: '#ff6b00' }}>{activeSlide.headline.split(' ').slice(-1)}</span>
                     </h1>
 
-                    <p className="text-lg md:text-xl text-gray-100 leading-relaxed max-w-2xl drop-shadow-lg font-bold">
+                    <p className="text-gray-100 leading-relaxed max-w-2xl drop-shadow-lg font-bold" style={{ fontSize: '21.6px' }}>
                         {activeSlide.description}
                     </p>
 
@@ -156,7 +153,7 @@ export default function HeroSlider() {
                                 value={searchQuery}
                                 onChange={(e) => handleSearch(e.target.value)}
                                 onFocus={() => searchQuery && setShowResults(true)}
-                                placeholder="Search courses, certifications, or topics..."
+                                placeholder="Search security services, assessments, or compliance..."
                                 className="flex-1 text-gray-600 text-base outline-none placeholder:text-gray-400 bg-transparent font-normal"
                                 style={{ minWidth: 0 }}
                             />
@@ -171,16 +168,15 @@ export default function HeroSlider() {
                             </button>
                         </div>
 
-                        {/* Search Results Dropdown - Professional UI/UX Design */}
+                        {/* Search Results Dropdown */}
                         {showResults && searchResults.length > 0 && (
                             <div
-                                className="absolute top-full left-0 right-0 z-50"
+                                className="absolute top-full left-0 right-0 z-50 text-left"
                                 style={{
                                     marginTop: '12px',
                                     animation: 'dropdownFadeIn 0.2s ease-out',
                                 }}
                             >
-                                {/* Dropdown Container */}
                                 <div
                                     className="rounded-2xl"
                                     style={{
@@ -188,7 +184,6 @@ export default function HeroSlider() {
                                         boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(0, 0, 0, 0.05)',
                                     }}
                                 >
-                                    {/* Results List - Scrollable with subtle scrollbar */}
                                     <div
                                         className="py-4 px-4 custom-scrollbar"
                                         style={{
@@ -216,12 +211,10 @@ export default function HeroSlider() {
                                                         e.currentTarget.style.background = 'transparent';
                                                     }}
                                                 >
-                                                    {/* Service Title - Bold, Centered */}
                                                     <span className="font-bold text-gray-800 text-base group-hover:text-orange-600 transition-colors">
                                                         {result.title}
                                                     </span>
                                                 </Link>
-                                                {/* Separator line between items */}
                                                 {index < searchResults.length - 1 && (
                                                     <div
                                                         className="mx-4 my-2"
@@ -238,28 +231,52 @@ export default function HeroSlider() {
                             </div>
                         )}
                     </div>
-                </div>
 
-                {/* Stats Row - Centered and compact */}
-                <div className="w-full max-w-4xl border-t border-white/20 pt-10">
-                    <div className="grid grid-cols-3 gap-8 md:gap-16">
-                        <div className="text-center">
-                            <div className="text-3xl md:text-4xl font-bold text-orange-500 drop-shadow-md">{activeSlide.industriesCount || '500+'}</div>
-                            <div className="text-xs text-gray-200 font-semibold uppercase tracking-widest mt-2">Clients Secured</div>
-                        </div>
-                        <div className="text-center">
-                            <div className="text-3xl md:text-4xl font-bold text-orange-500 drop-shadow-md">100%</div>
-                            <div className="text-xs text-gray-200 font-semibold uppercase tracking-widest mt-2">Compliance</div>
-                        </div>
-                        <div className="text-center">
-                            <div className="text-3xl md:text-4xl font-bold text-orange-500 drop-shadow-md">24/7</div>
-                            <div className="text-xs text-gray-200 font-semibold uppercase tracking-widest mt-2">Support</div>
+                    {/* Explore Tags Section - Exact Zoomed-In Image Match UI */}
+                    <div className="flex items-center gap-3 mt-6 flex-wrap justify-center">
+                        <span className="text-white/70 text-sm font-medium">Explore:</span>
+                        <div className="flex gap-2 flex-wrap justify-center">
+                            {[
+                                "Web App Security",
+                                "API Security",
+                                "GDPR Consulting",
+                                "PCI DSS Compliance",
+                                "Malware Analysis"
+                            ].map((tag) => (
+                                <button
+                                    key={tag}
+                                    onClick={() => handleSearch(tag)}
+                                    className="rounded-full border-2 border-[#FF6B00] text-[15px] font-semibold text-white transition-all hover:scale-105 active:scale-95"
+                                    style={{
+                                        padding: '4px 14px',
+                                        background: 'rgba(255, 107, 0, 0.25)',
+                                        backdropFilter: 'blur(10px)',
+                                        WebkitBackdropFilter: 'blur(10px)',
+                                        boxShadow: '0 4px 12px rgba(255, 107, 0, 0.2)',
+                                        textShadow: '0 1px 3px rgba(0,0,0,0.4)',
+                                        letterSpacing: '0.02em'
+                                    }}
+                                    onMouseEnter={(e) => {
+                                        e.currentTarget.style.background = '#FF6B00';
+                                    }}
+                                    onMouseLeave={(e) => {
+                                        e.currentTarget.style.background = 'rgba(255, 107, 0, 0.25)';
+                                    }}
+                                >
+                                    {tag}
+                                </button>
+                            ))}
                         </div>
                     </div>
+
+
+
+
+
                 </div>
             </div>
 
-            {/* Navigation Arrows - Larger and better positioned */}
+            {/* Navigation Arrows */}
             <button
                 onClick={() => handleManualNavigation('prev')}
                 className="absolute left-6 top-1/2 -translate-y-1/2 z-20 bg-black/20 hover:bg-orange-600 text-white p-4 rounded-full backdrop-blur-md border border-white/10 transition-all hover:scale-110 group hidden md:flex"
@@ -274,22 +291,6 @@ export default function HeroSlider() {
             >
                 <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
             </button>
-
-            {/* Slide Indicators */}
-            <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex gap-4">
-                {slides.map((_, index) => (
-                    <button
-                        key={index}
-                        onClick={() => {
-                            setIsAutoPlaying(false);
-                            setCurrentSlide(index);
-                        }}
-                        className={`h-1.5 rounded-full transition-all duration-300 shadow-sm ${index === currentSlide ? 'w-10 bg-orange-500' : 'w-2 bg-white/40 hover:bg-white'
-                            }`}
-                        aria-label={`Go to slide ${index + 1}`}
-                    />
-                ))}
-            </div>
         </section>
     );
 }

@@ -1,18 +1,17 @@
 import type { Metadata } from "next";
-import { Inter, Outfit } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
-const inter = Inter({
-  variable: "--font-inter",
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
   subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  display: 'swap',
 });
 
-const outfit = Outfit({
-  variable: "--font-outfit",
-  subsets: ["latin"],
-});
+
 
 export const metadata: Metadata = {
   title: "Ehack Technology | Enterprise Cybersecurity Solutions",
@@ -32,11 +31,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${outfit.variable}`} style={{ fontFamily: 'var(--font-body)' }}>
+      <body className={`${montserrat.variable}`} style={{ fontFamily: 'var(--font-body)' }}>
         <Header />
         <main>{children}</main>
         <Footer />
       </body>
     </html>
   );
+
 }

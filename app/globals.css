@@ -37,8 +37,9 @@
   --info: #3B82F6;
 
   /* Typography */
-  --font-heading: 'Outfit', sans-serif;
-  --font-body: 'Inter', sans-serif;
+  /* Moved to body for better scoping with Next.js font variables */
+
+
 
   /* Spacing */
   --section-padding: 5rem;
@@ -79,13 +80,26 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: inherit;
+  /* Force inheritance for all elements */
 }
+
+input,
+button,
+textarea,
+select {
+  font-family: var(--font-body);
+  /* Explicitly set for form elements */
+}
+
 
 html {
   scroll-behavior: smooth;
 }
 
 body {
+  --font-heading: var(--font-montserrat), sans-serif;
+  --font-body: var(--font-montserrat), sans-serif;
   font-family: var(--font-body);
   color: var(--gray-800);
   background: var(--white);
@@ -93,6 +107,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 
 h1,
 h2,
@@ -582,10 +597,10 @@ h6 {
 
 /* ===== HEADER STYLES ===== */
 .top-bar {
-  background: var(--primary);
+  background: #ff6b00;
   color: var(--white);
-  padding: 0.625rem 0;
-  font-size: 1rem;
+  padding: 12px 0;
+  font-size: 22px;
 }
 
 .top-bar a {
@@ -595,7 +610,7 @@ h6 {
   align-items: center;
   gap: 0.625rem;
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 22px;
   transition: opacity var(--transition-fast);
 }
 
@@ -604,12 +619,12 @@ h6 {
 }
 
 .promo-bar {
-  background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 100%);
+  background: #e55a00;
   color: var(--white);
   padding: 0.875rem 0;
   text-align: center;
-  font-size: 1.0625rem;
-  font-weight: 700;
+  font-size: 24px;
+  font-weight: 500;
 }
 
 .promo-bar a {

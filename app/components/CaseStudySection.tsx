@@ -492,7 +492,8 @@ export default function CaseStudySection() {
                                     background: '#0F0F1A', // Dark Kali BG
                                     borderRadius: '8px',
                                     boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.6)',
-                                    fontFamily: "'Courier New', Courier, monospace",
+                                    fontFamily: "var(--font-body)",
+
                                     overflow: 'hidden',
                                     border: '1px solid #333',
                                     height: '550px', // Increased height

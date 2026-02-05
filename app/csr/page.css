@@ -587,8 +587,9 @@
     color: #FF6B00;
     line-height: 1;
     margin-bottom: 1rem;
-    font-family: Georgia, serif;
+    font-family: var(--font-montserrat), sans-serif;
 }
+
 
 .quote-text {
     font-size: 1.625rem;
