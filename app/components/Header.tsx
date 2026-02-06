@@ -47,8 +47,8 @@ export default function Header() {
             <Image
               src="/eHack.png"
               alt="Ehack Group of Technologies"
-              width={220}
-              height={64}
+              width={240}
+              height={60}
               style={{ objectFit: 'contain' }}
               priority
             />
