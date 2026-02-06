@@ -127,7 +127,7 @@ export default function Home() {
         <AcademySection />
       </div>
 
-      <section id="why-ehack" className="section section-light">
+      <section id="why-ehack" className="section section-light" style={{ padding: '2.5rem 0', borderBottom: '1px solid #ff6b00' }}>
         <div className="container">
           <div className="section-header">
             <span className="section-label" style={{
@@ -137,7 +137,8 @@ export default function Home() {
               padding: '0.75rem 2rem',
               borderRadius: '50px',
               fontWeight: '700',
-              marginBottom: '1.5rem'
+              marginBottom: '1.5rem',
+
             }}>Why Ehack</span>
             <h2 className="section-title">Your Trusted <span style={{ color: '#ec7c00' }}>Security</span> Partner</h2>
             <p className="section-subtitle" style={{ color: '#1f2937' }}>
