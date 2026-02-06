@@ -61,7 +61,7 @@ export default function Header() {
                 className="nav-link nav-dropdown-trigger nav-capsule"
               >
                 Security Assessment
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M6 9l6 6 6-6" />
                 </svg>
               </div>
@@ -87,7 +87,7 @@ export default function Header() {
                 className="nav-link nav-dropdown-trigger nav-capsule"
               >
                 Compliance Audit
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M6 9l6 6 6-6" />
                 </svg>
               </div>
@@ -108,7 +108,7 @@ export default function Header() {
                 className="nav-link nav-dropdown-trigger nav-capsule"
               >
                 Forensics & Malware
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M6 9l6 6 6-6" />
                 </svg>
               </div>
