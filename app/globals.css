@@ -646,7 +646,7 @@ h6 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.4rem 1.5rem 0.4rem 3rem;
+  padding: 0.2rem 1.5rem 0.2rem 3rem;
   max-width: 1600px;
   margin: 0 auto;
 }
@@ -681,12 +681,12 @@ h6 {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
+  gap: 1.25rem;
   list-style: none;
   flex: 1;
   margin: 0 0.5rem;
   margin-right: 1rem;
-  margin-top: 4px;
+  margin-top: 0;
 }
 
 .nav-link {
@@ -695,7 +695,7 @@ h6 {
   font-weight: 700;
   font-size: 0.95rem;
   transition: color var(--transition-fast);
-  padding: 0.3rem 0;
+  padding: 0.2rem 0;
   white-space: nowrap;
 }
 
@@ -726,6 +726,30 @@ h6 {
 .nav-dropdown-trigger:hover {
   background-color: rgba(242, 108, 41, 0.15);
   color: var(--primary);
+}
+
+.nav-capsule {
+  background-color: #df6718 !important;
+  color: white !important;
+  border-radius: 9999px !important;
+  padding: 0.6rem 1.4rem !important;
+  font-weight: 600 !important;
+  font-size: 0.9rem !important;
+  letter-spacing: 0.02em !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 6px -1px rgba(223, 103, 24, 0.2) !important;
+}
+
+.nav-capsule:hover {
+  background-color: #c55a15 !important;
+  transform: translateY(-1px);
+}
+
+.nav-capsule svg {
+  color: white !important;
 }
 
 .nav-dropdown-menu {

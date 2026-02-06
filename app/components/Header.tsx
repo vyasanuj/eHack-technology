@@ -47,26 +47,18 @@ export default function Header() {
             <Image
               src="/eHack.png"
               alt="Ehack Group of Technologies"
-              width={280}
-              height={70}
+              width={300}
+              height={85}
               style={{ objectFit: 'contain' }}
               priority
             />
           </Link>
 
           <ul className={`nav-links ${mobileMenuOpen ? 'active' : ''}`}>
-            <li>
-              <Link href="/" className="nav-link">Home</Link>
-            </li>
             {/* Security Assessment Dropdown */}
             <li className="nav-dropdown">
               <div
-                className="nav-link nav-dropdown-trigger"
-                style={{
-                  backgroundColor: 'rgba(242, 108, 41, 0.08)',
-                  padding: '0.5rem 0.75rem',
-                  borderRadius: '8px'
-                }}
+                className="nav-link nav-dropdown-trigger nav-capsule"
               >
                 Security Assessment
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -92,12 +84,7 @@ export default function Header() {
             {/* Compliance Audit Dropdown */}
             <li className="nav-dropdown">
               <div
-                className="nav-link nav-dropdown-trigger"
-                style={{
-                  backgroundColor: 'rgba(242, 108, 41, 0.08)',
-                  padding: '0.5rem 0.75rem',
-                  borderRadius: '8px'
-                }}
+                className="nav-link nav-dropdown-trigger nav-capsule"
               >
                 Compliance Audit
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -118,12 +105,7 @@ export default function Header() {
             {/* Forensics & Malware Dropdown */}
             <li className="nav-dropdown">
               <div
-                className="nav-link nav-dropdown-trigger"
-                style={{
-                  backgroundColor: 'rgba(242, 108, 41, 0.08)',
-                  padding: '0.5rem 0.75rem',
-                  borderRadius: '8px'
-                }}
+                className="nav-link nav-dropdown-trigger nav-capsule"
               >
                 Forensics & Malware
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
