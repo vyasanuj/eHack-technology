@@ -269,7 +269,7 @@ export default function Home() {
       </section>
 
       {/* Ribbons Section */}
-      <section style={{ borderBottom: 'solid 2px orange', padding: '2rem 0', borderTop: 'solid 2px orange', marginTop: '2rem' }}>
+      <section style={{ borderBottom: '1px solid #ff6b00', padding: '2rem 0', borderTop: '1px solid #ff6b00', marginTop: '2rem' }}>
         <div className="container">
           <div className="section-header" style={{ marginBottom: '3rem' }}>
             <h2 className="section-title">Social Impact & <span style={{ color: '#F26C29' }}>Strategic Growth</span></h2>
