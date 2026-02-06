@@ -40,7 +40,7 @@ export default function GlobalDefenseSection() {
     ];
 
     return (
-        <section className="section section-dark" style={{ position: 'relative', overflow: 'hidden', padding: '6rem 0' }}>
+        <section className="section section-dark" style={{ position: 'relative', overflow: 'hidden', padding: '2.5rem 0' }}>
             {/* Abstract Background Grid */}
             <div style={{
                 position: 'absolute',
