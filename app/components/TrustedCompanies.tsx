@@ -23,7 +23,8 @@ export default function TrustedCompanies() {
         <section className="trusted-by-section" style={{
             padding: '1.5rem 0 2rem',
             background: '#FAFAFA',
-            borderBottom: '1px solid rgba(0,0,0,0.05)'
+            borderBottom: '1px solid #ff6b00'
+
         }}>
             <div className="container">
                 <div style={{

@@ -6,10 +6,12 @@ import styles from './AcademySection.module.css';
 export default function AcademySection() {
     return (
         <section className="section section-dark" style={{
-            background: '#fff5f0',
+            background: 'linear-gradient(135deg, #fff5f0 0%, #ffe0cc 100%)',
             position: 'relative',
-            padding: '3rem 0',
-            overflow: 'hidden'
+            padding: '1.5rem 0',
+            overflow: 'hidden',
+            borderTop: '1px solid #ff6b00',
+            borderBottom: '1px solid #ff6b00'
         }}>
             {/* Background Glow */}
             <div style={{
@@ -29,14 +31,14 @@ export default function AcademySection() {
                     <span style={{
                         color: '#ec7c00',
                         fontWeight: '800',
-                        fontSize: '2rem',
+                        fontSize: '3rem',
                         letterSpacing: '0.05em',
                         display: 'block',
                         marginBottom: '0.5rem'
                     }}>
                         eHack Academy
                     </span>
-                    <p style={{ color: '#1f2937', fontSize: '1.25rem', maxWidth: '600px', margin: '0 auto' }}>
+                    <p style={{ color: '#1f2937', fontSize: '1.1rem', maxWidth: '600px', margin: '0 auto' }}>
                         Empowering Cyber Defenders with Intelligence and Action
                     </p>
                 </div>
@@ -85,7 +87,7 @@ export default function AcademySection() {
                         {/* Card 1 */}
                         <div className="group" style={{
                             background: 'white',
-                            border: '1px solid rgba(236, 124, 0, 0.2)',
+                            border: '1px solid #ff6b00',
                             borderRadius: '16px',
                             padding: '2rem',
                             transition: 'all 0.3s ease',
@@ -103,7 +105,7 @@ export default function AcademySection() {
                         {/* Card 2 */}
                         <div className="group" style={{
                             background: 'white',
-                            border: '1px solid rgba(236, 124, 0, 0.2)',
+                            border: '1px solid #ff6b00',
                             borderRadius: '16px',
                             padding: '2rem',
                             transition: 'all 0.3s ease',
@@ -120,7 +122,7 @@ export default function AcademySection() {
                         {/* Card 3 */}
                         <div className="group" style={{
                             background: 'white',
-                            border: '1px solid rgba(236, 124, 0, 0.2)',
+                            border: '1px solid #ff6b00',
                             borderRadius: '16px',
                             padding: '2rem',
                             transition: 'all 0.3s ease',

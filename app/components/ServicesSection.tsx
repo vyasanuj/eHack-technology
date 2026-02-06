@@ -5,7 +5,7 @@ import { ArrowRight } from 'lucide-react';
 
 export default function ServicesSection() {
     return (
-        <section className="section" style={{ padding: '3rem 0', background: '#f8f9fa' }}>
+        <section className="section" style={{ padding: '3rem 0 0 0', background: '#f8f9fa' }}>
             <div className="container">
                 {/* Section Header */}
                 <div className="section-header" style={{ marginBottom: '3rem', textAlign: 'center' }}>
@@ -33,14 +33,15 @@ export default function ServicesSection() {
                     display: 'grid',
                     gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
                     gap: '2.5rem',
-                    marginBottom: '3rem'
+                    marginBottom: '0',
+                    paddingBottom: '1rem'
                 }}>
                     {(Object.values(categories) as any[]).map((cat) => (
                         <Link href={`/solutions/${cat.id}`} key={cat.id} className="group" style={{ textDecoration: 'none' }}>
                             <div style={{
                                 background: 'white',
                                 borderRadius: '20px',
-                                border: '2px solid #F26C29', // Orange border added
+                                border: '1px solid #F26C29', // Orange border added
                                 boxShadow: '0 10px 30px rgba(0,0,0,0.05)',
                                 height: '100%',
                                 display: 'flex',
@@ -109,7 +110,17 @@ export default function ServicesSection() {
                                     position: 'relative'
                                 }}>
                                     <h3 style={{ fontSize: '1.75rem', fontWeight: '800', color: '#1a1a1a', marginBottom: '1rem' }}>
-                                        {cat.label}
+                                        {cat.label.includes(' ') ? (
+                                            <>
+                                                {cat.label.substring(0, cat.label.lastIndexOf(' '))}
+                                                {' '}
+                                                <span style={{ color: '#ff6b00' }}>
+                                                    {cat.label.substring(cat.label.lastIndexOf(' ') + 1)}
+                                                </span>
+                                            </>
+                                        ) : (
+                                            cat.label
+                                        )}
                                     </h3>
 
                                     <p style={{ color: '#1f2937', lineHeight: '1.6', marginBottom: '2rem', flex: 1 }}>

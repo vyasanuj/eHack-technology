@@ -114,7 +114,7 @@ export default function IndustriesSection() {
     const [activeIndustry, setActiveIndustry] = useState(industries[0]);
 
     return (
-        <section className="section" style={{ padding: '4rem 0', }}>
+        <section className="section" style={{ padding: '4rem 0', borderTop: '1px solid #ff6b00' }}>
             <div className="container" style={{ maxWidth: '1400px' }}>
                 <div className="section-header" style={{ marginBottom: '4rem' }}>
                     <span className="section-label" style={{

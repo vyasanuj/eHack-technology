@@ -254,21 +254,42 @@ export default function GlobalDefenseSection() {
                     gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
                     gap: '2rem'
                 }}>
-                    <div className="glass-card" style={{ padding: '2rem', textAlign: 'center', background: 'rgba(255,255,255,0.03)', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.1)' }}>
+                    <div className="glass-card kpi-card-animated">
                         <h3 style={{ fontSize: '3rem', color: '#F26C29', marginBottom: '0.5rem', fontWeight: '800' }}>18+</h3>
                         <p style={{ color: '#1f2937', margin: 0 }}>Advanced Cyber Defense Centres</p>
                     </div>
-                    <div className="glass-card" style={{ padding: '2rem', textAlign: 'center', background: 'rgba(255,255,255,0.03)', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.1)' }}>
+                    <div className="glass-card kpi-card-animated">
                         <h3 style={{ fontSize: '3rem', color: '#F26C29', marginBottom: '0.5rem', fontWeight: '800' }}>24/7</h3>
                         <p style={{ color: '#1f2937', margin: 0 }}>Continuous Threat Monitoring</p>
                     </div>
-                    <div className="glass-card" style={{ padding: '2rem', textAlign: 'center', background: 'rgba(255,255,255,0.03)', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.1)' }}>
+                    <div className="glass-card kpi-card-animated">
                         <h3 style={{ fontSize: '3rem', color: '#F26C29', marginBottom: '0.5rem', fontWeight: '800' }}>200+</h3>
                         <p style={{ color: '#1f2937', margin: 0 }}>Countries & Regions Covered</p>
                     </div>
                 </div>
 
                 <style jsx>{`
+
+                    .kpi-card-animated {
+                        padding: 2rem;
+                        text-align: center;
+                        position: relative;
+                        border-radius: 16px;
+                        background-color: rgba(255,255,255,0.03);
+                        background-image: linear-gradient(90deg, #F26C29 50%, transparent 50%), linear-gradient(90deg, #F26C29 50%, transparent 50%), linear-gradient(0deg, #F26C29 50%, transparent 50%), linear-gradient(0deg, #F26C29 50%, transparent 50%);
+                        background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+                        background-size: 15px 2px, 15px 2px, 2px 15px, 2px 15px;
+                        background-position: 0 0, 100% 100%, 0 100%, 100% 0;
+                        animation: border-dance 4s infinite linear;
+                    }
+                    @keyframes border-dance {
+                        0% {
+                            background-position: 0 0, 100% 100%, 0 100%, 100% 0;
+                        }
+                        100% {
+                            background-position: 30px 0, calc(100% - 30px) 100%, 0 calc(100% - 30px), 100% 30px;
+                        }
+                    }
                     @keyframes pulse-ring {
                         0% { transform: translate(-50%, -50%) scale(0.33); opacity: 1; }
                         80%, 100% { transform: translate(-50%, -50%) scale(2); opacity: 0; }

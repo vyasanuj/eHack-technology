@@ -92,24 +92,20 @@ export default function Home() {
         <ServicesSection />
       </div>
 
-      <section className="stats-section">
+      <section className="stats-section" style={{ background: '#f8f9fa' }}>
         <div className="container">
           <div className="stats-grid">
             <div className="stat-item">
               <h3>12+</h3>
-              <p>Years of Experience</p>
+              <p style={{ color: '#1f2937', fontSize: '1.1rem', marginTop: '0.5rem', background: '#fff5f0', display: 'inline-block', padding: '0.4rem 1.2rem', borderRadius: '50px', fontWeight: '600' }}>Years of Experience</p>
             </div>
             <div className="stat-item">
               <h3>500+</h3>
-              <p>Enterprise Clients</p>
+              <p style={{ color: '#1f2937', fontSize: '1.1rem', marginTop: '0.5rem', background: '#fff5f0', display: 'inline-block', padding: '0.4rem 1.2rem', borderRadius: '50px', fontWeight: '600' }}>Enterprise Clients</p>
             </div>
             <div className="stat-item">
               <h3>50+</h3>
-              <p>Security Experts</p>
-            </div>
-            <div className="stat-item">
-              <h3>20+</h3>
-              <p>Countries Served</p>
+              <p style={{ color: '#1f2937', fontSize: '1.1rem', marginTop: '0.5rem', background: '#fff5f0', display: 'inline-block', padding: '0.4rem 1.2rem', borderRadius: '50px', fontWeight: '600' }}>Security Experts</p>
             </div>
           </div>
         </div>
