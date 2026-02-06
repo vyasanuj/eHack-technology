@@ -21,9 +21,9 @@ export default function ServicesSection() {
                         letterSpacing: '0.5px'
                     }}>Our Expertise</span>
                     <h2 className="section-title" style={{ fontSize: '2.5rem', fontWeight: '800', marginBottom: '1rem' }}>
-                        Comprehensive Security <span style={{ color: '#F26C29' }}>Solutions</span>
+                        Comprehensive Security <span style={{ color: '#ec7c00' }}>Solutions</span>
                     </h2>
-                    <p className="section-subtitle" style={{ maxWidth: '600px', margin: '0 auto', color: '#666', fontSize: '1.1rem' }}>
+                    <p className="section-subtitle" style={{ maxWidth: '600px', margin: '0 auto', color: '#1f2937', fontSize: '1.1rem' }}>
                         Specialized dimensions of cybersecurity tailored to protect your assets, compliance, and future.
                     </p>
                 </div>
@@ -112,7 +112,7 @@ export default function ServicesSection() {
                                         {cat.label}
                                     </h3>
 
-                                    <p style={{ color: '#666', lineHeight: '1.6', marginBottom: '2rem', flex: 1 }}>
+                                    <p style={{ color: '#1f2937', lineHeight: '1.6', marginBottom: '2rem', flex: 1 }}>
                                         {cat.description}
                                     </p>
 
@@ -125,11 +125,11 @@ export default function ServicesSection() {
                                         borderTop: '1px solid #eee',
                                         paddingTop: '1.5rem',
                                         fontSize: '0.9rem',
-                                        color: '#555'
+                                        color: '#1f2937'
                                     }}>
                                         <div style={{ display: 'flex', flexDirection: 'column' }}>
-                                            <span style={{ fontWeight: '700', color: '#1a1a1a', fontSize: '1.1rem' }}>{cat.industriesCount} Industries</span>
-                                            <span style={{ fontSize: '0.8rem', color: '#666' }}>Trusted by {cat.keySectors}</span>
+                                            <span style={{ fontWeight: '700', color: '#1f2937', fontSize: '1.1rem' }}>{cat.industriesCount} Industries</span>
+                                            <span style={{ fontSize: '0.8rem', color: '#1f2937' }}>Trusted by {cat.keySectors}</span>
                                         </div>
                                     </div>
 

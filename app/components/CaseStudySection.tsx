@@ -244,8 +244,8 @@ export default function CaseStudySection() {
                         marginBottom: '1rem',
                         fontWeight: '600'
                     }}>Real World Impact</span>
-                    <h2 className="section-title">Security in <span style={{ color: '#F26C29' }}>Action</span></h2>
-                    <p className="section-subtitle">
+                    <h2 className="section-title">Security in <span style={{ color: '#ec7c00' }}>Action</span></h2>
+                    <p className="section-subtitle" style={{ color: '#1f2937' }}>
                         See how eHack Global Technology protects organizations from critical threats <br />
                         <span style={{ fontSize: '0.9rem', opacity: 0.8, fontStyle: 'italic' }}>(Names changed for confidentiality)</span>
                     </p>
@@ -278,7 +278,7 @@ export default function CaseStudySection() {
                                     borderRadius: '40px',
                                     border: 'none',
                                     background: activeTab === key ? '#F26C29' : 'transparent',
-                                    color: activeTab === key ? 'white' : '#666',
+                                    color: activeTab === key ? 'white' : '#1f2937',
                                     fontWeight: '600',
                                     cursor: 'pointer',
                                     transition: 'all 0.3s ease',
@@ -437,12 +437,12 @@ export default function CaseStudySection() {
                                 }}>
                                     {caseStudies[activeTab].title}
                                 </h3>
-                                <p style={{ color: '#555', marginBottom: '2rem', fontSize: '1.1rem' }}>
+                                <p style={{ color: '#1f2937', marginBottom: '2rem', fontSize: '1.1rem' }}>
                                     <strong>The Breach:</strong> {caseStudies[activeTab].breach}
                                 </p>
 
                                 <div style={{ marginBottom: '2.5rem' }}>
-                                    <h4 style={{ fontSize: '1.1rem', marginBottom: '1rem', color: '#333' }}>The eHack Academy Solution:</h4>
+                                    <h4 style={{ fontSize: '1.1rem', marginBottom: '1rem', color: '#1f2937' }}>The eHack Academy Solution:</h4>
                                     <ul style={{ listStyle: 'none', padding: 0 }}>
                                         {caseStudies[activeTab].solutions.map((item, i) => (
                                             <li key={i} style={{
@@ -450,7 +450,7 @@ export default function CaseStudySection() {
                                                 alignItems: 'center',
                                                 gap: '0.75rem',
                                                 marginBottom: '0.75rem',
-                                                color: '#555'
+                                                color: '#1f2937'
                                             }}>
                                                 <span style={{
                                                     color: '#F26C29',
@@ -475,7 +475,7 @@ export default function CaseStudySection() {
                                     background: 'rgba(242,108,41,0.03)',
                                     padding: '1rem 1.5rem'
                                 }}>
-                                    <p style={{ fontStyle: 'italic', marginBottom: '0.5rem', color: '#444' }}>
+                                    <p style={{ fontStyle: 'italic', marginBottom: '0.5rem', color: '#1f2937' }}>
                                         {caseStudies[activeTab].quote}
                                     </p>
                                     <p style={{ fontWeight: '700', color: '#1a1a1a', fontSize: '0.9rem' }}>

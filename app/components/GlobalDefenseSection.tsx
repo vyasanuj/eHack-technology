@@ -9,18 +9,34 @@ export default function GlobalDefenseSection() {
     }, []);
 
     const defenseCenters = [
-        { id: 1, top: '28%', left: '13.5%', name: 'North America HQ' }, // Central/North US
-        { id: 2, top: '31%', left: '21.5%', name: 'New York Node' }, // East US
-        { id: 3, top: '22%', left: '42.5%', name: 'London Ops' }, // UK
-        { id: 4, top: '24%', left: '46%', name: 'Berlin Center' }, // Europe
-        { id: 5, top: '46%', left: '63%', name: 'India HQ (Mumbai)' }, // India
-        { id: 6, top: '56%', left: '71%', name: 'Singapore Hub' }, // SEA
-        { id: 7, top: '78%', left: '83%', name: 'Sydney Node' }, // Aus
-        { id: 8, top: '68%', left: '26%', name: 'Sao Paulo' }, // Brazil
-        { id: 9, top: '34%', left: '80%', name: 'Tokyo Center' }, // Japan
-        { id: 10, top: '18%', left: '52%', name: 'Moscow Watch' }, // Russia
-        { id: 11, top: '42%', left: '55%', name: 'Dubai Hub' }, // UAE
-        { id: 12, top: '33%', left: '8%', name: 'California Ops' }, // West US
+        { id: 1, top: '28%', left: '18%', name: 'North America HQ (USA)' },     // West US (approx 40N, 100W adjusted)
+        { id: 2, top: '28%', left: '29%', name: 'New York Node' },              // NY (approx 40N, 74W)
+        { id: 3, top: '19%', left: '49%', name: 'London Ops (UK)' },            // UK (55N)
+        { id: 4, top: '21%', left: '53%', name: 'Berlin Center (Germany)' },    // Germany (51N)
+        { id: 5, top: '19%', left: '53%', name: 'Copenhagen Node (Denmark)' },  // Denmark (56N)
+        { id: 6, top: '39%', left: '72%', name: 'India HQ (Mumbai)' },          // India (19N, 72E)
+        { id: 7, top: '51%', left: '79%', name: 'Singapore Hub' },              // Singapore (1N, 103E)
+        { id: 8, top: '68%', left: '92%', name: 'Sydney Node' },                // Sydney (33S, 151E)
+        { id: 9, top: '63%', left: '32%', name: 'Sao Paulo' },                  // Sao Paulo (23S, 46W)
+        { id: 10, top: '21%', left: '55%', name: 'Warsaw Hub' },                // Warsaw (52N, 21E)
+        { id: 11, top: '36%', left: '65%', name: 'Dubai Hub' },                 // Dubai (25N, 55E)
+        { id: 12, top: '29%', left: '88%', name: 'Tokyo Center' },              // Tokyo (35N, 139E)
+    ];
+
+    // Define connections between centers (id pairs)
+    const connections = [
+        [1, 2], // NA HQ -> NY
+        [2, 3], // NY -> London
+        [3, 4], // London -> Berlin
+        [4, 5], // Berlin -> Copenhagen
+        [4, 10], // Berlin -> Warsaw
+        [3, 11], // London -> Dubai
+        [11, 6], // Dubai -> India
+        [6, 7], // India -> Singapore
+        [7, 8], // Singapore -> Sydney
+        [7, 12], // Singapore -> Tokyo
+        [2, 9], // NY -> Sao Paulo
+        [1, 12], // NA HQ -> Tokyo (Pacific Link)
     ];
 
     return (
@@ -53,8 +69,8 @@ export default function GlobalDefenseSection() {
                         marginBottom: '1rem',
                         fontWeight: '600'
                     }}>Global Reach</span>
-                    <h2 className="section-title">Around-the-World <span style={{ color: '#F26C29' }}>Protection</span></h2>
-                    <p className="section-subtitle">
+                    <h2 className="section-title">Around-the-World <span style={{ color: '#EC7C00' }}>Protection</span></h2>
+                    <p className="text-[#1f2937]">
                         Built on 18+ Advanced Cyber Defense Centres ensuring seamless 24/7 security.
                     </p>
                 </div>
@@ -72,20 +88,164 @@ export default function GlobalDefenseSection() {
                     overflow: 'hidden',
                     marginBottom: '4rem'
                 }}>
+                    {/* Top HUD Panel */}
+                    <div style={{
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        width: '100%',
+                        padding: '1.5rem 2rem',
+                        background: 'linear-gradient(180deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%)',
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: 'flex-start',
+                        zIndex: 20
+                    }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
+                            <div style={{
+                                width: '8px',
+                                height: '8px',
+                                background: '#10B981', // Green
+                                borderRadius: '50%',
+                                boxShadow: '0 0 10px #10B981',
+                                animation: 'pulse 2s infinite'
+                            }}></div>
+                            <span style={{
+                                fontFamily: 'monospace',
+                                color: '#10B981',
+                                fontSize: '0.85rem',
+                                letterSpacing: '2px',
+                                fontWeight: '600'
+                            }}>SYSTEM ONLINE</span>
+                        </div>
+                        <div style={{
+                            fontFamily: 'monospace',
+                            color: '#F26C29',
+                            fontSize: '0.85rem',
+                            letterSpacing: '2px',
+                            fontWeight: '600',
+                            textShadow: '0 0 10px rgba(242, 108, 41, 0.5)'
+                        }}>LIVE THREAT MONITORING</div>
+                    </div>
+
                     <img
-                        src="/new home map .jpg"
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/The_earth_at_night.jpg/1920px-The_earth_at_night.jpg"
                         alt="Global Defense Network"
                         style={{
                             width: '100%',
                             height: '100%',
-                            objectFit: 'cover'
+                            objectFit: 'cover',
+                            opacity: 0.9,
+                            filter: 'contrast(1.2) brightness(0.8)' // Enhance dark look
                         }}
                     />
 
-                    {/* Bottom Status Bar - Kept for tech feel as overlay, unless user explicitly asks to remove this too. 
-                        "Simple" usually refers to the map complexity. Removing this would make it JUST an image. 
-                        User said "add this image only" -> I will render JUST the image to be safe and literal. 
-                    */}
+                    {/* SVG Connections Overlay */}
+                    <svg style={{
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        width: '100%',
+                        height: '100%',
+                        zIndex: 5,
+                        pointerEvents: 'none'
+                    }}>
+                        {connections.map(([startId, endId], index) => {
+                            const start = defenseCenters.find(c => c.id === startId);
+                            const end = defenseCenters.find(c => c.id === endId);
+                            if (!start || !end) return null;
+                            return (
+                                <line
+                                    key={index}
+                                    x1={start.left}
+                                    y1={start.top}
+                                    x2={end.left}
+                                    y2={end.top}
+                                    stroke="#F26C29"
+                                    strokeWidth="1"
+                                    strokeDasharray="4 4"
+                                    opacity="0.4"
+                                >
+                                    <animate attributeName="stroke-dashoffset" from="100" to="0" dur="2s" repeatCount="indefinite" />
+                                </line>
+                            );
+                        })}
+                    </svg>
+
+                    {/* Defense Points - Blinking Markers */}
+                    {defenseCenters.map((center) => (
+                        <div
+                            key={center.id}
+                            style={{
+                                position: 'absolute',
+                                top: center.top,
+                                left: center.left,
+                                transform: 'translate(-50%, -50%)',
+                                zIndex: 10,
+                                cursor: 'pointer'
+                            }}
+                            title={center.name}
+                        >
+                            {/* Inner Dot */}
+                            <div style={{
+                                width: '8px',
+                                height: '8px',
+                                background: '#F26C29',
+                                borderRadius: '50%',
+                                boxShadow: '0 0 10px #F26C29'
+                            }}></div>
+                            {/* Pulsing Ring */}
+                            <div style={{
+                                position: 'absolute',
+                                top: '50%',
+                                left: '50%',
+                                transform: 'translate(-50%, -50%)',
+                                width: '20px',
+                                height: '20px',
+                                border: '1px solid #F26C29',
+                                borderRadius: '50%',
+                                animation: 'pulse-ring 2s infinite'
+                            }}></div>
+                        </div>
+                    ))}
+
+                    {/* Bottom HUD Panel */}
+                    <div style={{
+                        position: 'absolute',
+                        bottom: 0,
+                        left: 0,
+                        width: '100%',
+                        padding: '1.5rem 2rem',
+                        background: 'linear-gradient(0deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%)',
+                        borderTop: '1px solid rgba(255, 255, 255, 0.1)',
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: 'flex-end',
+                        zIndex: 20
+                    }}>
+                        <div style={{ display: 'flex', gap: '3rem' }}>
+                            <div>
+                                <div style={{ color: '#888', fontSize: '0.7rem', marginBottom: '4px', fontFamily: 'monospace' }}>ACTIVE NODES</div>
+                                <div style={{ color: 'white', fontSize: '1.2rem', fontFamily: 'monospace', fontWeight: 'bold' }}>12/12</div>
+                            </div>
+                            <div>
+                                <div style={{ color: '#888', fontSize: '0.7rem', marginBottom: '4px', fontFamily: 'monospace' }}>NETWORK LATENCY</div>
+                                <div style={{ color: '#F26C29', fontSize: '1.2rem', fontFamily: 'monospace', fontWeight: 'bold' }}>&lt; 20ms</div>
+                            </div>
+                            <div className="hidden md:block"> {/* Simple hide on mobile logic using Tailwind */}
+                                <div style={{ color: '#888', fontSize: '0.7rem', marginBottom: '4px', fontFamily: 'monospace' }}>ENCRYPTION</div>
+                                <div style={{ color: '#10B981', fontSize: '1.2rem', fontFamily: 'monospace', fontWeight: 'bold' }}>QUANTUM-READY</div>
+                            </div>
+                        </div>
+                        <div style={{
+                            fontFamily: 'monospace',
+                            color: 'rgba(255,255,255,0.5)',
+                            fontSize: '0.8rem',
+                            letterSpacing: '1px'
+                        }}>
+                            SECURE CONNECTION v4.2
+                        </div>
+                    </div>
                 </div>
 
                 {/* KPI stats below map */}
@@ -96,15 +256,15 @@ export default function GlobalDefenseSection() {
                 }}>
                     <div className="glass-card" style={{ padding: '2rem', textAlign: 'center', background: 'rgba(255,255,255,0.03)', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.1)' }}>
                         <h3 style={{ fontSize: '3rem', color: '#F26C29', marginBottom: '0.5rem', fontWeight: '800' }}>18+</h3>
-                        <p style={{ color: '#000000', margin: 0 }}>Advanced Cyber Defense Centres</p>
+                        <p style={{ color: '#1f2937', margin: 0 }}>Advanced Cyber Defense Centres</p>
                     </div>
                     <div className="glass-card" style={{ padding: '2rem', textAlign: 'center', background: 'rgba(255,255,255,0.03)', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.1)' }}>
                         <h3 style={{ fontSize: '3rem', color: '#F26C29', marginBottom: '0.5rem', fontWeight: '800' }}>24/7</h3>
-                        <p style={{ color: '#000000', margin: 0 }}>Continuous Threat Monitoring</p>
+                        <p style={{ color: '#1f2937', margin: 0 }}>Continuous Threat Monitoring</p>
                     </div>
                     <div className="glass-card" style={{ padding: '2rem', textAlign: 'center', background: 'rgba(255,255,255,0.03)', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.1)' }}>
                         <h3 style={{ fontSize: '3rem', color: '#F26C29', marginBottom: '0.5rem', fontWeight: '800' }}>200+</h3>
-                        <p style={{ color: '#000000', margin: 0 }}>Countries & Regions Covered</p>
+                        <p style={{ color: '#1f2937', margin: 0 }}>Countries & Regions Covered</p>
                     </div>
                 </div>
 

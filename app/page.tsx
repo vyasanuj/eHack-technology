@@ -143,8 +143,8 @@ export default function Home() {
               fontWeight: '700',
               marginBottom: '1.5rem'
             }}>Why Ehack</span>
-            <h2 className="section-title">Your Trusted <span style={{ color: '#F26C29' }}>Security</span> Partner</h2>
-            <p className="section-subtitle">
+            <h2 className="section-title">Your Trusted <span style={{ color: '#ec7c00' }}>Security</span> Partner</h2>
+            <p className="section-subtitle" style={{ color: '#1f2937' }}>
               We combine cutting-edge tools with expert human analysis to deliver unmatched security insights
             </p>
           </div>
@@ -181,7 +181,7 @@ export default function Home() {
                   justifyContent: 'center'
                 }}>
                   <p style={{
-                    color: '#444',
+                    color: '#1f2937',
                     fontSize: '1rem',
                     lineHeight: '1.5',
                     fontWeight: '500',

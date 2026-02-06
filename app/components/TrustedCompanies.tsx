@@ -33,11 +33,12 @@ export default function TrustedCompanies() {
                     <span style={{
                         background: '#F26C29',
                         color: 'white',
-                        fontSize: '1.1rem',
-                        padding: '0.75rem 2rem',
+                        fontSize: '1.25rem',
+                        padding: '0.85rem 2.5rem',
                         borderRadius: '50px',
                         fontWeight: '700',
-                        display: 'inline-block'
+                        display: 'inline-block',
+                        boxShadow: '0 4px 15px rgba(242, 108, 41, 0.25)'
                     }}>
                         Trusted Security Partner For Leading Enterprises
                     </span>
@@ -54,8 +55,8 @@ export default function TrustedCompanies() {
                         <div
                             key={index}
                             style={{
-                                border: '1px solid #F26C29',
-                                borderRadius: '20px',
+                                border: '2px solid #F26C29',
+                                borderRadius: '15px',
                                 overflow: 'hidden',
                                 background: 'white',
                                 transition: 'transform 0.3s ease, box-shadow 0.3s ease'
@@ -95,7 +96,7 @@ export default function TrustedCompanies() {
 
                             {/* Name Area */}
                             <div style={{
-                                background: '#F26C29',
+                                background: '#ec7c00',
                                 color: 'white',
                                 padding: '0.6rem',
                                 textAlign: 'center',
@@ -118,8 +119,8 @@ export default function TrustedCompanies() {
                         <div
                             key={index}
                             style={{
-                                border: '1px solid #F26C29',
-                                borderRadius: '20px',
+                                border: '2px solid #F26C29',
+                                borderRadius: '10px',
                                 overflow: 'hidden',
                                 background: 'white',
                                 transition: 'transform 0.3s ease, box-shadow 0.3s ease'
@@ -159,7 +160,7 @@ export default function TrustedCompanies() {
 
                             {/* Name Area */}
                             <div style={{
-                                background: '#F26C29',
+                                background: '#ec7c00',
                                 color: 'white',
                                 padding: '0.6rem',
                                 textAlign: 'center',
