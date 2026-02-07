@@ -23,6 +23,11 @@ export const metadata: Metadata = {
     description: "Protect your enterprise with cutting-edge cybersecurity solutions from Ehack Technology.",
     type: "website",
   },
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' }
+    ],
+  },
 };
 
 export default function RootLayout({
