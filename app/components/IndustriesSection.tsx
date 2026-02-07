@@ -114,7 +114,7 @@ export default function IndustriesSection() {
     const [activeIndustry, setActiveIndustry] = useState(industries[0]);
 
     return (
-        <section className="section" style={{ padding: '4rem 0', }}>
+        <section className="section" style={{ padding: '4rem 0', borderTop: '1px solid #ff6b00' }}>
             <div className="container" style={{ maxWidth: '1400px' }}>
                 <div className="section-header" style={{ marginBottom: '4rem' }}>
                     <span className="section-label" style={{
@@ -125,8 +125,8 @@ export default function IndustriesSection() {
                         fontWeight: '700',
                         borderRadius: '50px'
                     }}>Industries We Serve</span>
-                    <h2 className="section-title">Trusted Across <span style={{ color: '#F26C29' }}>Industries</span></h2>
-                    <p className="section-subtitle">
+                    <h2 className="section-title">Trusted Across <span style={{ color: '#ec7c00' }}>Industries</span></h2>
+                    <p className="text-[#1f2937] text-[20px]">
                         From fintech to healthcare, we secure organizations across all sectors
                     </p>
                 </div>
@@ -195,7 +195,7 @@ export default function IndustriesSection() {
                                     borderRadius: '12px',
                                     background: activeIndustry.id === ind.id ? '#fff5f0' : 'transparent',
                                     border: activeIndustry.id === ind.id ? '1px solid #F26C29' : '1px solid #b6b4b4ff',
-                                    color: activeIndustry.id === ind.id ? '#F26C29' : '#555',
+                                    color: activeIndustry.id === ind.id ? '#F26C29' : '#1f2937',
                                     fontWeight: activeIndustry.id === ind.id ? '700' : '500',
                                     cursor: 'pointer',
                                     transition: 'all 0.3s ease',
@@ -285,7 +285,7 @@ export default function IndustriesSection() {
                         {/* Text Content (Bottom) */}
                         <div style={{ padding: '2rem 1rem' }}>
                             <p style={{
-                                color: '#666',
+                                color: '#1f2937',
                                 fontSize: '1.1rem',
                                 lineHeight: '1.6',
                                 marginBottom: '2rem',
@@ -298,7 +298,7 @@ export default function IndustriesSection() {
                                 <h4 style={{
                                     fontSize: '1rem',
                                     fontWeight: '700',
-                                    color: '#333',
+                                    color: '#1f2937',
                                     marginBottom: '1rem',
                                     display: 'flex',
                                     alignItems: 'center',
@@ -319,7 +319,7 @@ export default function IndustriesSection() {
                                             alignItems: 'center',
                                             gap: '0.5rem',
                                             fontSize: '0.95rem',
-                                            color: '#555',
+                                            color: '#1f2937',
                                             fontWeight: '500'
                                         }}>
                                             <span style={{

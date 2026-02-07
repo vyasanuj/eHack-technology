@@ -1,6 +1,32 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import LeadForm from './components/LeadForm';
+import { ArrowRight } from 'lucide-react';
+import styles from './components/AcademySection.module.css';
+import bentoStyles from './components/CertificateBento.module.css';
+
+const certificates = [
+  '/images/certificates/ceh-certificate.jpg',
+  '/images/certificates/cert-chfi.jpg',
+  '/images/certificates/cert-cnd.jpg',
+  '/images/certificates/cert-cpent.jpg',
+  '/images/certificates/cert-cscu.jpg',
+  '/images/certificates/digital-marketing-certificate.jpeg',
+  '/images/certificates/graduate-certificate.jpg',
+  '/images/certificates/masterclass-1.jpeg',
+];
+
+const uniLogos = [
+  '/images/csr-uni-logo/PESU.png',
+  '/images/csr-uni-logo/bel.jpeg',
+  '/images/csr-uni-logo/cashfree.png',
+  '/images/csr-uni-logo/christ.jpeg',
+  '/images/csr-uni-logo/nitte.svg',
+  '/images/csr-uni-logo/ramaiah-management.png',
+  '/images/csr-uni-logo/ramaiah.png',
+  '/images/csr-uni-logo/reva-university.webp',
+  '/images/csr-uni-logo/sambhram.jpg',
+];
+
 import {
   GlobalIcon,
   ZapIcon,
@@ -9,11 +35,14 @@ import {
   ClipboardCheckIcon,
   HeadsetIcon
 } from './components/FeatureIcons';
-import TrustedCompanies from './components/TrustedCompanies'; // Import new component
+import TrustedCompanies from './components/TrustedCompanies';
+import HeroSlider from './components/HeroSlider';
 import CaseStudySection from './components/CaseStudySection';
 import IndustriesSection from './components/IndustriesSection';
 import ServicesSection from './components/ServicesSection';
 import StickySectionNav from './components/StickySectionNav';
+import GlobalDefenseSection from './components/GlobalDefenseSection';
+import AcademySection from './components/AcademySection';
 
 export default function Home() {
   const features = [
@@ -51,209 +80,54 @@ export default function Home() {
 
   return (
     <>
-      {/* Sticky Section Nav */}
       <StickySectionNav />
 
-      {/* Modern Hero Section */}
-      <section id="start" className="hero" style={{
-        padding: '3rem 0 4rem',
-        background: 'linear-gradient(135deg, #FFF5F2 0%, #FFFFFF 100%)',
-        position: 'relative',
-        overflow: 'hidden'
-      }}>
-        {/* Background Graphic Removed */}
+      <div id="start">
+        <HeroSlider />
+      </div>
 
-        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: '1fr 1fr',
-            gap: '3rem',
-            alignItems: 'start'
-          }}>
-            {/* Left Content */}
-            <div className="hero-content">
-              <div className="animate-fadeInDown" style={{
-                display: 'inline-block',
-                padding: '0.5rem 1rem',
-                background: '#F26C29', // Brand Orange
-                border: '1px solid rgba(255, 255, 255, 0.2)',
-                borderRadius: '50px',
-                marginBottom: '1.5rem',
-                boxShadow: '0 4px 6px rgba(242, 108, 41, 0.2)'
-              }}>
-                <span style={{
-                  color: 'white',
-                  fontWeight: '600',
-                  fontSize: '0.9rem',
-                  letterSpacing: '0.02em'
-                }}>
-                  Trusted by 500+ Enterprises Worldwide
-                </span>
-              </div>
-
-              <h1 className="animate-fadeInUp" style={{
-                fontSize: 'clamp(2.5rem, 5vw, 3.75rem)',
-                fontWeight: '800',
-                lineHeight: '1.1',
-                color: '#1a1a1a',
-                marginBottom: '1.5rem',
-                letterSpacing: '-0.02em'
-              }}>
-                Protect Your Business with <span style={{ color: '#F26C29' }}>Enterprise-Grade</span> Cybersecurity
-              </h1>
-
-              <p className="hero-description animate-fadeInUp delay-200" style={{
-                fontSize: '1.25rem',
-                lineHeight: '1.6',
-                color: '#555',
-                marginBottom: '2.5rem',
-                maxWidth: '90%'
-              }}>
-                We identify vulnerabilities before attackers do. Our expert team delivers comprehensive security assessments to safeguard your digital assets.
-              </p>
-
-              <div style={{ display: 'flex', gap: '1rem', marginBottom: '3rem' }} className="animate-fadeInUp delay-300">
-                <Link href="/contact" className="btn btn-primary btn-lg" style={{
-                  padding: '1rem 2.5rem',
-                  fontSize: '1.125rem',
-                  fontWeight: '600',
-                  borderRadius: '12px',
-                  boxShadow: '0 10px 20px rgba(242, 108, 41, 0.25)',
-                  transition: 'transform 0.2s ease',
-                  border: 'none'
-                }}>
-                  Get Free Assessment
-                </Link>
-                <Link href="/services/web-application-security" className="btn btn-white btn-lg" style={{
-                  padding: '1rem 2.5rem',
-                  fontSize: '1.125rem',
-                  fontWeight: '600',
-                  borderRadius: '12px',
-                  border: '1px solid #e5e5e5',
-                  background: 'white',
-                  color: '#1a1a1a'
-                }}>
-                  View Services
-                </Link>
-              </div>
-
-              <div className="hero-stats animate-fadeInUp delay-400" style={{
-                display: 'flex',
-                gap: '3rem',
-                borderTop: '1px solid rgba(0,0,0,0.05)',
-                paddingTop: '2rem'
-              }}>
-                <div>
-                  <h3 style={{ fontSize: '2rem', fontWeight: '800', color: '#1a1a1a', marginBottom: '0.25rem' }}>500+</h3>
-                  <p style={{ color: '#666', fontSize: '0.9rem', fontWeight: '500' }}>Clients Secured</p>
-                </div>
-                <div>
-                  <h3 style={{ fontSize: '2rem', fontWeight: '800', color: '#1a1a1a', marginBottom: '0.25rem' }}>10K+</h3>
-                  <p style={{ color: '#666', fontSize: '0.9rem', fontWeight: '500' }}>Vulnerabilities Found</p>
-                </div>
-                <div>
-                  <h3 style={{ fontSize: '2rem', fontWeight: '800', color: '#1a1a1a', marginBottom: '0.25rem' }}>99%</h3>
-                  <p style={{ color: '#666', fontSize: '0.9rem', fontWeight: '500' }}>Client Retention</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Content - Hero Image & Form Combined */}
-            <div className="hero-right-column animate-scaleIn delay-300" style={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              marginTop: '1rem'
-            }}>
-              {/* Unified Card Container */}
-              <div style={{
-                position: 'relative',
-                width: '100%',
-                maxWidth: '600px', // Increased from 450px
-                borderRadius: '20px',
-                boxShadow: '0 20px 40px -10px rgba(0, 0, 0, 0.1)',
-                overflow: 'hidden',
-                background: 'white'
-              }}>
-                {/* Image Part */}
-                <div style={{
-                  position: 'relative',
-                  width: '100%',
-                  height: '320px', // Increased from 240px
-                }}>
-                  <Image
-                    src="/service-web-hero.png"
-                    alt="Cybersecurity Assessment"
-                    fill
-                    style={{
-                      objectFit: 'cover',
-                      objectPosition: 'center top'
-                    }}
-                    priority
-                  />
-                </div>
-
-                {/* Form Part - Attached below */}
-                <div>
-                  <LeadForm
-                    title="Get Started"
-                    subtitle="Free Expert Consultation"
-                    serviceName="General Inquiry"
-                    compact={true}
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Trusted By Section */}
       <TrustedCompanies />
 
-      {/* Services Section */}
       <div id="services">
         <ServicesSection />
       </div>
 
-      {/* Stats Section */}
-      <section className="stats-section">
+      <section className="stats-section" style={{ background: '#f8f9fa' }}>
         <div className="container">
           <div className="stats-grid">
             <div className="stat-item">
               <h3>12+</h3>
-              <p>Years of Experience</p>
+              <p style={{ color: '#1f2937', fontSize: '1.1rem', marginTop: '0.5rem', background: '#fff5f0', display: 'inline-block', padding: '0.4rem 1.2rem', borderRadius: '50px', fontWeight: '600' }}>Years of Experience</p>
             </div>
             <div className="stat-item">
               <h3>500+</h3>
-              <p>Enterprise Clients</p>
+              <p style={{ color: '#1f2937', fontSize: '1.1rem', marginTop: '0.5rem', background: '#fff5f0', display: 'inline-block', padding: '0.4rem 1.2rem', borderRadius: '50px', fontWeight: '600' }}>Enterprise Clients</p>
             </div>
             <div className="stat-item">
               <h3>50+</h3>
-              <p>Security Experts</p>
-            </div>
-            <div className="stat-item">
-              <h3>20+</h3>
-              <p>Countries Served</p>
+              <p style={{ color: '#1f2937', fontSize: '1.1rem', marginTop: '0.5rem', background: '#fff5f0', display: 'inline-block', padding: '0.4rem 1.2rem', borderRadius: '50px', fontWeight: '600' }}>Security Experts</p>
             </div>
           </div>
         </div>
       </section>
-
-      {/* previously here -- now moved Why Choose Us Section */}
-
 
       <div id="industries">
         <IndustriesSection />
       </div>
 
-      {/* Case Studies Section */}
       <div id="case-studies">
         <CaseStudySection />
       </div>
 
-      {/* Why Choose Us Section */}
-      <section id="why-ehack" className="section section-light">
+      <div id="global-defense">
+        <GlobalDefenseSection />
+      </div>
+
+      <div id="academy">
+        <AcademySection />
+      </div>
+
+      <section id="why-ehack" className="section section-light" style={{ padding: '2.5rem 0', borderBottom: '1px solid #ff6b00' }}>
         <div className="container">
           <div className="section-header">
             <span className="section-label" style={{
@@ -263,51 +137,49 @@ export default function Home() {
               padding: '0.75rem 2rem',
               borderRadius: '50px',
               fontWeight: '700',
-              marginBottom: '1.5rem'
+              marginBottom: '1.5rem',
+
             }}>Why Ehack</span>
-            <h2 className="section-title">Your Trusted <span style={{ color: '#F26C29' }}>Security</span> Partner</h2>
-            <p className="section-subtitle">
+            <h2 className="section-title">Your Trusted <span style={{ color: '#ec7c00' }}>Security</span> Partner</h2>
+            <p className="section-subtitle" style={{ color: '#1f2937' }}>
               We combine cutting-edge tools with expert human analysis to deliver unmatched security insights
             </p>
           </div>
           <div className="features-grid">
             {features.map((feature, index) => (
               <div key={index} className="service-card group" style={{
-                padding: '0', // Remove default padding for full-width header
-                overflow: 'hidden', // Ensure header stays inside rounded corners
+                padding: '0',
+                overflow: 'hidden',
                 display: 'flex',
                 flexDirection: 'column'
               }}>
-                {/* Full Width Header */}
                 <div style={{
                   background: '#F26C29',
-                  padding: '1rem 1.5rem', // Reduced padding
+                  padding: '1rem 1.5rem',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  minHeight: '60px' // Reduced height
+                  minHeight: '60px'
                 }}>
                   <h3 style={{
                     color: 'white',
-                    fontSize: '1.2rem', // Slightly refined size
+                    fontSize: '1.2rem',
                     fontWeight: '700',
                     margin: 0,
                     textAlign: 'center',
                     lineHeight: '1.2'
                   }}>{feature.title}</h3>
                 </div>
-
-                {/* Content Area */}
                 <div className="service-card-content" style={{
-                  padding: '1.5rem 1.25rem', // Reduced padding
-                  flex: 1, // Fill remaining space
+                  padding: '1.5rem 1.25rem',
+                  flex: 1,
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center'
                 }}>
                   <p style={{
-                    color: '#444', // Slightly softer black for professionalism
-                    fontSize: '1rem', // Cleaner standard size
+                    color: '#1f2937',
+                    fontSize: '1rem',
                     lineHeight: '1.5',
                     fontWeight: '500',
                     textAlign: 'center',
@@ -320,41 +192,139 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Certifications Section */}
-      <section id="certifications" className="section" style={{ background: 'var(--primary-bg)' }}>
+      {/* Certifications & Partnerships Section */}
+      <section className={bentoStyles.sectionWrapper}>
         <div className="container">
-          <div className="section-header" style={{ marginBottom: '2rem' }}>
-            <h2 className="section-title">Certifications & Partnerships</h2>
-            <p className="section-subtitle">
-              Our team holds industry-leading certifications ensuring the highest quality of service
-            </p>
+          <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+            <span style={{
+              background: '#F26C29',
+              color: 'white',
+              fontSize: '1.1rem',
+              padding: '0.75rem 2rem',
+              borderRadius: '50px',
+              fontWeight: '700',
+              display: 'inline-block',
+              marginBottom: '1.5rem'
+            }}>
+              Certifications & Partnerships
+            </span>
+            <h2 className="section-title">Global Recognition & <span style={{ color: '#F26C29' }}>Academic Excellence</span></h2>
           </div>
-          <div style={{
-            display: 'flex',
-            justifyContent: 'center',
-            gap: '3rem',
-            flexWrap: 'wrap'
-          }}>
-            {[
-              { name: 'CEH', image: '/images/certifications/ceh.png' },
-              { name: 'OSCP', image: '/images/certifications/oscp.png' },
-              { name: 'CISSP', image: '/images/certifications/cissp.png' },
-              { name: 'CISA', image: '/images/certifications/cisa.png' },
-              { name: 'ISO 27001', image: '/images/certifications/iso27001.png' },
-              { name: 'PCI QSA', image: '/images/certifications/iso27001.png' } // Using ISO as placeholder for now
-            ].map((cert, i) => (
-              <div key={i} className="group relative w-48 h-48 flex items-center justify-center">
-                <div className="absolute inset-0 bg-white/5 backdrop-blur-md rounded-full border border-white/20 shadow-lg transition-all duration-500 group-hover:bg-white/10 group-hover:scale-105"></div>
-                <div className="relative w-32 h-32 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6">
-                  <Image
-                    src={cert.image}
-                    alt={cert.name}
-                    fill
-                    className="object-contain drop-shadow-xl"
-                  />
+
+          <div className={bentoStyles.bentoContainer}>
+            {/* Column 1: Industry Certifications */}
+            <div className={bentoStyles.bentoCard}>
+              <div className={bentoStyles.marqueeColumn}>
+                <div className={bentoStyles.marqueeTrack}>
+                  {[...certificates, ...certificates].map((img, i) => (
+                    <div key={i} className={bentoStyles.imageWrapper}>
+                      <Image src={img} alt="Certificate" fill className="object-contain" />
+                    </div>
+                  ))}
                 </div>
               </div>
-            ))}
+              <div className={bentoStyles.cardFloatingLabel}>
+                <h4>Professional Certifications</h4>
+              </div>
+            </div>
+
+            {/* Column 2: Educational Programs */}
+            <div className={bentoStyles.bentoCard}>
+              <div className={bentoStyles.marqueeColumn}>
+                <div className={`${bentoStyles.marqueeTrack} ${bentoStyles.marqueeTrackReverse}`}>
+                  {[...uniLogos, ...uniLogos].map((img, i) => (
+                    <div key={i} className={bentoStyles.imageWrapper}>
+                      <Image src={img} alt="University Logo" fill className="object-contain" />
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className={bentoStyles.cardFloatingLabel}>
+                <h4>Academic Alliances</h4>
+              </div>
+            </div>
+
+            {/* Column 3: Advanced Training */}
+            <div className={bentoStyles.bentoCard}>
+              <div className={bentoStyles.marqueeColumn}>
+                <div className={bentoStyles.marqueeTrack}>
+                  {['/images/certificates/masterclass-1.jpeg', '/images/certificates/masterclass-2.jpeg', '/images/certificates/masterclass-3.jpeg', '/images/certificates/masters-certificate.jpg', '/images/certificates/robotics-image.jpeg', '/images/certificates/ceh-certificate.jpg'].map((img, i) => (
+                    <div key={i} className={bentoStyles.imageWrapper}>
+                      <Image src={img} alt="Advanced Training" fill className="object-contain" />
+                    </div>
+                  ))}
+                  {['/images/certificates/masterclass-1.jpeg', '/images/certificates/masterclass-2.jpeg', '/images/certificates/masterclass-3.jpeg', '/images/certificates/masters-certificate.jpg', '/images/certificates/robotics-image.jpeg', '/images/certificates/ceh-certificate.jpg'].map((img, i) => (
+                    <div key={i + 10} className={bentoStyles.imageWrapper}>
+                      <Image src={img} alt="Advanced Training" fill className="object-contain" />
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className={bentoStyles.cardFloatingLabel}>
+                <h4>Strategic Partnerships</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Ribbons Section */}
+      <section style={{ borderBottom: '1px solid #ff6b00', padding: '2rem 0', borderTop: '1px solid #ff6b00', marginTop: '2rem' }}>
+        <div className="container">
+          <div className="section-header" style={{ marginBottom: '3rem' }}>
+            <h2 className="section-title">Social Impact & <span style={{ color: '#F26C29' }}>Strategic Growth</span></h2>
+            <p className="section-subtitle">
+              Driving positive change through cyber literacy while expanding our global footprint through strategic partnerships.
+            </p>
+          </div>
+          <div className={styles.ribbonsGrid}>
+            <div className={styles.ribbonGridItem}>
+              <div className={`${styles.ribbonTitleStrip} ${styles.csrTitleStrip}`}>Corporate Social Responsibility</div>
+              <Link href="/csr" className={`${styles.ribbonCard} ${styles.csrRibbon}`}>
+                <div className={styles.ribbonImageWrapper}>
+                  <div className={styles.floatingImage}>
+                    <img
+                      src="/images/csr-banner-image.jpg"
+                      alt="eHack CSR Initiatives"
+                      className={styles.ribbonImage}
+                    />
+                  </div>
+                </div>
+                <div className={styles.ribbonContent}>
+                  <span className={styles.ribbonBadge}>Cyber Literacy | AI Awareness</span>
+                  <h3 className={styles.ribbonTitle}>Empowering Society Through Cybersecurity, Employability & Emerging Technologies</h3>
+                  <p className={styles.ribbonText}>Join our mission to bridge the skill gap and build a safer digital future for everyone.</p>
+                  <div className={styles.ribbonAction}>
+                    Explore CSR Initiatives <ArrowRight size={20} />
+                  </div>
+                </div>
+                <div className={styles.ribbonPattern}></div>
+              </Link>
+            </div>
+
+            <div className={styles.ribbonGridItem}>
+              <div className={`${styles.ribbonTitleStrip} ${styles.franchiseTitleStrip}`}>Franchise Opportunities</div>
+              <Link href="/franchise" className={`${styles.ribbonCard} ${styles.franchiseRibbon}`}>
+                <div className={styles.ribbonImageWrapper}>
+                  <div className={styles.floatingImage}>
+                    <img
+                      src="/images/franchise-popup-image.jpg"
+                      alt="Franchise Laboratory"
+                      className={styles.ribbonImage}
+                    />
+                  </div>
+                </div>
+                <div className={styles.ribbonContent}>
+                  <span className={styles.ribbonBadge}>Collaborative Growth</span>
+                  <h3 className={styles.ribbonTitle}>Build Your Educational Empire with eHack Academy Franchise</h3>
+                  <p className={styles.ribbonText}>Build a thriving educational venture with India's premier cybersecurity academy.</p>
+                  <div className={styles.ribbonAction}>
+                    Start Your Franchise <ArrowRight size={20} />
+                  </div>
+                </div>
+                <div className={styles.ribbonPattern}></div>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -370,9 +340,7 @@ export default function Home() {
           <div className="cta-buttons">
             <Link href="/contact" className="btn btn-primary btn-lg">
               Schedule Consultation
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
+              <ArrowRight size={16} />
             </Link>
             <Link href="/about" className="btn btn-white btn-lg">
               Learn About Us

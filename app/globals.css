@@ -37,8 +37,9 @@
   --info: #3B82F6;
 
   /* Typography */
-  --font-heading: 'Outfit', sans-serif;
-  --font-body: 'Inter', sans-serif;
+  /* Moved to body for better scoping with Next.js font variables */
+
+
 
   /* Spacing */
   --section-padding: 5rem;
@@ -79,13 +80,26 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: inherit;
+  /* Force inheritance for all elements */
 }
+
+input,
+button,
+textarea,
+select {
+  font-family: var(--font-body);
+  /* Explicitly set for form elements */
+}
+
 
 html {
   scroll-behavior: smooth;
 }
 
 body {
+  --font-heading: var(--font-montserrat), sans-serif;
+  --font-body: var(--font-montserrat), sans-serif;
   font-family: var(--font-body);
   color: var(--gray-800);
   background: var(--white);
@@ -93,6 +107,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 
 h1,
 h2,
@@ -115,6 +130,42 @@ h6 {
   to {
     opacity: 1;
   }
+}
+
+@keyframes dropdownFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Custom Scrollbar - Subtle and thin */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.15) transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.25);
 }
 
 @keyframes fadeInUp {
@@ -546,10 +597,10 @@ h6 {
 
 /* ===== HEADER STYLES ===== */
 .top-bar {
-  background: var(--primary);
+  background: #ff6b00;
   color: var(--white);
-  padding: 0.625rem 0;
-  font-size: 1rem;
+  padding: 10px 0;
+  font-size: 22px;
 }
 
 .top-bar a {
@@ -559,7 +610,7 @@ h6 {
   align-items: center;
   gap: 0.625rem;
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 22px;
   transition: opacity var(--transition-fast);
 }
 
@@ -568,12 +619,12 @@ h6 {
 }
 
 .promo-bar {
-  background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 100%);
+  background: #e55a00;
   color: var(--white);
-  padding: 0.875rem 0;
+  padding: 0.7rem 0;
   text-align: center;
-  font-size: 1.0625rem;
-  font-weight: 700;
+  font-size: 24px;
+  font-weight: 400;
 }
 
 .promo-bar a {
@@ -595,8 +646,8 @@ h6 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.75rem 1.5rem;
-  max-width: var(--container-max);
+  padding: 0.5rem 2rem;
+  max-width: 1600px;
   margin: 0 auto;
 }
 
@@ -630,21 +681,20 @@ h6 {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 2.5rem;
+  gap: 1.25rem;
   list-style: none;
   flex: 1;
-  margin: 0 2rem;
-  margin-right: 153px;
-  margin-top: 8px;
+  margin: 0 1rem;
 }
 
 .nav-link {
   color: var(--gray-700);
   text-decoration: none;
-  font-weight: 700;
-  font-size: 1.0625rem;
+  font-weight: 600;
+  font-size: 0.95rem;
   transition: color var(--transition-fast);
-  padding: 0.5rem 0;
+  padding: 0.2rem 0;
+  white-space: nowrap;
 }
 
 .nav-link:hover {
@@ -664,23 +714,91 @@ h6 {
   align-items: center;
   gap: 0.375rem;
   cursor: pointer;
+  background-color: rgba(242, 108, 41, 0.08);
+  /* Subtle orange */
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.nav-dropdown-trigger:hover {
+  background-color: rgba(242, 108, 41, 0.15);
+  color: var(--primary);
+}
+
+.nav-capsule {
+  background-color: #df6718 !important;
+  color: white !important;
+  border-radius: 9999px !important;
+  padding: 0.4rem 1rem !important;
+  font-weight: 600 !important;
+  font-size: 0.85rem !important;
+  letter-spacing: 0.02em !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.2rem !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 6px -1px rgba(223, 103, 24, 0.2) !important;
+}
+
+.nav-capsule:hover {
+  background-color: #c55a15 !important;
+  transform: translateY(-1px);
+}
+
+.nav-capsule svg {
+  color: white !important;
 }
 
 .nav-dropdown-menu {
   position: absolute;
   top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
+  transform: none;
   background: var(--white);
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-xl);
-  padding: 1.5rem;
-  min-width: 700px;
+  padding: 1rem;
+  width: max-content;
+  min-width: 250px;
+  /* A reasonable minimum */
   opacity: 0;
   visibility: hidden;
   transition: all var(--transition-normal);
   z-index: 100;
   margin-top: 0.5rem;
+}
+
+.dropdown-list-simple {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown-list-simple li {
+  margin-bottom: 0.5rem;
+}
+
+.dropdown-list-simple li:last-child {
+  margin-bottom: 0;
+}
+
+.dropdown-list-simple a {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  color: var(--gray-700);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-radius: 6px;
+  transition: all var(--transition-fast);
+}
+
+.dropdown-list-simple a:hover {
+  background-color: var(--gray-50);
+  color: var(--primary);
+  padding-left: 1rem;
+  /* Slide effect */
 }
 
 .nav-dropdown:hover .nav-dropdown-menu {
@@ -731,6 +849,8 @@ h6 {
   padding: 0.625rem 1.25rem;
   border-radius: var(--radius-full);
   font-weight: 600;
+  display: inline-flex;
+  align-items: center;
 }
 
 .nav-cta:hover {
@@ -1183,15 +1303,17 @@ h6 {
 
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
   text-align: center;
 }
 
 .stat-item {
   border: 1px solid var(--primary);
-  border-radius: var(--radius-lg);
+  border-radius: 20px;
+  background: linear-gradient(135deg, var(--primary-bg) 0%, var(--white) 100%);
   padding: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
   transition: all var(--transition-normal);
 }
 
