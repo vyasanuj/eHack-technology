@@ -132,230 +132,238 @@ export default function IndustriesSection() {
                 </div>
 
                 <div style={{
-                    display: 'grid',
-                    gridTemplateColumns: '80px 300px 1fr',
-                    gap: '2rem',
+                    display: 'flex',
+                    flexDirection: 'column',
                     background: 'white',
                     borderRadius: '24px',
-                    padding: '2rem',
                     boxShadow: '0 20px 40px -10px rgba(0,0,0,0.05)',
                     border: '1px solid #F26C29',
-                    height: '650px', // Fixed height for alignment
+                    height: '750px', // Increased slightly for top bar
                     overflow: 'hidden'
                 }}>
 
-                    {/* 1. Vertical Animated Strip */}
+                    {/* 1. Horizontal Animated Strip (Top) */}
                     <div style={{
                         background: '#F26C29',
-                        borderRadius: '16px',
+                        width: '100%',
+                        height: '40px',
                         overflow: 'hidden',
                         position: 'relative',
                         display: 'flex',
-                        justifyContent: 'center',
-                        // border: '1px solid #333'
+                        alignItems: 'center'
                     }}>
-                        <div className="animate-marquee-vertical" style={{
-                            writingMode: 'vertical-rl',
-                            textOrientation: 'mixed',
+                        <div className="animate-marquee" style={{
                             whiteSpace: 'nowrap',
                             color: 'white',
-                            fontSize: '1.5rem',
+                            fontSize: '0.9rem',
                             fontWeight: '800',
                             letterSpacing: '0.2em',
                             display: 'flex',
                             alignItems: 'center',
                             gap: '2rem',
-                            padding: '1rem 0'
+                            padding: '0 1rem',
+                            animationDirection: 'reverse' // Left to right
                         }}>
                             {/* Repeat text for seamless loop */}
-                            {[...Array(5)].map((_, i) => (
-                                <span key={i} style={{ transform: 'rotate(180deg)' }}>
+                            {[...Array(10)].map((_, i) => (
+                                <span key={i}>
                                     {activeIndustry.stripText}
                                 </span>
                             ))}
                         </div>
                     </div>
 
-                    {/* 2. Vertical Industry Tabs */}
+                    {/* Inner Container for Tabs & Content */}
                     <div style={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        gap: '0.75rem',
-                        paddingRight: '1rem',
-                        borderRight: '1px solid #eee',
-                        overflowY: 'auto'
+                        display: 'grid',
+                        gridTemplateColumns: '300px 1fr',
+                        gap: '2rem',
+                        padding: '2rem',
+                        height: 'calc(100% - 40px)',
+                        overflow: 'hidden'
                     }}>
-                        {industries.map((ind) => (
-                            <button
-                                key={ind.id}
-                                onClick={() => setActiveIndustry(ind)}
-                                style={{
-                                    textAlign: 'left',
-                                    padding: '1.25rem 1.5rem',
-                                    borderRadius: '12px',
-                                    background: activeIndustry.id === ind.id ? '#fff5f0' : 'transparent',
-                                    border: activeIndustry.id === ind.id ? '1px solid #F26C29' : '1px solid #b6b4b4ff',
-                                    color: activeIndustry.id === ind.id ? '#F26C29' : '#1f2937',
-                                    fontWeight: activeIndustry.id === ind.id ? '700' : '500',
-                                    cursor: 'pointer',
-                                    transition: 'all 0.3s ease',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'space-between'
-                                }}
-                            >
-                                {ind.name}
-                                {activeIndustry.id === ind.id && <span style={{ fontSize: '1.2rem' }}>→</span>}
-                            </button>
-                        ))}
-                    </div>
 
-                    {/* 3. Content Display Area */}
-                    <div className="animate-fadeIn" key={activeIndustry.id} style={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        // gap: '3rem', // Removed gap for seamless look
-                        height: '100%',
-                        position: 'relative',
-                        zIndex: 1
-                    }}>
-                        {/* Background Industry Icon Watermark */}
+                        {/* 2. Vertical Industry Tabs */}
                         <div style={{
-                            position: 'absolute',
-                            bottom: '-50px',
-                            right: '-50px',
-                            opacity: '0.05',
-                            transform: 'rotate(-15deg)',
-                            pointerEvents: 'none',
-                            zIndex: 0
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: '0.75rem',
+                            paddingRight: '1rem',
+                            borderRight: '1px solid #eee',
+                            overflowY: 'auto'
                         }}>
-                            <activeIndustry.icon size={400} color="#F26C29" />
+                            {industries.map((ind) => (
+                                <button
+                                    key={ind.id}
+                                    onClick={() => setActiveIndustry(ind)}
+                                    style={{
+                                        textAlign: 'left',
+                                        padding: '1.25rem 1.5rem',
+                                        borderRadius: '12px',
+                                        background: activeIndustry.id === ind.id ? '#fff5f0' : 'transparent',
+                                        border: activeIndustry.id === ind.id ? '1px solid #F26C29' : '1px solid #b6b4b4ff',
+                                        color: activeIndustry.id === ind.id ? '#F26C29' : '#1f2937',
+                                        fontWeight: activeIndustry.id === ind.id ? '700' : '500',
+                                        cursor: 'pointer',
+                                        transition: 'all 0.3s ease',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'space-between'
+                                    }}
+                                >
+                                    {ind.name}
+                                    {activeIndustry.id === ind.id && <span style={{ fontSize: '1.2rem' }}>→</span>}
+                                </button>
+                            ))}
                         </div>
-                        {/* Image Content (Top Banner) */}
-                        <div style={{
-                            position: 'relative',
-                            width: '100%',
-                            height: '250px', // Fixed height for banner
-                            borderRadius: '16px',
-                            overflow: 'hidden',
-                            boxShadow: '0 20px 40px rgba(0,0,0,0.1)',
-                            flexShrink: 0 // Prevent shrinking
-                        }}>
-                            <Image
-                                src={activeIndustry.image}
-                                alt={activeIndustry.name}
-                                fill
-                                style={{ objectFit: 'cover' }}
-                                className="transform hover:scale-105 transition-transform duration-700"
-                            />
 
-                            {/* Overlay Gradient */}
+                        {/* 3. Content Display Area */}
+                        <div className="animate-fadeIn" key={activeIndustry.id} style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            // gap: '3rem', // Removed gap for seamless look
+                            height: '100%',
+                            position: 'relative',
+                            zIndex: 1
+                        }}>
+                            {/* Background Industry Icon Watermark */}
                             <div style={{
                                 position: 'absolute',
-                                inset: 0,
-                                background: 'linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 50%, transparent 100%)', // Stronger gradient
-                                display: 'flex',
-                                flexDirection: 'column',
-                                justifyContent: 'flex-end',
-                                padding: '2rem'
+                                bottom: '-50px',
+                                right: '-50px',
+                                opacity: '0.05',
+                                transform: 'rotate(-15deg)',
+                                pointerEvents: 'none',
+                                zIndex: 0
                             }}>
-                                <span style={{
-                                    display: 'inline-block',
-                                    fontSize: '0.9rem',
-                                    fontWeight: '700',
-                                    color: 'rgba(255,255,255,0.9)',
-                                    letterSpacing: '0.1em',
-                                    marginBottom: '0.5rem',
-                                    textTransform: 'uppercase'
-                                }}>
-                                    {activeIndustry.tagline}
-                                </span>
-                                <h3 style={{
-                                    fontSize: '3.5rem',
-                                    lineHeight: '1.1',
-                                    color: 'white',
-                                    fontWeight: '800',
-                                    textShadow: '0 4px 10px rgba(0,0,0,0.3)'
-                                }}>
-                                    {activeIndustry.name}
-                                </h3>
+                                <activeIndustry.icon size={400} color="#F26C29" />
                             </div>
-                        </div>
-
-                        {/* Text Content (Bottom) */}
-                        <div style={{ padding: '2rem 1rem' }}>
-                            <p style={{
-                                color: '#1f2937',
-                                fontSize: '1.1rem',
-                                lineHeight: '1.6',
-                                marginBottom: '2rem',
-                                maxWidth: '90%'
+                            {/* Image Content (Top Banner) */}
+                            <div style={{
+                                position: 'relative',
+                                width: '100%',
+                                height: '250px', // Fixed height for banner
+                                borderRadius: '16px',
+                                overflow: 'hidden',
+                                boxShadow: '0 20px 40px rgba(0,0,0,0.1)',
+                                flexShrink: 0 // Prevent shrinking
                             }}>
-                                {activeIndustry.description}
-                            </p>
+                                <Image
+                                    src={activeIndustry.image}
+                                    alt={activeIndustry.name}
+                                    fill
+                                    style={{ objectFit: 'cover' }}
+                                    className="transform hover:scale-105 transition-transform duration-700"
+                                />
 
-                            <div style={{ marginBottom: '2rem' }}>
-                                <h4 style={{
-                                    fontSize: '1rem',
-                                    fontWeight: '700',
-                                    color: '#1f2937',
-                                    marginBottom: '1rem',
+                                {/* Overlay Gradient */}
+                                <div style={{
+                                    position: 'absolute',
+                                    inset: 0,
+                                    background: 'linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 50%, transparent 100%)', // Stronger gradient
                                     display: 'flex',
-                                    alignItems: 'center',
-                                    gap: '0.5rem'
+                                    flexDirection: 'column',
+                                    justifyContent: 'flex-end',
+                                    padding: '2rem'
                                 }}>
-                                    <span style={{ color: '#F26C29' }}>///</span> Key Solutions
-                                </h4>
-                                <ul style={{
-                                    display: 'grid',
-                                    gridTemplateColumns: '1fr 1fr',
-                                    gap: '0.8rem',
-                                    listStyle: 'none',
-                                    padding: 0
-                                }}>
-                                    {activeIndustry.keyFeatures?.map((feature, idx) => (
-                                        <li key={idx} style={{
-                                            display: 'flex',
-                                            alignItems: 'center',
-                                            gap: '0.5rem',
-                                            fontSize: '0.95rem',
-                                            color: '#1f2937',
-                                            fontWeight: '500'
-                                        }}>
-                                            <span style={{
-                                                width: '6px',
-                                                height: '6px',
-                                                borderRadius: '50%',
-                                                background: '#F26C29',
-                                                display: 'inline-block'
-                                            }}></span>
-                                            {feature}
-                                        </li>
-                                    ))}
-                                </ul>
+                                    <span style={{
+                                        display: 'inline-block',
+                                        fontSize: '0.9rem',
+                                        fontWeight: '700',
+                                        color: 'rgba(255,255,255,0.9)',
+                                        letterSpacing: '0.1em',
+                                        marginBottom: '0.5rem',
+                                        textTransform: 'uppercase'
+                                    }}>
+                                        {activeIndustry.tagline}
+                                    </span>
+                                    <h3 style={{
+                                        fontSize: '3.5rem',
+                                        lineHeight: '1.1',
+                                        color: 'white',
+                                        fontWeight: '800',
+                                        textShadow: '0 4px 10px rgba(0,0,0,0.3)'
+                                    }}>
+                                        {activeIndustry.name}
+                                    </h3>
+                                </div>
                             </div>
 
-                            <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
-                                {activeIndustry.badges.map((badge, idx) => (
-                                    <span key={idx} style={{
-                                        fontSize: '0.8rem',
-                                        padding: '0.6rem 1.2rem',
-                                        background: '#fff5f0',
-                                        border: '1px solid rgba(242, 108, 41, 0.3)',
-                                        borderRadius: '50px',
+                            {/* Text Content (Bottom) */}
+                            <div style={{ padding: '2rem 1rem' }}>
+                                <p style={{
+                                    color: '#1f2937',
+                                    fontSize: '1.1rem',
+                                    lineHeight: '1.6',
+                                    marginBottom: '2rem',
+                                    maxWidth: '90%'
+                                }}>
+                                    {activeIndustry.description}
+                                </p>
+
+                                <div style={{ marginBottom: '2rem' }}>
+                                    <h4 style={{
+                                        fontSize: '1rem',
                                         fontWeight: '700',
-                                        color: '#F26C29',
-                                        boxShadow: '0 2px 5px rgba(242, 108, 41, 0.1)',
-                                        textTransform: 'uppercase',
-                                        letterSpacing: '0.05em'
+                                        color: '#1f2937',
+                                        marginBottom: '1rem',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        gap: '0.5rem'
                                     }}>
-                                        {badge}
-                                    </span>
-                                ))}
+                                        <span style={{ color: '#F26C29' }}>///</span> Key Solutions
+                                    </h4>
+                                    <ul style={{
+                                        display: 'grid',
+                                        gridTemplateColumns: '1fr 1fr',
+                                        gap: '0.8rem',
+                                        listStyle: 'none',
+                                        padding: 0
+                                    }}>
+                                        {activeIndustry.keyFeatures?.map((feature, idx) => (
+                                            <li key={idx} style={{
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                gap: '0.5rem',
+                                                fontSize: '0.95rem',
+                                                color: '#1f2937',
+                                                fontWeight: '500'
+                                            }}>
+                                                <span style={{
+                                                    width: '6px',
+                                                    height: '6px',
+                                                    borderRadius: '50%',
+                                                    background: '#F26C29',
+                                                    display: 'inline-block'
+                                                }}></span>
+                                                {feature}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+
+                                <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
+                                    {activeIndustry.badges.map((badge, idx) => (
+                                        <span key={idx} style={{
+                                            fontSize: '0.8rem',
+                                            padding: '0.6rem 1.2rem',
+                                            background: '#fff5f0',
+                                            border: '1px solid rgba(242, 108, 41, 0.3)',
+                                            borderRadius: '50px',
+                                            fontWeight: '700',
+                                            color: '#F26C29',
+                                            boxShadow: '0 2px 5px rgba(242, 108, 41, 0.1)',
+                                            textTransform: 'uppercase',
+                                            letterSpacing: '0.05em'
+                                        }}>
+                                            {badge}
+                                        </span>
+                                    ))}
+                                </div>
                             </div>
                         </div>
-                    </div>
 
+                    </div>
                 </div>
             </div>
         </section>

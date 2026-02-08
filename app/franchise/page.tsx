@@ -3,7 +3,9 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { Phone, X } from 'lucide-react';
 import './franchise.css';
+import CertificateHeader from "@/components/single-certificate/header/header";
 
 // SOP Data
 const sopData = [
@@ -83,6 +85,39 @@ const sopData = [
 ];
 
 // Accordion Component
+const comparisonData = [
+    { param: "Investment", optionA: "₹30 Lakhs (± ₹5 Lakhs)", optionB: "₹75 Lakhs", optionC: "₹1.50 Crore" },
+    { param: "Franchise Type", optionA: "Single / City-Level Center", optionB: "State-Level Expansion Partner", optionC: "Master / State Super Partner" },
+    { param: "Revenue Model", optionA: "Fixed payout per enrollment", optionB: "Revenue sharing", optionC: "Revenue sharing" },
+    { param: "Franchise Share", optionA: "Fixed income (No sharing)", optionB: "60%", optionC: "70%" },
+    { param: "Sub-Franchise Rights", optionA: "Not Applicable", optionB: "Up to 15 (Same State)", optionC: "Up to 50 (Same State)" },
+    { param: "Programs Offered", optionA: "Cyber Security, Data Science, Robotics, Digital Marketing", optionB: "Same as Option A", optionC: "Same as Option A + Institutional" },
+    { param: "Monthly Revenue Potential*", optionA: "₹5 Lakhs", optionB: "₹15 – 30 Lakhs", optionC: "₹40 – 70 Lakhs" },
+    { param: "Monthly Net Earnings*", optionA: "₹3.8 – 4.0 Lakhs", optionB: "₹10 – 18 Lakhs", optionC: "₹30 – 50 Lakhs" },
+    { param: "Operating Cost (OPEX)", optionA: "₹1.0 – 1.2 Lakhs", optionB: "State-level operations", optionC: "Large-scale operations" },
+    { param: "Infrastructure", optionA: "1k–1.5k sq. ft. (1st/2nd Floor)", optionB: "State Hub + Franchise Network", optionC: "State HQ + Regional Hubs" },
+    { param: "Break-even Period*", optionA: "12 – 18 Months", optionB: "18 – 24 Months", optionC: "24 – 36 Months" },
+    { param: "Scalability", optionA: "Medium", optionB: "High", optionC: "Very High" },
+    { param: "Risk Profile", optionA: "Low", optionB: "Medium", optionC: "Medium–High" },
+    { param: "Ideal For", optionA: "First-time entrepreneurs", optionB: "State operators & investors", optionC: "Large edu groups & strategic investors" },
+];
+
+const selectionGuide = [
+    {
+        title: "Option A – Fixed Payout Model",
+        desc: "Predictable income with controlled risk. Ideal for first-time franchise owners and city-level operators."
+    },
+    {
+        title: "Option B – Revenue Sharing Model",
+        desc: "Scalable state expansion with recurring revenue. Best suited for regional partners and growth-focused investors."
+    },
+    {
+        title: "Option C – Strategic Revenue Sharing Model",
+        desc: "Long-term dominance and annuity-led growth. Designed for large education groups and strategic investors."
+    }
+];
+
+// Accordion Component
 function Accordion({ items }: { items: typeof sopData }) {
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
@@ -132,6 +167,7 @@ function Accordion({ items }: { items: typeof sopData }) {
 export default function FranchisePage() {
     const [isNavVisible, setIsNavVisible] = useState(false);
     const [activeSection, setActiveSection] = useState('');
+    const [showModelModal, setShowModelModal] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -184,110 +220,64 @@ export default function FranchisePage() {
             {/* Sticky Section Nav */}
             <nav className={`franchise-section-nav ${isNavVisible ? 'visible' : ''}`}>
                 <div className="section-nav-container">
-                    <button
-                        className={`section-nav-link ${activeSection === 'programs' ? 'active' : ''}`}
-                        onClick={() => scrollToSection('programs')}
-                    >
-                        Programs
-                    </button>
-                    <button
-                        className={`section-nav-link ${activeSection === 'why-choose' ? 'active' : ''}`}
-                        onClick={() => scrollToSection('why-choose')}
-                    >
-                        Why Choose
-                    </button>
-                    <button
-                        className={`section-nav-link ${activeSection === 'sop-framework' ? 'active' : ''}`}
-                        onClick={() => scrollToSection('sop-framework')}
-                    >
-                        SOPs
-                    </button>
-                    <button
-                        className={`section-nav-link ${activeSection === 'business-model' ? 'active' : ''}`}
-                        onClick={() => scrollToSection('business-model')}
-                    >
-                        Business Model
-                    </button>
-                    <button
-                        className={`section-nav-link ${activeSection === 'apply' ? 'active' : ''}`}
-                        onClick={() => scrollToSection('apply')}
-                    >
-                        Who Apply
-                    </button>
-                    <button
-                        className={`section-nav-link ${activeSection === 'enquire' ? 'active' : ''}`}
-                        onClick={() => scrollToSection('enquire')}
-                    >
-                        Enquire
-                    </button>
+                    <div className="section-nav-links">
+                        <button
+                            className={`section-nav-link ${activeSection === 'programs' ? 'active' : ''}`}
+                            onClick={() => scrollToSection('programs')}
+                        >
+                            Programs
+                        </button>
+                        <button
+                            className={`section-nav-link ${activeSection === 'why-choose' ? 'active' : ''}`}
+                            onClick={() => scrollToSection('why-choose')}
+                        >
+                            Why Choose
+                        </button>
+                        <button
+                            className={`section-nav-link ${activeSection === 'sop-framework' ? 'active' : ''}`}
+                            onClick={() => scrollToSection('sop-framework')}
+                        >
+                            SOPs
+                        </button>
+                        <button
+                            className={`section-nav-link ${activeSection === 'business-model' ? 'active' : ''}`}
+                            onClick={() => scrollToSection('business-model')}
+                        >
+                            Business Model
+                        </button>
+                        <button
+                            className={`section-nav-link ${activeSection === 'apply' ? 'active' : ''}`}
+                            onClick={() => scrollToSection('apply')}
+                        >
+                            Who Apply
+                        </button>
+                        <button
+                            className={`section-nav-link ${activeSection === 'enquire' ? 'active' : ''}`}
+                            onClick={() => scrollToSection('enquire')}
+                        >
+                            Enquire
+                        </button>
+                    </div>
+                    <div className="nav-cta">
+                        <a href="tel:+919886035330" className="nav-call-btn">
+                            <Phone size={16} />
+                            <span>Call Now</span>
+                        </a>
+                    </div>
                 </div>
             </nav>
 
-            {/* Hero Section */}
-            <section className="franchise-hero">
-                <div className="franchise-hero-container">
-                    <div className="franchise-hero-grid">
-                        <div className="franchise-hero-content">
-                            <span className="franchise-badge">
-                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                </svg>
-                                Franchise Opportunity
-                            </span>
-                            <h1>Partner with <span>eHack Academy</span></h1>
-                            <p className="franchise-hero-description">
-                                eHack Academy offers a structured and scalable franchise opportunity in the fast-growing domain of cybersecurity and emerging technologies. With over a decade of experience in professional training and enterprise security services, we&apos;ve built a strong reputation for industry-aligned education, ethical practices, and outcome-focused learning.
-                            </p>
-                            <div className="franchise-hero-stats">
-                                <div className="hero-stat">
-                                    <div className="hero-stat-value">10+</div>
-                                    <div className="hero-stat-label">Years of Experience</div>
-                                </div>
-                                <div className="hero-stat">
-                                    <div className="hero-stat-value">5+</div>
-                                    <div className="hero-stat-label">Program Domains</div>
-                                </div>
-                                <div className="hero-stat">
-                                    <div className="hero-stat-value">100%</div>
-                                    <div className="hero-stat-label">Support System</div>
-                                </div>
-                            </div>
-                            <div className="franchise-hero-cta">
-                                <a href="#" onClick={openFranchisePopup} className="franchise-btn-primary">
-                                    Enquire Now
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                    </svg>
-                                </a>
-                                <a href="#sop-framework" className="franchise-btn-secondary">
-                                    View SOP Framework
-                                </a>
-                            </div>
-                        </div>
-                        <div className="franchise-hero-image">
-                            <div className="hero-image-wrapper">
-                                <Image
-                                    src="/images/franchise-popup-image.jpg"
-                                    alt="eHack Academy Franchise Partnership"
-                                    fill
-                                    style={{ objectFit: 'cover' }}
-                                    priority
-                                />
-                                <div className="hero-image-overlay"></div>
-                            </div>
-                            <div className="hero-image-badge">
-                                <span className="badge-text">Join Our Network</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <CertificateHeader
+                title="Partner with eHack Academy"
+                subtitle="eHack Academy offers a structured and scalable franchise opportunity in the fast-growing domain of cybersecurity and emerging technologies. With over a decade of experience in professional training and enterprise security services, we've built a strong reputation for industry-aligned education, ethical practices, and outcome-focused learning."
+                backgroundImage="/images/franchise-popup-image.jpg"
+            />
 
             {/* Programs Offered Section */}
             <section id="programs" className="programs-section">
                 <div className="section-container">
                     <div className="section-header">
-                        <h2>Programs You&apos;ll Deliver</h2>
+                        <h2>Programs You&apos;ll <span className="text-orange">Deliver</span></h2>
                         <p>As a franchise partner, you become part of a future-ready education ecosystem delivering high-demand programs</p>
                     </div>
                     <div className="programs-image-grid">
@@ -344,8 +334,8 @@ export default function FranchisePage() {
                                 <h3>Robotics, IoT & AI</h3>
                                 <p>Hands-on learning with Arduino, Raspberry Pi, sensors & automation systems</p>
                                 <div className="program-card-stats">
-                                    <span><strong>Hands-on</strong> Labs</span>
-                                    <span><strong>Industry</strong> Projects</span>
+                                    <span><strong>100%</strong> Practical</span>
+                                    <span><strong>Live</strong> Projects</span>
                                 </div>
                             </div>
                         </div>
@@ -365,6 +355,26 @@ export default function FranchisePage() {
                                 <div className="program-card-stats">
                                     <span><strong>10+</strong> Modules</span>
                                     <span><strong>Live</strong> Projects</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="program-image-card">
+                            <div className="program-image-wrapper">
+                                <Image
+                                    src="/images/corporate.jpeg"
+                                    alt="Corporate Services"
+                                    fill
+                                    style={{ objectFit: 'cover' }}
+                                />
+                                <div className="program-image-overlay"></div>
+                            </div>
+                            <div className="program-card-content">
+                                <div className="program-card-badge">Essential</div>
+                                <h3>Corporate Services</h3>
+                                <p>Premium corporate solutions including VAPT, SOC Management, Cloud Security & Incident Response</p>
+                                <div className="program-card-stats">
+                                    <span><strong>VAPT</strong> Focused</span>
+                                    <span><strong>Enterprise</strong> Ready</span>
                                 </div>
                             </div>
                         </div>
@@ -413,8 +423,8 @@ export default function FranchisePage() {
             <section id="sop-framework" className="sop-section">
                 <div className="section-container">
                     <div className="section-header">
-                        <h2>Franchise SOP Framework</h2>
-                        <p>Our comprehensive Standard Operating Procedures ensure quality consistency across all franchise locations</p>
+                        <h2>Franchise SOP <span className="text-orange">Framework</span></h2>
+                        <p>Our comprehensive <span className="text-orange">Standard Operating Procedures</span> ensure quality consistency across all franchise locations</p>
                     </div>
                     <div className="sop-intro">
                         <p>Click on each section to explore the detailed processes and guidelines that power every eHack Academy franchise.</p>
@@ -427,42 +437,145 @@ export default function FranchisePage() {
             <section id="business-model" className="business-model-section">
                 <div className="section-container">
                     <div className="section-header business-model-header">
-                        <h2>Franchise <span className="text-orange">Business Model</span> Highlights</h2>
-                        <p className="business-model-description">A balanced model designed for profitability with quality delivery</p>
+                        <h2>Franchise <span className="text-orange">Business Models</span></h2>
+                        <p className="business-model-description">Choose the model that fits your vision. Click any card to compare details.</p>
                     </div>
                     <div className="model-highlights-grid">
-                        <div className="model-card">
-                            <h3><span className="text-orange">Low to Moderate</span> Investment</h3>
-                            <p>Accessible entry point with flexible investment options suited for various business scales.</p>
+                        <div className="model-card" onClick={() => setShowModelModal(true)} style={{ cursor: 'pointer' }}>
+                            <div className="model-card-image">
+                                <Image
+                                    src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&q=80"
+                                    alt="Fixed Payout Model"
+                                    fill
+                                    style={{ objectFit: 'cover' }}
+                                />
+                            </div>
+                            <div className="model-card-content">
+                                <h3><span className="text-orange">Option A</span> – Fixed Payout</h3>
+                                <p>Predictable income with controlled risk. Ideal for first-time franchise owners and city-level operators.</p>
+                                <button
+                                    className="franchise-btn-secondary"
+                                    type="button"
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        setShowModelModal(true);
+                                    }}
+                                    style={{ marginTop: 'auto', width: '100%', justifyContent: 'center', padding: '0.75rem', fontSize: '0.9rem' }}
+                                >
+                                    View Details
+                                </button>
+                            </div>
                         </div>
-                        <div className="model-card">
-                            <h3><span className="text-orange">Revenue Sharing</span> Structure</h3>
-                            <p>Transparent and fair revenue sharing model that aligns incentives for mutual growth.</p>
+                        <div className="model-card" onClick={() => setShowModelModal(true)} style={{ cursor: 'pointer' }}>
+                            <div className="model-card-image">
+                                <Image
+                                    src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80"
+                                    alt="Revenue Sharing Model"
+                                    fill
+                                    style={{ objectFit: 'cover' }}
+                                />
+                            </div>
+                            <div className="model-card-content">
+                                <h3><span className="text-orange">Option B</span> – Revenue Sharing</h3>
+                                <p>Scalable state expansion with recurring revenue. Best suited for regional partners and growth-focused investors.</p>
+                                <button
+                                    className="franchise-btn-secondary"
+                                    type="button"
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        setShowModelModal(true);
+                                    }}
+                                    style={{ marginTop: 'auto', width: '100%', justifyContent: 'center', padding: '0.75rem', fontSize: '0.9rem' }}
+                                >
+                                    View Details
+                                </button>
+                            </div>
                         </div>
-                        <div className="model-card">
-                            <h3><span className="text-orange">Multiple</span> Revenue Streams</h3>
-                            <p>Diversified income from classroom, online, and corporate training segments.</p>
+                        <div className="model-card" onClick={() => setShowModelModal(true)} style={{ cursor: 'pointer' }}>
+                            <div className="model-card-image">
+                                <Image
+                                    src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80"
+                                    alt="Strategic Revenue Sharing"
+                                    fill
+                                    style={{ objectFit: 'cover' }}
+                                />
+                            </div>
+                            <div className="model-card-content">
+                                <h3><span className="text-orange">Option C</span> – Strategic Share</h3>
+                                <p>Long-term dominance and annuity-led growth. Designed for large education groups and strategic investors.</p>
+                                <button className="franchise-btn-secondary" style={{ marginTop: 'auto', width: '100%', justifyContent: 'center', padding: '0.75rem', fontSize: '0.9rem' }}>
+                                    View Details
+                                </button>
+                            </div>
                         </div>
                     </div>
                     <div className="revenue-streams">
                         <h3>Available Revenue Streams</h3>
                         <div className="streams-grid">
                             <div className="stream-item">
+                                <div className="stream-image">
+                                    <Image
+                                        src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80"
+                                        alt="Classroom Training Programs"
+                                        fill
+                                        style={{ objectFit: 'cover' }}
+                                    />
+                                </div>
                                 <span>Classroom Training Programs</span>
                             </div>
                             <div className="stream-item">
+                                <div className="stream-image">
+                                    <Image
+                                        src="https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&q=80"
+                                        alt="Online & Hybrid Learning"
+                                        fill
+                                        style={{ objectFit: 'cover' }}
+                                    />
+                                </div>
                                 <span>Online & Hybrid Learning</span>
                             </div>
                             <div className="stream-item">
+                                <div className="stream-image">
+                                    <Image
+                                        src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80"
+                                        alt="Corporate Training & Upskilling"
+                                        fill
+                                        style={{ objectFit: 'cover' }}
+                                    />
+                                </div>
                                 <span>Corporate Training & Upskilling</span>
                             </div>
                             <div className="stream-item">
+                                <div className="stream-image">
+                                    <Image
+                                        src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&q=80"
+                                        alt="Security Assessments"
+                                        fill
+                                        style={{ objectFit: 'cover' }}
+                                    />
+                                </div>
                                 <span>Security Assessments</span>
                             </div>
                             <div className="stream-item">
+                                <div className="stream-image">
+                                    <Image
+                                        src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80"
+                                        alt="Compliance Audits"
+                                        fill
+                                        style={{ objectFit: 'cover' }}
+                                    />
+                                </div>
                                 <span>Compliance Audits</span>
                             </div>
                             <div className="stream-item">
+                                <div className="stream-image">
+                                    <Image
+                                        src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80"
+                                        alt="Digital Forensics & Analysis"
+                                        fill
+                                        style={{ objectFit: 'cover' }}
+                                    />
+                                </div>
                                 <span>Digital Forensics & Analysis</span>
                             </div>
                         </div>
@@ -553,6 +666,58 @@ export default function FranchisePage() {
                     </div>
                 </div>
             </section>
+            {/* Model Comparison Modal */}
+            {showModelModal && (
+                <div className="modal-overlay" onClick={() => setShowModelModal(false)}>
+                    <div className="modal-content" onClick={e => e.stopPropagation()}>
+                        <div className="modal-header">
+                            <div className="modal-title">
+                                <h2>Ehack Academy – Franchise Models Comparison</h2>
+                            </div>
+                            <button className="modal-close-btn" onClick={() => setShowModelModal(false)}>
+                                <X size={24} />
+                            </button>
+                        </div>
+                        <div className="modal-body">
+                            <div className="comparison-table-wrapper">
+                                <table className="comparison-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Parameter</th>
+                                            <th className="option-header">Option A<br />Fixed Payout</th>
+                                            <th className="option-header">Option B<br />Revenue Sharing</th>
+                                            <th className="option-header">Option C<br />Strategic Rev Share</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {comparisonData.map((row, index) => (
+                                            <tr key={index}>
+                                                <td className="feature-col">{row.param}</td>
+                                                <td>{row.optionA}</td>
+                                                <td>{row.optionB}</td>
+                                                <td>{row.optionC}</td>
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div className="selection-guide">
+                                <h3>Quick Selection Guide</h3>
+                                {selectionGuide.map((item, index) => (
+                                    <div key={index} className="guide-item">
+                                        <h4>{item.title}</h4>
+                                        <p>{item.desc}</p>
+                                    </div>
+                                ))}
+                                <p className="modal-disclaimer">
+                                    * Indicative figures. Actual results depend on execution, market conditions, and scale of operations.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
         </main>
     );
 }

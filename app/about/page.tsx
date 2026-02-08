@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import { Phone } from 'lucide-react';
 import './page.css';
 
 export default function AboutPage() {
@@ -14,10 +15,12 @@ export default function AboutPage() {
 
     const sections = [
         { id: 'mission', label: 'Our Mission' },
+        { id: 'promise', label: 'eHack Promise' },
         { id: 'philosophy', label: 'Philosophy' },
         { id: 'what-we-do', label: 'What We Do' },
         { id: 'why-choose-us', label: 'Why Us' },
         { id: 'leadership', label: 'Leadership' },
+        { id: 'feedback', label: 'Student Feedback' },
         { id: 'contact', label: 'Contact' }
     ];
 
@@ -130,15 +133,42 @@ export default function AboutPage() {
         casesSolved: `Solved 350+ cases including Hacking Cases, Online Blackmailing, Banking/Credit Card Crimes, Phishing, Email Hacking & Spoofing, Social Media Fake Profiles, Mobile Phone Hacking, Identity Theft, Data Stealing, Cyber Pornography, and Unauthorized Access cases.`
     };
 
+    const studentFeedbacks = [
+        { name: "Priya S.", feedback: "The cybersecurity bootcamp was intense but incredibly rewarding. I learned more in 12 weeks than I did in 4 years of college." },
+        { name: "Rahul M.", feedback: "Excellent mentors and hands-on labs. The VAPT training is top-notch and industry-relevant." },
+        { name: "Ankit V.", feedback: "Landed a job as a SOC Analyst within a month of graduating. The career support is fantastic." },
+        { name: "Sneha K.", feedback: "The curriculum is updated with the latest threats and tools. Truly prepares you for the real world." },
+        { name: "Vikram R.", feedback: "I was a complete beginner. enhancing my skills has completely changed my career trajectory." },
+        { name: "Arjun D.", feedback: "The ethical hacking modules are deep and practical. Highly recommend to anyone serious about security." },
+        { name: "Meera T.", feedback: "Great community and networking opportunities. I met my current employer through an eHack event." },
+        { name: "Karthik N.", feedback: "The instructors are industry veterans. Their insights into real-world scenarios are invaluable." },
+        { name: "Riya P.", feedback: "Flexible schedule helped me manage my job and studies. The recorded sessions are a lifesaver." },
+        { name: "Sandeep G.", feedback: "From zero to hero in 6 months. The structure of the course is perfect for beginners." },
+        { name: "Divya B.", feedback: "The hands-on labs are the best part. You actually get to hack into vulnerable machines." },
+        { name: "Mohit J.", feedback: "Support team is always available. Doubts are cleared almost instantly." },
+        { name: "Nisha C.", feedback: "The Digital Forensics module was an eye-opener. I love the depth of the content." },
+        { name: "Aditya S.", feedback: "Best investment for my career. The ROI is high if you put in the effort." },
+        { name: "Varun K.", feedback: "Challenging projects that push your limits. Precisely what I needed to grow." },
+        { name: "Pooja L.", feedback: "Certification preparation is excellent. I cleared my CEH on the first attempt." },
+        { name: "Rohan M.", feedback: "The syllabus is comprehensive. Covers everything from basics to advanced exploit development." },
+        { name: "Swati R.", feedback: "I loved the capstone project. It gave me the confidence to handle real-world projects." },
+        { name: "Amit B.", feedback: "Placement assistance is genuine. They guide you through resume building and mock interviews." },
+        { name: "Neha S.", feedback: "A truly holistic learning experience. It's not just about tools, but the mindset." },
+        { name: "Suresh P.", feedback: "The infrastructure and labs are world-class. No lag, just pure learning." },
+        { name: "Kiran D.", feedback: "I appreciate the focus on ethics and legal boundaries. Critical for this field." },
+        { name: "Manish T.", feedback: "Networking with peers was a highlight. We still collaborate on bug bounties." },
+        { name: "Deepa A.", feedback: "Standard of teaching is very high. Rivals international bootcamps." }
+    ];
+
 
     return (
         <>
             {/* Hero Section */}
             <section className="about-hero-light">
-                <div className="container">
+                <div className="about-container">
                     <div className="hero-content-compact">
                         <span className="hero-badge-light">ABOUT US</span>
-                        <h1 className="hero-title-light">Global Leaders in Technology Education and Corporate Solutions</h1>
+                        <h1 className="hero-title-light">Global Leaders in Technology <span style={{ color: '#ff6b00' }}>Education and Corporate Solutions</span></h1>
                         <p className="hero-subtitle-light">
                             Empowering the World with Emerging Technologies & High-Impact Learning
                         </p>
@@ -153,37 +183,93 @@ export default function AboutPage() {
                 className={`about-sticky-nav ${isSticky ? 'is-sticky' : ''}`}
             >
                 <div className="about-nav-container">
-                    {sections.map(section => (
-                        <button
-                            key={section.id}
-                            className={`about-nav-btn ${activeSection === section.id ? 'active' : ''}`}
-                            onClick={() => scrollToSection(section.id)}
-                        >
-                            {section.label}
-                        </button>
-                    ))}
+                    <div className="about-nav-links">
+                        {sections.map(section => (
+                            <button
+                                key={section.id}
+                                className={`about-nav-btn ${activeSection === section.id ? 'active' : ''}`}
+                                onClick={() => scrollToSection(section.id)}
+                            >
+                                {section.label}
+                            </button>
+                        ))}
+                    </div>
+                    <div className="about-nav-cta">
+                        <a href="tel:+919886035330" className="about-nav-call-btn">
+                            <Phone size={16} />
+                            <span>Call Now</span>
+                        </a>
+                    </div>
                 </div>
             </nav>
 
             {/* Mission Section */}
             <section id="mission" className="mission-section">
-                <div className="container">
-                    <div className="mission-content">
-                        <span className="section-badge">OUR MISSION</span>
-                        <h2 className="section-title">Bridging Technology & Innovation</h2>
-                        <p className="mission-text">
-                            At Ehack, we are committed to bridging emerging technologies with high-impact learning and corporate innovation. Our mission is to empower learners, professionals, and enterprises with the skills, knowledge, and tools they need to thrive in a rapidly evolving digital world.
-                        </p>
-                        <p className="mission-text">
-                            We invite you to join a holistic ecosystem where technology meets learning, integrated with enterprise solutions and global knowledge empowerment.
-                        </p>
+                <div className="about-container">
+                    <div className="mission-content-split">
+                        <div className="mission-text-column">
+                            <span className="section-badge ">OUR MISSION</span>
+                            <h2 className="about-section-title">Bridging Technology & Innovation</h2>
+                            <p className="mission-text">
+                                At Ehack, we are committed to bridging emerging technologies with high-impact learning and corporate innovation. Our mission is to empower learners, professionals, and enterprises with the skills, knowledge, and tools they need to thrive in a rapidly evolving digital world.
+                            </p>
+                            <p className="mission-text">
+                                We invite you to join a holistic ecosystem where technology meets learning, integrated with enterprise solutions and global knowledge empowerment.
+                            </p>
+                        </div>
+                        <div className="mission-image-column">
+                            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1000" alt="Our Mission" className="mission-side-image" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* eHack Promise Section */}
+            <section id="promise" className="promise-section">
+                <div className="about-container">
+                    <h2 className="promise-main-title">What is the <span style={{ color: '#FF6B00' }}>eHack Promise?</span></h2>
+
+                    <div className="promise-grid">
+                        <div className="promise-image-col">
+                            <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=1000" alt="eHack Team Collaboration" className="promise-feature-img" />
+                        </div>
+                        <div className="promise-content-col">
+                            <div className="promise-card">
+                                <div className="promise-item">
+                                    <div className="promise-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                            <path d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                    </div>
+                                    <p>At eHack Academy, your success is our priority. That's why we offer our comprehensive <strong>Skill Certification Guarantee</strong>.</p>
+                                </div>
+
+                                <div className="promise-item">
+                                    <div className="promise-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                    </div>
+                                    <p>We believe true learning happens when skills meet opportunity. This guarantee ensures you receive the <strong style={{ color: '#FF6B00' }}>high-quality training and practical exposure</strong> you deserve.</p>
+                                </div>
+
+                                <div className="promise-item">
+                                    <div className="promise-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                            <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+                                        </svg>
+                                    </div>
+                                    <p>If for any reason, you feel your learning gap isn't bridged, we promise to support you until you are <strong>industry-ready</strong>.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
 
             {/* Philosophy Section */}
             <section id="philosophy" className="philosophy-section">
-                <div className="container">
+                <div className="about-container">
                     <div className="philosophy-header">
                         <span className="philosophy-capsule">OUR PHILOSOPHY</span>
                         <p className="philosophy-intro">A holistic approach to empowering the digital future through technological excellence and education.</p>
@@ -225,16 +311,16 @@ export default function AboutPage() {
 
             {/* What We Do Section */}
             <section id="what-we-do" className="what-we-do-section">
-                <div className="container">
+                <div className="about-container">
                     <div className="section-header">
                         <span className="section-badge-orange-big">OUR SERVICES</span>
-                        <h2 className="section-title">Empowering <span style={{ color: '#FF6B00' }}>Digital</span> Excellence</h2>
+                        <h2 className="about-section-title">Empowering <span style={{ color: '#FF6B00' }}>Digital</span> Excellence</h2>
                     </div>
 
                     <div className="what-we-do-grid">
                         <div className="what-card">
-                            <h3>1. Learning & Training</h3>
-                            <p style={{ marginBottom: '1.5rem', color: '#64748B' }}>We provide industry-aligned programs that equip learners with future-ready skills.</p>
+                            <h3>1. Industry Ready <br /> Learning</h3>
+                            <p style={{ marginBottom: '1.5rem', color: '#fb6c07ff', fontWeight: 'bold' }}>We provide industry-aligned programs that equip learners with future-ready skills.</p>
                             <ul className="what-list">
                                 <li>Advanced programs in Cybersecurity, Data Science, AI, Robotics, and Digital Marketing</li>
                                 <li>Globally recognized certifications and hands-on training</li>
@@ -249,7 +335,7 @@ export default function AboutPage() {
 
                         <div className="what-card">
                             <h3>2. Corporate & Technology Services</h3>
-                            <p style={{ marginBottom: '1.5rem', color: '#64748B' }}>Through Ehack Global Technology, we deliver enterprise-grade services.</p>
+                            <p style={{ marginBottom: '1.5rem', color: '#fb6c07ff', fontWeight: 'bold' }}>Through Ehack Global Technology, we deliver enterprise-grade services.</p>
                             <ul className="what-list">
                                 <li>VAPT (Vulnerability Assessment & Penetration Testing)</li>
                                 <li>Digital Forensics & Incident Response</li>
@@ -269,14 +355,14 @@ export default function AboutPage() {
 
             {/* Why Choose Us Section */}
             <section id="why-choose-us" className="why-choose-section">
-                <div className="container">
+                <div className="about-container">
                     <div className="section-header">
                         <span className="section-badge-orange-big">WHY CHOOSE US</span>
-                        <h2 className="section-title">Defining <span style={{ color: '#FF6B00' }}>Excellence</span></h2>
-                        <p className="section-subtitle">We don't just teach technology; we shape the future leaders of the digital world through innovation and global connection.</p>
+                        <h2 className="about-section-title">Defining <span style={{ color: '#FF6B00' }}>Excellence</span></h2>
+                        <p className="about-section-subtitle">We don't just teach technology; we shape the future leaders of the digital world through innovation and global connection.</p>
                     </div>
 
-                    <div className="features-grid" style={{ gridTemplateColumns: 'repeat(2, 1fr)' }}>
+                    <div className="features-grid features-grid-2col">
                         <div className="feature-card">
                             <img src="/images/day-office-travel-agency.jpg" alt="Global Presence" className="feature-card-img" />
                             <h3 className="feature-title">Global Presence</h3>
@@ -286,7 +372,7 @@ export default function AboutPage() {
                         </div>
 
                         <div className="feature-card">
-                            <img src="/images/innovation-vision.jpg" alt="Innovation-Driven" className="feature-card-img" />
+                            <img src="/images/executive-manager-wearing-virtual-reality-headset.jpg" alt="Innovation-Driven" className="feature-card-img" />
                             <h3 className="feature-title">Innovation-Driven</h3>
                             <p className="feature-description">
                                 Programs and solutions built on the latest technologies and emerging industry trends.
@@ -294,7 +380,7 @@ export default function AboutPage() {
                         </div>
 
                         <div className="feature-card">
-                            <img src="/images/trusted-student.jpg" alt="Trusted & Credible" className="feature-card-img" />
+                            <img src="/images/young-student-wearing-graduation-cape-looking-her-notebook.jpg" alt="Trusted & Credible" className="feature-card-img" />
                             <h3 className="feature-title">Trusted & Credible</h3>
                             <p className="feature-description">
                                 Empowering both learners and corporates with reliability, excellence, and proven results.
@@ -302,7 +388,7 @@ export default function AboutPage() {
                         </div>
 
                         <div className="feature-card">
-                            <img src="/images/holistic-growth.jpg" alt="Holistic Ecosystem" className="feature-card-img" />
+                            <img src="/images/front-view-businessman-with-colorful-cones-representing-growth.jpg" alt="Holistic Ecosystem" className="feature-card-img" />
                             <h3 className="feature-title">Holistic Ecosystem</h3>
                             <p className="feature-description">
                                 Bridging skills, services, and knowledge under one roof for comprehensive growth.
@@ -314,10 +400,10 @@ export default function AboutPage() {
 
             {/* Leadership Section */}
             <section id="leadership" className="leadership-section">
-                <div className="container">
+                <div className="about-container">
                     <div className="section-header">
                         <span className="section-badge-orange-big">LEADERSHIP</span>
-                        <h2 className="section-title">From the <span style={{ color: '#FF6B00' }}>Founder</span></h2>
+                        <h2 className="about-section-title">From the <span style={{ color: '#FF6B00' }}>Founder</span></h2>
                     </div>
 
                     <div className="founder-card">
@@ -360,9 +446,9 @@ export default function AboutPage() {
 
             {/* Management & Advisory Board */}
             <section id="advisory" className="advisory-section">
-                <div className="container">
+                <div className="about-container">
                     <div className="section-header">
-                        <h2 className="section-title">Management & Advisory Board</h2>
+                        <h2 className="about-section-title">Management & Advisory Board</h2>
                     </div>
                 </div>
 
@@ -494,9 +580,36 @@ export default function AboutPage() {
                 </div>
             </section>
 
+            {/* Student Feedback Section */}
+            <section id="feedback" className="feedback-section">
+                <div className="about-container">
+                    <div className="section-header">
+                        <span className="section-badge-orange-big">TESTIMONIALS</span>
+                        <h2 className="about-section-title">Student <span style={{ color: '#FF6B00' }}>Feedback</span></h2>
+                        <p className="feedback-disclaimer" style={{ marginTop: '-20px' }}>To ensure the privacy of our clients, we use pseudonyms.</p>
+                    </div>
+
+                    <div className="feedback-grid">
+                        {studentFeedbacks.map((item, index) => (
+                            <div key={index} className="feedback-card">
+                                <div className="feedback-content">
+                                    <p className="feedback-text">{item.feedback}</p>
+                                    <div className="feedback-author">
+                                        <div className="author-avatar-placeholder">
+                                            {item.name.charAt(0)}
+                                        </div>
+                                        <span className="author-name">{item.name}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
             {/* Tagline Banner */}
             <div className="tagline-banner">
-                <div className="container">
+                <div className="about-container">
                     <h2 className="tagline-text">
                         Ehack – Empowering <span>Skills</span>, Securing <span>Enterprises</span>, Enabling <span>Innovation</span>
                     </h2>
@@ -509,7 +622,7 @@ export default function AboutPage() {
                 <div className="contact-bg-pattern"></div>
                 <div className="contact-bg-gradient"></div>
 
-                <div className="container">
+                <div className="about-container">
                     {/* Section Header */}
                     <div className="contact-header">
                         <div className="contact-header-badge">
@@ -635,14 +748,17 @@ export default function AboutPage() {
                                             <span className="status-indicator status-open"></span>
                                             Tuesday - Sunday
                                         </div>
-                                        <div className="hours-time">9:30 AM - 6:30 PM</div>
+                                        <div className="hours-time">9:00 AM - 9:00 PM</div>
                                     </div>
                                     <div className="hours-item hours-item-closed">
                                         <div className="hours-day">
-                                            <span className="status-indicator status-closed"></span>
+                                            <span className="status-indicator status-open"></span>
                                             Monday
                                         </div>
-                                        <div className="hours-time">Closed</div>
+                                        <div className="hours-time">
+                                            <span style={{ display: 'block', color: '#64748B', fontSize: '0.85rem' }}>Campus Closed</span>
+                                            <span style={{ color: '#16A34A', fontWeight: '600' }}>Sales Office Open</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -709,10 +825,11 @@ export default function AboutPage() {
             </section>
 
             {/* CTA Section */}
-            <section className="cta-section">
-                <div className="container">
+            <section className="about-cta-section">
+                <div className="about-container">
                     <div className="cta-box">
                         <div className="cta-content">
+                            <div className="cta-tagline-highlight">FOLLOW US, JOB FOLLOWS YOU</div>
                             <h2 className="cta-title">Ready to Transform Your Career?</h2>
                             <p className="cta-subtitle">
                                 Join thousands of professionals who have advanced their careers with eHack Academy. Start your journey today!

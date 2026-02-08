@@ -16,15 +16,13 @@ const certificates = [
 ];
 
 const uniLogos = [
-  '/images/csr-uni-logo/PESU.png',
-  '/images/csr-uni-logo/bel.jpeg',
-  '/images/csr-uni-logo/cashfree.png',
-  '/images/csr-uni-logo/christ.jpeg',
-  '/images/csr-uni-logo/nitte.svg',
-  '/images/csr-uni-logo/ramaiah-management.png',
-  '/images/csr-uni-logo/ramaiah.png',
-  '/images/csr-uni-logo/reva-university.webp',
-  '/images/csr-uni-logo/sambhram.jpg',
+  '/images/csr-uni-logo/Christ-University-Bangalore-Pune.jpg',
+  '/images/csr-uni-logo/ms-ramaiah-college-of-engineering.png',
+  '/images/csr-uni-logo/Nitte Meenakshi Institute (NMIT).jpg',
+  '/images/csr-uni-logo/PES Institute of Technology.jpg',
+  '/images/csr-uni-logo/REVA University.jpg',
+  '/images/csr-uni-logo/Sambhram Institute.jpg',
+  '/images/csr-uni-logo/Sir M. Visvesvaraya Institute.jpg',
 ];
 
 import {

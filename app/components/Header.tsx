@@ -121,8 +121,23 @@ export default function Header() {
                 </div>
               </div>
             </li>
-            <li>
-              <Link href="/about" className="nav-link">About Us</Link>
+            {/* About eHack Dropdown */}
+            <li className="dropdown-wrapper">
+              <button className="nav-link nav-dropdown-btn">
+                About eHack
+                <svg width="10" height="6" viewBox="0 0 10 6" fill="none">
+                  <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
+              <div className="dropdown-menu">
+                <Link href="/about" className="dropdown-item dropdown-item-main">About Us Overview</Link>
+                <div className="dropdown-divider"></div>
+                <Link href="/about#mission" className="dropdown-item">Our Mission</Link>
+                <Link href="/about#why-choose-us" className="dropdown-item">Why Choose Us</Link>
+                <Link href="/about#leadership" className="dropdown-item">Leadership</Link>
+                <Link href="/about#advisory" className="dropdown-item">Advisory Board</Link>
+                <Link href="/contact" className="dropdown-item">Contact Us</Link>
+              </div>
             </li>
             <li>
               <Link href="/careers" className="nav-link">Careers</Link>
