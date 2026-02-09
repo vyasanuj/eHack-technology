@@ -14,12 +14,12 @@ const montserrat = Montserrat({
 
 
 export const metadata: Metadata = {
-  title: "Ehack Technology | Enterprise Cybersecurity Solutions",
-  description: "Ehack Technology provides cutting-edge cybersecurity services including VAPT, penetration testing, digital forensics, compliance audits, and more. Protect your business with industry-leading security experts.",
+  title: "ehack Global Technology | Enterprise Cybersecurity Solutions",
+  description: "ehack Global Technology provides cutting-edge cybersecurity services including VAPT, penetration testing, digital forensics, compliance audits, and more. Protect your business with industry-leading security experts.",
   keywords: "cybersecurity, penetration testing, VAPT, digital forensics, compliance audit, web security, mobile security, API security, red team, GDPR, PCI DSS, ISO 27001",
   openGraph: {
-    title: "Ehack Technology | Enterprise Cybersecurity Solutions",
-    description: "Protect your enterprise with cutting-edge cybersecurity solutions from Ehack Technology.",
+    title: "ehack Global Technology | Enterprise Cybersecurity Solutions",
+    description: "Protect your enterprise with cutting-edge cybersecurity solutions from ehack Global Technology.",
     type: "website",
   },
 };
