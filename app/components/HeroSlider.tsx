@@ -99,7 +99,7 @@ export default function HeroSlider() {
     const activeSlide = slides[currentSlide];
 
     return (
-        <section className="relative h-[650px] w-full overflow-hidden text-white">
+        <section className="relative min-h-[500px] h-[75vh] md:h-[85vh] max-h-[700px] w-full overflow-hidden text-white">
             {/* Background Images with Transitions */}
             {slides.map((slide, index) => (
                 <div
@@ -115,31 +115,27 @@ export default function HeroSlider() {
                         priority={index === 0}
                     />
                     {/* Lightened Overlays for better image visibility */}
-                    <div className="absolute inset-0 bg-black/25 bg-gradient-to-b from-black/50 via-black/10 to-black/50" />
+                    <div className="absolute inset-0 bg-black/40 md:bg-black/25 bg-gradient-to-b from-black/60 via-black/20 to-black/60 md:from-black/50 md:via-black/10 md:to-black/50" />
                 </div>
             ))}
 
             {/* Content Container - Centered but moved up */}
-            <div className="container relative z-10 h-full flex flex-col justify-center items-center text-center pb-32 gap-16">
+            <div className="container relative z-10 h-full flex flex-col justify-center items-center text-center pb-12 md:pb-32 gap-6 md:gap-16 px-4">
 
                 {/* Main Content */}
-                <div className="max-w-5xl flex flex-col items-center gap-4">
-                    <h1 className="font-extrabold leading-tight tracking-tight drop-shadow-2xl" style={{ color: '#FFFFFF', fontSize: '56px', maxWidth: '800px' }}>
+                <div className="max-w-5xl flex flex-col items-center gap-4 md:gap-6 w-full mt-8 md:mt-0">
+                    <h1 className="font-extrabold leading-tight tracking-tight drop-shadow-2xl text-3xl sm:text-4xl md:text-5xl lg:text-[56px] max-w-full md:max-w-[800px]" style={{ color: '#FFFFFF' }}>
                         {activeSlide.headline.split(' ').slice(0, -1).join(' ')} <span style={{ color: '#ff6b00' }}>{activeSlide.headline.split(' ').slice(-1)}</span>
                     </h1>
 
-                    <p className="text-gray-100 leading-relaxed max-w-2xl drop-shadow-lg font-bold" style={{ fontSize: '21.6px' }}>
+                    <p className="text-gray-100 leading-relaxed max-w-xl md:max-w-2xl drop-shadow-lg font-medium md:font-bold text-base md:text-xl lg:text-[21.6px] px-2 md:px-0">
                         {activeSlide.description}
                     </p>
 
                     {/* Search Bar - Fixed size with dropdown */}
                     <div
                         ref={searchRef}
-                        className="relative"
-                        style={{
-                            width: '650px',
-                            maxWidth: '90vw',
-                        }}
+                        className="relative w-full max-w-[90%] md:max-w-[650px] mt-2 md:mt-4"
                     >
                         <div
                             className="bg-white rounded-full flex items-center shadow-xl transition-all duration-300 hover:shadow-2xl"

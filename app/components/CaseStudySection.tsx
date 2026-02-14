@@ -407,12 +407,7 @@ export default function CaseStudySection() {
                     }}>
 
                         {/* Content Grid */}
-                        <div style={{
-                            display: 'grid',
-                            gridTemplateColumns: '0.9fr 1.4fr', // Giving more space to the right (terminal)
-                            gap: '2rem', // Reduced gap
-                            alignItems: 'center'
-                        }}>
+                        <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.4fr] gap-8 items-center">
 
                             {/* Left: Text Content */}
                             <div className={`animate-fadeIn`} key={`${activeTab}-text`}>
@@ -496,10 +491,9 @@ export default function CaseStudySection() {
 
                                     overflow: 'hidden',
                                     border: '1px solid #333',
-                                    height: '550px', // Increased height
                                     display: 'flex',
                                     flexDirection: 'column'
-                                }}>
+                                }} className="h-[400px] md:h-[550px]">
                                     {/* Window Title Bar */}
                                     <div style={{
                                         background: '#1F2026',

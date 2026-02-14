@@ -138,9 +138,8 @@ export default function IndustriesSection() {
                     borderRadius: '24px',
                     boxShadow: '0 20px 40px -10px rgba(0,0,0,0.05)',
                     border: '1px solid #F26C29',
-                    height: '750px', // Increased slightly for top bar
                     overflow: 'hidden'
-                }}>
+                }} className="h-auto lg:h-[750px]">
 
                     {/* 1. Horizontal Animated Strip (Top) */}
                     <div style={{
@@ -174,24 +173,10 @@ export default function IndustriesSection() {
                     </div>
 
                     {/* Inner Container for Tabs & Content */}
-                    <div style={{
-                        display: 'grid',
-                        gridTemplateColumns: '300px 1fr',
-                        gap: '2rem',
-                        padding: '2rem',
-                        height: 'calc(100% - 40px)',
-                        overflow: 'hidden'
-                    }}>
+                    <div className="grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-8 p-8 h-auto lg:h-[calc(100%-40px)] overflow-hidden">
 
                         {/* 2. Vertical Industry Tabs */}
-                        <div style={{
-                            display: 'flex',
-                            flexDirection: 'column',
-                            gap: '0.75rem',
-                            paddingRight: '1rem',
-                            borderRight: '1px solid #eee',
-                            overflowY: 'auto'
-                        }}>
+                        <div className="flex flex-row lg:flex-col overflow-x-auto lg:overflow-y-auto gap-3 pr-0 lg:pr-4 border-b lg:border-b-0 lg:border-r border-gray-200 pb-4 lg:pb-0 scrollbar-hide">
                             {industries.map((ind) => (
                                 <button
                                     key={ind.id}
@@ -208,7 +193,9 @@ export default function IndustriesSection() {
                                         transition: 'all 0.3s ease',
                                         display: 'flex',
                                         alignItems: 'center',
-                                        justifyContent: 'space-between'
+                                        justifyContent: 'space-between',
+                                        whiteSpace: 'nowrap',
+                                        minWidth: 'fit-content'
                                     }}
                                 >
                                     {ind.name}
@@ -224,7 +211,8 @@ export default function IndustriesSection() {
                             // gap: '3rem', // Removed gap for seamless look
                             height: '100%',
                             position: 'relative',
-                            zIndex: 1
+                            zIndex: 1,
+                            overflowY: 'auto'
                         }}>
                             {/* Background Industry Icon Watermark */}
                             <div style={{
@@ -313,13 +301,7 @@ export default function IndustriesSection() {
                                     }}>
                                         <span style={{ color: '#F26C29' }}>///</span> Key Solutions
                                     </h4>
-                                    <ul style={{
-                                        display: 'grid',
-                                        gridTemplateColumns: '1fr 1fr',
-                                        gap: '0.8rem',
-                                        listStyle: 'none',
-                                        padding: 0
-                                    }}>
+                                    <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 list-none p-0">
                                         {activeIndustry.keyFeatures?.map((feature, idx) => (
                                             <li key={idx} style={{
                                                 display: 'flex',

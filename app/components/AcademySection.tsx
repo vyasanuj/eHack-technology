@@ -27,7 +27,7 @@ export default function AcademySection() {
             <div className="container" style={{ position: 'relative', zIndex: 1 }}>
 
                 {/* Centered Top Label */}
-                <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+                <div style={{ textAlign: 'center', marginBottom: '4rem' }} className="px-4">
                     <span style={{
                         color: '#ec7c00',
                         fontWeight: '800',
@@ -35,7 +35,7 @@ export default function AcademySection() {
                         letterSpacing: '0.05em',
                         display: 'block',
                         marginBottom: '0.5rem'
-                    }}>
+                    }} className="text-3xl md:text-5xl">
                         eHack Academy
                     </span>
                     <p style={{ color: '#1f2937', fontSize: '1.1rem', maxWidth: '600px', margin: '0 auto' }}>
@@ -43,12 +43,7 @@ export default function AcademySection() {
                     </p>
                 </div>
 
-                <div style={{
-                    display: 'grid',
-                    gridTemplateColumns: '1fr 1fr',
-                    gap: '4rem',
-                    alignItems: 'center'
-                }}>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
 
                     {/* Left Column: Text Content */}
                     <div className="animate-fadeInLeft">

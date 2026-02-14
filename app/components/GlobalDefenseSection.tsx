@@ -76,18 +76,7 @@ export default function GlobalDefenseSection() {
                 </div>
 
                 {/* World Map Container */}
-                <div className="animate-scaleIn" style={{
-                    position: 'relative',
-                    width: '100%',
-                    aspectRatio: '2/1',
-                    height: 'auto',
-                    background: 'linear-gradient(180deg, rgba(15, 15, 26, 0.8) 0%, rgba(31, 32, 38, 0.8) 100%)',
-                    borderRadius: '24px',
-                    border: '1px solid rgba(255, 255, 255, 0.1)',
-                    boxShadow: '0 20px 50px rgba(0,0,0,0.3)',
-                    overflow: 'hidden',
-                    marginBottom: '4rem'
-                }}>
+                <div className="animate-scaleIn relative w-full aspect-[2/1] min-h-[300px] md:min-h-auto h-auto bg-gradient-to-b from-[#0F0F1A]/80 to-[#1F2026]/80 rounded-3xl border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.3)] overflow-hidden mb-16">
                     {/* Top HUD Panel */}
                     <div style={{
                         position: 'absolute',
@@ -113,19 +102,16 @@ export default function GlobalDefenseSection() {
                             <span style={{
                                 fontFamily: 'monospace',
                                 color: '#10B981',
-                                fontSize: '0.85rem',
                                 letterSpacing: '2px',
                                 fontWeight: '600'
-                            }}>SYSTEM ONLINE</span>
+                            }} className="text-[0.65rem] md:text-[0.85rem]">SYSTEM ONLINE</span>
                         </div>
                         <div style={{
                             fontFamily: 'monospace',
                             color: '#F26C29',
-                            fontSize: '0.85rem',
                             letterSpacing: '2px',
-                            fontWeight: '600',
                             textShadow: '0 0 10px rgba(242, 108, 41, 0.5)'
-                        }}>LIVE THREAT MONITORING</div>
+                        }} className="text-[0.65rem] md:text-[0.85rem]">LIVE THREAT MONITORING</div>
                     </div>
 
                     <img
@@ -136,7 +122,8 @@ export default function GlobalDefenseSection() {
                             height: '100%',
                             objectFit: 'cover',
                             opacity: 0.9,
-                            filter: 'contrast(1.2) brightness(0.8)' // Enhance dark look
+                            filter: 'contrast(1.2) brightness(0.8)', // Enhance dark look
+                            minHeight: '300px'
                         }}
                     />
 

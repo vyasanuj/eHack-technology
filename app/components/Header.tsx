@@ -12,7 +12,7 @@ export default function Header() {
       {/* Top Bar */}
       <div className="top-bar">
         <div className="container">
-          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '1.5rem' }}>
+          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
             <a href="mailto:info@ehacktechnology.com">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
@@ -42,19 +42,20 @@ export default function Header() {
 
       {/* Main Navigation */}
       <nav className="main-nav">
-        <div className="nav-container">
+        <div className="nav-container !px-4 md:!px-8">
           <Link href="/" className="logo" style={{ flexShrink: 0 }}>
             <Image
               src="/eHack.png"
               alt="Ehack Group of Technologies"
               width={300}
               height={85}
+              className="w-[180px] md:w-[250px] xl:w-[240px] 2xl:w-[300px] h-auto"
               style={{ objectFit: 'contain' }}
               priority
             />
           </Link>
 
-          <ul className={`nav-links ${mobileMenuOpen ? 'active' : ''}`}>
+          <ul className={`nav-links hidden xl:flex ${mobileMenuOpen ? 'active' : ''}`}>
             {/* Security Assessment Dropdown */}
             <li className="nav-dropdown">
               <div
@@ -142,12 +143,12 @@ export default function Header() {
             <li>
               <Link href="/careers" className="nav-link">Careers</Link>
             </li>
-            <li className="lg:hidden">
-              <Link href="/contact" className="nav-link nav-cta">Get a Quote</Link>
+            <li className="xl:hidden">
+              <Link href="/contact" className="nav-link nav-cta inline-flex">Get a Quote</Link>
             </li>
           </ul>
 
-          <Link href="/contact" className="nav-cta hidden lg:inline-flex" style={{ whiteSpace: 'nowrap' }}>Get a Quote</Link>
+          <Link href="/contact" className="nav-cta hidden xl:inline-flex" style={{ whiteSpace: 'nowrap' }}>Get a Quote</Link>
 
           <div
             className="mobile-toggle"

@@ -16,8 +16,7 @@ const companies = [
 ];
 
 export default function TrustedCompanies() {
-    const topRow = companies.slice(0, 5);
-    const bottomRow = companies.slice(5, 10);
+
 
     return (
         <section className="trusted-by-section" style={{
@@ -45,14 +44,9 @@ export default function TrustedCompanies() {
                     </span>
                 </div>
 
-                {/* Top Row - 5 Companies */}
-                <div style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(5, 1fr)',
-                    gap: '1.5rem',
-                    marginBottom: '1.5rem'
-                }}>
-                    {topRow.map((company, index) => (
+                {/* Companies Grid */}
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 md:gap-8">
+                    {companies.map((company, index) => (
                         <div
                             key={index}
                             style={{
@@ -60,7 +54,10 @@ export default function TrustedCompanies() {
                                 borderRadius: '15px',
                                 overflow: 'hidden',
                                 background: 'white',
-                                transition: 'transform 0.3s ease, box-shadow 0.3s ease'
+                                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                                height: '100%',
+                                display: 'flex',
+                                flexDirection: 'column'
                             }}
                             onMouseEnter={(e) => {
                                 e.currentTarget.style.transform = 'translateY(-5px)';
@@ -73,76 +70,13 @@ export default function TrustedCompanies() {
                         >
                             {/* Logo Area */}
                             <div style={{
-                                height: '110px',
+                                height: '120px',
                                 display: 'flex',
                                 alignItems: 'center',
                                 justifyContent: 'center',
-                                padding: '1rem',
-                                background: 'white'
-                            }}>
-                                <Image
-                                    src={company.logo}
-                                    alt={`${company.name} logo`}
-                                    width={company.width}
-                                    height={company.height}
-                                    style={{
-                                        width: company.logoSize,
-                                        height: 'auto',
-                                        maxHeight: '95px',
-                                        objectFit: 'contain',
-                                        transform: `scale(${company.scale})`
-                                    }}
-                                />
-                            </div>
-
-                            {/* Name Area */}
-                            <div style={{
-                                background: '#ec7c00',
-                                color: 'white',
-                                padding: '0.6rem',
-                                textAlign: 'center',
-                                fontSize: '1rem',
-                                fontWeight: '700'
-                            }}>
-                                {company.name}
-                            </div>
-                        </div>
-                    ))}
-                </div>
-
-                {/* Bottom Row - 5 Companies */}
-                <div style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(5, 1fr)',
-                    gap: '1.5rem'
-                }}>
-                    {bottomRow.map((company, index) => (
-                        <div
-                            key={index}
-                            style={{
-                                border: '2px solid #F26C29',
-                                borderRadius: '10px',
-                                overflow: 'hidden',
+                                padding: '1.5rem',
                                 background: 'white',
-                                transition: 'transform 0.3s ease, box-shadow 0.3s ease'
-                            }}
-                            onMouseEnter={(e) => {
-                                e.currentTarget.style.transform = 'translateY(-5px)';
-                                e.currentTarget.style.boxShadow = '0 10px 20px rgba(242, 108, 41, 0.15)';
-                            }}
-                            onMouseLeave={(e) => {
-                                e.currentTarget.style.transform = 'translateY(0)';
-                                e.currentTarget.style.boxShadow = 'none';
-                            }}
-                        >
-                            {/* Logo Area */}
-                            <div style={{
-                                height: '110px',
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                padding: '1rem',
-                                background: 'white'
+                                flex: 1
                             }}>
                                 <Image
                                     src={company.logo}
@@ -150,9 +84,9 @@ export default function TrustedCompanies() {
                                     width={company.width}
                                     height={company.height}
                                     style={{
-                                        width: company.logoSize,
-                                        height: 'auto',
-                                        maxHeight: '95px',
+                                        width: 'auto',
+                                        maxWidth: '100%',
+                                        maxHeight: '80px',
                                         objectFit: 'contain',
                                         transform: `scale(${company.scale})`
                                     }}
@@ -163,10 +97,11 @@ export default function TrustedCompanies() {
                             <div style={{
                                 background: '#ec7c00',
                                 color: 'white',
-                                padding: '0.6rem',
+                                padding: '0.8rem 0.5rem',
                                 textAlign: 'center',
                                 fontSize: '1rem',
-                                fontWeight: '700'
+                                fontWeight: '700',
+                                width: '100%'
                             }}>
                                 {company.name}
                             </div>

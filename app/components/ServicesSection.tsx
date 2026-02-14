@@ -29,13 +29,7 @@ export default function ServicesSection() {
                 </div>
 
                 {/* Categories Cards Grid */}
-                <div style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-                    gap: '2.5rem',
-                    marginBottom: '0',
-                    paddingBottom: '1rem'
-                }}>
+                <div className="grid grid-cols-1 sm:grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-10 mb-0 pb-4">
                     {(Object.values(categories) as any[]).map((cat) => (
                         <Link href={`/solutions/${cat.id}`} key={cat.id} className="group" style={{ textDecoration: 'none' }}>
                             <div style={{
