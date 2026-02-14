@@ -139,7 +139,7 @@ export default function IndustriesSection() {
                     boxShadow: '0 20px 40px -10px rgba(0,0,0,0.05)',
                     border: '1px solid #F26C29',
                     overflow: 'hidden'
-                }} className="h-auto lg:h-[750px]">
+                }} className="h-auto min-h-[600px]">
 
                     {/* 1. Horizontal Animated Strip (Top) */}
                     <div style={{
@@ -173,17 +173,20 @@ export default function IndustriesSection() {
                     </div>
 
                     {/* Inner Container for Tabs & Content */}
-                    <div className="grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-8 p-8 h-auto lg:h-[calc(100%-40px)] overflow-hidden">
+                    <div
+                        className="grid grid-cols-1 lg:grid-cols-[280px_1fr] h-auto"
+                        style={{ padding: '2rem', gap: '3rem' }}
+                    >
 
                         {/* 2. Vertical Industry Tabs */}
-                        <div className="flex flex-row lg:flex-col overflow-x-auto lg:overflow-y-auto gap-3 pr-0 lg:pr-4 border-b lg:border-b-0 lg:border-r border-gray-200 pb-4 lg:pb-0 scrollbar-hide">
+                        <div className="flex flex-row lg:flex-col overflow-x-auto lg:overflow-y-auto gap-4 pr-0 pb-4 lg:pb-0 scrollbar-hide">
                             {industries.map((ind) => (
                                 <button
                                     key={ind.id}
                                     onClick={() => setActiveIndustry(ind)}
                                     style={{
                                         textAlign: 'left',
-                                        padding: '1.25rem 1.5rem',
+                                        padding: '1rem 1.25rem',
                                         borderRadius: '12px',
                                         background: activeIndustry.id === ind.id ? '#fff5f0' : 'transparent',
                                         border: activeIndustry.id === ind.id ? '1px solid #F26C29' : '1px solid #b6b4b4ff',
@@ -211,8 +214,7 @@ export default function IndustriesSection() {
                             // gap: '3rem', // Removed gap for seamless look
                             height: '100%',
                             position: 'relative',
-                            zIndex: 1,
-                            overflowY: 'auto'
+                            zIndex: 1
                         }}>
                             {/* Background Industry Icon Watermark */}
                             <div style={{
@@ -278,7 +280,7 @@ export default function IndustriesSection() {
                             </div>
 
                             {/* Text Content (Bottom) */}
-                            <div style={{ padding: '2rem 1rem' }}>
+                            <div style={{ padding: '2rem 0' }}>
                                 <p style={{
                                     color: '#1f2937',
                                     fontSize: '1.1rem',

@@ -229,11 +229,11 @@ export default function CaseStudySection() {
 
 
     return (
-        <section className="section section-dark" style={{ overflow: 'hidden', padding: '2.5rem 0' }}>
+        <section className="section section-dark" style={{ overflow: 'hidden', padding: 'clamp(2.5rem, 5vw, 5rem) 0' }}>
             <div className="container">
 
                 {/* Section Header */}
-                <div className="section-header" style={{ marginBottom: '3rem' }}>
+                <div className="section-header" style={{ marginBottom: 'clamp(2rem, 5vw, 3rem)' }}>
                     <span className="section-label" style={{
                         background: '#F26C29',
                         color: 'white',
@@ -244,7 +244,7 @@ export default function CaseStudySection() {
                         marginBottom: '1rem',
                         fontWeight: '600'
                     }}>Real World Impact</span>
-                    <h2 className="section-title">Security in <span style={{ color: '#ec7c00' }}>Action</span></h2>
+                    <h2 className="section-title" style={{ fontSize: 'clamp(2rem, 5vw, 3rem)' }}>Security in <span style={{ color: '#ec7c00' }}>Action</span></h2>
                     <p className="section-subtitle" style={{ color: '#1f2937' }}>
                         See how eHack Global Technology protects organizations from critical threats <br />
                         <span style={{ fontSize: '0.9rem', opacity: 0.8, fontStyle: 'italic' }}>(Names changed for confidentiality)</span>
@@ -255,9 +255,9 @@ export default function CaseStudySection() {
                 <div style={{
                     display: 'flex',
                     justifyContent: 'center',
-                    marginBottom: '3rem',
+                    marginBottom: 'clamp(2rem, 5vw, 3rem)',
                     flexWrap: 'wrap',
-                    gap: '1rem'
+                    gap: 'clamp(0.5rem, 2vw, 1rem)'
                 }}>
                     <div style={{
                         background: 'white',
@@ -274,7 +274,7 @@ export default function CaseStudySection() {
                                 key={key}
                                 onClick={() => setActiveTab(key as any)}
                                 style={{
-                                    padding: '0.75rem 1.5rem',
+                                    padding: '0.75rem clamp(1rem, 2vw, 1.5rem)',
                                     borderRadius: '40px',
                                     border: 'none',
                                     background: activeTab === key ? '#F26C29' : 'transparent',
@@ -282,7 +282,8 @@ export default function CaseStudySection() {
                                     fontWeight: '600',
                                     cursor: 'pointer',
                                     transition: 'all 0.3s ease',
-                                    textTransform: 'capitalize'
+                                    textTransform: 'capitalize',
+                                    fontSize: 'clamp(0.85rem, 1vw, 1rem)'
                                 }}
                             >
                                 {key === 'ecommerce' ? 'E-Commerce' : key === 'fintech' ? 'FinTech' : key}
@@ -300,7 +301,7 @@ export default function CaseStudySection() {
                         top: 0,
                         left: 0,
                         right: 0,
-                        height: '35px',
+                        height: 'clamp(25px, 5vw, 35px)',
                         backgroundColor: '#F26C29', // Fallback/Base color
                         overflow: 'hidden',
                         borderRadius: '16px 16px 0 0',
@@ -334,7 +335,7 @@ export default function CaseStudySection() {
                         top: '0',
                         bottom: '0',
                         left: 0,
-                        width: '25px', // Increased width
+                        width: 'clamp(15px, 3vw, 25px)', // Increased width
                         backgroundColor: '#F26C29',
                         zIndex: 3, // Sit on top of corners for seamless look or match zIndex
                         borderRight: '1px solid #D45A1F',
@@ -347,7 +348,7 @@ export default function CaseStudySection() {
                         top: '0',
                         bottom: '0',
                         right: 0,
-                        width: '25px', // Increased width
+                        width: 'clamp(15px, 3vw, 25px)', // Increased width
                         backgroundColor: '#F26C29',
                         zIndex: 3,
                         borderLeft: '1px solid #D45A1F',
@@ -360,7 +361,7 @@ export default function CaseStudySection() {
                         bottom: 0,
                         left: 0,
                         right: 0,
-                        height: '35px',
+                        height: 'clamp(25px, 5vw, 35px)',
                         backgroundColor: '#F26C29',
                         overflow: 'hidden',
                         borderRadius: '0 0 16px 16px',
@@ -392,7 +393,7 @@ export default function CaseStudySection() {
                     {/* Main Content Box (Wrapped) */}
                     <div className="glass" style={{
                         borderRadius: '16px',
-                        padding: '3rem 2rem', // Reduced side padding to give more space
+                        padding: 'clamp(1.5rem, 4vw, 3rem) clamp(1rem, 3vw, 2rem)', // Responsive padding
                         background: 'linear-gradient(145deg, #ffffff, #fff5f0)',
                         // No solid border here, moving frame handles it
                         borderTop: 'none',
@@ -402,8 +403,8 @@ export default function CaseStudySection() {
                         boxShadow: '0 20px 60px -15px rgba(242, 108, 41, 0.15)',
                         position: 'relative',
                         overflow: 'hidden',
-                        marginLeft: '15px', // Increased Offset
-                        marginRight: '15px'
+                        marginLeft: 'clamp(5px, 2vw, 15px)', // Responsive Offset
+                        marginRight: 'clamp(5px, 2vw, 15px)'
                     }}>
 
                         {/* Content Grid */}
@@ -425,14 +426,14 @@ export default function CaseStudySection() {
                                     {caseStudies[activeTab].tag}
                                 </div>
                                 <h3 style={{
-                                    fontSize: '2.5rem',
+                                    fontSize: 'clamp(1.75rem, 4vw, 2.5rem)',
                                     marginBottom: '1.5rem',
                                     lineHeight: '1.2',
                                     color: '#1a1a1a'
                                 }}>
                                     {caseStudies[activeTab].title}
                                 </h3>
-                                <p style={{ color: '#1f2937', marginBottom: '2rem', fontSize: '1.1rem' }}>
+                                <p style={{ color: '#1f2937', marginBottom: '2rem', fontSize: 'clamp(1rem, 1.5vw, 1.1rem)' }}>
                                     <strong>The Breach:</strong> {caseStudies[activeTab].breach}
                                 </p>
 
@@ -508,7 +509,7 @@ export default function CaseStudySection() {
                                             <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#ffbd2e' }}></div>
                                             <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#27c93f' }}></div>
                                         </div>
-                                        <div style={{ color: '#ccc', fontSize: '0.8rem', fontWeight: 'bold' }}>
+                                        <div style={{ color: '#ccc', fontSize: 'clamp(0.7rem, 1.5vw, 0.8rem)', fontWeight: 'bold' }}>
                                             root@kali:~/{caseStudies[activeTab].terminalType}
                                         </div>
                                         <div style={{ width: '40px' }}></div> {/* Spacer */}
@@ -521,7 +522,7 @@ export default function CaseStudySection() {
                                         display: 'flex',
                                         gap: '1.5rem',
                                         color: '#CCC',
-                                        fontSize: '0.8rem',
+                                        fontSize: 'clamp(0.7rem, 1.5vw, 0.8rem)',
                                         borderBottom: '1px solid #111'
                                     }}>
                                         <span>File</span>
@@ -556,7 +557,7 @@ export default function CaseStudySection() {
                                     <div style={{
                                         padding: '1rem',
                                         color: '#d4d4d4',
-                                        fontSize: '0.9rem',
+                                        fontSize: 'clamp(0.75rem, 1.5vw, 0.9rem)',
                                         lineHeight: '1.5',
                                         overflowY: 'auto',
                                         flex: 1,
