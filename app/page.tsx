@@ -191,7 +191,7 @@ export default function Home() {
       </section>
 
       {/* Certifications & Partnerships Section */}
-      <section className={bentoStyles.sectionWrapper}>
+      {/* <section className={bentoStyles.sectionWrapper}>
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
             <span style={{
@@ -209,9 +209,9 @@ export default function Home() {
             <h2 className="section-title">Global Recognition & <span style={{ color: '#F26C29' }}>Academic Excellence</span></h2>
           </div>
 
-          <div className={bentoStyles.bentoContainer}>
-            {/* Column 1: Industry Certifications */}
-            <div className={bentoStyles.bentoCard}>
+          <div className={bentoStyles.bentoContainer}> */}
+      {/* Column 1: Industry Certifications */}
+      {/* <div className={bentoStyles.bentoCard}>
               <div className={bentoStyles.marqueeColumn}>
                 <div className={bentoStyles.marqueeTrack}>
                   {[...certificates, ...certificates].map((img, i) => (
@@ -224,10 +224,10 @@ export default function Home() {
               <div className={bentoStyles.cardFloatingLabel}>
                 <h4>Professional Certifications</h4>
               </div>
-            </div>
+            </div> */}
 
-            {/* Column 2: Educational Programs */}
-            <div className={bentoStyles.bentoCard}>
+      {/* Column 2: Educational Programs */}
+      {/* <div className={bentoStyles.bentoCard}>
               <div className={bentoStyles.marqueeColumn}>
                 <div className={`${bentoStyles.marqueeTrack} ${bentoStyles.marqueeTrackReverse}`}>
                   {[...uniLogos, ...uniLogos].map((img, i) => (
@@ -240,10 +240,10 @@ export default function Home() {
               <div className={bentoStyles.cardFloatingLabel}>
                 <h4>Academic Alliances</h4>
               </div>
-            </div>
+            </div> */}
 
-            {/* Column 3: Advanced Training */}
-            <div className={bentoStyles.bentoCard}>
+      {/* Column 3: Advanced Training */}
+      {/* <div className={bentoStyles.bentoCard}>
               <div className={bentoStyles.marqueeColumn}>
                 <div className={bentoStyles.marqueeTrack}>
                   {['/images/certificates/masterclass-1.jpeg', '/images/certificates/masterclass-2.jpeg', '/images/certificates/masterclass-3.jpeg', '/images/certificates/masters-certificate.jpg', '/images/certificates/robotics-image.jpeg', '/images/certificates/ceh-certificate.jpg'].map((img, i) => (
@@ -264,7 +264,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Ribbons Section */}
       <section style={{ borderBottom: '1px solid #ff6b00', padding: '2rem 0', borderTop: '1px solid #ff6b00', marginTop: '2rem' }}>

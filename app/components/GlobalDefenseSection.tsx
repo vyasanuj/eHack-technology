@@ -11,13 +11,13 @@ export default function GlobalDefenseSection() {
     const defenseCenters = [
         { id: 1, top: '28%', left: '18%', name: 'North America HQ (USA)' },     // West US (approx 40N, 100W adjusted)
         { id: 2, top: '28%', left: '29%', name: 'New York Node' },              // NY (approx 40N, 74W)
-        { id: 3, top: '19%', left: '49%', name: 'London Ops (UK)' },            // UK (55N)
+        { id: 3, top: '22.5%', left: '49%', name: 'London Ops (UK)' },          // UK (approx 51.5N) -> Adjusted down
         { id: 4, top: '21%', left: '53%', name: 'Berlin Center (Germany)' },    // Germany (51N)
         { id: 5, top: '19%', left: '53%', name: 'Copenhagen Node (Denmark)' },  // Denmark (56N)
-        { id: 6, top: '39%', left: '72%', name: 'India HQ (Mumbai)' },          // India (19N, 72E)
-        { id: 7, top: '51%', left: '79%', name: 'Singapore Hub' },              // Singapore (1N, 103E)
-        { id: 8, top: '68%', left: '92%', name: 'Sydney Node' },                // Sydney (33S, 151E)
-        { id: 9, top: '63%', left: '32%', name: 'Sao Paulo' },                  // Sao Paulo (23S, 46W)
+        { id: 6, top: '40%', left: '72%', name: 'India HQ (Mumbai)' },          // India (19N, 73E) -> Adjusted slightly
+        { id: 7, top: '50%', left: '79%', name: 'Singapore Hub' },              // Singapore (1N, 104E) -> Adjusted slightly
+        { id: 8, top: '68%', left: '92%', name: 'Sydney Node' },                // Sydney (34S, 151E)
+        { id: 9, top: '63%', left: '37%', name: 'Sao Paulo' },                  // Sao Paulo (23S, 46W) -> Adjusted East
         { id: 10, top: '21%', left: '55%', name: 'Warsaw Hub' },                // Warsaw (52N, 21E)
         { id: 11, top: '36%', left: '65%', name: 'Dubai Hub' },                 // Dubai (25N, 55E)
         { id: 12, top: '29%', left: '88%', name: 'Tokyo Center' },              // Tokyo (35N, 139E)
@@ -58,7 +58,7 @@ export default function GlobalDefenseSection() {
             <div className="container" style={{ position: 'relative', zIndex: 1 }}>
 
                 {/* Header */}
-                <div className="section-header" style={{ marginBottom: '4rem' }}>
+                <div className="section-header" style={{ marginBottom: '2rem' }}>
                     <span className="section-label" style={{
                         background: '#F26C29',
                         color: 'white',
@@ -76,163 +76,35 @@ export default function GlobalDefenseSection() {
                 </div>
 
                 {/* World Map Container */}
-                <div className="animate-scaleIn relative w-full aspect-[2/1] min-h-[300px] md:min-h-auto h-auto bg-gradient-to-b from-[#0F0F1A]/80 to-[#1F2026]/80 rounded-3xl border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.3)] overflow-hidden mb-16">
-                    {/* Top HUD Panel */}
+                <div className="animate-scaleIn relative w-full aspect-[2/1] min-h-[300px] md:min-h-auto h-auto rounded-3xl overflow-hidden mb-16">
+
+                    {/* Map Content Wrapper for Zooming */}
                     <div style={{
-                        position: 'absolute',
-                        top: 0,
-                        left: 0,
-                        width: '100%',
-                        padding: '1.5rem 2rem',
-                        background: 'linear-gradient(180deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%)',
-                        display: 'flex',
-                        justifyContent: 'space-between',
-                        alignItems: 'flex-start',
-                        zIndex: 20
-                    }}>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
-                            <div style={{
-                                width: '8px',
-                                height: '8px',
-                                background: '#10B981', // Green
-                                borderRadius: '50%',
-                                boxShadow: '0 0 10px #10B981',
-                                animation: 'pulse 2s infinite'
-                            }}></div>
-                            <span style={{
-                                fontFamily: 'monospace',
-                                color: '#10B981',
-                                letterSpacing: '2px',
-                                fontWeight: '600'
-                            }} className="text-[0.65rem] md:text-[0.85rem]">SYSTEM ONLINE</span>
-                        </div>
-                        <div style={{
-                            fontFamily: 'monospace',
-                            color: '#F26C29',
-                            letterSpacing: '2px',
-                            textShadow: '0 0 10px rgba(242, 108, 41, 0.5)'
-                        }} className="text-[0.65rem] md:text-[0.85rem]">LIVE THREAT MONITORING</div>
-                    </div>
-
-                    <img
-                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/The_earth_at_night.jpg/1920px-The_earth_at_night.jpg"
-                        alt="Global Defense Network"
-                        style={{
-                            width: '100%',
-                            height: '100%',
-                            objectFit: 'cover',
-                            opacity: 0.9,
-                            filter: 'contrast(1.2) brightness(0.8)', // Enhance dark look
-                            minHeight: '300px'
-                        }}
-                    />
-
-                    {/* SVG Connections Overlay */}
-                    <svg style={{
-                        position: 'absolute',
-                        top: 0,
-                        left: 0,
+                        position: 'relative',
                         width: '100%',
                         height: '100%',
-                        zIndex: 5,
-                        pointerEvents: 'none'
-                    }}>
-                        {connections.map(([startId, endId], index) => {
-                            const start = defenseCenters.find(c => c.id === startId);
-                            const end = defenseCenters.find(c => c.id === endId);
-                            if (!start || !end) return null;
-                            return (
-                                <line
-                                    key={index}
-                                    x1={start.left}
-                                    y1={start.top}
-                                    x2={end.left}
-                                    y2={end.top}
-                                    stroke="#F26C29"
-                                    strokeWidth="1"
-                                    strokeDasharray="4 4"
-                                    opacity="0.4"
-                                >
-                                    <animate attributeName="stroke-dashoffset" from="100" to="0" dur="2s" repeatCount="indefinite" />
-                                </line>
-                            );
-                        })}
-                    </svg>
-
-                    {/* Defense Points - Blinking Markers */}
-                    {defenseCenters.map((center) => (
-                        <div
-                            key={center.id}
-                            style={{
-                                position: 'absolute',
-                                top: center.top,
-                                left: center.left,
-                                transform: 'translate(-50%, -50%)',
-                                zIndex: 10,
-                                cursor: 'pointer'
-                            }}
-                            title={center.name}
-                        >
-                            {/* Inner Dot */}
-                            <div style={{
-                                width: '8px',
-                                height: '8px',
-                                background: '#F26C29',
-                                borderRadius: '50%',
-                                boxShadow: '0 0 10px #F26C29'
-                            }}></div>
-                            {/* Pulsing Ring */}
-                            <div style={{
-                                position: 'absolute',
-                                top: '50%',
-                                left: '50%',
-                                transform: 'translate(-50%, -50%)',
-                                width: '20px',
-                                height: '20px',
-                                border: '1px solid #F26C29',
-                                borderRadius: '50%',
-                                animation: 'pulse-ring 2s infinite'
-                            }}></div>
-                        </div>
-                    ))}
-
-                    {/* Bottom HUD Panel */}
-                    <div style={{
-                        position: 'absolute',
-                        bottom: 0,
-                        left: 0,
-                        width: '100%',
-                        padding: '1.5rem 2rem',
-                        background: 'linear-gradient(0deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%)',
-                        borderTop: '1px solid rgba(255, 255, 255, 0.1)',
+                        transform: 'scale(1.05)', // Increased size slightly
+                        transformOrigin: 'center center',
                         display: 'flex',
-                        justifyContent: 'space-between',
-                        alignItems: 'flex-end',
-                        zIndex: 20
+                        alignItems: 'center',
+                        justifyContent: 'center'
                     }}>
-                        <div style={{ display: 'flex', gap: '3rem' }}>
-                            <div>
-                                <div style={{ color: '#888', fontSize: '0.7rem', marginBottom: '4px', fontFamily: 'monospace' }}>ACTIVE NODES</div>
-                                <div style={{ color: 'white', fontSize: '1.2rem', fontFamily: 'monospace', fontWeight: 'bold' }}>12/12</div>
-                            </div>
-                            <div>
-                                <div style={{ color: '#888', fontSize: '0.7rem', marginBottom: '4px', fontFamily: 'monospace' }}>NETWORK LATENCY</div>
-                                <div style={{ color: '#F26C29', fontSize: '1.2rem', fontFamily: 'monospace', fontWeight: 'bold' }}>&lt; 20ms</div>
-                            </div>
-                            <div className="hidden md:block"> {/* Simple hide on mobile logic using Tailwind */}
-                                <div style={{ color: '#888', fontSize: '0.7rem', marginBottom: '4px', fontFamily: 'monospace' }}>ENCRYPTION</div>
-                                <div style={{ color: '#10B981', fontSize: '1.2rem', fontFamily: 'monospace', fontWeight: 'bold' }}>QUANTUM-READY</div>
-                            </div>
-                        </div>
-                        <div style={{
-                            fontFamily: 'monospace',
-                            color: 'rgba(255,255,255,0.5)',
-                            fontSize: '0.8rem',
-                            letterSpacing: '1px'
-                        }}>
-                            SECURE CONNECTION v4.2
-                        </div>
+                        {/* Local New World Map */}
+                        <img
+                            src="/new-map.png"
+                            alt="Global Defense Network"
+                            style={{
+                                width: '100%',
+                                height: '100%',
+                                objectFit: 'contain',
+                                opacity: 1,
+                                minHeight: '300px'
+                                // Removed filter for clarity
+                            }}
+                        />
                     </div>
+
+
                 </div>
 
                 {/* KPI stats below map */}
