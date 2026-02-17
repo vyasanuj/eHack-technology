@@ -76,7 +76,7 @@ export default function GlobalDefenseSection() {
                 </div>
 
                 {/* World Map Container */}
-                <div className="animate-scaleIn relative w-full aspect-[2/1] min-h-[300px] md:min-h-auto h-auto rounded-3xl overflow-hidden mb-16">
+                <div className="animate-scaleIn relative w-full aspect-[2/1] h-auto rounded-3xl overflow-hidden mb-16">
 
                     {/* Map Content Wrapper for Zooming */}
                     <div style={{

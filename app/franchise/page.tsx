@@ -419,20 +419,6 @@ export default function FranchisePage() {
                 </div>
             </section>
 
-            {/* SOP Framework Section */}
-            <section id="sop-framework" className="sop-section">
-                <div className="section-container">
-                    <div className="section-header">
-                        <h2>Franchise SOP <span className="text-orange">Framework</span></h2>
-                        <p>Our comprehensive <span className="text-orange">Standard Operating Procedures</span> ensure quality consistency across all franchise locations</p>
-                    </div>
-                    <div className="sop-intro">
-                        <p>Click on each section to explore the detailed processes and guidelines that power every eHack Academy franchise.</p>
-                    </div>
-                    <Accordion items={sopData} />
-                </div>
-            </section>
-
             {/* Business Model Section */}
             <section id="business-model" className="business-model-section">
                 <div className="section-container">
@@ -442,6 +428,7 @@ export default function FranchisePage() {
                     </div>
                     <div className="model-highlights-grid">
                         <div className="model-card" onClick={() => setShowModelModal(true)} style={{ cursor: 'pointer' }}>
+                            <div className="model-premium-badge">PRIME</div>
                             <div className="model-card-image">
                                 <Image
                                     src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&q=80"
@@ -467,6 +454,7 @@ export default function FranchisePage() {
                             </div>
                         </div>
                         <div className="model-card" onClick={() => setShowModelModal(true)} style={{ cursor: 'pointer' }}>
+                            <div className="model-premium-badge model-premium-badge-master">MASTER</div>
                             <div className="model-card-image">
                                 <Image
                                     src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80"
@@ -492,6 +480,7 @@ export default function FranchisePage() {
                             </div>
                         </div>
                         <div className="model-card" onClick={() => setShowModelModal(true)} style={{ cursor: 'pointer' }}>
+                            <div className="model-premium-badge model-premium-badge-titan">TITAN</div>
                             <div className="model-card-image">
                                 <Image
                                     src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80"
@@ -580,6 +569,20 @@ export default function FranchisePage() {
                             </div>
                         </div>
                     </div>
+                </div>
+            </section>
+
+            {/* SOP Framework Section */}
+            <section id="sop-framework" className="sop-section">
+                <div className="section-container">
+                    <div className="section-header">
+                        <h2>Franchise SOP <span className="text-orange">Framework</span></h2>
+                        <p>Our comprehensive <span className="text-orange">Standard Operating Procedures</span> ensure quality consistency across all franchise locations</p>
+                    </div>
+                    <div className="sop-intro">
+                        <p>Click on each section to explore the detailed processes and guidelines that power every eHack Academy franchise.</p>
+                    </div>
+                    <Accordion items={sopData} />
                 </div>
             </section>
 
@@ -700,6 +703,31 @@ export default function FranchisePage() {
                                         ))}
                                     </tbody>
                                 </table>
+                            </div>
+
+                            {/* Mobile List View */}
+                            <div className="mobile-comparison-list">
+                                {comparisonData.map((row, index) => (
+                                    <div key={index} className="mobile-comparison-card">
+                                        <div className="mobile-card-header">
+                                            <h4>{row.param}</h4>
+                                        </div>
+                                        <div className="mobile-card-body">
+                                            <div className="mobile-option-row">
+                                                <div className="mobile-option-label">Option A</div>
+                                                <div className="mobile-option-value">{row.optionA}</div>
+                                            </div>
+                                            <div className="mobile-option-row">
+                                                <div className="mobile-option-label">Option B</div>
+                                                <div className="mobile-option-value">{row.optionB}</div>
+                                            </div>
+                                            <div className="mobile-option-row">
+                                                <div className="mobile-option-label">Option C</div>
+                                                <div className="mobile-option-value">{row.optionC}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
                             </div>
 
                             <div className="selection-guide">
