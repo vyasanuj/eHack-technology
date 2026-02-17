@@ -1,0 +1,164 @@
+/* ============================================
+   STICKY SECTION NAVIGATION
+   ============================================ */
+.sticky-section-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.97);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid #E5E7EB;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+        opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+}
+
+.sticky-section-nav.visible {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.sticky-nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+    gap: 1rem;
+}
+
+.sticky-nav-links {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    flex: 1;
+}
+
+.sticky-nav-links::-webkit-scrollbar {
+    display: none;
+}
+
+.sticky-nav-link {
+    position: relative;
+    padding: 8px 14px;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: #4B5563;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+    border-radius: 6px;
+    font-family: inherit;
+    line-height: 1.4;
+}
+
+.sticky-nav-link:hover {
+    color: #111827;
+    background: #F3F4F6;
+}
+
+.sticky-nav-link.active {
+    color: #F26C29;
+    background: #FFF5F0;
+    font-weight: 600;
+}
+
+.sticky-nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: #F26C29;
+    transition: width 0.2s ease;
+    border-radius: 1px;
+}
+
+.sticky-nav-link.active::after {
+    width: 60%;
+}
+
+.sticky-nav-cta {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.sticky-nav-call-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 18px;
+    background: #F26C29;
+    color: #FFFFFF !important;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(242, 108, 41, 0.3);
+    font-family: inherit;
+    white-space: nowrap;
+}
+
+.sticky-nav-call-btn:hover {
+    background: #D45A1F;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(242, 108, 41, 0.4);
+    color: #FFFFFF !important;
+}
+
+.sticky-nav-call-btn svg {
+    flex-shrink: 0;
+}
+
+/* Tablet Responsive for Sticky Nav */
+@media (max-width: 1024px) {
+    .sticky-nav-link {
+        padding: 7px 10px;
+        font-size: 0.75rem;
+    }
+}
+
+/* Mobile Responsive for Sticky Nav */
+@media (max-width: 768px) {
+    .sticky-nav-container {
+        padding: 0 0.75rem;
+        height: 50px;
+    }
+
+    .sticky-nav-links {
+        gap: 0;
+    }
+
+    .sticky-nav-link {
+        padding: 6px 8px;
+        font-size: 0.6875rem;
+    }
+
+    .sticky-nav-call-btn {
+        padding: 8px;
+        font-size: 0.75rem;
+        border-radius: 50%;
+    }
+
+    .sticky-nav-call-btn span {
+        display: none;
+    }
+}

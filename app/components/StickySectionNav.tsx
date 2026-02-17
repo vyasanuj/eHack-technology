@@ -1,98 +1,89 @@
 "use client";
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import { Phone } from 'lucide-react';
+import './StickySectionNav.css';
 
-const sections = [
-    { id: 'start', label: 'Start' },
+const NAV_SECTIONS = [
+    { id: 'overview', label: 'Overview' },
+    { id: 'partnership', label: 'Partnership' },
     { id: 'services', label: 'Services' },
     { id: 'industries', label: 'Industries' },
     { id: 'case-studies', label: 'Case Studies' },
-    { id: 'why-ehack', label: 'Why Ehack' },
-    { id: 'certifications', label: 'Certifications' }
+    { id: 'global-reach', label: 'Global Reach' },
+    { id: 'real-world-defense', label: 'Real-World Defense' },
+    { id: 'why-ehack', label: 'Why eHack' },
+    { id: 'social-impact', label: 'Social Impact' },
 ];
 
 export default function StickySectionNav() {
-    const [activeSection, setActiveSection] = useState('start');
-    const [isVisible, setIsVisible] = useState(false);
+    const [activeSection, setActiveSection] = useState('overview');
+    const [showStickyNav, setShowStickyNav] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
-            const scrollPosition = window.scrollY;
+            const scrollY = window.scrollY;
+            setShowStickyNav(scrollY > 400);
 
-            // Show nav only after scrolling down 400px (past hero)
-            setIsVisible(scrollPosition > 400);
+            const sectionElements = NAV_SECTIONS.map(section => ({
+                id: section.id,
+                element: document.getElementById(section.id),
+            })).filter(s => s.element);
 
-            // Add offset for intersection check
-            const checkPosition = scrollPosition + 150;
+            const offset = 150;
 
-            for (const section of sections) {
-                const element = document.getElementById(section.id);
+            for (let i = sectionElements.length - 1; i >= 0; i--) {
+                const { id, element } = sectionElements[i];
                 if (element) {
-                    const offsetTop = element.offsetTop;
-                    const offsetHeight = element.offsetHeight;
-
-                    if (checkPosition >= offsetTop && checkPosition < offsetTop + offsetHeight) {
-                        setActiveSection(section.id);
+                    const rect = element.getBoundingClientRect();
+                    if (rect.top <= offset + window.innerHeight * 0.3) {
+                        setActiveSection(id);
+                        break;
                     }
                 }
             }
         };
 
-        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        handleScroll();
+
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    const scrollToSection = (id: string) => {
-        const element = document.getElementById(id);
+    const scrollToSection = useCallback((sectionId: string) => {
+        const element = document.getElementById(sectionId);
         if (element) {
+            const offset = 80;
+            const elementPosition = element.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - offset;
+
             window.scrollTo({
-                top: element.offsetTop - 80, // Adjust for sticky header height
+                top: offsetPosition,
                 behavior: 'smooth'
             });
         }
-    };
+    }, []);
 
     return (
-        <div style={{
-            position: 'fixed', // Changed from sticky to fixed to float over content
-            top: '0',
-            left: '0',
-            right: '0',
-            zIndex: 100,
-            background: 'rgba(255, 255, 255, 0.95)',
-            backdropFilter: 'blur(10px)',
-            borderBottom: '1px solid rgba(0,0,0,0.05)',
-            boxShadow: '0 4px 20px rgba(0,0,0,0.03)',
-            padding: '1rem 0',
-            transform: isVisible ? 'translateY(0)' : 'translateY(-100%)', // Slide in/out
-            transition: 'transform 0.3s ease-in-out',
-            opacity: isVisible ? 1 : 0
-        }}>
-            <div className="container" style={{
-                display: 'flex',
-                justifyContent: 'center',
-                gap: '0.5rem',
-                flexWrap: 'wrap'
-            }}>
-                {sections.map((section) => (
-                    <button
-                        key={section.id}
-                        onClick={() => scrollToSection(section.id)}
-                        style={{
-                            padding: '0.5rem 1.25rem',
-                            borderRadius: '50px',
-                            border: 'none',
-                            background: activeSection === section.id ? '#F26C29' : 'transparent',
-                            color: activeSection === section.id ? 'white' : '#555',
-                            fontSize: '0.9rem',
-                            fontWeight: activeSection === section.id ? '600' : '500',
-                            cursor: 'pointer',
-                            transition: 'all 0.2s ease'
-                        }}
-                    >
-                        {section.label}
-                    </button>
-                ))}
+        <nav className={`sticky-section-nav ${showStickyNav ? 'visible' : ''}`}>
+            <div className="sticky-nav-container">
+                <div className="sticky-nav-links">
+                    {NAV_SECTIONS.map((section) => (
+                        <button
+                            key={section.id}
+                            className={`sticky-nav-link ${activeSection === section.id ? 'active' : ''}`}
+                            onClick={() => scrollToSection(section.id)}
+                        >
+                            {section.label}
+                        </button>
+                    ))}
+                </div>
+                <div className="sticky-nav-cta">
+                    <a href="tel:+919886035330" className="sticky-nav-call-btn">
+                        <Phone size={16} />
+                        <span>Call Now</span>
+                    </a>
+                </div>
             </div>
-        </div>
+        </nav>
     );
 }

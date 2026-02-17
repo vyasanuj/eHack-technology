@@ -80,11 +80,13 @@ export default function Home() {
     <>
       <StickySectionNav />
 
-      <div id="start">
+      <div id="overview">
         <HeroSlider />
       </div>
 
-      <TrustedCompanies />
+      <div id="partnership">
+        <TrustedCompanies />
+      </div>
 
       <div id="services">
         <ServicesSection />
@@ -117,11 +119,11 @@ export default function Home() {
         <CaseStudySection />
       </div>
 
-      <div id="global-defense">
+      <div id="global-reach">
         <GlobalDefenseSection />
       </div>
 
-      <div id="academy">
+      <div id="real-world-defense">
         <AcademySection />
       </div>
 
@@ -267,7 +269,7 @@ export default function Home() {
       </section> */}
 
       {/* Ribbons Section */}
-      <section style={{ borderBottom: '1px solid #ff6b00', padding: '2rem 0', borderTop: '1px solid #ff6b00', marginTop: '2rem' }}>
+      <section id="social-impact" style={{ borderBottom: '1px solid #ff6b00', padding: '2rem 0', borderTop: '1px solid #ff6b00', marginTop: '2rem' }}>
         <div className="container">
           <div className="section-header" style={{ marginBottom: '3rem' }}>
             <h2 className="section-title">Social Impact & <span style={{ color: '#F26C29' }}>Strategic Growth</span></h2>
