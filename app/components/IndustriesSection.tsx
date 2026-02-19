@@ -256,9 +256,8 @@ export default function IndustriesSection() {
                                     justifyContent: 'flex-end',
                                     padding: '2rem'
                                 }}>
-                                    <span style={{
+                                    <span className="text-xs md:text-[0.9rem]" style={{
                                         display: 'inline-block',
-                                        fontSize: '0.9rem',
                                         fontWeight: '700',
                                         color: 'rgba(255,255,255,0.9)',
                                         letterSpacing: '0.1em',
@@ -267,8 +266,7 @@ export default function IndustriesSection() {
                                     }}>
                                         {activeIndustry.tagline}
                                     </span>
-                                    <h3 style={{
-                                        fontSize: '3.5rem',
+                                    <h3 className="text-2xl sm:text-4xl md:text-[3.5rem]" style={{
                                         lineHeight: '1.1',
                                         color: 'white',
                                         fontWeight: '800',
