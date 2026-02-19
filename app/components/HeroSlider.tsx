@@ -233,16 +233,16 @@ export default function HeroSlider() {
                         <span className="text-white/70 text-sm font-medium">Explore:</span>
                         <div className="flex gap-2 flex-wrap justify-center">
                             {[
-                                "Web App Security",
-                                "API Security",
-                                "GDPR Consulting",
-                                "PCI DSS Compliance",
-                                "Malware Analysis"
+                                { label: "Web App Security", href: "/services/web-application-security" },
+                                { label: "API Security", href: "/services/api-security" },
+                                { label: "GDPR Consulting", href: "/services/gdpr-consulting" },
+                                { label: "PCI DSS Compliance", href: "/services/pci-dss-compliance" },
+                                { label: "Malware Analysis", href: "/services/malware-analysis" }
                             ].map((tag) => (
-                                <button
-                                    key={tag}
-                                    onClick={() => handleSearch(tag)}
-                                    className="rounded-full border-2 border-[#FF6B00] text-[15px] font-semibold text-white transition-all hover:scale-105 active:scale-95"
+                                <Link
+                                    key={tag.label}
+                                    href={tag.href}
+                                    className="rounded-full border-2 border-[#FF6B00] text-[15px] font-semibold text-white transition-all hover:scale-105 active:scale-95 inline-block"
                                     style={{
                                         padding: '4px 14px',
                                         background: 'rgba(255, 107, 0, 0.25)',
@@ -259,8 +259,8 @@ export default function HeroSlider() {
                                         e.currentTarget.style.background = 'rgba(255, 107, 0, 0.25)';
                                     }}
                                 >
-                                    {tag}
-                                </button>
+                                    {tag.label}
+                                </Link>
                             ))}
                         </div>
                     </div>
