@@ -259,20 +259,24 @@ export default function CaseStudySection() {
                     flexWrap: 'wrap',
                     gap: 'clamp(0.5rem, 2vw, 1rem)'
                 }}>
-                    <div style={{
-                        background: 'white',
-                        padding: '0.5rem',
-                        borderRadius: '50px',
-                        boxShadow: '0 4px 20px rgba(0,0,0,0.05)',
-                        display: 'inline-flex',
-                        flexWrap: 'wrap',
-                        justifyContent: 'center',
-                        gap: '0.5rem'
-                    }}>
+                    <div
+                        className="casestudy-tabs-inner scrollbar-hide"
+                        style={{
+                            background: 'white',
+                            padding: '0.5rem',
+                            borderRadius: '50px',
+                            boxShadow: '0 4px 20px rgba(0,0,0,0.05)',
+                            display: 'inline-flex',
+                            flexWrap: 'wrap',
+                            justifyContent: 'center',
+                            gap: '0.5rem'
+                        }}
+                    >
                         {Object.keys(caseStudies).map((key) => (
                             <button
                                 key={key}
                                 onClick={() => setActiveTab(key as any)}
+                                className="casestudy-tab-btn"
                                 style={{
                                     padding: '0.75rem clamp(1rem, 2vw, 1.5rem)',
                                     borderRadius: '40px',
