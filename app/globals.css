@@ -95,6 +95,36 @@
   --neutral-black: #000000;
 }
 
+/* Aggressive mobile-only resize for Industry Section buttons */
+@media (max-width: 639px) {
+  .tabs-container {
+    padding: 0.5rem !important;
+    /* Minimal side padding */
+    gap: 1rem !important;
+  }
+
+  .industry-btn {
+    padding: 4px !important;
+    /* Minimal horizontal padding */
+    font-size: 0.7rem !important;
+    border-radius: 6px !important;
+  }
+
+  .industry-btn span {
+    font-size: 0.9rem !important;
+    /* Smaller arrow on mobile */
+    margin-left: 4px !important;
+  }
+}
+
+/* Mobile-only resize for Industry Section buttons */
+@media (max-width: 768px) {
+  .industry-btn {
+    padding: 0.6rem 0.8rem !important;
+    font-size: 0.85rem !important;
+  }
+}
+
 /* ===== TAILWIND THEME EXTENSION ===== */
 @theme inline {
   --color-primary: var(--primary);

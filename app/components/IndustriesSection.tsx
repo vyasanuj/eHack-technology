@@ -174,16 +174,17 @@ export default function IndustriesSection() {
 
                     {/* Inner Container for Tabs & Content */}
                     <div
-                        className="grid grid-cols-1 lg:grid-cols-[280px_1fr] h-auto"
+                        className="grid grid-cols-1 lg:grid-cols-[280px_1fr] h-auto tabs-container"
                         style={{ padding: '2rem', gap: '3rem' }}
                     >
 
                         {/* 2. Vertical Industry Tabs */}
-                        <div className="flex flex-row lg:flex-col overflow-x-auto lg:overflow-y-auto gap-4 pr-0 pb-4 lg:pb-0 scrollbar-hide">
+                        <div className="flex flex-row lg:flex-col overflow-x-auto lg:overflow-y-auto gap-1 lg:gap-4 pr-0 pb-4 lg:pb-0 scrollbar-hide">
                             {industries.map((ind) => (
                                 <button
                                     key={ind.id}
                                     onClick={() => setActiveIndustry(ind)}
+                                    className="industry-btn"
                                     style={{
                                         textAlign: 'left',
                                         padding: '1rem 1.25rem',
