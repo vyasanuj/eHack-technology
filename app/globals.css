@@ -1,4 +1,4 @@
-@import "tailwindcss";
+﻿@import "tailwindcss";
 
 /* ===== CSS VARIABLES & DESIGN TOKENS ===== */
 :root {
@@ -1294,16 +1294,6 @@ h6 {
   overflow: hidden;
 }
 
-.hero::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 50%;
-  height: 100%;
-  background: radial-gradient(circle at 30% 50%, rgba(242, 108, 41, 0.1) 0%, transparent 50%);
-  pointer-events: none;
-}
 
 .hero-grid {
   display: grid;
@@ -2077,4 +2067,166 @@ h6 {
     justify-content: center;
     flex-wrap: wrap;
   }
+}
+
+
+
+
+
+/* ============================================
+   eHack Academy - Swiss Design Hero Section
+   Replicated from ehack_new certificate pages
+   ============================================ */
+
+.hero-section {
+  position: relative;
+  padding: 2.5rem 1.5rem 2rem;
+  border-bottom: 2px solid #ff6b00;
+  overflow: hidden;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+}
+
+.hero-background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom,
+      rgba(10, 10, 26, 0.7) 0%,
+      rgba(10, 10, 26, 0.5) 100%);
+  z-index: 1;
+}
+
+.hero-image {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 80px;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+}
+
+@media (max-width: 1024px) {
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+.hero-content {
+  color: #ffffff;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-title {
+  font-size: clamp(1.75rem, 6vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: #FFFFFF;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 481px) {
+  .hero-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 1.25rem;
+  }
+}
+
+@media (min-width: 1025px) {
+  .hero-title {
+    font-size: clamp(2.25rem, 5vw, 3.5rem);
+    margin-bottom: 1.5rem;
+  }
+}
+
+.hero-title .text-accent {
+  color: #ff6b00;
+}
+
+.hero-description {
+  font-size: 1rem;
+  color: #ffffff;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  max-width: 600px;
+  font-weight: 500;
+}
+
+@media (min-width: 481px) {
+  .hero-description {
+    font-size: 1.1rem;
+    line-height: 1.65;
+    font-weight: 600;
+  }
+}
+
+@media (min-width: 1025px) {
+  .hero-description {
+    font-size: 1.35rem;
+    line-height: 1.7;
+    max-width: 700px;
+  }
+}
+
+.hero-capsule-badge {
+  display: inline-block;
+  background-color: #ff6b00;
+  color: #ffffff;
+  padding: 6px 16px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 6px rgba(255, 107, 0, 0.25);
+}
+
+.hero-features-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+  max-width: 700px;
+}
+
+.hero-feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+@media (min-width: 481px) {
+  .hero-feature-item {
+    font-size: 1.05rem;
+  }
+}
+
+.hero-feature-item .check-icon {
+  color: #ff6b00;
+  font-weight: bold;
+  flex-shrink: 0;
 }

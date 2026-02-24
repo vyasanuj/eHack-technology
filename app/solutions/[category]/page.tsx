@@ -9,6 +9,8 @@ import GlobalDefenseSection from '@/app/components/GlobalDefenseSection';
 import CaseStudySection from '@/app/components/CaseStudySection';
 import IndustriesSection from '@/app/components/IndustriesSection';
 
+import InquiryForm from '../../components/InquiryForm';
+
 // Using Next.js 15+ async params
 export default async function CategoryLandingPage({ params }: { params: Promise<{ category: string }> }) {
     const { category } = await params;
@@ -20,162 +22,73 @@ export default async function CategoryLandingPage({ params }: { params: Promise<
 
     return (
         <main>
-            {/* Modern Hero Section */}
-            <section style={{
-                padding: '3rem 0 4rem',
-                background: 'linear-gradient(135deg, #FFF5F2 0%, #FFFFFF 100%)',
-                position: 'relative',
-                overflow: 'hidden'
-            }}>
-                <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-                    <div style={{
-                        display: 'grid',
-                        gridTemplateColumns: '1fr 1fr',
-                        gap: '3rem',
-                        alignItems: 'start'
-                    }}>
-                        {/* Left Content */}
-                        <div className="hero-content">
-                            <div className="animate-fadeInDown" style={{
-                                display: 'inline-block',
-                                padding: '0.5rem 1rem',
-                                background: '#F26C29', // Brand Orange
-                                border: '1px solid rgba(255, 255, 255, 0.2)',
-                                borderRadius: '50px',
-                                marginBottom: '1.5rem',
-                                boxShadow: '0 4px 6px rgba(242, 108, 41, 0.2)'
-                            }}>
-                                <span style={{
-                                    color: 'white',
-                                    fontWeight: '600',
-                                    fontSize: '0.9rem',
-                                    letterSpacing: '0.02em',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    gap: '0.5rem'
-                                }}>
-                                    <catData.icon size={16} />
-                                    Trusted {catData.label} Solutions
-                                </span>
-                            </div>
-
-                            <h1 className="animate-fadeInUp" style={{
-                                fontSize: 'clamp(2.5rem, 5vw, 3.75rem)',
-                                fontWeight: '800',
-                                lineHeight: '1.1',
-                                color: '#1a1a1a',
-                                marginBottom: '1.5rem',
-                                letterSpacing: '-0.02em'
-                            }}>
-                                {catData.headline}
-                            </h1>
-
-                            <p className="hero-description animate-fadeInUp delay-200" style={{
-                                fontSize: '1.25rem',
-                                lineHeight: '1.6',
-                                color: '#555',
-                                marginBottom: '2.5rem',
-                                maxWidth: '90%'
-                            }}>
-                                {catData.longDescription || catData.description}
-                            </p>
-
-                            <div style={{ display: 'flex', gap: '1rem', marginBottom: '3rem' }} className="animate-fadeInUp delay-300">
-                                <Link href="#contact" className="btn btn-primary btn-lg" style={{
-                                    padding: '1rem 2.5rem',
-                                    fontSize: '1.125rem',
-                                    fontWeight: '600',
-                                    borderRadius: '12px',
-                                    boxShadow: '0 10px 20px rgba(242, 108, 41, 0.25)',
-                                    transition: 'transform 0.2s ease',
-                                    border: 'none',
-                                    display: 'inline-flex',
-                                    alignItems: 'center',
-                                    gap: '0.5rem'
-                                }}>
-                                    Get Started
-                                </Link>
-                                <Link href="#services" className="btn btn-white btn-lg" style={{
-                                    padding: '1rem 2.5rem',
-                                    fontSize: '1.125rem',
-                                    fontWeight: '600',
-                                    borderRadius: '12px',
-                                    border: '1px solid #e5e5e5',
-                                    background: 'white',
-                                    color: '#1a1a1a'
-                                }}>
-                                    View Services
-                                </Link>
-                            </div>
-
-                            <div className="hero-stats animate-fadeInUp delay-400" style={{
-                                display: 'flex',
-                                gap: '3rem',
-                                borderTop: '1px solid rgba(0,0,0,0.05)',
-                                paddingTop: '2rem'
-                            }}>
-                                <div>
-                                    <h3 style={{ fontSize: '2rem', fontWeight: '800', color: '#1a1a1a', marginBottom: '0.25rem' }}>{catData.industriesCount || '500+'}</h3>
-                                    <p style={{ color: '#666', fontSize: '0.9rem', fontWeight: '500' }}>Clients Secured</p>
-                                </div>
-                                <div>
-                                    <h3 style={{ fontSize: '2rem', fontWeight: '800', color: '#1a1a1a', marginBottom: '0.25rem' }}>10K+</h3>
-                                    <p style={{ color: '#666', fontSize: '0.9rem', fontWeight: '500' }}>Vulnerabilities Found</p>
-                                </div>
-                                <div>
-                                    <h3 style={{ fontSize: '2rem', fontWeight: '800', color: '#1a1a1a', marginBottom: '0.25rem' }}>99%</h3>
-                                    <p style={{ color: '#666', fontSize: '0.9rem', fontWeight: '500' }}>Client Retention</p>
-                                </div>
-                            </div>
+            {/* Authentic Hero Section from ehack_new */}
+            <section className="hero-section" id="overview">
+                <div className="hero-background">
+                    <div className="hero-overlay"></div>
+                    <div
+                        className="hero-image"
+                        style={{
+                            backgroundImage: `url('${catData.image}')`
+                        }}
+                    />
+                </div>
+                <div className="hero-container">
+                    <div className="hero-content">
+                        <div className="hero-capsule-badge">
+                            Trusted {catData.label} Solutions
                         </div>
 
-                        {/* Right Content - Hero Image & Form Combined */}
-                        <div className="hero-right-column animate-scaleIn delay-300" style={{
-                            display: 'flex',
-                            flexDirection: 'column',
-                            alignItems: 'center',
-                            marginTop: '1rem'
-                        }}>
-                            {/* Unified Card Container */}
-                            <div style={{
-                                position: 'relative',
-                                width: '100%',
-                                maxWidth: '600px',
-                                borderRadius: '20px',
-                                boxShadow: '0 20px 40px -10px rgba(0, 0, 0, 0.1)',
-                                overflow: 'hidden',
-                                background: 'white'
-                            }}>
-                                {/* Image Part */}
-                                <div style={{
-                                    position: 'relative',
-                                    width: '100%',
-                                    height: '320px',
-                                }}>
-                                    <Image
-                                        src={catData.image}
-                                        alt={catData.label}
-                                        fill
-                                        style={{
-                                            objectFit: 'cover',
-                                            objectPosition: 'center top'
-                                        }}
-                                        priority
-                                    />
-                                </div>
+                        <h1 className="hero-title animate-fadeInUp">
+                            {(() => {
+                                const title = catData.headline || '';
+                                const words = title.split(' ');
+                                if (words.length > 0) {
+                                    return (
+                                        <>
+                                            <span className="text-accent">{words[0]}</span> {words.slice(1).join(' ')}
+                                        </>
+                                    );
+                                }
+                                return title;
+                            })()}
+                        </h1>
 
-                                {/* Form Part - Attached below */}
-                                <div>
-                                    <LeadForm
-                                        title="Speak to an Expert"
-                                        subtitle="Get a free consultation today"
-                                        serviceName={catData.id}
-                                        compact={true}
-                                    />
-                                </div>
-                            </div>
+                        <p className="hero-description animate-fadeInUp delay-100">
+                            {catData.longDescription || catData.description}
+                        </p>
+
+                        <ul className="hero-features-list animate-fadeInUp delay-200">
+                            {[
+                                'World-Class Security Infrastructure',
+                                'Certified Security Experts (CISSP, CEH)',
+                                'Comprehensive Vulnerability Reporting',
+                                '24/7 Incident Response Support'
+                            ].map((feature, idx) => (
+                                <li key={idx} className="hero-feature-item">
+                                    <span className="check-icon">✓</span>
+                                    <span>{feature}</span>
+                                </li>
+                            ))}
+                        </ul>
+
+                        <div style={{ display: 'flex', gap: '1rem' }}>
+                            <Link href="#contact" className="btn btn-primary btn-lg">
+                                Get Started
+                            </Link>
+                            <Link href="#services" className="btn btn-white btn-lg" style={{ border: '1px solid rgba(255,255,255,0.2)', background: 'rgba(255,255,255,0.1)', color: '#fff' }}>
+                                View Services
+                            </Link>
                         </div>
                     </div>
+
+                    <InquiryForm
+                        courseName={catData.label}
+                        courseCode={catData.id}
+                        variant="hero"
+                        title="Speak to an Expert"
+                        subtitle="Get a free consultation today"
+                    />
                 </div>
             </section>
 
