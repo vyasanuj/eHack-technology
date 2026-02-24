@@ -58,11 +58,7 @@ export default function Footer() {
                         <h4 className="footer-title">Quick Links</h4>
                         <ul className="footer-links">
                             <li><Link href="/about">About Us</Link></li>
-                            <li><Link href="/contact">Contact</Link></li>
-                            <li><Link href="/blog">Blog</Link></li>
                             <li><Link href="/careers">Careers</Link></li>
-                            <li><Link href="/privacy-policy">Privacy Policy</Link></li>
-                            <li><Link href="/terms">Terms of Service</Link></li>
                         </ul>
                     </div>
                 </div>
@@ -108,7 +104,6 @@ export default function Footer() {
                     </span>
                     <div className="branding-logos">
                         <img src="/images/white-global.png" alt="eHack Global Technology" className="branding-logo-img" />
-                        <img src="/images/ehack-group-white.png" alt="eHack Academy" className="branding-logo-img" />
                     </div>
                 </div>
 

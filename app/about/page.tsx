@@ -20,7 +20,7 @@ export default function AboutPage() {
         { id: 'what-we-do', label: 'What We Do' },
         { id: 'why-choose-us', label: 'Why Us' },
         { id: 'leadership', label: 'Leadership' },
-        { id: 'feedback', label: 'Student Feedback' },
+        { id: 'feedback', label: 'Corporate Feedback' },
         { id: 'contact', label: 'Contact' }
     ];
 
@@ -132,31 +132,17 @@ export default function AboutPage() {
         casesSolved: `Solved 350+ cases including Hacking Cases, Online Blackmailing, Banking/Credit Card Crimes, Phishing, Email Hacking & Spoofing, Social Media Fake Profiles, Mobile Phone Hacking, Identity Theft, Data Stealing, Cyber Pornography, and Unauthorized Access cases.`
     };
 
-    const studentFeedbacks = [
-        { name: "Priya S.", feedback: "The cybersecurity bootcamp was intense but incredibly rewarding. I learned more in 12 weeks than I did in 4 years of college." },
-        { name: "Rahul M.", feedback: "Excellent mentors and hands-on labs. The VAPT training is top-notch and industry-relevant." },
-        { name: "Ankit V.", feedback: "Landed a job as a SOC Analyst within a month of graduating. The career support is fantastic." },
-        { name: "Sneha K.", feedback: "The curriculum is updated with the latest threats and tools. Truly prepares you for the real world." },
-        { name: "Vikram R.", feedback: "I was a complete beginner. enhancing my skills has completely changed my career trajectory." },
-        { name: "Arjun D.", feedback: "The ethical hacking modules are deep and practical. Highly recommend to anyone serious about security." },
-        { name: "Meera T.", feedback: "Great community and networking opportunities. I met my current employer through an eHack event." },
-        { name: "Karthik N.", feedback: "The instructors are industry veterans. Their insights into real-world scenarios are invaluable." },
-        { name: "Riya P.", feedback: "Flexible schedule helped me manage my job and studies. The recorded sessions are a lifesaver." },
-        { name: "Sandeep G.", feedback: "From zero to hero in 6 months. The structure of the course is perfect for beginners." },
-        { name: "Divya B.", feedback: "The hands-on labs are the best part. You actually get to hack into vulnerable machines." },
-        { name: "Mohit J.", feedback: "Support team is always available. Doubts are cleared almost instantly." },
-        { name: "Nisha C.", feedback: "The Digital Forensics module was an eye-opener. I love the depth of the content." },
-        { name: "Aditya S.", feedback: "Best investment for my career. The ROI is high if you put in the effort." },
-        { name: "Varun K.", feedback: "Challenging projects that push your limits. Precisely what I needed to grow." },
-        { name: "Pooja L.", feedback: "Certification preparation is excellent. I cleared my CEH on the first attempt." },
-        { name: "Rohan M.", feedback: "The syllabus is comprehensive. Covers everything from basics to advanced exploit development." },
-        { name: "Swati R.", feedback: "I loved the capstone project. It gave me the confidence to handle real-world projects." },
-        { name: "Amit B.", feedback: "Placement assistance is genuine. They guide you through resume building and mock interviews." },
-        { name: "Neha S.", feedback: "A truly holistic learning experience. It's not just about tools, but the mindset." },
-        { name: "Suresh P.", feedback: "The infrastructure and labs are world-class. No lag, just pure learning." },
-        { name: "Kiran D.", feedback: "I appreciate the focus on ethics and legal boundaries. Critical for this field." },
-        { name: "Manish T.", feedback: "Networking with peers was a highlight. We still collaborate on bug bounties." },
-        { name: "Deepa A.", feedback: "Standard of teaching is very high. Rivals international bootcamps." }
+    const corporateFeedbacks = [
+        { id: 1, name: "Global Finance Corp", role: "CISO", feedback: "eHack's Digital Forensics expertise helped us resolve a critical security incident with minimal downtime. Their professional approach is unmatched." },
+        { id: 2, name: "Tech Mahindra", role: "Security Lead", feedback: "The VAPT services provided by eHack gave us deep insights into our infrastructure vulnerabilities. Their reports are detailed and highly actionable." },
+        { id: 3, name: "HCL Technologies", role: "AVP - Cyber Security", feedback: "The corporate training programs for our SOC team were exceptional. The hands-on labs were highly relevant to our daily operations." },
+        { id: 4, name: "Innovate AI", role: "Founder & CEO", feedback: "eHack Academy is our trusted partner for upskilling our engineers. Their curriculum is always at the forefront of emerging technologies." },
+        { id: 5, name: "SecureBank Solutions", role: "Internal Audit Dept", feedback: "We rely on eHack for our annual PCI DSS and IT compliance audits. Their knowledge of global security standards is unparalleled." },
+        { id: 6, name: "Retail Connect", role: "IT Director", feedback: "The security assessment performed by eHack significantly improved our security posture. They are professional, efficient, and highly skilled." },
+        { id: 7, name: "CloudWorks", role: "Operations Head", feedback: "eHack Global Technology's incident response team is top-notch. They handled our data breach with extreme precision and confidentiality." },
+        { id: 8, name: "EduLink Systems", role: "Project Manager", feedback: "The customized cybersecurity awareness module for our corporate staff was highly engaging and effective. Highly recommended." },
+        { id: 9, name: "Apex Manufacturing", role: "CIO", feedback: "Professionalism and expertise at its best. eHack is a true leader in providing comprehensive enterprise security solutions." },
+        { id: 10, name: "Infraserv", role: "Security Consultant", feedback: "Their methodology for penetration testing is rigorous and aligns perfectly with industry best practices and OWASP standards." }
     ];
 
 
@@ -576,25 +562,31 @@ export default function AboutPage() {
                 </div>
             </section>
 
-            {/* Student Feedback Section */}
+            {/* Corporate Feedback Section */}
             <section id="feedback" className="feedback-section">
                 <div className="about-container">
                     <div className="section-header">
                         <span className="section-badge-orange-big">TESTIMONIALS</span>
-                        <h2 className="about-section-title">Student <span style={{ color: '#FF6B00' }}>Feedback</span></h2>
-                        <p className="feedback-disclaimer" style={{ marginTop: '-20px' }}>To ensure the privacy of our clients, we use pseudonyms.</p>
+                        <h2 className="about-section-title">Corporate <span style={{ color: '#FF6B00' }}>Feedback</span></h2>
+                        <p className="feedback-disclaimer" style={{ marginTop: '-20px' }}>To ensure the privacy and confidentiality of our clients, some names may be representative.</p>
                     </div>
 
                     <div className="feedback-grid">
-                        {studentFeedbacks.map((item, index) => (
-                            <div key={index} className="feedback-card">
+                        {corporateFeedbacks.map((item) => (
+                            <div key={item.id} className="feedback-card">
                                 <div className="feedback-content">
-                                    <p className="feedback-text">{item.feedback}</p>
+                                    <p className="feedback-text">"{item.feedback}"</p>
                                     <div className="feedback-author">
-                                        <div className="author-avatar-placeholder">
-                                            {item.name.charAt(0)}
+                                        <div className="author-avatar-placeholder" style={{ background: '#FFF7ED', color: '#FF6B00' }}>
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                                <path d="M3 21v-2a4 4 0 014-4h10a4 4 0 014 4v2" />
+                                                <circle cx="12" cy="7" r="4" />
+                                            </svg>
                                         </div>
-                                        <span className="author-name">{item.name}</span>
+                                        <div className="author-info">
+                                            <span className="author-name">{item.name}</span>
+                                            <span className="author-role" style={{ fontSize: '0.8rem', color: '#64748B', display: 'block' }}>{item.role}</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
