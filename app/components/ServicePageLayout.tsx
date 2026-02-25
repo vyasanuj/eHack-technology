@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import Link from 'next/link';
-import LeadForm from './LeadForm';
+import InquiryForm from './InquiryForm';
 
 interface ServicePageLayoutProps {
     title: string;
@@ -30,58 +30,74 @@ export default function ServicePageLayout({
     serviceName,
     heroImage
 }: ServicePageLayoutProps) {
-    const bgImage = heroImage ? `url("${heroImage}")` : undefined;
-
     return (
-        <>
-            {/* Hero Section */}
-            <section
-                className="service-hero"
-                style={{
-                    backgroundImage: bgImage ? `linear-gradient(rgba(10, 20, 35, 0.85), rgba(10, 20, 35, 0.7)), ${bgImage}` : undefined,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    textAlign: 'left',
-                    minHeight: '60vh',
-                    display: 'flex',
-                    alignItems: 'center'
-                }}
-            >
-                <div className="container">
-                    <div style={{ maxWidth: '900px' }}>
-                        <span className="section-label" style={{
-                            background: 'rgba(242, 108, 41, 0.1)',
-                            color: 'var(--primary)',
-                            border: '1px solid rgba(242, 108, 41, 0.2)',
-                            backdropFilter: 'blur(4px)'
-                        }}>
-                            Security Assessment
-                        </span>
-                        <h1 style={{
-                            fontSize: '3.5rem',
-                            fontWeight: '800',
-                            lineHeight: '1.1',
-                            marginBottom: '1.5rem',
-                            marginTop: '1rem',
-                            textShadow: '0 2px 10px rgba(0,0,0,0.3)'
-                        }}>
-                            {title}
+        <main>
+            {/* Synchronized Hero Section from Solutions Page */}
+            <section className="hero-section" id="overview">
+                <div className="hero-background">
+                    <div className="hero-overlay"></div>
+                    <div
+                        className="hero-image"
+                        style={{
+                            backgroundImage: heroImage ? `url('${heroImage}')` : undefined
+                        }}
+                    />
+                </div>
+                <div className="hero-container">
+                    <div className="hero-content">
+                        <div className="hero-capsule-badge">
+                            Premium Security Service
+                        </div>
+
+                        <h1 className="hero-title animate-fadeInUp">
+                            {(() => {
+                                const words = title.split(' ');
+                                if (words.length > 0) {
+                                    return (
+                                        <>
+                                            <span className="text-accent">{words[0]}</span> {words.slice(1).join(' ')}
+                                        </>
+                                    );
+                                }
+                                return title;
+                            })()}
                         </h1>
-                        <p style={{
-                            fontSize: '1.25rem',
-                            lineHeight: '1.6',
-                            color: 'rgba(255,255,255,0.9)',
-                            maxWidth: '700px',
-                            fontWeight: '400'
-                        }}>
+
+                        <p className="hero-description animate-fadeInUp delay-100">
                             {description}
                         </p>
+
+                        <ul className="hero-features-list animate-fadeInUp delay-200">
+                            {whatWeOffer.slice(0, 4).map((feature, idx) => (
+                                <li key={idx} className="hero-feature-item">
+                                    <span className="check-icon">✓</span>
+                                    <span>{feature}</span>
+                                </li>
+                            ))}
+                        </ul>
+
+                        <div style={{ display: 'flex', gap: '1rem' }}>
+                            <Link href="#contact" className="btn btn-primary btn-lg">
+                                Get Started
+                            </Link>
+                            <Link href="#details" className="btn btn-white btn-lg" style={{ border: '1px solid rgba(255,255,255,0.2)', background: 'rgba(255,255,255,0.1)', color: '#fff' }}>
+                                View Details
+                            </Link>
+                        </div>
                     </div>
+
+                    <InquiryForm
+                        courseName={title}
+                        courseCode={serviceName}
+                        variant="hero"
+                        title="Speak to an Expert"
+                        subtitle="Get a free consultation today"
+                    />
                 </div>
             </section>
 
             {/* Main Content */}
-            <section className="service-content">
+            <section className="service-content" id="details">
                 <div className="container">
                     <div className="service-grid">
                         {/* Main Content Column */}
@@ -180,22 +196,17 @@ export default function ServicePageLayout({
                         </div>
 
                         {/* Sidebar */}
-                        <div className="service-sidebar">
-                            <div className="sidebar-form">
-                                <LeadForm
-                                    title="Get a Free Assessment"
-                                    subtitle="Our experts will respond within 24 hours"
-                                    serviceName={serviceName}
-                                />
-                            </div>
+                        <div className="service-sidebar" id="contact">
+                            {/* Inquiry Form removed from sidebar and moved to Hero, 
+                                keeping related services and other potential sidebar items */}
 
                             {/* Related Services */}
                             {relatedServices && relatedServices.length > 0 && (
                                 <div style={{
-                                    marginTop: '2rem',
                                     padding: '1.5rem',
                                     background: 'var(--gray-50)',
-                                    borderRadius: 'var(--radius-xl)'
+                                    borderRadius: 'var(--radius-xl)',
+                                    border: '1px solid var(--gray-200)'
                                 }}>
                                     <h4 style={{ fontSize: '1rem', marginBottom: '1rem', color: 'var(--gray-800)' }}>
                                         Related Services
@@ -246,6 +257,6 @@ export default function ServicePageLayout({
                     </div>
                 </div>
             </section>
-        </>
+        </main>
     );
 }
