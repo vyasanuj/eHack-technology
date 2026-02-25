@@ -4,7 +4,7 @@ import type { ReactNode } from 'react';
 import Link from 'next/link';
 import InquiryForm from './InquiryForm';
 import ServiceOperationsPanel from './ServiceOperationsPanel';
-import type { Capability } from '../data/services';
+import type { Capability, RelatedService } from '../data/services';
 
 interface ServicePageLayoutProps {
     title: string;
@@ -15,7 +15,7 @@ interface ServicePageLayoutProps {
     whyAssessment: string;
     benefits: Array<{ icon: string; title: string; description: string }>;
     whyChooseUs: string;
-    relatedServices?: Array<{ title: string; href: string }>;
+    relatedServices?: RelatedService[];
     serviceName: string;
     children?: ReactNode;
     heroImage?: string;
@@ -430,34 +430,82 @@ export default function ServicePageLayout({
 
                         <div style={{
                             display: 'grid',
-                            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-                            gap: '2rem'
+                            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+                            gap: '2.5rem'
                         }}>
                             {relatedServices.map((service, index) => (
                                 <Link key={index} href={service.href} style={{
-                                    padding: '2rem',
                                     background: 'var(--gray-50)',
-                                    borderRadius: '20px',
-                                    border: '1px solid #eee',
+                                    borderRadius: '24px',
+                                    border: '1px solid var(--gray-100)',
                                     textDecoration: 'none',
-                                    transition: 'all 0.3s ease',
+                                    transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
                                     display: 'flex',
-                                    justifyContent: 'space-between',
-                                    alignItems: 'center'
-                                }} className="group">
-                                    <span style={{ fontWeight: '700', color: 'var(--gray-900)', fontSize: '1.1rem' }}>{service.title}</span>
-                                    <div style={{
-                                        width: '40px',
-                                        height: '40px',
-                                        borderRadius: '50%',
-                                        background: '#fff',
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        justifyContent: 'center',
-                                        color: 'var(--primary)',
-                                        border: '1px solid #eee',
-                                        transition: 'all 0.3s ease'
-                                    }}>→</div>
+                                    flexDirection: 'column',
+                                    overflow: 'hidden',
+                                    position: 'relative'
+                                }} className="related-service-card">
+                                    {/* Service Image */}
+                                    <div style={{ height: '200px', width: '100%', overflow: 'hidden' }}>
+                                        <img
+                                            src={service.image}
+                                            alt={service.title}
+                                            style={{
+                                                width: '100%',
+                                                height: '100%',
+                                                objectFit: 'cover',
+                                                transition: 'transform 0.5s ease'
+                                            }}
+                                            className="service-img"
+                                        />
+                                    </div>
+
+                                    {/* Content */}
+                                    <div style={{ padding: '2rem', flex: 1, display: 'flex', flexDirection: 'column' }}>
+                                        <h3 style={{
+                                            fontSize: '1.25rem',
+                                            fontWeight: '700',
+                                            color: 'var(--gray-900)',
+                                            marginBottom: '0.75rem'
+                                        }}>
+                                            {service.title}
+                                        </h3>
+                                        <p style={{
+                                            fontSize: '0.95rem',
+                                            color: 'var(--gray-600)',
+                                            lineHeight: '1.6',
+                                            marginBottom: '1.5rem',
+                                            flex: 1
+                                        }}>
+                                            {service.description}
+                                        </p>
+                                        <div style={{
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            gap: '0.5rem',
+                                            color: 'var(--primary)',
+                                            fontWeight: '700',
+                                            fontSize: '0.9rem'
+                                        }}>
+                                            Learn More
+                                            <span style={{ transition: 'transform 0.3s ease' }} className="arrow">→</span>
+                                        </div>
+                                    </div>
+
+                                    <style jsx>{`
+                                        .related-service-card:hover {
+                                            transform: translateY(-12px);
+                                            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+                                            border-color: rgba(242, 108, 41, 0.3);
+                                            background: #fff;
+                                        }
+                                        .related-service-card:hover .service-img {
+                                            transform: scale(1.1);
+                                        }
+                                        .related-service-card:hover .arrow {
+                                            transform: translateX(5px);
+                                        }
+                                    `}</style>
                                 </Link>
                             ))}
                         </div>

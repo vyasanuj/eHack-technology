@@ -1,6 +1,8 @@
 export interface RelatedService {
     title: string;
     href: string;
+    image: string;
+    description: string;
 }
 
 export interface Benefit {
@@ -71,9 +73,24 @@ export const services: Record<string, ServiceData> = {
         whyChooseUs: "Ehack Technology is one of the pioneers in API Security Assessments since we take pride in providing secured API infrastructure. From the staging and development of the API process to the black box testing without any knowledge of the functioning, every aspect is considered, and custom-made tests and approaches are provided. Our coverage follows standard methodologies to detect common vulnerabilities and provide unique business logic flaws in a petite time frame.",
         serviceName: 'api-security',
         relatedServices: [
-            { title: 'Web Application Security', href: '/services/web-application-security' },
-            { title: 'Mobile App Security', href: '/services/mobile-application-security' },
-            { title: 'Source Code Review', href: '/services/source-code-review' }
+            {
+                title: 'Web Application Security',
+                href: '/services/web-application-security',
+                image: '/images/cybersecurity.jpg',
+                description: 'Comprehensive evaluation of web applications using industry-standard practices.'
+            },
+            {
+                title: 'Mobile App Security',
+                href: '/services/mobile-application-security',
+                image: '/images/mobileapp_service_image.png',
+                description: 'Security evaluation of iOS and Android applications to protect sensitive data.'
+            },
+            {
+                title: 'Source Code Review',
+                href: '/services/source-code-review',
+                image: '/images/Source Code Review.png',
+                description: 'Thorough code analysis to identify vulnerabilities at the source level.'
+            }
         ],
         metadata: {
             title: 'API Security Assessment | Ehack Technology',
@@ -116,9 +133,24 @@ export const services: Record<string, ServiceData> = {
         whyChooseUs: "Ehack Technology is committed to providing businesses worldwide with cutting-edge cybersecurity solutions. We leverage the experience of a diverse team to provide services for a variety of technologies and complex web applications, resulting in the highest possible level of assurance. Our team includes CEH, OSCP, and CISSP certified professionals with extensive experience in application security.",
         serviceName: 'web-security',
         relatedServices: [
-            { title: 'API Security Assessment', href: '/services/api-security' },
-            { title: 'Source Code Review', href: '/services/source-code-review' },
-            { title: 'Mobile App Security', href: '/services/mobile-application-security' }
+            {
+                title: 'API Security Assessment',
+                href: '/services/api-security',
+                image: '/images/API_service_image.png',
+                description: 'Comprehensive security evaluation of your APIs to identify vulnerabilities.'
+            },
+            {
+                title: 'Source Code Review',
+                href: '/services/source-code-review',
+                image: '/images/Source Code Review.png',
+                description: 'Thorough code analysis to identify vulnerabilities at the source level.'
+            },
+            {
+                title: 'Mobile App Security',
+                href: '/services/mobile-application-security',
+                image: '/images/mobileapp_service_image.png',
+                description: 'Security evaluation of iOS and Android applications to protect sensitive data.'
+            }
         ],
         metadata: {
             title: 'Web Application Security Assessment | Ehack Technology',
@@ -161,9 +193,24 @@ export const services: Record<string, ServiceData> = {
         whyChooseUs: "Ehack Technology is committed to providing businesses worldwide with cutting-edge digital forensic solutions. We leverage the experience of a diverse team to provide services for a variety of technologies and complex cyber frauds, resulting in the highest possible level of assurance. Our team includes certified forensic investigators with experience in law enforcement and corporate investigations.",
         serviceName: 'digital-forensics',
         relatedServices: [
-            { title: 'Malware Analysis', href: '/services/malware-analysis' },
-            { title: 'Red Team Assessment', href: '/services/red-team-assessment' },
-            { title: 'Infrastructure Security', href: '/services/infrastructure-security' }
+            {
+                title: 'Malware Analysis',
+                href: '/services/malware-analysis',
+                image: '/images/Malware Analysis and Root Cause Detection.png',
+                description: 'Comprehensive malware analysis to understand threats and development.'
+            },
+            {
+                title: 'Red Team Assessment',
+                href: '/services/red-team-assessment',
+                image: '/images/Red Team Assessment.png',
+                description: 'Simulated real-world intrusion assault against your enterprise to test defenses.'
+            },
+            {
+                title: 'Infrastructure Security',
+                href: '/services/infrastructure-security',
+                image: '/images/services/security.png',
+                description: 'Comprehensive evaluation of your network infrastructure and cloud environments.'
+            }
         ],
         metadata: {
             title: 'Digital Forensics & Incident Response | Ehack Technology',
@@ -208,9 +255,24 @@ export const services: Record<string, ServiceData> = {
         whyChooseUs: "Our firewall audit identifies weak protocols, insecure rules, and additional data leakages that could jeopardize the firewall's infrastructure. Our team of cybersecurity experts has experience building firewalls from the ground up as well as implementing technology from a variety of leading firewall vendors. This allows us to see everything from both the attacker's and the defender's points of view, enabling us to conduct some of the most difficult and thorough assessments in our industry.",
         serviceName: 'firewall',
         relatedServices: [
-            { title: 'Infrastructure Security', href: '/services/infrastructure-security' },
-            { title: 'Red Team Assessment', href: '/services/red-team-assessment' },
-            { title: 'Web Application Security', href: '/services/web-application-security' }
+            {
+                title: 'Infrastructure Security',
+                href: '/services/infrastructure-security',
+                image: '/images/services/security.png',
+                description: 'Comprehensive evaluation of your network infrastructure and cloud environments.'
+            },
+            {
+                title: 'Red Team Assessment',
+                href: '/services/red-team-assessment',
+                image: '/images/Red Team Assessment.png',
+                description: 'Simulated real-world intrusion assault against your enterprise to test defenses.'
+            },
+            {
+                title: 'Web Application Security',
+                href: '/services/web-application-security',
+                image: '/images/cybersecurity.jpg',
+                description: 'Comprehensive evaluation of web applications using industry-standard practices.'
+            }
         ],
         metadata: {
             title: 'Firewall Security Assessment | Ehack Technology',
@@ -253,9 +315,24 @@ export const services: Record<string, ServiceData> = {
         whyChooseUs: "Our team has experience designing and implementing privacy systems that comply with GDPR. We understand that the best way to implement GDPR is to align technology with governance, risk, and compliance (GRC). Companies can use our ADAPT approach to help them meet GDPR compliance deadlines. Our team will assist you in continuing your GDPR journey without having to start over, regardless of your current GDPR enforcement status or efforts.",
         serviceName: 'gdpr',
         relatedServices: [
-            { title: 'PCI DSS Compliance', href: '/services/pci-dss-compliance' },
-            { title: 'ISO Certification', href: '/services/iso-certification' },
-            { title: 'Web Application Security', href: '/services/web-application-security' }
+            {
+                title: 'PCI DSS Compliance',
+                href: '/services/pci-dss-compliance',
+                image: '/images/PCI DSS Compliance Audit.png',
+                description: 'Comprehensive PCI DSS compliance services to safeguard cardholder data.'
+            },
+            {
+                title: 'ISO Certification',
+                href: '/services/iso-certification',
+                image: '/images/services/compliance.png',
+                description: 'ISO 27001 advisory services to implement and certify Information Security.'
+            },
+            {
+                title: 'Web Application Security',
+                href: '/services/web-application-security',
+                image: '/images/cybersecurity.jpg',
+                description: 'Comprehensive evaluation of web applications using industry-standard practices.'
+            }
         ],
         metadata: {
             title: 'GDPR Consulting and Audit | Ehack Technology',
@@ -298,9 +375,24 @@ export const services: Record<string, ServiceData> = {
         whyChooseUs: "Ehack Technology has been helping various organizations past few years in mitigating the risks and flaws within their infrastructure. We deal with a wide range of policies, procedures, systems, and networks that are assessed individually and with a focused approach. We often indulge in comprehensive research that can help us implement new security technologies and unknown threats in our assessments.",
         serviceName: 'infrastructure',
         relatedServices: [
-            { title: 'Firewall Security', href: '/services/firewall-security' },
-            { title: 'Red Team Assessment', href: '/services/red-team-assessment' },
-            { title: 'Web Application Security', href: '/services/web-application-security' }
+            {
+                title: 'Firewall Security',
+                href: '/services/firewall-security',
+                image: '/images/Firewall Security Assessment.png',
+                description: 'Comprehensive firewall audit to ensure your configuration and rules meet needs.'
+            },
+            {
+                title: 'Red Team Assessment',
+                href: '/services/red-team-assessment',
+                image: '/images/Red Team Assessment.png',
+                description: 'Simulated real-world intrusion assault against your enterprise to test defenses.'
+            },
+            {
+                title: 'Web Application Security',
+                href: '/services/web-application-security',
+                image: '/images/cybersecurity.jpg',
+                description: 'Comprehensive evaluation of web applications using industry-standard practices.'
+            }
         ],
         metadata: {
             title: 'Infrastructure Security Assessment | Ehack Technology',
@@ -345,9 +437,24 @@ export const services: Record<string, ServiceData> = {
         whyChooseUs: "Traditional certification approaches often take a 'one size fits all' approach that does not quite fit your true desires or align with your strategic goals. Our experienced consultants, who are also Lead Auditors, provide a practical perspective on implementing ISO/IEC 27001 and aligning it with your business goals using our proven methodology. This approach breaks down the certification process into manageable components, ensuring you retain complete control over how your resources are used.",
         serviceName: 'iso',
         relatedServices: [
-            { title: 'GDPR Consulting', href: '/services/gdpr-consulting' },
-            { title: 'PCI DSS Compliance', href: '/services/pci-dss-compliance' },
-            { title: 'Infrastructure Security', href: '/services/infrastructure-security' }
+            {
+                title: 'GDPR Consulting',
+                href: '/services/gdpr-consulting',
+                image: '/images/services/general.png',
+                description: 'Comprehensive GDPR compliance services to protect citizen data privacy rights.'
+            },
+            {
+                title: 'PCI DSS Compliance',
+                href: '/services/pci-dss-compliance',
+                image: '/images/PCI DSS Compliance Audit.png',
+                description: 'Comprehensive PCI DSS compliance services to safeguard cardholder data.'
+            },
+            {
+                title: 'Infrastructure Security',
+                href: '/services/infrastructure-security',
+                image: '/images/services/security.png',
+                description: 'Comprehensive evaluation of your network infrastructure and cloud environments.'
+            }
         ],
         metadata: {
             title: 'ISO 27001 Certification Advisory | Ehack Technology',
@@ -390,9 +497,24 @@ export const services: Record<string, ServiceData> = {
         whyChooseUs: "Ehack Technology is committed to providing businesses worldwide with cutting-edge digital forensic solutions and incident response capabilities. We leverage the experience of a diverse team to provide services for a variety of technologies and complex cyber threats, resulting in the highest possible level of assurance. Our malware analysts are trained in the latest techniques and tools for analyzing sophisticated threats.",
         serviceName: 'malware-analysis',
         relatedServices: [
-            { title: 'Digital Forensics', href: '/services/digital-forensics' },
-            { title: 'Red Team Assessment', href: '/services/red-team-assessment' },
-            { title: 'Infrastructure Security', href: '/services/infrastructure-security' }
+            {
+                title: 'Digital Forensics',
+                href: '/services/digital-forensics',
+                image: '/images/services/forensics.png',
+                description: 'Expert investigation and evidence collection services to address cyber breaches.'
+            },
+            {
+                title: 'Red Team Assessment',
+                href: '/services/red-team-assessment',
+                image: '/images/Red Team Assessment.png',
+                description: 'Simulated real-world intrusion assault against your enterprise to test defenses.'
+            },
+            {
+                title: 'Infrastructure Security',
+                href: '/services/infrastructure-security',
+                image: '/images/services/security.png',
+                description: 'Comprehensive evaluation of your network infrastructure and cloud environments.'
+            }
         ],
         metadata: {
             title: 'Malware Analysis & Incident Response | Ehack Technology',
@@ -435,9 +557,24 @@ export const services: Record<string, ServiceData> = {
         whyChooseUs: "At Ehack Technology, we employ advanced methodologies tailored to specific applications. We have a sophisticated approach to detecting bugs, ensuring no vulnerability goes unnoticed, and expert guidance can help mitigate issues without interfering with existing systems. Our expert team works quickly to identify flaws in source code, binary files, applications, back-end integrations, and platform workflow.",
         serviceName: 'mobile-security',
         relatedServices: [
-            { title: 'Web Application Security', href: '/services/web-application-security' },
-            { title: 'API Security Assessment', href: '/services/api-security' },
-            { title: 'Source Code Review', href: '/services/source-code-review' }
+            {
+                title: 'Web Application Security',
+                href: '/services/web-application-security',
+                image: '/images/cybersecurity.jpg',
+                description: 'Comprehensive evaluation of web applications using industry-standard practices.'
+            },
+            {
+                title: 'API Security Assessment',
+                href: '/services/api-security',
+                image: '/images/API_service_image.png',
+                description: 'Comprehensive security evaluation of your APIs to identify vulnerabilities.'
+            },
+            {
+                title: 'Source Code Review',
+                href: '/services/source-code-review',
+                image: '/images/Source Code Review.png',
+                description: 'Thorough code analysis to identify vulnerabilities at the source level.'
+            }
         ],
         metadata: {
             title: 'Mobile Application Security Assessment | Ehack Technology',
@@ -480,9 +617,24 @@ export const services: Record<string, ServiceData> = {
         whyChooseUs: "PCI DSS is a comprehensive and granular requirement that applies to all entities that store, process, or distribute payment card data. Our Qualified Security Assessor (QSA) will guide you through the PCI compliance process from initial examination to full compliance in the most effective and least intrusive manner possible. We understand the complexities of PCI DSS and help organizations navigate compliance efficiently.",
         serviceName: 'pci-dss',
         relatedServices: [
-            { title: 'GDPR Consulting', href: '/services/gdpr-consulting' },
-            { title: 'ISO Certification', href: '/services/iso-certification' },
-            { title: 'Web Application Security', href: '/services/web-application-security' }
+            {
+                title: 'GDPR Consulting',
+                href: '/services/gdpr-consulting',
+                image: '/images/services/general.png',
+                description: 'Comprehensive GDPR compliance services to protect citizen data privacy rights.'
+            },
+            {
+                title: 'ISO Certification',
+                href: '/services/iso-certification',
+                image: '/images/services/compliance.png',
+                description: 'ISO 27001 advisory services to implement and certify Information Security.'
+            },
+            {
+                title: 'Web Application Security',
+                href: '/services/web-application-security',
+                image: '/images/cybersecurity.jpg',
+                description: 'Comprehensive evaluation of web applications using industry-standard practices.'
+            }
         ],
         metadata: {
             title: 'PCI DSS Compliance Audit | Ehack Technology',
@@ -525,9 +677,24 @@ export const services: Record<string, ServiceData> = {
         whyChooseUs: "Ehack Technology specializes in and is passionate about conducting large-scale attacks. Our team members are innovative problem solvers who possess a range of skills, including programming, network testing, wireless security, security code review, web application penetration testing, reverse engineering, and exploit research. Red Team Exercises shed light on an organization's simulation of a real-world threat by combining and chaining multiple domain-specific attacks.",
         serviceName: 'red-team',
         relatedServices: [
-            { title: 'Infrastructure Security', href: '/services/infrastructure-security' },
-            { title: 'Web Application Security', href: '/services/web-application-security' },
-            { title: 'Digital Forensics', href: '/services/digital-forensics' }
+            {
+                title: 'Infrastructure Security',
+                href: '/services/infrastructure-security',
+                image: '/images/services/security.png',
+                description: 'Comprehensive evaluation of your network infrastructure and cloud environments.'
+            },
+            {
+                title: 'Web Application Security',
+                href: '/services/web-application-security',
+                image: '/images/cybersecurity.jpg',
+                description: 'Comprehensive evaluation of web applications using industry-standard practices.'
+            },
+            {
+                title: 'Digital Forensics',
+                href: '/services/digital-forensics',
+                image: '/images/services/forensics.png',
+                description: 'Expert investigation and evidence collection services to address cyber breaches.'
+            }
         ],
         metadata: {
             title: 'Red Team Assessment | Ehack Technology',
@@ -562,9 +729,24 @@ export const services: Record<string, ServiceData> = {
         whyChooseUs: "Ehack Technology will assign one or more consultants with relevant programming experience to each engagement. Each security consultant has a great deal of experience with application security. A hybrid approach combining dynamic tooling and manual review is used to achieve both breadth and depth of coverage. Having concurrent access to a running version of the target system while conducting the code review maximizes context and verifies findings in real-time.",
         serviceName: 'source-code-review',
         relatedServices: [
-            { title: 'Web Application Security', href: '/services/web-application-security' },
-            { title: 'API Security Assessment', href: '/services/api-security' },
-            { title: 'Mobile App Security', href: '/services/mobile-application-security' }
+            {
+                title: 'Web Application Security',
+                href: '/services/web-application-security',
+                image: '/images/cybersecurity.jpg',
+                description: 'Comprehensive evaluation of web applications using industry-standard practices.'
+            },
+            {
+                title: 'API Security Assessment',
+                href: '/services/api-security',
+                image: '/images/API_service_image.png',
+                description: 'Comprehensive security evaluation of your APIs to identify vulnerabilities.'
+            },
+            {
+                title: 'Mobile App Security',
+                href: '/services/mobile-application-security',
+                image: '/images/mobileapp_service_image.png',
+                description: 'Security evaluation of iOS and Android applications to protect sensitive data.'
+            }
         ],
         metadata: {
             title: 'Secure Source Code Review | Ehack Technology',
@@ -609,9 +791,24 @@ export const services: Record<string, ServiceData> = {
         whyChooseUs: "Since your thick client applications can involve intellectual property belonging to your company, you want to ensure that they are immune to reverse engineering and alteration. Without professional analysis of binary hardening mechanisms, you would be unaware of how easily an attacker can reverse engineer or change your client-side code. We provide the highest-quality cybersecurity services and have extensive experience analyzing obfuscated and hardened software, as well as breaching security controls such as white-box cryptography.",
         serviceName: 'thick-client',
         relatedServices: [
-            { title: 'Source Code Review', href: '/services/source-code-review' },
-            { title: 'Web Application Security', href: '/services/web-application-security' },
-            { title: 'API Security Assessment', href: '/services/api-security' }
+            {
+                title: 'Source Code Review',
+                href: '/services/source-code-review',
+                image: '/images/Source Code Review.png',
+                description: 'Thorough code analysis to identify vulnerabilities at the source level.'
+            },
+            {
+                title: 'Web Application Security',
+                href: '/services/web-application-security',
+                image: '/images/cybersecurity.jpg',
+                description: 'Comprehensive evaluation of web applications using industry-standard practices.'
+            },
+            {
+                title: 'API Security Assessment',
+                href: '/services/api-security',
+                image: '/images/API_service_image.png',
+                description: 'Comprehensive security evaluation of your APIs to identify vulnerabilities.'
+            }
         ],
         metadata: {
             title: 'Thick Client Security Assessment | Ehack Technology',
