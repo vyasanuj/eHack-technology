@@ -39,7 +39,7 @@ export default async function DynamicServicePage({ params }: Props) {
             description={service.description}
             heroImage={service.heroImage}
             whatIs={service.whatIs}
-            whatWeOffer={service.whatWeOffer}
+            features={service.features}
             whatWeCover={service.whatWeCover}
             whyAssessment={service.whyAssessment}
             benefits={service.benefits}

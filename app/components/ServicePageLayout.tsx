@@ -1,13 +1,16 @@
+"use client";
+
 import type { ReactNode } from 'react';
 import Link from 'next/link';
 import InquiryForm from './InquiryForm';
 import ServiceOperationsPanel from './ServiceOperationsPanel';
+import type { Capability } from '../data/services';
 
 interface ServicePageLayoutProps {
     title: string;
     description: string;
     whatIs: string;
-    whatWeOffer: string[];
+    features: Capability[];
     whatWeCover: string[];
     whyAssessment: string;
     benefits: Array<{ icon: string; title: string; description: string }>;
@@ -22,7 +25,7 @@ export default function ServicePageLayout({
     title,
     description,
     whatIs,
-    whatWeOffer,
+    features,
     whatWeCover,
     whyAssessment,
     benefits,
@@ -69,10 +72,10 @@ export default function ServicePageLayout({
                         </p>
 
                         <ul className="hero-features-list animate-fadeInUp delay-200">
-                            {whatWeOffer.slice(0, 4).map((feature, idx) => (
+                            {features.slice(0, 4).map((feature, idx) => (
                                 <li key={idx} className="hero-feature-item">
                                     <span className="check-icon">✓</span>
-                                    <span>{feature}</span>
+                                    <span>{feature.title}</span>
                                 </li>
                             ))}
                         </ul>
@@ -173,30 +176,117 @@ export default function ServicePageLayout({
                 </div>
             </section>
 
-            {/* Core Capabilities Section (Full-width) */}
-            <section style={{ padding: '6rem 0', background: 'var(--gray-50)' }}>
-                <div className="container">
-                    <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+            {/* Core Capabilities Section (Auto-scrolling Marquee) */}
+            <section style={{ padding: '6rem 0', background: 'var(--gray-50)', overflow: 'hidden' }}>
+                <div className="container" style={{ marginBottom: '4rem' }}>
+                    <div style={{ textAlign: 'center' }}>
                         <span className="section-label">Features</span>
                         <h2 className="section-title">Core <span style={{ color: 'var(--primary)' }}>Capabilities</span></h2>
+                        <p style={{ color: 'var(--gray-600)', maxWidth: '700px', margin: '1rem auto 0' }}>
+                            We provide comprehensive security solutions tailored to your unique infrastructure and business needs.
+                        </p>
                     </div>
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem' }}>
-                        {whatWeOffer.map((item, index) => (
-                            <div key={index} style={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                gap: '1rem',
-                                padding: '1.5rem 2rem',
+                </div>
+
+                <div className="marquee-container" style={{
+                    position: 'relative',
+                    width: '100%',
+                    maxWidth: '1200px',
+                    margin: '0 auto',
+                    overflow: 'hidden'
+                }}>
+                    <div className="marquee-track" style={{
+                        display: 'flex',
+                        gap: '2.5rem',
+                        width: 'max-content',
+                        padding: '1rem 0 3rem'
+                    }}>
+                        {/* Duplicate the list twice for seamless looping */}
+                        {[...features, ...features, ...features].map((item, index) => (
+                            <div key={index} className="feature-card-premium" style={{
                                 background: '#fff',
-                                borderRadius: '16px',
+                                borderRadius: '24px',
+                                overflow: 'hidden',
                                 border: '1px solid var(--gray-100)',
-                                boxShadow: '0 4px 6px rgba(0,0,0,0.02)'
+                                boxShadow: '0 10px 30px rgba(0,0,0,0.03)',
+                                transition: 'all 0.3s ease',
+                                display: 'flex',
+                                flexDirection: 'column',
+                                width: '320px',
+                                flexShrink: 0
                             }}>
-                                <div style={{ color: 'var(--primary)', fontWeight: 'bold', fontSize: '1.2rem' }}>✓</div>
-                                <span style={{ fontWeight: '600', color: 'var(--gray-700)', fontSize: '1.05rem' }}>{item}</span>
+                                {/* Feature Image */}
+                                <div style={{
+                                    width: '100%',
+                                    height: '180px',
+                                    overflow: 'hidden',
+                                    position: 'relative'
+                                }}>
+                                    <img
+                                        src={item.image}
+                                        alt={item.title}
+                                        style={{
+                                            width: '100%',
+                                            height: '100%',
+                                            objectFit: 'cover',
+                                            transition: 'transform 0.5s ease'
+                                        }}
+                                        className="feature-img"
+                                    />
+                                </div>
+
+                                {/* Content */}
+                                <div style={{ padding: '2rem' }}>
+                                    <h3 style={{
+                                        fontSize: '1.2rem',
+                                        fontWeight: '700',
+                                        color: 'var(--gray-900)',
+                                        marginBottom: '0.75rem'
+                                    }}>
+                                        {item.title}
+                                    </h3>
+                                    <div style={{ width: '40px', height: '3px', background: 'var(--primary)', borderRadius: '2px', marginBottom: '1rem' }}></div>
+                                    <p style={{ fontSize: '0.9rem', color: 'var(--gray-600)', lineHeight: '1.6', margin: 0 }}>
+                                        Professional {item.title.toLowerCase()} services tailored for your specific environment and business requirements.
+                                    </p>
+                                </div>
                             </div>
                         ))}
                     </div>
+
+                    <style jsx>{`
+                        .marquee-track {
+                            animation: scroll 40s linear infinite;
+                        }
+
+                        .marquee-container:hover .marquee-track {
+                            animation-play-state: paused;
+                        }
+
+                        @keyframes scroll {
+                            0% {
+                                transform: translateX(0);
+                            }
+                            100% {
+                                transform: translateX(calc(-320px * ${features.length} - 2.5rem * ${features.length}));
+                            }
+                        }
+
+                        .feature-card-premium:hover {
+                            transform: translateY(-10px);
+                            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+                            border-color: rgba(242, 108, 41, 0.2);
+                        }
+                        
+                        .feature-card-premium:hover .feature-img {
+                            transform: scale(1.1);
+                        }
+
+                        /* Ensure smooth motion on all browsers */
+                        .marquee-track {
+                            will-change: transform;
+                        }
+                    `}</style>
                 </div>
             </section>
 
@@ -264,23 +354,65 @@ export default function ServicePageLayout({
                         </p>
                     </div>
 
-                    <div className="benefits-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '2rem' }}>
+                    <div className="benefits-grid" style={{
+                        display: 'grid',
+                        gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+                        gap: '2rem',
+                        alignItems: 'stretch'
+                    }}>
                         {benefits.map((benefit, index) => (
-                            <div key={index} className="benefit-card" style={{
+                            <div key={index} className="benefit-card-premium" style={{
                                 padding: '2.5rem',
                                 background: '#fff',
                                 borderRadius: '24px',
-                                border: '1px solid #eee',
+                                border: '2px solid rgba(242, 108, 41, 0.15)',
                                 transition: 'all 0.3s ease',
-                                textAlign: 'center'
+                                textAlign: 'center',
+                                display: 'flex',
+                                flexDirection: 'column',
+                                alignItems: 'center',
+                                height: '100%',
+                                boxShadow: '0 10px 30px rgba(0,0,0,0.02)'
                             }}>
                                 <div style={{
-                                    fontSize: '2.5rem',
+                                    fontSize: '3rem',
                                     marginBottom: '1.5rem',
-                                    display: 'block'
-                                }}>{benefit.icon}</div>
-                                <h4 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '1rem' }}>{benefit.title}</h4>
-                                <p style={{ color: 'var(--gray-500)', fontSize: '0.95rem' }}>{benefit.description}</p>
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    width: '80px',
+                                    height: '80px',
+                                    background: 'rgba(242, 108, 41, 0.05)',
+                                    borderRadius: '20px',
+                                    color: 'var(--primary)'
+                                }}>
+                                    {benefit.icon}
+                                </div>
+                                <h4 style={{
+                                    fontSize: '1.4rem',
+                                    fontWeight: '800',
+                                    marginBottom: '1rem',
+                                    color: 'var(--gray-900)'
+                                }}>
+                                    {benefit.title}
+                                </h4>
+                                <div style={{ width: '30px', height: '3px', background: 'var(--primary)', borderRadius: '2px', marginBottom: '1.25rem', opacity: 0.6 }}></div>
+                                <p style={{
+                                    color: 'var(--gray-600)',
+                                    fontSize: '1rem',
+                                    lineHeight: '1.7',
+                                    margin: 0
+                                }}>
+                                    {benefit.description}
+                                </p>
+
+                                <style jsx>{`
+                                    .benefit-card-premium:hover {
+                                        transform: translateY(-10px);
+                                        border-color: var(--primary);
+                                        box-shadow: 0 20px 40px rgba(242, 108, 41, 0.1);
+                                    }
+                                `}</style>
                             </div>
                         ))}
                     </div>

@@ -9,13 +9,19 @@ export interface Benefit {
     description: string;
 }
 
+export interface Capability {
+    title: string;
+    image: string;
+    description?: string;
+}
+
 export interface ServiceData {
     slug: string;
     title: string;
     description: string;
     heroImage: string;
     whatIs: string;
-    whatWeOffer: string[];
+    features: Capability[];
     whatWeCover: string[];
     whyAssessment: string;
     benefits: Benefit[];
@@ -35,11 +41,11 @@ export const services: Record<string, ServiceData> = {
         description: 'Comprehensive security evaluation of your APIs to identify vulnerabilities and protect against unauthorized access and data exposure.',
         heroImage: '/images/API_service_image.png',
         whatIs: "Increased API services with web applications and mobiles make them vulnerable to various attack vectors. Integration of these APIs into your system can make the system prone to known vulnerabilities or unknown vulnerabilities if the functionality and endpoints are not secured. API loophole detection can take time, and by the time it is known, the next challenge lies in patches and remediation. At Ehack Technology, a comprehensive API security assessment ensures that all the organization's primary concerns are addressed and remediations are deployed on a priority basis.",
-        whatWeOffer: [
-            'API Discovery',
-            'API Design Review',
-            'API Secure Code Review',
-            'API Penetration Testing'
+        features: [
+            { title: 'API Discovery', image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc48?q=80&w=2000&auto=format&fit=crop' },
+            { title: 'API Design Review', image: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=2000&auto=format&fit=crop' },
+            { title: 'API Secure Code Review', image: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2000&auto=format&fit=crop' },
+            { title: 'API Penetration Testing', image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=2000&auto=format&fit=crop' }
         ],
         whatWeCover: [
             'API1:2019 Broken Object Level Authorization',
@@ -80,11 +86,11 @@ export const services: Record<string, ServiceData> = {
         description: 'Comprehensive security evaluation of your web applications using industry-standard practices and specialized testing tools.',
         heroImage: '/images/cybersecurity.jpg',
         whatIs: "Web application security evaluation combines industry-standard information security practices with tools explicitly designed to test websites, web-based services, and web applications. Web application security assessments can be carried out manually or automatically and carried out throughout the software development lifecycle (SDLC). It will typically include security measures, security audits, periodic inspections, secure coding practices, secure firewalls, vulnerability scanning, and the implementation of protocols that ensure safe operation.",
-        whatWeOffer: [
-            'Web Application Security Assessment',
-            'API & Web Services Security Assessment',
-            'Web Application Secure Source Code Review',
-            'SDLC Security Integration'
+        features: [
+            { title: 'Security Assessment', image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2000&auto=format&fit=crop' },
+            { title: 'API & Web Services', image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc48?q=80&w=2000&auto=format&fit=crop' },
+            { title: 'Source Code Review', image: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2000&auto=format&fit=crop' },
+            { title: 'SDLC Integration', image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=2000&auto=format&fit=crop' }
         ],
         whatWeCover: [
             'Injections (SQL, NoSQL, LDAP, OS)',
@@ -125,15 +131,11 @@ export const services: Record<string, ServiceData> = {
         description: 'Expert investigation and evidence collection services to address cyber breaches, fraud, and corporate investigations.',
         heroImage: '/images/services/forensics.png',
         whatIs: "Today, we live in a turbulent business environment where criminals are growing toward a virulent edge, as fraud risks are on the level of a crisis, and stakeholder expectations are far away. Various fraud strategies including bribery, misconducts, cybercrimes, and other fraudulent activities are impacting every business's branding value. Forensic Investigation and Consulting Services help you address these inevitable irreparable problems. We offer a wide range of Forensic Services and acknowledge the importance of self-reliance in dealing with different areas of concern.",
-        whatWeOffer: [
-            'Financial Statement Fraud Investigation',
-            'Insider Trading Investigation',
-            'Money Laundering Investigation',
-            'Occupational Fraud Investigation',
-            'Asset Misappropriation Ascertain',
-            'Collection of Digital Evidence',
-            'Data Recovery Services',
-            'Email & Internet Artifacts Analysis'
+        features: [
+            { title: 'Fraud Investigation', image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2000&auto=format&fit=crop' },
+            { title: 'Digital Evidence', image: 'https://images.unsplash.com/photo-1556656793-062ff987850e?q=80&w=2000&auto=format&fit=crop' },
+            { title: 'Data Recovery', image: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=2000&auto=format&fit=crop' },
+            { title: 'Artifact Analysis', image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2000&auto=format&fit=crop' }
         ],
         whatWeCover: [
             'Collection of Digital Evidence from Crime Scene',
@@ -174,11 +176,11 @@ export const services: Record<string, ServiceData> = {
         description: 'Comprehensive firewall audit to ensure your configuration and rules meet business and compliance needs.',
         heroImage: '/images/Firewall Security Assessment.png',
         whatIs: "Every business, regardless of size, uses firewall technology to establish limits of trust and security and access the internet for inter-business communication. Next-generation firewalls provide increasing complexity, and functionality requires you to manage firewalls appropriately. The list of regulations will be thoroughly investigated following the operational assessment and based on the level of trust needed from the security apparatus. A weak/outdated firewall may have made the target systems vulnerable to information disclosure and compromise.",
-        whatWeOffer: [
-            'Firewall Security Audit',
-            'Rule Analysis & Optimization',
-            'VPN Configuration Review',
-            'Penetration Testing'
+        features: [
+            { title: 'Security Audit', image: 'https://images.unsplash.com/photo-1551703599-6b3e8379aa81?q=80&w=2000&auto=format&fit=crop' },
+            { title: 'Rule Optimization', image: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=2000&auto=format&fit=crop' },
+            { title: 'VPN Review', image: 'https://images.unsplash.com/photo-1614064641938-3bbee52942c7?q=80&w=2000&auto=format&fit=crop' },
+            { title: 'Penetration Testing', image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=2000&auto=format&fit=crop' }
         ],
         whatWeCover: [
             'Software Version and Patch Level',
@@ -221,15 +223,11 @@ export const services: Record<string, ServiceData> = {
         description: 'Comprehensive GDPR compliance services to protect citizen data privacy rights and avoid significant penalties.',
         heroImage: '/images/services/general.png',
         whatIs: "The General Data Protection Regulation (GDPR) is a regulatory standard designed to protect citizens' data privacy rights in the European Union. It creates a legal framework for businesses that collect and process EU citizens' data. Organizations must ensure that personal data is collected legally and protected from misuse and exploitation to comply with GDPR. It also requires businesses that collect, process, and transmit personal data to respect the rights of data owners or face sanctions. Organizations will face significant penalties of up to 4% of annual revenue or 20 million euros if they do not comply.",
-        whatWeOffer: [
-            'GDPR Gap Analysis',
-            'GDPR Risk Assessment',
-            'Security Awareness Training Program',
-            'Documentation of GDPR Rules & Regulations',
-            'GDPR Continuation Support',
-            'Data Protection Impact Assessment',
-            'Privacy by Design Implementation',
-            'Data Subject Rights Management'
+        features: [
+            { title: 'Gap Analysis', image: 'https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?q=80&w=2000&auto=format&fit=crop' },
+            { title: 'Risk Assessment', image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=2000&auto=format&fit=crop' },
+            { title: 'Implementation', image: 'https://images.unsplash.com/photo-1510511459019-5dee995ad335?q=80&w=2000&auto=format&fit=crop' },
+            { title: 'Compliance Audit', image: 'https://images.unsplash.com/photo-1614064641938-3bbee52942c7?q=80&w=2000&auto=format&fit=crop' }
         ],
         whatWeCover: [
             'Data Inventory & Mapping',
@@ -270,15 +268,11 @@ export const services: Record<string, ServiceData> = {
         description: 'Comprehensive evaluation of your network infrastructure, cloud environments, and security devices to identify vulnerabilities and misconfigurations.',
         heroImage: '/images/services/security.png',
         whatIs: "The IT facilities of a company are pillared over the network components they use. It's just as important to plan where each unit will go to configure it safely. The bugs are exploited as much for their design flaws as they are for their misconfiguration. Daily enforcement, configuration, and security reviews of the network assist the company in maintaining a current view of the network and IT infrastructure. Modern-day attacks are also looking for non-traditional entry points, such as wireless and VoIP infrastructure.",
-        whatWeOffer: [
-            'Network Security Assessment',
-            'Router Security Assessment',
-            'Firewall Security Assessment',
-            'Cloud Security Assessment',
-            'Host Level Security Assessment',
-            'Container Security',
-            'Comprehensive Active Directory Assessment',
-            'Attack Simulation & Ransomware Simulation'
+        features: [
+            { title: 'Network Security', image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc48?q=80&w=2000&auto=format&fit=crop' },
+            { title: 'Cloud Security', image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2000&auto=format&fit=crop' },
+            { title: 'Active Directory', image: 'https://images.unsplash.com/photo-1526374865035-7fb7e60155b1?q=80&w=2000&auto=format&fit=crop' },
+            { title: 'Attack Simulation', image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2000&auto=format&fit=crop' }
         ],
         whatWeCover: [
             'Asset Criticality Profiling for Impact Assessment',
@@ -319,15 +313,11 @@ export const services: Record<string, ServiceData> = {
         description: 'Comprehensive ISO 27001 advisory services to implement and certify your Information Security Management System (ISMS).',
         heroImage: '/images/services/compliance.png',
         whatIs: "Any organization faces challenges in implementing the ISO 27001 standard. Certification to any standard is frequently mandated by contractual obligations, regulatory requirements, or simply because it is the right thing to do for an organization. For those interested in determining their current security posture, our services can be used to establish a baseline and guide the evolution of their information security strategy—even if they do not wish to pursue full certification.",
-        whatWeOffer: [
-            'Gap Analysis of the Information Security Management System',
-            'Risk Assessment of the ISMS',
-            'Services for ISMS Implementation',
-            'Pre-Audit Services for ISMS',
-            'Training for ISO 27001 Certification',
-            'Coordination with Third-Party Certification Bodies',
-            'Internal Audit Services',
-            'Continuous Improvement Support'
+        features: [
+            { title: 'ISMS Gap Analysis', image: 'https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?q=80&w=2000&auto=format&fit=crop' },
+            { title: 'Risk Management', image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=2000&auto=format&fit=crop' },
+            { title: 'Certification Support', image: 'https://images.unsplash.com/photo-1523289333742-be1143f6b766?q=80&w=2000&auto=format&fit=crop' },
+            { title: 'Training Programs', image: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=2000&auto=format&fit=crop' }
         ],
         whatWeCover: [
             'ISO/IEC 27001:2013 Controls',
@@ -370,15 +360,11 @@ export const services: Record<string, ServiceData> = {
         description: 'Comprehensive malware analysis and incident response services to understand threats and develop effective countermeasures.',
         heroImage: '/images/Malware Analysis and Root Cause Detection.png',
         whatIs: "Incident Response and Malware Analysis will assist you to gauge the influence of cyber breaches. An investigation is necessary, and a containment and recovery technique needs to be carried out by experts. Malware analysis is the process of understanding the behavior and purpose of a suspicious file or URL. The output of the analysis aids in the detection and mitigation of the potential threat. The key benefit of malware analysis is that it helps incident responders and security analysts pragmatically triage incidents and uncover hidden indicators of compromise.",
-        whatWeOffer: [
-            'Address Business Vulnerability',
-            'Identify Relevant Business Departments',
-            'Identify Key Performance Indicators (KPIs)',
-            'Testing of the Plan',
-            'Review the Plan Constantly',
-            'Team Formation Led by IR Analyst',
-            'Right Tools Implementation',
-            'Establishment of Communication Strategy'
+        features: [
+            { title: 'Threat Intelligence', image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2000&auto=format&fit=crop' },
+            { title: 'Behavioral Analysis', image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2000&auto=format&fit=crop' },
+            { title: 'Incident Triage', image: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=2000&auto=format&fit=crop' },
+            { title: 'Reverse Engineering', image: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2000&auto=format&fit=crop' }
         ],
         whatWeCover: [
             'Static Malware Analysis',
@@ -419,11 +405,11 @@ export const services: Record<string, ServiceData> = {
         description: 'Comprehensive security evaluation of iOS and Android applications to identify vulnerabilities and protect sensitive user data.',
         heroImage: '/images/mobileapp_service_image.png',
         whatIs: "Over the last few years, mobile technology has accelerated its growth and seen a massive increase in its user base. Mobile applications store and process a wide variety of sensitive data, from credit card information to intellectual property to medical records. Malicious attackers easily target this sensitive information. Due to the blurring of the lines between secure and exposed data, Mobile Application Security Testing evaluates an application's security and a large pool of mobile application threat vectors to identify inherent vulnerabilities and ensure the application's secure state while in use.",
-        whatWeOffer: [
-            'Mobile Application Security Assessment',
-            'API & Web Services Security Assessment',
-            'Mobile Application Secure Source Code Review',
-            'Binary Analysis & Reverse Engineering'
+        features: [
+            { title: 'Mobile Assessment', image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=2000&auto=format&fit=crop' },
+            { title: 'API Security', image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc48?q=80&w=2000&auto=format&fit=crop' },
+            { title: 'Secure Code Review', image: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2000&auto=format&fit=crop' },
+            { title: 'Binary Hardening', image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=2000&auto=format&fit=crop' }
         ],
         whatWeCover: [
             'Improper Platform Usage',
@@ -464,15 +450,11 @@ export const services: Record<string, ServiceData> = {
         description: 'Comprehensive PCI DSS compliance services to safeguard cardholder data and ensure payment security standards.',
         heroImage: '/images/PCI DSS Compliance Audit.png',
         whatIs: "PCI DSS is an internationally recognized data security standard that applies to businesses that process credit card information. The Payment Card Industry Security Standards Council (PCI SSC) is responsible for overseeing the Standard, which is intended to safeguard credit card and debit card transactions against theft and fraud. While the Standard is not a legal requirement, it is necessary to safeguard cardholder data and debit/credit card transactions. All businesses that accept and process debit and credit card payments must conduct a PCI DSS audit on an annual basis.",
-        whatWeOffer: [
-            'PCI DSS Gap Analysis',
-            'PCI DSS Risk Assessment',
-            'PCI DSS Penetration Testing',
-            'PCI DSS ASV Scanning',
-            'Security Awareness Training Program',
-            'PCI Certification Support',
-            'Remediation Guidance',
-            'Ongoing Compliance Monitoring'
+        features: [
+            { title: 'Gap analysis', image: 'https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?q=80&w=2000&auto=format&fit=crop' },
+            { title: 'Penetration Testing', image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=2000&auto=format&fit=crop' },
+            { title: 'ASV Scanning', image: 'https://images.unsplash.com/photo-1551703599-6b3e8379aa81?q=80&w=2000&auto=format&fit=crop' },
+            { title: 'Compliance Monitoring', image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=2000&auto=format&fit=crop' }
         ],
         whatWeCover: [
             'PCI-DSS Controls Assessment',
@@ -513,11 +495,11 @@ export const services: Record<string, ServiceData> = {
         description: 'Simulated real-world intrusion assault against your enterprise to test defenses without affecting normal operations.',
         heroImage: '/images/Red Team Assessment.png',
         whatIs: "A Red Team Assessment is a simulated real-world intrusion assault against an enterprise that does not affect its normal operations. For a limited time span, attacks will be launched from various entry points to satisfy the organization's testing tasks and specifications. The Red Teaming concept begins with the challenge of comprehending the adversary's motivations and actions. We can anticipate an attacker's moves and develop effective countermeasures if we understand how they think.",
-        whatWeOffer: [
-            'Red Teaming',
-            'Advanced Penetration Testing',
-            'Physical Security Testing',
-            'Social Engineering Attacks'
+        features: [
+            { title: 'Red Teaming', image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2000&auto=format&fit=crop' },
+            { title: 'Social Engineering', image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=2000&auto=format&fit=crop' },
+            { title: 'Physical Security', image: 'https://images.unsplash.com/photo-1555620920-53bc30cedcc6?q=80&w=2000&auto=format&fit=crop' },
+            { title: 'Advanced Pentesting', image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=2000&auto=format&fit=crop' }
         ],
         whatWeCover: [
             'Network Attacks',
@@ -558,11 +540,11 @@ export const services: Record<string, ServiceData> = {
         description: 'Thorough code analysis to identify vulnerabilities at the source level before they become exploitable in production.',
         heroImage: '/images/Source Code Review.png',
         whatIs: "Secure Source Code reviews are an effective way to identify difficult or impossible bugs during black-box or grey-box testing. Our security architects and specialist developers conduct a thorough code analysis using a detailed checklist of common implementation and architecture errors. The source code review identifies the vulnerable assertion line of code and the corrupted variable that introduces the vulnerability. This demonstrates how an event spreads from its source to its conclusion, providing application developers with a comprehensive view of each vulnerability.",
-        whatWeOffer: [
-            'Manual Secure Source Code Review',
-            'Automation Secure Source Code Review',
-            'Software Composition Analysis Testing',
-            'Architecture Security Review'
+        features: [
+            { title: 'Manual Review', image: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2000&auto=format&fit=crop' },
+            { title: 'Automated Scan', image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2000&auto=format&fit=crop' },
+            { title: 'SCA Testing', image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc48?q=80&w=2000&auto=format&fit=crop' },
+            { title: 'Architecture Review', image: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=2000&auto=format&fit=crop' }
         ],
         whatWeCover: [
             'JAVA', 'SWIFT', 'Objective C', 'FLUTTER',
@@ -595,11 +577,11 @@ export const services: Record<string, ServiceData> = {
         description: 'Comprehensive security testing for desktop applications to identify memory corruption, injection, and cryptographic vulnerabilities.',
         heroImage: '/images/Thick Client Security.png',
         whatIs: "Many thick client applications are not thoroughly examined because security testing efforts are frequently focused on web and mobile applications. However, these applications could have serious security flaws like memory corruption, injection, cryptographic flaws, and client-side trust issues. These flaws can lead to complete system compromise and unauthorized access to server-side data on systems where the thick client software is installed. Thick client applications process data on both the client and server sides and use proprietary protocols to communicate.",
-        whatWeOffer: [
-            'Thick Client Application Penetration Testing',
-            'API & Web Services Security Assessment',
-            'Secure Source Code Review',
-            'Binary Analysis & Hardening Review'
+        features: [
+            { title: 'Thick Client Pentest', image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2000&auto=format&fit=crop' },
+            { title: 'API & Web Services', image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc48?q=80&w=2000&auto=format&fit=crop' },
+            { title: 'Source Code Review', image: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2000&auto=format&fit=crop' },
+            { title: 'Binary Hardening', image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=2000&auto=format&fit=crop' }
         ],
         whatWeCover: [
             'Injections',
