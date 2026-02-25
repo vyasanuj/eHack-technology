@@ -127,7 +127,7 @@ export default function Home() {
         <AcademySection />
       </div>
 
-      <section id="why-ehack" className="section section-light" style={{ padding: '2.5rem 0', borderBottom: '1px solid #ff6b00' }}>
+      <section id="why-ehack" className="section section-light" style={{ padding: '2.5rem 0' }}>
         <div className="container">
           <div className="section-header">
             <span className="section-label" style={{
@@ -140,7 +140,7 @@ export default function Home() {
               marginBottom: '1.5rem',
 
             }}>Why Ehack</span>
-            <h2 className="section-title">Your Trusted <span style={{ color: '#ec7c00' }}>Security</span> Partner</h2>
+            <h2 className="section-title">Your Trusted <span style={{ color: '#ff6b00' }}>Security</span> Partner</h2>
             <p className="section-subtitle" style={{ color: '#1f2937' }}>
               We combine cutting-edge tools with expert human analysis to deliver unmatched security insights
             </p>
