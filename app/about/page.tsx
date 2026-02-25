@@ -62,9 +62,9 @@ export default function AboutPage() {
 
     const founderFullProfile = {
         quote: `"Bridging Learning and Industry to Build Future-Ready Careers."`,
-        role: `Founder Director – eHack Academy & eHack Global Technology`,
+        role: `Founder Director – eHack Global Technology`,
         messageP1: `eHack was established with a clear belief — careers must be shaped with clarity, relevance, and long-term purpose.`,
-        messageP2: `Through eHack Academy, students and professionals are guided toward high-impact careers in Cyber Security, Data Science & AI, Robotics & IoT, and Digital Marketing, with learning paths aligned to real-world roles rather than short-term trends.`,
+        messageP2: `Through eHack Global Technology, students and professionals are guided toward high-impact careers in Cyber Security, Data Science & AI, Robotics & IoT, and Digital Marketing, with learning paths aligned to real-world roles rather than short-term trends.`,
         messageP3: `In parallel, eHack Global Technology delivers enterprise-grade cyber security services including security assessments, GDPR consulting, PCI DSS compliance, malware analysis, and risk management. This strong integration between education and corporate practice ensures that learning remains practical, current, and globally relevant.`,
         closing: `At eHack, knowledge is not just delivered — it is applied, validated, and transformed into meaningful careers.`
     };
@@ -75,7 +75,7 @@ export default function AboutPage() {
         collaboration: `Beyond the classroom, she plays a vital role in strengthening industry–academia collaboration. She actively participates in entrepreneurial consortia, offering training, mentoring, and strategic guidance to start-ups and emerging business ventures. Her consistent involvement of alumni in institutional initiatives further reinforces strong industry connections and enriches student exposure.`,
         advocacy: `A passionate advocate for entrepreneurship and leadership development, Dr. Gupta regularly curates and conducts capacity-building workshops aimed at fostering an entrepreneurial mindset and future-ready leadership skills among students. Her research interests span leadership, entrepreneurship, start-ups, higher education, and human resource management, reflecting her dedication to addressing contemporary business and educational challenges through practical, impactful insights.`,
         additional: `She is a thoughtful writer and editor at Spark: Igniting Minds, a fiction publishing house dedicated to nurturing original voices and crafting compelling narratives that inspire imagination, creativity, and thoughtful engagement.`,
-        roles: `In addition to her academic and mentoring roles, Dr. Gupta serves as a Board of Advisory Member at eHack Academy, contributing strategic guidance to innovation-driven learning initiatives. She also holds the position of Joint Secretary of eMERG, an eminent professional association, where she actively supports initiatives focusing on women leadership, entrepreneurship, and professional empowerment.`
+        roles: `In addition to her academic and mentoring roles, Dr. Gupta serves as a Board of Advisory Member at eHack Global Technology, contributing strategic guidance to innovation-driven learning initiatives. She also holds the position of Joint Secretary of eMERG, an eminent professional association, where she actively supports initiatives focusing on women leadership, entrepreneurship, and professional empowerment.`
     };
 
     const neelKumarFullProfile = {
@@ -136,7 +136,7 @@ export default function AboutPage() {
         { id: 1, name: "Global Finance Corp", role: "CISO", feedback: "eHack's Digital Forensics expertise helped us resolve a critical security incident with minimal downtime. Their professional approach is unmatched." },
         { id: 2, name: "Tech Mahindra", role: "Security Lead", feedback: "The VAPT services provided by eHack gave us deep insights into our infrastructure vulnerabilities. Their reports are detailed and highly actionable." },
         { id: 3, name: "HCL Technologies", role: "AVP - Cyber Security", feedback: "The corporate training programs for our SOC team were exceptional. The hands-on labs were highly relevant to our daily operations." },
-        { id: 4, name: "Innovate AI", role: "Founder & CEO", feedback: "eHack Academy is our trusted partner for upskilling our engineers. Their curriculum is always at the forefront of emerging technologies." },
+        { id: 4, name: "Innovate AI", role: "Founder & CEO", feedback: "eHack Global Technology is our trusted partner for upskilling our engineers. Their curriculum is always at the forefront of emerging technologies." },
         { id: 5, name: "SecureBank Solutions", role: "Internal Audit Dept", feedback: "We rely on eHack for our annual PCI DSS and IT compliance audits. Their knowledge of global security standards is unparalleled." },
         { id: 6, name: "Retail Connect", role: "IT Director", feedback: "The security assessment performed by eHack significantly improved our security posture. They are professional, efficient, and highly skilled." },
         { id: 7, name: "CloudWorks", role: "Operations Head", feedback: "eHack Global Technology's incident response team is top-notch. They handled our data breach with extreme precision and confidentiality." },
@@ -196,7 +196,7 @@ export default function AboutPage() {
                             <span className="section-badge ">OUR MISSION</span>
                             <h2 className="about-section-title">Bridging Technology & Innovation</h2>
                             <p className="mission-text">
-                                At Ehack, we are committed to bridging emerging technologies with high-impact learning and corporate innovation. Our mission is to empower learners, professionals, and enterprises with the skills, knowledge, and tools they need to thrive in a rapidly evolving digital world.
+                                At eHack Global Technology, we are committed to bridging emerging technologies with high-impact learning and corporate innovation. Our mission is to empower learners, professionals, and enterprises with the skills, knowledge, and tools they need to thrive in a rapidly evolving digital world.
                             </p>
                             <p className="mission-text">
                                 We invite you to join a holistic ecosystem where technology meets learning, integrated with enterprise solutions and global knowledge empowerment.
@@ -226,7 +226,7 @@ export default function AboutPage() {
                                             <path d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                         </svg>
                                     </div>
-                                    <p>At eHack Academy, your success is our priority. That's why we offer our comprehensive <strong>Skill Certification Guarantee</strong>.</p>
+                                    <p>At eHack Global Technology, your success is our priority. That's why we offer our comprehensive <strong>Skill Certification Guarantee</strong>.</p>
                                 </div>
 
                                 <div className="promise-item">
@@ -314,7 +314,7 @@ export default function AboutPage() {
                             </ul>
                             <img src="/images/about%20Learning%20%26%20Training.jpg" alt="Learning & Training" className="what-card-image" />
                             <div style={{ display: 'flex', justifyContent: 'center', marginTop: '1.5rem' }}>
-                                <img src="/images/newnew-ehack.jpeg" alt="eHack Academy Logo" style={{ height: '80px', objectFit: 'contain' }} />
+                                <img src="/images/newnew-ehack.jpeg" alt="eHack Global Technology Logo" style={{ height: '80px', objectFit: 'contain' }} />
                             </div>
                         </div>
 
@@ -700,7 +700,7 @@ export default function AboutPage() {
                                 </div>
                                 <div className="location-address">
                                     <p>
-                                        <strong>eHack Academy</strong><br />
+                                        <strong>eHack Global Technology</strong><br />
                                         No. 202, I Floor, New BEL Road,<br />
                                         Opposite HP Petrol Pump,<br />
                                         Bangalore 560094
@@ -770,7 +770,7 @@ export default function AboutPage() {
                                         allowFullScreen
                                         loading="lazy"
                                         referrerPolicy="no-referrer-when-downgrade"
-                                        title="eHack Academy Location"
+                                        title="eHack Global Technology Location"
                                     ></iframe>
                                 </div>
                                 <div className="map-card-footer">
@@ -820,7 +820,7 @@ export default function AboutPage() {
                             <div className="cta-tagline-highlight">FOLLOW US, JOB FOLLOWS YOU</div>
                             <h2 className="cta-title">Ready to Transform Your Career?</h2>
                             <p className="cta-subtitle">
-                                Join thousands of professionals who have advanced their careers with eHack Academy. Start your journey today!
+                                Join thousands of professionals who have advanced their careers with eHack Global Technology. Start your journey today!
                             </p>
                         </div>
                         <div className="cta-actions">
@@ -895,7 +895,7 @@ export default function AboutPage() {
                                         <path d="M12 14l9-5-9-5-9 5 9 5z" />
                                         <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
                                     </svg>
-                                    <span>Board of Advisory Member - eHack Academy</span>
+                                    <span>Board of Advisory Member - eHack Global Technology</span>
                                 </div>
                                 <div className="profile-highlight-item">
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -961,7 +961,7 @@ export default function AboutPage() {
                                 <div className="signature-line"></div>
                                 <p className="signature-name">Sanjeev Gupta</p>
                                 <p className="signature-title">{founderFullProfile.role}</p>
-                                <p className="signature-org">eHack Academy – Institute of Emerging Technologies</p>
+                                <p className="signature-org">eHack Global Technology – Institute of Emerging Technologies</p>
                                 <p className="signature-domains">Cyber Security | Data Science | Robotics | Digital Marketing</p>
                             </div>
                         </div>

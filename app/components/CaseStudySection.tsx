@@ -442,7 +442,7 @@ export default function CaseStudySection() {
                                 </p>
 
                                 <div style={{ marginBottom: '2.5rem' }}>
-                                    <h4 style={{ fontSize: '1.1rem', marginBottom: '1rem', color: '#1f2937' }}>The eHack Academy Solution:</h4>
+                                    <h4 style={{ fontSize: '1.1rem', marginBottom: '1rem', color: '#1f2937' }}>The eHack Global Technology Solution:</h4>
                                     <ul style={{ listStyle: 'none', padding: 0 }}>
                                         {caseStudies[activeTab].solutions.map((item, i) => (
                                             <li key={i} style={{

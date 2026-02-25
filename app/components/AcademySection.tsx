@@ -29,14 +29,14 @@ export default function AcademySection() {
                 {/* Centered Top Label */}
                 <div style={{ textAlign: 'center', marginBottom: '4rem' }} className="px-4">
                     <span style={{
-                        color: '#ec7c00',
+                        color: '#ff6b00',
                         fontWeight: '800',
                         fontSize: '3rem',
                         letterSpacing: '0.05em',
                         display: 'block',
                         marginBottom: '0.5rem'
                     }} className="text-3xl md:text-5xl">
-                        eHack Academy
+                        eHack Global Technology
                     </span>
                     <p style={{ color: '#1f2937', fontSize: '1.1rem', maxWidth: '600px', margin: '0 auto' }}>
                         Empowering Cyber Defenders with Intelligence and Action
@@ -55,11 +55,11 @@ export default function AcademySection() {
                             marginBottom: '1.5rem'
                         }}>
                             Where Learning Meets <br />
-                            <span style={{ color: '#ec7c00' }}>Real-World Defense</span>
+                            <span style={{ color: '#ff6b00' }}>Real-World Defense</span>
                         </h2>
 
                         <p style={{ color: '#1f2937', fontSize: '1.1rem', lineHeight: '1.7', marginBottom: '1.5rem' }}>
-                            At eHack Academy, we don't just teach cybersecurity; we train the next generation of digital architects to <strong>defend</strong>, <strong>respond to</strong>, and <strong>lead</strong> in an increasingly hostile digital landscape.
+                            At eHack Global Technology, we don't just teach cybersecurity; we train the next generation of digital architects to <strong>defend</strong>, <strong>respond to</strong>, and <strong>lead</strong> in an increasingly hostile digital landscape.
                         </p>
 
                         <p style={{ color: '#1f2937', fontSize: '1.1rem', lineHeight: '1.7', marginBottom: '2.5rem' }}>

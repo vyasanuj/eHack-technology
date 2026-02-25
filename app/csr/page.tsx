@@ -134,7 +134,7 @@ export default function CSRPage() {
                             <h2 className="csr-mission-title">"To make India Cyber <span className="text-orange">Secure</span>, Skill-Enabled and Employment Ready"</h2>
                             <div className="csr-mission-text">
                                 <p>We strive to create a cyber-aware society, enable youth with future-ready skills, improve employability through industry-aligned training, and spread happiness by empowering lives with knowledge.</p>
-                                <p>At eHack Academy Bangalore, CSR is not just a commitment—it is our mission. For over a decade, we have actively worked towards building a cyber-aware, skilled, and employable society.</p>
+                                <p>At eHack Global Technology Bangalore, CSR is not just a commitment—it is our mission. For over a decade, we have actively worked towards building a cyber-aware, skilled, and employable society.</p>
                             </div>
                         </div>
                     </div>

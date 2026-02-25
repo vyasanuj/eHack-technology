@@ -268,8 +268,8 @@ export default function FranchisePage() {
             </nav>
 
             <CertificateHeader
-                title="Partner with eHack Academy"
-                subtitle="eHack Academy offers a structured and scalable franchise opportunity in the fast-growing domain of cybersecurity and emerging technologies. With over a decade of experience in professional training and enterprise security services, we've built a strong reputation for industry-aligned education, ethical practices, and outcome-focused learning."
+                title="Partner with eHack Global Technology"
+                subtitle="eHack Global Technology offers a structured and scalable franchise opportunity in the fast-growing domain of cybersecurity and emerging technologies. With over a decade of experience in professional training and enterprise security services, we've built a strong reputation for industry-aligned education, ethical practices, and outcome-focused learning."
                 backgroundImage="/images/franchise-popup-image.jpg"
             />
 
@@ -386,7 +386,7 @@ export default function FranchisePage() {
             <section id="why-choose" className="why-choose-section">
                 <div className="section-container">
                     <div className="section-header why-choose-header">
-                        <h2>Why Choose an <span className="text-orange">eHack Academy</span> Franchise</h2>
+                        <h2>Why Choose an <span className="text-orange">eHack Global Technology</span> Franchise</h2>
                         <p className="why-choose-description">Join a proven ecosystem designed for quality consistency, operational clarity, and long-term sustainability</p>
                     </div>
                     <div className="benefits-grid">
@@ -580,7 +580,7 @@ export default function FranchisePage() {
                         <p>Our comprehensive <span className="text-orange">Standard Operating Procedures</span> ensure quality consistency across all franchise locations</p>
                     </div>
                     <div className="sop-intro">
-                        <p>Click on each section to explore the detailed processes and guidelines that power every eHack Academy franchise.</p>
+                        <p>Click on each section to explore the detailed processes and guidelines that power every eHack Global Technology franchise.</p>
                     </div>
                     <Accordion items={sopData} />
                 </div>
@@ -636,7 +636,7 @@ export default function FranchisePage() {
                         </div>
                     </div>
                     <div className="apply-note">
-                        <p><strong>No mandatory cybersecurity background is required.</strong> Complete training, documentation, and SOP support are provided by eHack Academy.</p>
+                        <p><strong>No mandatory cybersecurity background is required.</strong> Complete training, documentation, and SOP support are provided by eHack Global Technology.</p>
                     </div>
                 </div>
             </section>
@@ -645,7 +645,7 @@ export default function FranchisePage() {
             <section id="enquire" className="cta-section">
                 <div className="section-container">
                     <div className="cta-content">
-                        <h2>Partner With eHack Academy</h2>
+                        <h2>Partner With eHack Global Technology</h2>
                         <p>Take the next step toward building a future-ready education business. Enquire now to explore partnership opportunities.</p>
                         <div className="cta-buttons">
                             <a href="#" onClick={openFranchisePopup} className="cta-btn-white">
@@ -675,7 +675,7 @@ export default function FranchisePage() {
                     <div className="modal-content" onClick={e => e.stopPropagation()}>
                         <div className="modal-header">
                             <div className="modal-title">
-                                <h2>Ehack Academy – Franchise Models Comparison</h2>
+                                <h2>eHack Global Technology – Franchise Models Comparison</h2>
                             </div>
                             <button className="modal-close-btn" onClick={() => setShowModelModal(false)}>
                                 <X size={24} />

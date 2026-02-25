@@ -316,8 +316,8 @@ export default function Home() {
                 </div>
                 <div className={styles.ribbonContent}>
                   <span className={styles.ribbonBadge}>Collaborative Growth</span>
-                  <h3 className={styles.ribbonTitle}>Build Your Educational Empire with eHack Academy Franchise</h3>
-                  <p className={styles.ribbonText}>Build a thriving educational venture with India's premier cybersecurity academy.</p>
+                  <h3 className={styles.ribbonTitle}>Build Your Educational Empire with eHack Global Technology Franchise</h3>
+                  <p className={styles.ribbonText}>Build a thriving educational venture with India's premier cybersecurity global technology firm.</p>
                   <div className={styles.ribbonAction}>
                     Start Your Franchise <ArrowRight size={20} />
                   </div>
