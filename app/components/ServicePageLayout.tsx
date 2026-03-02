@@ -166,10 +166,10 @@ export default function ServicePageLayout({
                         alignItems: 'center'
                     }}>
                         <div>
-                            <h4 style={{ fontSize: '1.1rem', fontWeight: '700', marginBottom: '0.5rem', color: 'var(--primary)' }}>Need more info?</h4>
-                            <p style={{ fontSize: '0.9rem', color: 'var(--gray-600)', margin: 0 }}>Our security architects are available for a deep dive into your requirements.</p>
+                            <h4 style={{ fontSize: '1.8rem', fontWeight: '800', marginBottom: '0.75rem', color: 'var(--primary)' }}>Need more info?</h4>
+                            <p style={{ fontSize: '1.2rem', color: 'var(--gray-600)', margin: 0, lineHeight: '1.6' }}>Our security architects are available for a deep dive into your requirements.</p>
                         </div>
-                        <a href="tel:+919886035330" className="btn btn-primary btn-md">
+                        <a href="tel:+919886035330" className="btn btn-primary btn-lg" style={{ padding: '1rem 2rem', fontSize: '1.1rem' }}>
                             Consult with Expert
                         </a>
                     </div>
@@ -302,20 +302,80 @@ export default function ServicePageLayout({
                         gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
                         gap: '1.25rem'
                     }}>
-                        {whatWeCover.map((item, index) => (
-                            <div key={index} style={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                gap: '1.25rem',
-                                padding: '1.25rem',
-                                background: 'var(--gray-50)',
-                                borderRadius: '12px',
-                                border: '1px solid #ff6b00'
-                            }}>
-                                <div style={{ color: 'var(--success)', fontSize: '1.3rem' }}>●</div>
-                                <span style={{ fontSize: '1rem', color: 'var(--gray-600)', fontWeight: '500' }}>{item}</span>
-                            </div>
-                        ))}
+                        {whatWeCover.map((item, index) => {
+                            // Helper to find a suitable icon based on common tech keywords
+                            const lowerItem = item.toLowerCase();
+                            let iconUrl = '';
+
+                            if (lowerItem.includes('api') || lowerItem.includes('rest') || lowerItem.includes('soap') || lowerItem.includes('graphql')) iconUrl = 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg';
+                            else if (lowerItem.includes('sql') || lowerItem.includes('database')) iconUrl = 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg';
+                            else if (lowerItem.includes('xml')) iconUrl = 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg';
+                            else if (lowerItem.includes('java') && !lowerItem.includes('javascript')) iconUrl = 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg';
+                            else if (lowerItem.includes('javascript') || lowerItem.includes('xss') || lowerItem.includes('cross-site')) iconUrl = 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg';
+                            else if (lowerItem.includes('python')) iconUrl = 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg';
+                            else if (lowerItem.includes('node')) iconUrl = 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg';
+                            else if (lowerItem.includes('php')) iconUrl = 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg';
+                            else if (lowerItem.includes('c++') || lowerItem.includes('c#')) iconUrl = 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg';
+                            else if (lowerItem.includes('swift') || lowerItem.includes('ios') || lowerItem.includes('apple')) iconUrl = 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apple/apple-original.svg';
+                            else if (lowerItem.includes('kotlin') || lowerItem.includes('android')) iconUrl = 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg';
+                            else if (lowerItem.includes('go')) iconUrl = 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg';
+                            else if (lowerItem.includes('ruby')) iconUrl = 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ruby/ruby-original.svg';
+                            else if (lowerItem.includes('aws') || lowerItem.includes('cloud')) iconUrl = 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg';
+                            else if (lowerItem.includes('azure')) iconUrl = 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg';
+                            else if (lowerItem.includes('windows') || lowerItem.includes('active directory') || lowerItem.includes('ldap')) iconUrl = 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg';
+                            else if (lowerItem.includes('linux') || lowerItem.includes('os')) iconUrl = 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg';
+                            else if (lowerItem.includes('docker') || lowerItem.includes('container') || lowerItem.includes('image')) iconUrl = 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg';
+                            else if (lowerItem.includes('kubernetes')) iconUrl = 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg';
+                            else if (lowerItem.includes('react')) iconUrl = 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg';
+                            else if (lowerItem.includes('angular')) iconUrl = 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg';
+                            else if (lowerItem.includes('vue')) iconUrl = 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg';
+                            else if (lowerItem.includes('auth') || lowerItem.includes('oauth') || lowerItem.includes('jwt') || lowerItem.includes('password') || lowerItem.includes('credential')) iconUrl = 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/auth0/auth0-original.svg';
+                            else if (lowerItem.includes('network') || lowerItem.includes('ssrf') || lowerItem.includes('dns') || lowerItem.includes('wireless') || lowerItem.includes('communication')) iconUrl = 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/networkx/networkx-original.svg';
+                            else if (lowerItem.includes('log') || lowerItem.includes('monitor')) iconUrl = 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/elasticsearch/elasticsearch-original.svg';
+                            else if (lowerItem.includes('data') || lowerItem.includes('exposure') || lowerItem.includes('storage') || lowerItem.includes('memory')) iconUrl = 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg';
+                            else if (lowerItem.includes('config')) iconUrl = 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg';
+                            else if (lowerItem.includes('logic') || lowerItem.includes('business')) iconUrl = 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg';
+                            else if (lowerItem.includes('injection') || lowerItem.includes('command') || lowerItem.includes('script')) iconUrl = 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-plain.svg';
+                            else if (lowerItem.includes('malware') || lowerItem.includes('ransomware') || lowerItem.includes('virus')) iconUrl = 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kali/kali-original.svg';
+                            else if (lowerItem.includes('patch') || lowerItem.includes('version') || lowerItem.includes('component')) iconUrl = 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg';
+                            else if (lowerItem.includes('crypto') || lowerItem.includes('encrypt') || lowerItem.includes('key')) iconUrl = 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rust/rust-original.svg'; // Usually associated with safe, modern crypto usage context
+                            else if (lowerItem.includes('social') || lowerItem.includes('phishing') || lowerItem.includes('user')) iconUrl = 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/twitter/twitter-original.svg';
+
+                            // If no specific match is found, assign a cool, generic tech/security logo based on the index
+                            // This ensures every single item gets a unique, professional logo without falling back to emojis.
+                            if (!iconUrl) {
+                                const fallbackIcons = [
+                                    'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redhat/redhat-original.svg', // Good for enterprise/security
+                                    'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg', // Good for enterprise data
+                                    'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nginx/nginx-original.svg', // Good for infrastructure
+                                    'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ansible/ansible-original.svg', // Good for automation/config
+                                    'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gnu/gnu-original.svg', // Good for OS/systems
+                                    'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/suse/suse-original.svg', // Good for OS/systems
+                                    'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/putty/putty-original.svg', // Good for network/ssh
+                                    'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apache/apache-original.svg', // Good for servers
+                                    'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tomcat/tomcat-original.svg', // Good for servers
+                                    'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/salesforce/salesforce-original.svg', // Good for business logic
+                                ];
+                                iconUrl = fallbackIcons[index % fallbackIcons.length];
+                            }
+
+                            return (
+                                <div key={index} style={{
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    gap: '1.25rem',
+                                    padding: '1.25rem',
+                                    background: 'var(--gray-50)',
+                                    borderRadius: '12px',
+                                    border: '1px solid #ff6b00'
+                                }}>
+                                    <div style={{ width: '28px', height: '28px', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                        <img src={iconUrl} alt="Tech Icon" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
+                                    </div>
+                                    <span style={{ fontSize: '1rem', color: 'var(--gray-600)', fontWeight: '500' }}>{item}</span>
+                                </div>
+                            );
+                        })}
                     </div>
                 </div>
             </section>
@@ -437,79 +497,80 @@ export default function ServicePageLayout({
             </section>
 
             {/* Related Services */}
-            {relatedServices && relatedServices.length > 0 && (
-                <section style={{ padding: '3rem 0', background: '#fff', borderTop: '1px solid #ff6b00' }}>
-                    <div className="container">
-                        <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-                            <span className="section-label">Explore More</span>
-                            <h2 className="section-title">Related <span style={{ color: 'var(--primary)' }}>Services</span></h2>
-                        </div>
+            {
+                relatedServices && relatedServices.length > 0 && (
+                    <section style={{ padding: '3rem 0', background: '#fff', borderTop: '1px solid #ff6b00' }}>
+                        <div className="container">
+                            <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+                                <span className="section-label">Explore More</span>
+                                <h2 className="section-title">Related <span style={{ color: 'var(--primary)' }}>Services</span></h2>
+                            </div>
 
-                        <div style={{
-                            display: 'grid',
-                            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-                            gap: '2.5rem'
-                        }}>
-                            {relatedServices.map((service, index) => (
-                                <Link key={index} href={service.href} style={{
-                                    background: 'var(--gray-50)',
-                                    borderRadius: '24px',
-                                    border: '1px solid #ff6b00',
-                                    textDecoration: 'none',
-                                    transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    overflow: 'hidden',
-                                    position: 'relative'
-                                }} className="related-service-card">
-                                    {/* Service Image */}
-                                    <div style={{ height: '200px', width: '100%', overflow: 'hidden' }}>
-                                        <img
-                                            src={service.image}
-                                            alt={service.title}
-                                            style={{
-                                                width: '100%',
-                                                height: '100%',
-                                                objectFit: 'cover',
-                                                transition: 'transform 0.5s ease'
-                                            }}
-                                            className="service-img"
-                                        />
-                                    </div>
-
-                                    {/* Content */}
-                                    <div style={{ padding: '2rem', flex: 1, display: 'flex', flexDirection: 'column' }}>
-                                        <h3 style={{
-                                            fontSize: '1.25rem',
-                                            fontWeight: '700',
-                                            color: 'var(--gray-900)',
-                                            marginBottom: '0.75rem'
-                                        }}>
-                                            {service.title}
-                                        </h3>
-                                        <p style={{
-                                            fontSize: '0.95rem',
-                                            color: 'var(--gray-600)',
-                                            lineHeight: '1.6',
-                                            marginBottom: '1.5rem',
-                                            flex: 1
-                                        }}>
-                                            {service.description}
-                                        </p>
-                                        <div style={{
-                                            display: 'flex',
-                                            alignItems: 'center',
-                                            gap: '0.5rem',
-                                            color: 'var(--primary)',
-                                            fontWeight: '700',
-                                            fontSize: '0.9rem'
-                                        }}>
-                                            Learn More
-                                            <span style={{ transition: 'transform 0.3s ease' }} className="arrow">→</span>
+                            <div style={{
+                                display: 'grid',
+                                gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+                                gap: '2.5rem'
+                            }}>
+                                {relatedServices.map((service, index) => (
+                                    <Link key={index} href={service.href} style={{
+                                        background: 'var(--gray-50)',
+                                        borderRadius: '24px',
+                                        border: '1px solid #ff6b00',
+                                        textDecoration: 'none',
+                                        transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                        overflow: 'hidden',
+                                        position: 'relative'
+                                    }} className="related-service-card">
+                                        {/* Service Image */}
+                                        <div style={{ height: '200px', width: '100%', overflow: 'hidden' }}>
+                                            <img
+                                                src={service.image}
+                                                alt={service.title}
+                                                style={{
+                                                    width: '100%',
+                                                    height: '100%',
+                                                    objectFit: 'cover',
+                                                    transition: 'transform 0.5s ease'
+                                                }}
+                                                className="service-img"
+                                            />
                                         </div>
-                                    </div>
 
-                                    <style jsx>{`
+                                        {/* Content */}
+                                        <div style={{ padding: '2rem', flex: 1, display: 'flex', flexDirection: 'column' }}>
+                                            <h3 style={{
+                                                fontSize: '1.25rem',
+                                                fontWeight: '700',
+                                                color: 'var(--gray-900)',
+                                                marginBottom: '0.75rem'
+                                            }}>
+                                                {service.title}
+                                            </h3>
+                                            <p style={{
+                                                fontSize: '0.95rem',
+                                                color: 'var(--gray-600)',
+                                                lineHeight: '1.6',
+                                                marginBottom: '1.5rem',
+                                                flex: 1
+                                            }}>
+                                                {service.description}
+                                            </p>
+                                            <div style={{
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                gap: '0.5rem',
+                                                color: 'var(--primary)',
+                                                fontWeight: '700',
+                                                fontSize: '0.9rem'
+                                            }}>
+                                                Learn More
+                                                <span style={{ transition: 'transform 0.3s ease' }} className="arrow">→</span>
+                                            </div>
+                                        </div>
+
+                                        <style jsx>{`
                                         .related-service-card:hover {
                                             transform: translateY(-12px);
                                             box-shadow: 0 20px 40px rgba(0,0,0,0.08);
@@ -523,22 +584,23 @@ export default function ServicePageLayout({
                                             transform: translateX(5px);
                                         }
                                     `}</style>
-                                </Link>
-                            ))}
+                                    </Link>
+                                ))}
+                            </div>
                         </div>
-                    </div>
-                </section>
-            )}
+                    </section>
+                )
+            }
 
             {/* Final CTA Section */}
-            <section className="cta-section" id="contact" style={{ background: '#ffc07df5', padding: '3rem 0', borderTop: '1px solid #f5a96c' }}>
+            <section className="cta-section" id="contact" style={{ background: '#ff6b00', padding: '3rem 0', borderTop: '1px solid #ff6b00' }}>
                 <div className="container">
-                    <h2 style={{ fontSize: '3rem', fontWeight: '800', marginBottom: '1.5rem' }}>Ready to <span style={{ color: '#ff6b00' }}>Secure Your Assets</span>?</h2>
-                    <p style={{ fontSize: '1.25rem', maxWidth: '700px', margin: '0 auto 3rem', color: 'var(--gray-600)' }}>
+                    <h2 style={{ fontSize: '3rem', fontWeight: '800', marginBottom: '1.5rem', color: '#ffffff' }}>Ready to <span style={{ color: '#fff' }}>Secure Your Assets</span>?</h2>
+                    <p style={{ fontSize: '1.25rem', maxWidth: '700px', margin: '0 auto 3rem', color: '#ffffff' }}>
                         Get a comprehensive {title.toLowerCase()} from our certified experts. Our team is ready to help you identify and mitigate risks.
                     </p>
                     <div className="cta-buttons">
-                        <Link href="/contact" className="btn btn-primary btn-lg">
+                        <Link href="/contact" className="btn btn-white btn-lg" style={{ color: '#ff6b00', border: 'none' }}>
                             Request Assessment
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ marginLeft: '10px' }}>
                                 <path d="M5 12h14M12 5l7 7-7 7" />
@@ -550,6 +612,6 @@ export default function ServicePageLayout({
                     </div>
                 </div>
             </section>
-        </main>
+        </main >
     );
 }
