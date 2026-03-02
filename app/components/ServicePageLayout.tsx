@@ -180,7 +180,7 @@ export default function ServicePageLayout({
             <section style={{ padding: '3rem 0', background: 'var(--gray-50)', overflow: 'hidden', borderTop: '1px solid #ff6b00' }}>
                 <div className="container" style={{ marginBottom: '4rem' }}>
                     <div style={{ textAlign: 'center' }}>
-                        <span className="section-label">Features</span>
+                        <div className="hero-capsule-badge" style={{ marginBottom: '1rem' }}>Features</div>
                         <h2 className="section-title">Core <span style={{ color: 'var(--primary)' }}>Capabilities</span></h2>
                         <p style={{ color: 'var(--gray-600)', maxWidth: '700px', margin: '1rem auto 0' }}>
                             We provide comprehensive security solutions tailored to your unique infrastructure and business needs.
@@ -294,7 +294,7 @@ export default function ServicePageLayout({
             <section style={{ padding: '3rem 0', background: '#fff', borderTop: '1px solid #ff6b00' }}>
                 <div className="container">
                     <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-                        <span className="section-label">Detection</span>
+                        <div className="hero-capsule-badge" style={{ marginBottom: '1rem' }}>Detection</div>
                         <h2 className="section-title">Vulnerability <span style={{ color: 'var(--primary)' }}>Coverage</span></h2>
                     </div>
                     <div style={{
@@ -391,7 +391,7 @@ export default function ServicePageLayout({
                     }}>
                         {/* Left Side: Detail Text */}
                         <div>
-                            <span className="section-label">Impact</span>
+                            <div className="hero-capsule-badge" style={{ marginBottom: '1rem' }}>Impact</div>
                             <h3 style={{ fontSize: '2.5rem', fontWeight: '800', marginBottom: '1.5rem', color: 'var(--gray-900)' }}>
                                 Strategic <span style={{ color: '#ff6b00' }}>Importance</span>
                             </h3>
@@ -502,7 +502,7 @@ export default function ServicePageLayout({
                     <section style={{ padding: '3rem 0', background: '#fff', borderTop: '1px solid #ff6b00' }}>
                         <div className="container">
                             <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-                                <span className="section-label">Explore More</span>
+                                <div className="hero-capsule-badge" style={{ marginBottom: '1rem' }}>Explore More</div>
                                 <h2 className="section-title">Related <span style={{ color: 'var(--primary)' }}>Services</span></h2>
                             </div>
 
