@@ -101,7 +101,7 @@ export default function ServicePageLayout({
             </section>
 
             {/* Unified Overview & Operations Panel Section */}
-            <section className="service-overview-sec" id="details" style={{ padding: '6rem 0', background: '#fff' }}>
+            <section className="service-overview-sec" id="details" style={{ padding: '6rem 0', background: '#fff', borderTop: '1px solid #ff6b00' }}>
                 <div className="container">
                     <div style={{
                         padding: '3rem',
@@ -177,7 +177,7 @@ export default function ServicePageLayout({
             </section>
 
             {/* Core Capabilities Section (Auto-scrolling Marquee) */}
-            <section style={{ padding: '6rem 0', background: 'var(--gray-50)', overflow: 'hidden' }}>
+            <section style={{ padding: '3rem 0', background: 'var(--gray-50)', overflow: 'hidden', borderTop: '1px solid #ff6b00' }}>
                 <div className="container" style={{ marginBottom: '4rem' }}>
                     <div style={{ textAlign: 'center' }}>
                         <span className="section-label">Features</span>
@@ -207,7 +207,7 @@ export default function ServicePageLayout({
                                 background: '#fff',
                                 borderRadius: '24px',
                                 overflow: 'hidden',
-                                border: '1px solid var(--gray-100)',
+                                border: '1px solid #ff6b00',
                                 boxShadow: '0 10px 30px rgba(0,0,0,0.03)',
                                 transition: 'all 0.3s ease',
                                 display: 'flex',
@@ -291,7 +291,7 @@ export default function ServicePageLayout({
             </section>
 
             {/* Vulnerability Coverage Section (Full-width) */}
-            <section style={{ padding: '6rem 0', background: '#fff' }}>
+            <section style={{ padding: '3rem 0', background: '#fff', borderTop: '1px solid #ff6b00' }}>
                 <div className="container">
                     <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
                         <span className="section-label">Detection</span>
@@ -310,7 +310,7 @@ export default function ServicePageLayout({
                                 padding: '1.25rem',
                                 background: 'var(--gray-50)',
                                 borderRadius: '12px',
-                                border: '1px solid #eee'
+                                border: '1px solid #ff6b00'
                             }}>
                                 <div style={{ color: 'var(--success)', fontSize: '1.3rem' }}>●</div>
                                 <span style={{ fontSize: '1rem', color: 'var(--gray-600)', fontWeight: '500' }}>{item}</span>
@@ -321,29 +321,46 @@ export default function ServicePageLayout({
             </section>
 
             {/* Strategic Importance (Gradient Box) */}
-            <section style={{ padding: '4rem 0' }}>
+            <section style={{ padding: '6rem 0', borderTop: '1px solid #ff6b00', background: '#fff' }}>
                 <div className="container">
                     <div style={{
-                        padding: '4rem',
-                        background: 'linear-gradient(135deg, var(--secondary) 0%, var(--accent) 100%)',
-                        borderRadius: '32px',
-                        color: 'white',
-                        textAlign: 'center',
-                        maxWidth: '1000px',
-                        margin: '0 auto'
+                        display: 'grid',
+                        gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+                        gap: '4rem',
+                        alignItems: 'center'
                     }}>
-                        <h3 style={{ fontSize: '2.25rem', fontWeight: '800', marginBottom: '1.5rem', color: 'white' }}>
-                            Strategic Importance
-                        </h3>
-                        <p style={{ fontSize: '1.2rem', lineHeight: '1.8', color: 'rgba(255,255,255,0.9)', maxWidth: '800px', margin: '0 auto' }}>
-                            {whyAssessment}
-                        </p>
+                        {/* Left Side: Detail Text */}
+                        <div>
+                            <span className="section-label">Impact</span>
+                            <h3 style={{ fontSize: '2.5rem', fontWeight: '800', marginBottom: '1.5rem', color: 'var(--gray-900)' }}>
+                                Strategic <span style={{ color: '#ff6b00' }}>Importance</span>
+                            </h3>
+                            <div style={{ width: '60px', height: '4px', background: 'var(--primary)', marginBottom: '1.5rem', borderRadius: '2px' }}></div>
+                            <p style={{ fontSize: '1.15rem', lineHeight: '1.8', color: 'var(--gray-600)' }}>
+                                {whyAssessment}
+                            </p>
+                        </div>
+                        {/* Right Side: Image Source from Prop or Default Tech Image */}
+                        <div style={{
+                            borderRadius: '24px',
+                            overflow: 'hidden',
+                            boxShadow: '0 20px 40px rgba(0,0,0,0.08)',
+                            border: '1px solid #ff6b00',
+                            height: '100%',
+                            minHeight: '350px'
+                        }}>
+                            <img
+                                src={heroImage || "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"}
+                                alt={`${title} Strategic Importance`}
+                                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                            />
+                        </div>
                     </div>
                 </div>
             </section>
 
             {/* Why Choose Us & Benefits */}
-            <section style={{ padding: '6rem 0', background: 'var(--gray-50)' }}>
+            <section style={{ padding: '3rem 0', background: 'var(--gray-50)', borderTop: '1px solid #ff6b00' }}>
                 <div className="container">
                     <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
                         <h2 style={{ fontSize: '2.5rem', fontWeight: '800', marginBottom: '2rem', color: 'var(--gray-900)' }}>
@@ -365,7 +382,7 @@ export default function ServicePageLayout({
                                 padding: '2.5rem',
                                 background: '#fff',
                                 borderRadius: '24px',
-                                border: '2px solid rgba(242, 108, 41, 0.15)',
+                                border: '1px solid #ff6b00',
                                 transition: 'all 0.3s ease',
                                 textAlign: 'center',
                                 display: 'flex',
@@ -421,7 +438,7 @@ export default function ServicePageLayout({
 
             {/* Related Services */}
             {relatedServices && relatedServices.length > 0 && (
-                <section style={{ padding: '6rem 0', background: '#fff' }}>
+                <section style={{ padding: '3rem 0', background: '#fff', borderTop: '1px solid #ff6b00' }}>
                     <div className="container">
                         <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
                             <span className="section-label">Explore More</span>
@@ -437,7 +454,7 @@ export default function ServicePageLayout({
                                 <Link key={index} href={service.href} style={{
                                     background: 'var(--gray-50)',
                                     borderRadius: '24px',
-                                    border: '1px solid var(--gray-100)',
+                                    border: '1px solid #ff6b00',
                                     textDecoration: 'none',
                                     transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
                                     display: 'flex',
@@ -514,9 +531,9 @@ export default function ServicePageLayout({
             )}
 
             {/* Final CTA Section */}
-            <section className="cta-section" id="contact" style={{ background: 'var(--primary-bg)', padding: '6rem 0' }}>
+            <section className="cta-section" id="contact" style={{ background: '#ffc07df5', padding: '3rem 0', borderTop: '1px solid #f5a96c' }}>
                 <div className="container">
-                    <h2 style={{ fontSize: '3rem', fontWeight: '800', marginBottom: '1.5rem' }}>Ready to Secure Your Assets?</h2>
+                    <h2 style={{ fontSize: '3rem', fontWeight: '800', marginBottom: '1.5rem' }}>Ready to <span style={{ color: '#ff6b00' }}>Secure Your Assets</span>?</h2>
                     <p style={{ fontSize: '1.25rem', maxWidth: '700px', margin: '0 auto 3rem', color: 'var(--gray-600)' }}>
                         Get a comprehensive {title.toLowerCase()} from our certified experts. Our team is ready to help you identify and mitigate risks.
                     </p>
