@@ -9,6 +9,7 @@ export interface Benefit {
     icon: string;
     title: string;
     description: string;
+    image?: string;
 }
 
 export interface Capability {
@@ -65,10 +66,10 @@ export const services: Record<string, ServiceData> = {
         ],
         whyAssessment: "API security assessment has many advantages which in the long run prove helpful for business. It helps identify issues in the areas of development, configuration as well as business logic. It also helps to strengthen authentication and access control. API Assessment is also fair high when it comes to gaining technical insight and real-world compliance while discovering the vulnerabilities which can cause the application to be compromised.",
         benefits: [
-            { icon: '🔗', title: 'Complete Coverage', description: 'REST, GraphQL, SOAP, and webhook testing' },
-            { icon: '🔒', title: 'Auth & Access', description: 'OAuth, JWT, and authorization testing' },
-            { icon: '📈', title: 'Rate Limiting', description: 'Resource exhaustion and DoS prevention' },
-            { icon: '📝', title: 'Documentation', description: 'API security best practices guide' }
+            { icon: '🔗', title: 'Complete Coverage', description: 'REST, GraphQL, SOAP, and webhook testing', image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=600&auto=format&fit=crop' },
+            { icon: '🔒', title: 'Auth & Access', description: 'OAuth, JWT, and authorization testing', image: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=600&auto=format&fit=crop' },
+            { icon: '📈', title: 'Rate Limiting', description: 'Resource exhaustion and DoS prevention', image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc48?q=80&w=600&auto=format&fit=crop' },
+            { icon: '📝', title: 'Documentation', description: 'API security best practices guide', image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=600&auto=format&fit=crop' }
         ],
         whyChooseUs: "Ehack Technology is one of the pioneers in API Security Assessments since we take pride in providing secured API infrastructure. From the staging and development of the API process to the black box testing without any knowledge of the functioning, every aspect is considered, and custom-made tests and approaches are provided. Our coverage follows standard methodologies to detect common vulnerabilities and provide unique business logic flaws in a petite time frame.",
         serviceName: 'api-security',
@@ -125,10 +126,10 @@ export const services: Record<string, ServiceData> = {
         ],
         whyAssessment: "The primary advantage of performing a web application penetration test is that a highly qualified security specialist can attack your web application in a controlled, organized environment to detect vulnerabilities before a malicious attacker does. Attackers pose a significant threat to businesses that deploy web applications and their users; by gaining the insight provided by a penetration test, businesses may appropriately evaluate the risk to their assets and respond appropriately. Additionally, it ensures stakeholder assurance, adherence to compliance requirements, evaluation of security strategies efficacy, and enhancement of business credibility.",
         benefits: [
-            { icon: '🔍', title: 'Early Detection', description: 'Find vulnerabilities before attackers do' },
-            { icon: '📋', title: 'Compliance Ready', description: 'Meet PCI DSS, ISO 27001, GDPR requirements' },
-            { icon: '💡', title: 'Expert Insights', description: 'Detailed remediation guidance from certified experts' },
-            { icon: '🔄', title: 'Continuous Security', description: 'SDLC integration for ongoing protection' }
+            { icon: '🔍', title: 'Early Detection', description: 'Find vulnerabilities before attackers do', image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=600&auto=format&fit=crop' },
+            { icon: '📋', title: 'Compliance Ready', description: 'Meet PCI DSS, ISO 27001, GDPR requirements', image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=600&auto=format&fit=crop' },
+            { icon: '💡', title: 'Expert Insights', description: 'Detailed remediation guidance from certified experts', image: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=600&auto=format&fit=crop' },
+            { icon: '🔄', title: 'Continuous Security', description: 'SDLC integration for ongoing protection', image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=600&auto=format&fit=crop' }
         ],
         whyChooseUs: "Ehack Technology is committed to providing businesses worldwide with cutting-edge cybersecurity solutions. We leverage the experience of a diverse team to provide services for a variety of technologies and complex web applications, resulting in the highest possible level of assurance. Our team includes CEH, OSCP, and CISSP certified professionals with extensive experience in application security.",
         serviceName: 'web-security',
@@ -185,10 +186,10 @@ export const services: Record<string, ServiceData> = {
         ],
         whyAssessment: "Forensic audits are essential for investigating cyber fraud, corruption, financial statement fraud, asset embezzlement, corporate frauds, and data leakage. Our structured approach includes planning, evidence collection, report creation, and court appearance if required. Any corporation that is exposed to an incident faces a dent in their brand reputation and additional legal liability.",
         benefits: [
-            { icon: '🔍', title: 'Expert Investigation', description: 'Certified forensic investigators' },
-            { icon: '📋', title: 'Legal Compliance', description: 'Court-admissible evidence collection' },
-            { icon: '💾', title: 'Data Recovery', description: 'Recover deleted and encrypted data' },
-            { icon: '⚡', title: 'Rapid Response', description: '24/7 incident response team' }
+            { icon: '🔍', title: 'Expert Investigation', description: 'Certified forensic investigators', image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=600&auto=format&fit=crop' },
+            { icon: '📋', title: 'Legal Compliance', description: 'Court-admissible evidence collection', image: 'https://images.unsplash.com/photo-1555620920-53bc30cedcc6?q=80&w=600&auto=format&fit=crop' },
+            { icon: '💾', title: 'Data Recovery', description: 'Recover deleted and encrypted data', image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=600&auto=format&fit=crop' },
+            { icon: '⚡', title: 'Rapid Response', description: '24/7 incident response team', image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=600&auto=format&fit=crop' }
         ],
         whyChooseUs: "Ehack Technology is committed to providing businesses worldwide with cutting-edge digital forensic solutions. We leverage the experience of a diverse team to provide services for a variety of technologies and complex cyber frauds, resulting in the highest possible level of assurance. Our team includes certified forensic investigators with experience in law enforcement and corporate investigations.",
         serviceName: 'digital-forensics',
@@ -247,10 +248,10 @@ export const services: Record<string, ServiceData> = {
         ],
         whyAssessment: "For most organizations that do not use a multi-layer of security, a firewall device acts as the gatekeeper to the network and is often the first and last line of defense. The Firewall is a device that sits between the inside and outside of your network and regulates who can enter and exit it. A firewall that is incorrectly configured or has a software vulnerability due to a lack of patching can significantly impact your organization's security posture and allow a complete hacker access to the network.",
         benefits: [
-            { icon: '🛡️', title: 'Perimeter Defense', description: 'Ensure your first line of defense is solid' },
-            { icon: '📋', title: 'Rule Optimization', description: 'Remove redundant and risky rules' },
-            { icon: '🔐', title: 'VPN Security', description: 'Secure remote access verification' },
-            { icon: '📊', title: 'Compliance', description: 'Meet industry standards requirements' }
+            { icon: '🛡️', title: 'Perimeter Defense', description: 'Ensure your first line of defense is solid', image: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=600&auto=format&fit=crop' },
+            { icon: '📋', title: 'Rule Optimization', description: 'Remove redundant and risky rules', image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc48?q=80&w=600&auto=format&fit=crop' },
+            { icon: '🔐', title: 'VPN Security', description: 'Secure remote access verification', image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=600&auto=format&fit=crop' },
+            { icon: '📊', title: 'Compliance', description: 'Meet industry standards requirements', image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=600&auto=format&fit=crop' }
         ],
         whyChooseUs: "Our firewall audit identifies weak protocols, insecure rules, and additional data leakages that could jeopardize the firewall's infrastructure. Our team of cybersecurity experts has experience building firewalls from the ground up as well as implementing technology from a variety of leading firewall vendors. This allows us to see everything from both the attacker's and the defender's points of view, enabling us to conduct some of the most difficult and thorough assessments in our industry.",
         serviceName: 'firewall',
@@ -307,10 +308,10 @@ export const services: Record<string, ServiceData> = {
         ],
         whyAssessment: "While complying with GDPR can be overwhelming for many businesses, being proactive in your compliance efforts can be extremely beneficial. You can earn the trust of digital consumers who are wary of unsolicited follow-up, sales pitches, and spam. GDPR Compliance can compel your business to prioritize the user experience and demonstrate a commitment to user preferences. Perhaps most importantly, achieving compliance now can significantly reduce the likelihood of facing regulatory investigations and fines.",
         benefits: [
-            { icon: '🇪🇺', title: 'EU Compliance', description: 'Meet all GDPR requirements' },
-            { icon: '💰', title: 'Avoid Penalties', description: 'Prevent 4% annual revenue fines' },
-            { icon: '🤝', title: 'Build Trust', description: 'Demonstrate data protection commitment' },
-            { icon: '📋', title: 'Documentation', description: 'Complete compliance documentation' }
+            { icon: '🇪🇺', title: 'EU Compliance', description: 'Meet all GDPR requirements', image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=600&auto=format&fit=crop' },
+            { icon: '💰', title: 'Avoid Penalties', description: 'Prevent 4% annual revenue fines', image: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=600&auto=format&fit=crop' },
+            { icon: '🤝', title: 'Build Trust', description: 'Demonstrate data protection commitment', image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=600&auto=format&fit=crop' },
+            { icon: '📋', title: 'Documentation', description: 'Complete compliance documentation', image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=600&auto=format&fit=crop' }
         ],
         whyChooseUs: "Our team has experience designing and implementing privacy systems that comply with GDPR. We understand that the best way to implement GDPR is to align technology with governance, risk, and compliance (GRC). Companies can use our ADAPT approach to help them meet GDPR compliance deadlines. Our team will assist you in continuing your GDPR journey without having to start over, regardless of your current GDPR enforcement status or efforts.",
         serviceName: 'gdpr',
@@ -367,10 +368,10 @@ export const services: Record<string, ServiceData> = {
         ],
         whyAssessment: "The infrastructure security assessment is one of the most important factors of cybersecurity strategy. The assessment is the key to insight into the security framework of the network your organization has employed. It also ensures that any external and internal threats are detected in time, and the network is shielded against cyber-attacks as well as a timely remedy for the same.",
         benefits: [
-            { icon: '🏗️', title: 'Full Coverage', description: 'Network, cloud, and endpoints' },
-            { icon: '🔐', title: 'AD Security', description: 'Comprehensive Active Directory review' },
-            { icon: '☁️', title: 'Cloud Ready', description: 'AWS, Azure, GCP assessment' },
-            { icon: '🦠', title: 'Ransomware Simulation', description: 'Test ransomware resilience' }
+            { icon: '🏗️', title: 'Full Coverage', description: 'Network, cloud, and endpoints', image: 'https://images.unsplash.com/photo-1555620920-53bc30cedcc6?q=80&w=600&auto=format&fit=crop' },
+            { icon: '🔐', title: 'AD Security', description: 'Comprehensive Active Directory review', image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=600&auto=format&fit=crop' },
+            { icon: '☁️', title: 'Cloud Ready', description: 'AWS, Azure, GCP assessment', image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=600&auto=format&fit=crop' },
+            { icon: '🦠', title: 'Ransomware Simulation', description: 'Test ransomware resilience', image: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=600&auto=format&fit=crop' }
         ],
         whyChooseUs: "Ehack Technology has been helping various organizations past few years in mitigating the risks and flaws within their infrastructure. We deal with a wide range of policies, procedures, systems, and networks that are assessed individually and with a focused approach. We often indulge in comprehensive research that can help us implement new security technologies and unknown threats in our assessments.",
         serviceName: 'infrastructure',
@@ -429,10 +430,10 @@ export const services: Record<string, ServiceData> = {
         ],
         whyAssessment: "All major industries like Healthcare, Education, Fintech, and Hospitality require ISO 27001 adherence and enforcement due to the large volumes of data that must be properly managed. If this data becomes available or is compromised, the financial, legal, and other consequences could be disastrous. Strict compliance with ISO 27001 standards ensures that a company is not vulnerable to bugs that could compromise the organization's information security.",
         benefits: [
-            { icon: '🏆', title: 'Global Recognition', description: 'Internationally recognized certification' },
-            { icon: '🔒', title: 'Security Framework', description: 'Structured approach to information security' },
-            { icon: '📈', title: 'Business Growth', description: 'Win contracts requiring ISO certification' },
-            { icon: '✅', title: 'Compliance', description: 'Meet regulatory and contractual requirements' }
+            { icon: '🏆', title: 'Global Recognition', description: 'Internationally recognized certification', image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc48?q=80&w=600&auto=format&fit=crop' },
+            { icon: '🔒', title: 'Security Framework', description: 'Structured approach to information security', image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=600&auto=format&fit=crop' },
+            { icon: '📈', title: 'Business Growth', description: 'Win contracts requiring ISO certification', image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=600&auto=format&fit=crop' },
+            { icon: '✅', title: 'Compliance', description: 'Meet regulatory and contractual requirements', image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=600&auto=format&fit=crop' }
         ],
         whyChooseUs: "Traditional certification approaches often take a 'one size fits all' approach that does not quite fit your true desires or align with your strategic goals. Our experienced consultants, who are also Lead Auditors, provide a practical perspective on implementing ISO/IEC 27001 and aligning it with your business goals using our proven methodology. This approach breaks down the certification process into manageable components, ensuring you retain complete control over how your resources are used.",
         serviceName: 'iso',
@@ -489,10 +490,10 @@ export const services: Record<string, ServiceData> = {
         ],
         whyAssessment: "When a cyber-attack happens in your organization, an expert dealing with it is the need of the hour. Precious time takes the side bench when you rely on in-house techniques to recover from the incident. A professional is required to handle and mitigate the problem without causing further harm to your organization's data. Malware analysis helps incident responders uncover hidden IOCs that should be blocked and enrich context when threat hunting.",
         benefits: [
-            { icon: '🦠', title: 'Threat Understanding', description: 'Deep analysis of malware behavior' },
-            { icon: '🎯', title: 'IOC Extraction', description: 'Actionable indicators of compromise' },
-            { icon: '⚡', title: 'Rapid Response', description: '24/7 incident response availability' },
-            { icon: '📊', title: 'Threat Intel', description: 'Integration with threat intelligence' }
+            { icon: '🦠', title: 'Threat Understanding', description: 'Deep analysis of malware behavior', image: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=600&auto=format&fit=crop' },
+            { icon: '🎯', title: 'IOC Extraction', description: 'Actionable indicators of compromise', image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=600&auto=format&fit=crop' },
+            { icon: '⚡', title: 'Rapid Response', description: '24/7 incident response availability', image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=600&auto=format&fit=crop' },
+            { icon: '📊', title: 'Threat Intel', description: 'Integration with threat intelligence', image: 'https://images.unsplash.com/photo-1555620920-53bc30cedcc6?q=80&w=600&auto=format&fit=crop' }
         ],
         whyChooseUs: "Ehack Technology is committed to providing businesses worldwide with cutting-edge digital forensic solutions and incident response capabilities. We leverage the experience of a diverse team to provide services for a variety of technologies and complex cyber threats, resulting in the highest possible level of assurance. Our malware analysts are trained in the latest techniques and tools for analyzing sophisticated threats.",
         serviceName: 'malware-analysis',
@@ -549,10 +550,10 @@ export const services: Record<string, ServiceData> = {
         ],
         whyAssessment: "During a Mobile App Security Assessment, mobile app security experts use a rigorous methodology to determine the overall security posture of a given application. These experts model the threat posed by a range of threat actors with varying levels of sophistication. They determine how resistant your mobile app is to these various threats. Developers gain confidence in the safety of their products, businesses gain confidence in security integration, and users feel safer knowing the app has passed a comprehensive security test.",
         benefits: [
-            { icon: '📱', title: 'Platform Coverage', description: 'iOS and Android comprehensive testing' },
-            { icon: '🔐', title: 'Data Protection', description: 'Ensure sensitive data is properly secured' },
-            { icon: '🛡️', title: 'Tamper Resistance', description: 'Protect against reverse engineering' },
-            { icon: '📊', title: 'Detailed Reporting', description: 'Clear remediation steps for developers' }
+            { icon: '📱', title: 'Platform Coverage', description: 'iOS and Android comprehensive testing', image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=600&auto=format&fit=crop' },
+            { icon: '🔐', title: 'Data Protection', description: 'Ensure sensitive data is properly secured', image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=600&auto=format&fit=crop' },
+            { icon: '🛡️', title: 'Tamper Resistance', description: 'Protect against reverse engineering', image: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=600&auto=format&fit=crop' },
+            { icon: '📊', title: 'Detailed Reporting', description: 'Clear remediation steps for developers', image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc48?q=80&w=600&auto=format&fit=crop' }
         ],
         whyChooseUs: "At Ehack Technology, we employ advanced methodologies tailored to specific applications. We have a sophisticated approach to detecting bugs, ensuring no vulnerability goes unnoticed, and expert guidance can help mitigate issues without interfering with existing systems. Our expert team works quickly to identify flaws in source code, binary files, applications, back-end integrations, and platform workflow.",
         serviceName: 'mobile-security',
@@ -609,10 +610,10 @@ export const services: Record<string, ServiceData> = {
         ],
         whyAssessment: "If you are a merchant or service provider that stores, handles, or transmits cardholder data, PCI enforcement is essential to your organization's operational security. A non-compliant company can face significant fines and penalties, as well as the loss of the right to accept card payments, loss of revenue, diminished consumer trust, and legal costs. PCI enforcement demonstrates your commitment to security and reassures clients about the security of their cardholder data.",
         benefits: [
-            { icon: '💳', title: 'Card Processing', description: 'Maintain ability to accept payments' },
-            { icon: '🛡️', title: 'Data Protection', description: 'Secure cardholder information' },
-            { icon: '✅', title: 'QSA Certification', description: 'Expert-led compliance audit' },
-            { icon: '📊', title: 'Risk Reduction', description: 'Minimize breach liability' }
+            { icon: '💳', title: 'Card Processing', description: 'Maintain ability to accept payments', image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=600&auto=format&fit=crop' },
+            { icon: '🛡️', title: 'Data Protection', description: 'Secure cardholder information', image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=600&auto=format&fit=crop' },
+            { icon: '✅', title: 'QSA Certification', description: 'Expert-led compliance audit', image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=600&auto=format&fit=crop' },
+            { icon: '📊', title: 'Risk Reduction', description: 'Minimize breach liability', image: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=600&auto=format&fit=crop' }
         ],
         whyChooseUs: "PCI DSS is a comprehensive and granular requirement that applies to all entities that store, process, or distribute payment card data. Our Qualified Security Assessor (QSA) will guide you through the PCI compliance process from initial examination to full compliance in the most effective and least intrusive manner possible. We understand the complexities of PCI DSS and help organizations navigate compliance efficiently.",
         serviceName: 'pci-dss',
@@ -669,10 +670,10 @@ export const services: Record<string, ServiceData> = {
         ],
         whyAssessment: "Have you ever wondered, 'How did I get hacked when I already purchased security equipment?' Organizations frequently struggle with self-defense because of information asymmetry between attackers and defenders. The presumed battlefield is frequently not the focus but rather boundary areas that were previously deemed completely unimportant. A more thorough Red Team Assessment sheds light on an organization's simulation of a real-world threat.",
         benefits: [
-            { icon: '🎯', title: 'Real-World Simulation', description: 'Test against actual attack techniques' },
-            { icon: '🔓', title: 'Multi-Vector Attack', description: 'Network, physical, and social engineering' },
-            { icon: '📊', title: 'Defense Validation', description: 'Evaluate your security team response' },
-            { icon: '🛡️', title: 'Risk Identification', description: 'Find gaps before real attackers do' }
+            { icon: '🎯', title: 'Real-World Simulation', description: 'Test against actual attack techniques', image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=600&auto=format&fit=crop' },
+            { icon: '🔓', title: 'Multi-Vector Attack', description: 'Network, physical, and social engineering', image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=600&auto=format&fit=crop' },
+            { icon: '📊', title: 'Defense Validation', description: 'Evaluate your security team response', image: 'https://images.unsplash.com/photo-1555620920-53bc30cedcc6?q=80&w=600&auto=format&fit=crop' },
+            { icon: '🛡️', title: 'Risk Identification', description: 'Find gaps before real attackers do', image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=600&auto=format&fit=crop' }
         ],
         whyChooseUs: "Ehack Technology specializes in and is passionate about conducting large-scale attacks. Our team members are innovative problem solvers who possess a range of skills, including programming, network testing, wireless security, security code review, web application penetration testing, reverse engineering, and exploit research. Red Team Exercises shed light on an organization's simulation of a real-world threat by combining and chaining multiple domain-specific attacks.",
         serviceName: 'red-team',
@@ -721,10 +722,10 @@ export const services: Record<string, ServiceData> = {
         ],
         whyAssessment: "When additional assurance is necessary, a secure source code review is recommended. We can identify vulnerabilities in applications that would be extremely difficult to discover without source code access. Along with specific vulnerabilities, a secure source code review typically identifies deficient coding practices that leave the code vulnerable to future vulnerabilities. Consider a source code review for applications with high significance, reliance on open-source libraries, third-party code, or when you require additional levels of assurance.",
         benefits: [
-            { icon: '🔍', title: 'Deep Analysis', description: 'Find vulnerabilities invisible to dynamic testing' },
-            { icon: '📚', title: '30+ Languages', description: 'Comprehensive technology coverage' },
-            { icon: '✅', title: 'Compliance', description: 'CWE, OWASP, PCI, CERT, SANS compliant' },
-            { icon: '👤', title: 'Expert Review', description: 'Manual review by experienced developers' }
+            { icon: '🔍', title: 'Deep Analysis', description: 'Find vulnerabilities invisible to dynamic testing', image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=600&auto=format&fit=crop' },
+            { icon: '📚', title: '30+ Languages', description: 'Comprehensive technology coverage', image: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=600&auto=format&fit=crop' },
+            { icon: '✅', title: 'Compliance', description: 'CWE, OWASP, PCI, CERT, SANS compliant', image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc48?q=80&w=600&auto=format&fit=crop' },
+            { icon: '👤', title: 'Expert Review', description: 'Manual review by experienced developers', image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=600&auto=format&fit=crop' }
         ],
         whyChooseUs: "Ehack Technology will assign one or more consultants with relevant programming experience to each engagement. Each security consultant has a great deal of experience with application security. A hybrid approach combining dynamic tooling and manual review is used to achieve both breadth and depth of coverage. Having concurrent access to a running version of the target system while conducting the code review maximizes context and verifies findings in real-time.",
         serviceName: 'source-code-review',
@@ -783,10 +784,10 @@ export const services: Record<string, ServiceData> = {
         ],
         whyAssessment: "Thick Client Application Security Testing necessitates highly skilled manual penetration testers and a methodical approach. These applications are critical for internal operations and frequently contain and process sensitive data. We can help you identify vulnerabilities in thick client applications that expose your organization to external or internal threats.",
         benefits: [
-            { icon: '🖥️', title: 'Desktop Focus', description: 'Specialized thick client expertise' },
-            { icon: '🔬', title: 'Binary Analysis', description: 'Reverse engineering and decompilation' },
-            { icon: '💾', title: 'Memory Testing', description: 'Runtime memory analysis' },
-            { icon: '🔐', title: 'Crypto Review', description: 'Cryptographic implementation audit' }
+            { icon: '🖥️', title: 'Desktop Focus', description: 'Specialized thick client expertise', image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=600&auto=format&fit=crop' },
+            { icon: '🔬', title: 'Binary Analysis', description: 'Reverse engineering and decompilation', image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=600&auto=format&fit=crop' },
+            { icon: '💾', title: 'Memory Testing', description: 'Runtime memory analysis', image: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=600&auto=format&fit=crop' },
+            { icon: '🔐', title: 'Crypto Review', description: 'Cryptographic implementation audit', image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=600&auto=format&fit=crop' }
         ],
         whyChooseUs: "Since your thick client applications can involve intellectual property belonging to your company, you want to ensure that they are immune to reverse engineering and alteration. Without professional analysis of binary hardening mechanisms, you would be unaware of how easily an attacker can reverse engineer or change your client-side code. We provide the highest-quality cybersecurity services and have extensive experience analyzing obfuscated and hardened software, as well as breaching security controls such as white-box cryptography.",
         serviceName: 'thick-client',

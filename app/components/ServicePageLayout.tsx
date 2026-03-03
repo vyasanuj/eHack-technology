@@ -4,7 +4,7 @@ import type { ReactNode } from 'react';
 import Link from 'next/link';
 import InquiryForm from './InquiryForm';
 import ServiceOperationsPanel from './ServiceOperationsPanel';
-import type { Capability, RelatedService } from '../data/services';
+import type { Capability, RelatedService, Benefit } from '../data/services';
 
 interface ServicePageLayoutProps {
     title: string;
@@ -13,7 +13,7 @@ interface ServicePageLayoutProps {
     features: Capability[];
     whatWeCover: string[];
     whyAssessment: string;
-    benefits: Array<{ icon: string; title: string; description: string }>;
+    benefits: Benefit[];
     whyChooseUs: string;
     relatedServices?: RelatedService[];
     serviceName: string;
@@ -422,13 +422,116 @@ export default function ServicePageLayout({
             {/* Why Choose Us & Benefits */}
             <section style={{ padding: '3rem 0', background: 'var(--gray-50)', borderTop: '1px solid #ff6b00' }}>
                 <div className="container">
-                    <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
-                        <h2 style={{ fontSize: '2.5rem', fontWeight: '800', marginBottom: '2rem', color: 'var(--gray-900)' }}>
+                    <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center', marginBottom: '3rem' }}>
+                        <h2 style={{ fontSize: '2.5rem', fontWeight: '800', marginBottom: '1.5rem', color: 'var(--gray-900)' }}>
                             Why Choose <span style={{ color: 'var(--primary)' }}>Ehack Technology</span>?
                         </h2>
-                        <p style={{ fontSize: '1.2rem', color: 'var(--gray-600)', lineHeight: '1.8', marginBottom: '4rem' }}>
-                            {whyChooseUs}
-                        </p>
+                    </div>
+
+                    <div className="why-choose-grid grid grid-cols-1 md:grid-cols-2" style={{
+                        gap: '1.5rem',
+                        alignItems: 'stretch',
+                        marginBottom: '4rem'
+                    }}>
+                        {/* We slice exactly 4 sentences/points from the text provided */}
+                        {[
+                            {
+                                tag: 'Advanced Methods',
+                                title: 'Tailored Methodologies',
+                                desc: 'At Ehack Technology, we employ advanced methodologies tailored to specific applications to ensure comprehensive coverage.'
+                            },
+                            {
+                                tag: 'Deep Detection',
+                                title: 'Sophisticated Approach',
+                                desc: 'We have a sophisticated approach to detecting bugs, ensuring no vulnerability goes unnoticed by our experts.'
+                            },
+                            {
+                                tag: 'Seamless Integration',
+                                title: 'Expert Guidance',
+                                desc: 'Expert guidance can help mitigate issues without interfering with your existing systems and infrastructure.'
+                            },
+                            {
+                                tag: 'Rapid Response',
+                                title: 'Quick Identification',
+                                desc: 'Our expert team works quickly to identify flaws in source code, binary files, applications, back-end integrations, and platform workflow.'
+                            }
+                        ].map((point, index) => (
+                            <div key={index} className="why-card-premium" style={{
+                                padding: '1.5rem 2rem',
+                                background: '#fff',
+                                borderRadius: '12px',
+                                border: '1px solid #ff6b00',
+                                transition: 'all 0.3s ease',
+                                display: 'flex',
+                                flexDirection: 'column',
+                                height: '100%',
+                                boxShadow: '0 4px 12px rgba(0,0,0,0.02)'
+                            }}>
+                                <div style={{
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    gap: '1rem',
+                                    marginBottom: '0.75rem'
+                                }}>
+                                    <span style={{
+                                        fontSize: '2.5rem',
+                                        fontWeight: '900',
+                                        color: '#ff6b00',
+                                        lineHeight: 1
+                                    }}>
+                                        {String(index + 1).padStart(2, '0')}
+                                    </span>
+                                    <h4 style={{
+                                        fontSize: '1.25rem',
+                                        fontWeight: '800',
+                                        color: 'var(--gray-900)',
+                                        margin: 0,
+                                        lineHeight: 1.2
+                                    }}>
+                                        {point.title}
+                                    </h4>
+                                </div>
+                                <p style={{
+                                    color: 'var(--gray-600)',
+                                    fontSize: '0.95rem',
+                                    lineHeight: '1.6',
+                                    margin: '0 0 1.5rem 0',
+                                    flexGrow: 1
+                                }}>
+                                    {point.desc}
+                                </p>
+
+                                <div style={{
+                                    alignSelf: 'flex-start',
+                                    display: 'inline-flex',
+                                    alignItems: 'center',
+                                    gap: '0.4rem',
+                                    padding: '0.3rem 0.8rem',
+                                    border: '1px solid #ff6b00',
+                                    borderRadius: '50px',
+                                    color: '#ff6b00',
+                                    fontSize: '0.8rem',
+                                    fontWeight: '600',
+                                    background: 'rgba(255, 107, 0, 0.05)'
+                                }}>
+                                    <span style={{ fontSize: '0.9rem' }}>✓</span>
+                                    {point.tag}
+                                </div>
+
+                                <style jsx>{`
+                                    .why-card-premium:hover {
+                                        transform: translateY(-5px);
+                                        box-shadow: 0 10px 25px rgba(255, 107, 0, 0.1);
+                                    }
+                                `}</style>
+                            </div>
+                        ))}
+                    </div>
+
+                    <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center', marginBottom: '3rem' }}>
+                        <h3 className="section-title" style={{ fontSize: '2rem', fontWeight: '800', color: 'var(--gray-900)' }}>
+                            {/* Core <span style={{ color: 'var(--primary)' }}>Benefits</span> */}
+                        </h3>
                     </div>
 
                     <div className="benefits-grid" style={{
@@ -439,7 +542,6 @@ export default function ServicePageLayout({
                     }}>
                         {benefits.map((benefit, index) => (
                             <div key={index} className="benefit-card-premium" style={{
-                                padding: '2.5rem',
                                 background: '#fff',
                                 borderRadius: '24px',
                                 border: '1px solid #ff6b00',
@@ -449,45 +551,66 @@ export default function ServicePageLayout({
                                 flexDirection: 'column',
                                 alignItems: 'center',
                                 height: '100%',
-                                boxShadow: '0 10px 30px rgba(0,0,0,0.02)'
+                                boxShadow: '0 10px 30px rgba(0,0,0,0.02)',
+                                overflow: 'hidden'
                             }}>
                                 <div style={{
-                                    fontSize: '3rem',
-                                    marginBottom: '1.5rem',
                                     display: 'flex',
                                     alignItems: 'center',
                                     justifyContent: 'center',
-                                    width: '80px',
-                                    height: '80px',
+                                    width: '100%',
+                                    height: '180px',
                                     background: 'rgba(242, 108, 41, 0.05)',
-                                    borderRadius: '20px',
-                                    color: 'var(--primary)'
+                                    overflow: 'hidden',
+                                    position: 'relative',
+                                    flexShrink: 0
                                 }}>
-                                    {benefit.icon}
+                                    {benefit.image ? (
+                                        <img
+                                            src={benefit.image}
+                                            alt={benefit.title}
+                                            style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }}
+                                            className="benefit-img"
+                                        />
+                                    ) : (
+                                        <span style={{ fontSize: '3rem', color: 'var(--primary)' }}>{benefit.icon}</span>
+                                    )}
                                 </div>
-                                <h4 style={{
-                                    fontSize: '1.4rem',
-                                    fontWeight: '800',
-                                    marginBottom: '1rem',
-                                    color: 'var(--gray-900)'
+                                <div style={{
+                                    padding: '2rem 2.5rem 2.5rem',
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    alignItems: 'center',
+                                    flex: 1,
+                                    width: '100%'
                                 }}>
-                                    {benefit.title}
-                                </h4>
-                                <div style={{ width: '30px', height: '3px', background: 'var(--primary)', borderRadius: '2px', marginBottom: '1.25rem', opacity: 0.6 }}></div>
-                                <p style={{
-                                    color: 'var(--gray-600)',
-                                    fontSize: '1rem',
-                                    lineHeight: '1.7',
-                                    margin: 0
-                                }}>
-                                    {benefit.description}
-                                </p>
+                                    <h4 style={{
+                                        fontSize: '1.4rem',
+                                        fontWeight: '800',
+                                        marginBottom: '1rem',
+                                        color: 'var(--gray-900)'
+                                    }}>
+                                        {benefit.title}
+                                    </h4>
+                                    <div style={{ width: '30px', height: '3px', background: 'var(--primary)', borderRadius: '2px', marginBottom: '1.25rem', opacity: 0.6 }}></div>
+                                    <p style={{
+                                        color: 'var(--gray-600)',
+                                        fontSize: '1rem',
+                                        lineHeight: '1.7',
+                                        margin: 0
+                                    }}>
+                                        {benefit.description}
+                                    </p>
+                                </div>
 
                                 <style jsx>{`
                                     .benefit-card-premium:hover {
                                         transform: translateY(-10px);
                                         border-color: var(--primary);
                                         box-shadow: 0 20px 40px rgba(242, 108, 41, 0.1);
+                                    }
+                                    .benefit-card-premium:hover .benefit-img {
+                                        transform: scale(1.1);
                                     }
                                 `}</style>
                             </div>
