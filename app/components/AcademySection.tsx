@@ -27,18 +27,25 @@ export default function AcademySection() {
             <div className="container" style={{ position: 'relative', zIndex: 1 }}>
 
                 {/* Centered Top Label */}
-                <div style={{ textAlign: 'center', marginBottom: '4rem' }} className="px-4">
+                <div style={{ textAlign: 'center', marginBottom: 'clamp(2rem, 5vw, 4rem)' }} className="px-4">
                     <span style={{
                         color: '#ff6b00',
                         fontWeight: '800',
-                        fontSize: '3rem',
+                        fontSize: 'clamp(1.75rem, 8vw, 3.5rem)',
                         letterSpacing: '0.05em',
                         display: 'block',
-                        marginBottom: '0.5rem'
-                    }} className="text-3xl md:text-5xl">
+                        marginBottom: '0.5rem',
+                        lineHeight: '1.2'
+                    }}>
                         eHack Global Technology
                     </span>
-                    <p style={{ color: '#1f2937', fontSize: '1.1rem', maxWidth: '600px', margin: '0 auto' }}>
+                    <p style={{ 
+                        color: '#1f2937', 
+                        fontSize: 'clamp(0.95rem, 2vw, 1.1rem)', 
+                        maxWidth: '700px', 
+                        margin: '0 auto',
+                        lineHeight: '1.5'
+                    }}>
                         Empowering Cyber Defenders with Intelligence and Action
                     </p>
                 </div>
@@ -48,21 +55,31 @@ export default function AcademySection() {
                     {/* Left Column: Text Content */}
                     <div className="animate-fadeInLeft">
                         <h2 style={{
-                            fontSize: '3rem',
+                            fontSize: 'clamp(1.75rem, 6vw, 3rem)',
                             fontWeight: '800',
                             lineHeight: '1.1',
                             color: '#1a1a1a',
                             marginBottom: '1.5rem'
                         }}>
-                            Where Learning Meets <br />
+                            Where Learning Meets <br className="hidden md:block" />
                             <span style={{ color: '#ff6b00' }}>Real-World Defense</span>
                         </h2>
 
-                        <p style={{ color: '#1f2937', fontSize: '1.1rem', lineHeight: '1.7', marginBottom: '1.5rem' }}>
+                        <p style={{ 
+                            color: '#1f2937', 
+                            fontSize: 'clamp(1rem, 2vw, 1.1rem)', 
+                            lineHeight: '1.7', 
+                            marginBottom: '1.5rem' 
+                        }}>
                             At eHack Global Technology, we don't just teach cybersecurity; we train the next generation of digital architects to <strong>defend</strong>, <strong>respond to</strong>, and <strong>lead</strong> in an increasingly hostile digital landscape.
                         </p>
 
-                        <p style={{ color: '#1f2937', fontSize: '1.1rem', lineHeight: '1.7', marginBottom: '2.5rem' }}>
+                        <p style={{ 
+                            color: '#1f2937', 
+                            fontSize: 'clamp(1rem, 2vw, 1.1rem)', 
+                            lineHeight: '1.7', 
+                            marginBottom: '2.5rem' 
+                        }}>
                             Our curriculum goes beyond theoretical frameworks to deliver <strong>battle-tested, actionable skills</strong> that are immediately applicable in high-stakes environments. We believe that in a world of evolving threats, education must keep pace with the speed of innovation.
                         </p>
 
@@ -77,22 +94,22 @@ export default function AcademySection() {
                     </div>
 
                     {/* Right Column: Feature Cards */}
-                    <div className="animate-fadeInRight" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                    <div className="animate-fadeInRight" style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(1rem, 2vw, 1.5rem)' }}>
 
                         {/* Card 1 */}
                         <div className="group" style={{
                             background: 'white',
                             border: '1px solid #ff6b00',
                             borderRadius: '16px',
-                            padding: '2rem',
+                            padding: 'clamp(1.25rem, 3vw, 2rem)',
                             transition: 'all 0.3s ease',
                             cursor: 'default',
                             boxShadow: '0 10px 30px -10px rgba(236, 124, 0, 0.1)'
                         }}>
-                            <h4 style={{ color: '#1a1a1a', fontSize: '1.25rem', marginBottom: '0.5rem', fontWeight: '700' }}>
+                            <h4 style={{ color: '#1a1a1a', fontSize: 'clamp(1.1rem, 2vw, 1.25rem)', marginBottom: '0.5rem', fontWeight: '700' }}>
                                 Live Cyber Range Simulations
                             </h4>
-                            <p style={{ color: '#1f2937', margin: 0, fontSize: '1rem' }}>
+                            <p style={{ color: '#1f2937', margin: 0, fontSize: 'clamp(0.9rem, 1.5vw, 1rem)' }}>
                                 Hands-on labs that mirror today's advanced threat landscapes, allowing you to practice defense in real-time.
                             </p>
                         </div>
@@ -102,14 +119,14 @@ export default function AcademySection() {
                             background: 'white',
                             border: '1px solid #ff6b00',
                             borderRadius: '16px',
-                            padding: '2rem',
+                            padding: 'clamp(1.25rem, 3vw, 2rem)',
                             transition: 'all 0.3s ease',
                             boxShadow: '0 10px 30px -10px rgba(236, 124, 0, 0.1)'
                         }}>
-                            <h4 style={{ color: '#1a1a1a', fontSize: '1.25rem', marginBottom: '0.5rem', fontWeight: '700' }}>
+                            <h4 style={{ color: '#1a1a1a', fontSize: 'clamp(1.1rem, 2vw, 1.25rem)', marginBottom: '0.5rem', fontWeight: '700' }}>
                                 Expert-Led Mentorship
                             </h4>
-                            <p style={{ color: '#1f2937', margin: 0, fontSize: '1rem' }}>
+                            <p style={{ color: '#1f2937', margin: 0, fontSize: 'clamp(0.9rem, 1.5vw, 1rem)' }}>
                                 Sessions guided by industry veterans with 15+ years of frontline experience in securing global enterprises.
                             </p>
                         </div>
@@ -119,14 +136,14 @@ export default function AcademySection() {
                             background: 'white',
                             border: '1px solid #ff6b00',
                             borderRadius: '16px',
-                            padding: '2rem',
+                            padding: 'clamp(1.25rem, 3vw, 2rem)',
                             transition: 'all 0.3s ease',
                             boxShadow: '0 10px 30px -10px rgba(236, 124, 0, 0.1)'
                         }}>
-                            <h4 style={{ color: '#1a1a1a', fontSize: '1.25rem', marginBottom: '0.5rem', fontWeight: '700' }}>
+                            <h4 style={{ color: '#1a1a1a', fontSize: 'clamp(1.1rem, 2vw, 1.25rem)', marginBottom: '0.5rem', fontWeight: '700' }}>
                                 Industry-Aligned Curriculum
                             </h4>
-                            <p style={{ color: '#1f2937', margin: 0, fontSize: '1rem' }}>
+                            <p style={{ color: '#1f2937', margin: 0, fontSize: 'clamp(0.9rem, 1.5vw, 1rem)' }}>
                                 Coursework developed in collaboration with leading C-CISOs to ensure relevance in the modern job market.
                             </p>
                         </div>
