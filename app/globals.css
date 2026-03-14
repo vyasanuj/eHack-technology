@@ -1781,8 +1781,8 @@ h6 {
 
 .service-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 4rem;
+  grid-template-columns: 1.7fr 1.3fr;
+  gap: clamp(2rem, 5vw, 4rem);
 }
 
 .coverage-grid {
@@ -1822,11 +1822,48 @@ h6 {
 @media (max-width: 1024px) {
   .service-grid {
     grid-template-columns: 1fr;
+    gap: 3rem;
   }
 
   .coverage-grid {
     grid-template-columns: 1fr;
   }
+
+  /* Help Consultation Section */
+  .help-box-wrapper {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+  }
+
+  .help-box-content {
+    text-align: center;
+  }
+}
+
+.help-box-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: clamp(2rem, 5vw, 4rem);
+  padding: clamp(1.5rem, 4vw, 2rem);
+  background: var(--primary-bg);
+  border-radius: 20px;
+  border: 1px solid rgba(242, 108, 41, 0.1);
+}
+
+.help-box-content h4 {
+  font-size: clamp(1.4rem, 4vw, 1.8rem);
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  color: var(--primary);
+}
+
+.help-box-content p {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: var(--gray-600);
+  margin: 0;
+  line-height: 1.5;
 }
 
 /* ===== ABOUT PAGE ===== */
@@ -2142,10 +2179,10 @@ h6 {
 
 .hero-section {
   position: relative;
-  padding: 2.5rem 1.5rem 2rem;
+  padding: clamp(3rem, 10vw, 6rem) 1.5rem clamp(2rem, 8vw, 4rem);
   border-bottom: 2px solid #ff6b00;
   overflow: hidden;
-  min-height: 500px;
+  min-height: clamp(500px, 80vh, 800px);
   display: flex;
   align-items: center;
 }
@@ -2178,10 +2215,16 @@ h6 {
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 400px;
-  gap: 80px;
+  gap: clamp(2rem, 5vw, 5rem);
   align-items: center;
   position: relative;
   z-index: 10;
+}
+
+@media (max-width: 1200px) {
+  .hero-container {
+    gap: 3rem;
+  }
 }
 
 @media (max-width: 1024px) {

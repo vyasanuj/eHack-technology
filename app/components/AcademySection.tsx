@@ -83,7 +83,7 @@ export default function AcademySection() {
                             Our curriculum goes beyond theoretical frameworks to deliver <strong>battle-tested, actionable skills</strong> that are immediately applicable in high-stakes environments. We believe that in a world of evolving threats, education must keep pace with the speed of innovation.
                         </p>
 
-                        <Link href="/academy" className="btn btn-primary btn-lg" style={{
+                        <Link href="#solutions" className="btn btn-primary btn-lg" style={{
                             padding: '1rem 2.5rem',
                             fontSize: '1.1rem',
                             borderRadius: '8px',

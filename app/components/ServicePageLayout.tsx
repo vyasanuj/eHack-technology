@@ -101,10 +101,10 @@ export default function ServicePageLayout({
             </section>
 
             {/* Unified Overview & Operations Panel Section */}
-            <section className="service-overview-sec" id="details" style={{ padding: '6rem 0', background: '#fff', borderTop: '1px solid #ff6b00' }}>
+            <section className="service-overview-sec" id="details" style={{ padding: 'clamp(3rem, 8vw, 6rem) 0', background: '#fff', borderTop: '1px solid #ff6b00' }}>
                 <div className="container">
                     <div style={{
-                        padding: '3rem',
+                        padding: 'clamp(1.5rem, 4vw, 3rem)',
                         background: '#FFFFFF',
                         borderRadius: '24px',
                         border: '2px solid rgba(242, 108, 41, 0.2)',
@@ -122,22 +122,17 @@ export default function ServicePageLayout({
                             borderRadius: '0 0 4px 4px'
                         }}></div>
 
-                        <div className="service-grid" style={{
-                            display: 'grid',
-                            gridTemplateColumns: '1.7fr 1.3fr',
-                            gap: '4rem',
-                            alignItems: 'stretch'
-                        }}>
+                        <div className="service-grid">
 
                             {/* Left Column: Overview Content */}
                             <div style={{ alignSelf: 'start' }}>
-                                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '2rem' }}>
+                                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: 'clamp(1.5rem, 4vw, 2rem)' }}>
                                     <div style={{ width: '12px', height: '12px', background: 'var(--primary)', borderRadius: '2px' }}></div>
-                                    <h2 style={{ fontSize: '2rem', fontWeight: '800', color: 'var(--gray-900)' }}>
+                                    <h2 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.25rem)', fontWeight: '800', color: 'var(--gray-900)' }}>
                                         What is {title}?
                                     </h2>
                                 </div>
-                                <p style={{ fontSize: '1.125rem', color: 'var(--gray-600)', lineHeight: '1.9', margin: 0 }}>
+                                <p style={{ fontSize: 'clamp(1rem, 2vw, 1.125rem)', color: 'var(--gray-600)', lineHeight: '1.8', margin: 0 }}>
                                     {whatIs}
                                 </p>
                             </div>
@@ -155,21 +150,12 @@ export default function ServicePageLayout({
                     </div>
 
                     {/* Additional contact info below the unified box if needed */}
-                    <div style={{
-                        marginTop: '3rem',
-                        padding: '2rem',
-                        background: 'var(--primary-bg)',
-                        borderRadius: '20px',
-                        border: '1px solid rgba(242, 108, 41, 0.1)',
-                        display: 'flex',
-                        justifyContent: 'space-between',
-                        alignItems: 'center'
-                    }}>
-                        <div>
-                            <h4 style={{ fontSize: '1.8rem', fontWeight: '800', marginBottom: '0.75rem', color: 'var(--primary)' }}>Need more info?</h4>
-                            <p style={{ fontSize: '1.2rem', color: 'var(--gray-600)', margin: 0, lineHeight: '1.6' }}>Our security architects are available for a deep dive into your requirements.</p>
+                    <div className="help-box-wrapper">
+                        <div className="help-box-content">
+                            <h4>Need more info?</h4>
+                            <p>Our security architects are available for a deep dive into your requirements.</p>
                         </div>
-                        <a href="tel:+919886035330" className="btn btn-primary btn-lg" style={{ padding: '1rem 2rem', fontSize: '1.1rem' }}>
+                        <a href="tel:+919886035330" className="btn btn-primary btn-lg" style={{ padding: 'clamp(0.75rem, 2vw, 1rem) clamp(1.5rem, 4vw, 2.5rem)', fontSize: 'clamp(0.9rem, 2vw, 1.1rem)', whiteSpace: 'nowrap' }}>
                             Consult with Expert
                         </a>
                     </div>
@@ -381,22 +367,22 @@ export default function ServicePageLayout({
             </section>
 
             {/* Strategic Importance (Gradient Box) */}
-            <section style={{ padding: '6rem 0', borderTop: '1px solid #ff6b00', background: '#fff' }}>
+            <section style={{ padding: 'clamp(3rem, 8vw, 6rem) 0', borderTop: '1px solid #ff6b00', background: '#fff' }}>
                 <div className="container">
                     <div style={{
                         display: 'grid',
-                        gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-                        gap: '4rem',
+                        gridTemplateColumns: 'repeat(auto-fit, minmax(clamp(280px, 40vw, 320px), 1fr))',
+                        gap: 'clamp(2rem, 5vw, 4rem)',
                         alignItems: 'center'
                     }}>
                         {/* Left Side: Detail Text */}
                         <div>
                             <div className="hero-capsule-badge" style={{ marginBottom: '1rem' }}>Impact</div>
-                            <h3 style={{ fontSize: '2.5rem', fontWeight: '800', marginBottom: '1.5rem', color: 'var(--gray-900)' }}>
+                            <h3 style={{ fontSize: 'clamp(1.75rem, 5vw, 2.5rem)', fontWeight: '800', marginBottom: '1.5rem', color: 'var(--gray-900)' }}>
                                 Strategic <span style={{ color: '#ff6b00' }}>Importance</span>
                             </h3>
                             <div style={{ width: '60px', height: '4px', background: 'var(--primary)', marginBottom: '1.5rem', borderRadius: '2px' }}></div>
-                            <p style={{ fontSize: '1.15rem', lineHeight: '1.8', color: 'var(--gray-600)' }}>
+                            <p style={{ fontSize: 'clamp(1rem, 2vw, 1.15rem)', lineHeight: '1.8', color: 'var(--gray-600)' }}>
                                 {whyAssessment}
                             </p>
                         </div>
@@ -420,10 +406,10 @@ export default function ServicePageLayout({
             </section>
 
             {/* Why Choose Us & Benefits */}
-            <section style={{ padding: '3rem 0', background: 'var(--gray-50)', borderTop: '1px solid #ff6b00' }}>
+            <section style={{ padding: 'clamp(2.5rem, 5vw, 4rem) 0', background: 'var(--gray-50)', borderTop: '1px solid #ff6b00' }}>
                 <div className="container">
-                    <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center', marginBottom: '3rem' }}>
-                        <h2 style={{ fontSize: '2.5rem', fontWeight: '800', marginBottom: '1.5rem', color: 'var(--gray-900)' }}>
+                    <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center', marginBottom: 'clamp(2rem, 4vw, 3rem)' }}>
+                        <h2 style={{ fontSize: 'clamp(1.75rem, 5vw, 2.5rem)', fontWeight: '800', marginBottom: '1.5rem', color: 'var(--gray-900)' }}>
                             Why Choose <span style={{ color: 'var(--primary)' }}>Ehack Technology</span>?
                         </h2>
                     </div>

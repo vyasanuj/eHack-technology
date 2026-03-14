@@ -5,7 +5,7 @@ import { ArrowRight } from 'lucide-react';
 
 export default function ServicesSection() {
     return (
-        <section className="section" style={{ padding: '3rem 0 0 0', background: '#f8f9fa' }}>
+        <section id="solutions" className="section" style={{ padding: '3rem 0 0 0', background: '#f8f9fa' }}>
             <div className="container">
                 {/* Section Header */}
                 <div className="section-header" style={{ marginBottom: '3rem', textAlign: 'center' }}>

@@ -1,4 +1,4 @@
-﻿/* Inquiry Form Component Styles - Light Orange Theme */
+/* Inquiry Form Component Styles - Light Orange Theme */
 
 .inquiry-form-wrapper {
     background: #ffffff !important;
@@ -24,8 +24,9 @@
 }
 
 .inquiry-form-wrapper.hero {
-    max-width: 380px;
+    max-width: 420px;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+    width: 100%;
 }
 
 .inquiry-form-wrapper.sidebar {
@@ -316,10 +317,12 @@
 @media (max-width: 480px) {
     .inquiry-form-wrapper {
         padding: 1.25rem;
+        border-radius: 12px;
     }
 
     .form-row {
         grid-template-columns: 1fr;
+        gap: 0.5rem;
     }
 
     .form-title {
