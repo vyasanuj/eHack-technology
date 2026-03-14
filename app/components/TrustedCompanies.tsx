@@ -26,8 +26,8 @@ export default function TrustedCompanies() {
 
         }}>
             <div className="container">
-                <div className="text-center mb-6 md:mb-10 px-4">
-                    <span 
+                <div className="text-center px-4" style={{ marginBottom: '2rem' }}>
+                    <span
                         className="bg-[#F26C29] text-white rounded-full font-bold inline-block shadow-lg"
                         style={{
                             fontSize: 'max(1rem, min(1.25rem, 4vw))',
@@ -65,11 +65,11 @@ export default function TrustedCompanies() {
                         >
                             {/* Logo Area */}
                             <div style={{
-                                height: '120px',
+                                height: 'clamp(90px, 15vw, 120px)',
                                 display: 'flex',
                                 alignItems: 'center',
                                 justifyContent: 'center',
-                                padding: '1.5rem',
+                                padding: 'clamp(0.75rem, 2vw, 1.5rem)',
                                 background: 'white',
                                 flex: 1
                             }}>
@@ -81,7 +81,7 @@ export default function TrustedCompanies() {
                                     style={{
                                         width: 'auto',
                                         maxWidth: '100%',
-                                        maxHeight: '80px',
+                                        maxHeight: 'clamp(60px, 10vw, 80px)',
                                         objectFit: 'contain',
                                         transform: `scale(${company.scale})`
                                     }}
