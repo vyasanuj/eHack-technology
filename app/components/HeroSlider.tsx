@@ -120,27 +120,27 @@ export default function HeroSlider() {
             ))}
 
             {/* Content Container - Centered but moved up */}
-            <div className="container relative z-10 h-full flex flex-col justify-center items-center text-center pb-12 md:pb-32 gap-6 md:gap-16 px-4">
+            <div className="container relative z-10 h-full flex flex-col justify-center items-center text-center pb-12 md:pb-32 gap-6 md:gap-16 px-4 overflow-hidden max-w-[100vw]">
 
                 {/* Main Content */}
-                <div className="max-w-5xl flex flex-col items-center gap-4 md:gap-6 w-full mt-8 md:mt-0">
-                    <h1 className="font-extrabold leading-tight tracking-tight drop-shadow-2xl text-3xl sm:text-4xl md:text-5xl lg:text-[56px] max-w-full md:max-w-[800px]" style={{ color: '#FFFFFF' }}>
+                <div className="max-w-5xl flex flex-col items-center gap-4 md:gap-6 w-full mt-8 md:mt-0 px-2 sm:px-0">
+                    <h1 className="font-extrabold leading-tight tracking-tight drop-shadow-2xl text-3xl sm:text-4xl md:text-5xl lg:text-[56px] max-w-full md:max-w-[800px] break-words" style={{ color: '#FFFFFF' }}>
                         {activeSlide.headline.split(' ').slice(0, -1).join(' ')} <span style={{ color: '#ff6b00' }}>{activeSlide.headline.split(' ').slice(-1)}</span>
                     </h1>
 
-                    <p className="text-gray-100 leading-relaxed max-w-xl md:max-w-2xl drop-shadow-lg font-medium md:font-bold text-base md:text-xl lg:text-[21.6px] px-2 md:px-0">
+                    <p className="text-gray-100 leading-relaxed max-w-xl md:max-w-2xl drop-shadow-lg font-medium md:font-bold text-base md:text-xl lg:text-[21.6px] px-2 md:px-0 break-words">
                         {activeSlide.description}
                     </p>
 
                     {/* Search Bar - Fixed size with dropdown */}
                     <div
                         ref={searchRef}
-                        className="relative w-full max-w-[90%] md:max-w-[650px] mt-2 md:mt-4"
+                        className="relative w-full max-w-full sm:max-w-[90%] md:max-w-[650px] mt-2 md:mt-4 px-2"
                     >
                         <div
-                            className="bg-white rounded-full flex items-center shadow-xl transition-all duration-300 hover:shadow-2xl"
+                            className="bg-white rounded-full flex items-center shadow-xl transition-all duration-300 hover:shadow-2xl overflow-hidden w-full"
                             style={{
-                                padding: '6px 6px 6px 24px',
+                                padding: '4px 4px 4px 16px',
                                 border: '3px solid rgba(255, 125, 30, 0.15)',
                             }}
                         >
@@ -149,15 +149,14 @@ export default function HeroSlider() {
                                 value={searchQuery}
                                 onChange={(e) => handleSearch(e.target.value)}
                                 onFocus={() => searchQuery && setShowResults(true)}
-                                placeholder="Search security services, assessments, or compliance..."
-                                className="flex-1 text-gray-600 text-base outline-none placeholder:text-gray-400 bg-transparent font-normal"
-                                style={{ minWidth: 0 }}
+                                placeholder="Search security services..."
+                                className="flex-1 text-gray-600 outline-none placeholder:text-gray-400 bg-transparent font-normal text-sm sm:text-base min-w-0"
                             />
                             <button
                                 className="bg-[#FF7D1E] hover:bg-[#e06510] text-white font-semibold rounded-full transition-all duration-300 whitespace-nowrap flex-shrink-0"
                                 style={{
-                                    padding: '12px 32px',
-                                    fontSize: '15px',
+                                    padding: '10px 20px',
+                                    fontSize: '14px',
                                 }}
                             >
                                 Search

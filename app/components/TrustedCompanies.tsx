@@ -26,20 +26,15 @@ export default function TrustedCompanies() {
 
         }}>
             <div className="container">
-                <div style={{
-                    textAlign: 'center',
-                    marginBottom: '2.5rem'
-                }}>
-                    <span style={{
-                        background: '#F26C29',
-                        color: 'white',
-                        fontSize: '1.25rem',
-                        padding: '0.85rem 2.5rem',
-                        borderRadius: '50px',
-                        fontWeight: '700',
-                        display: 'inline-block',
-                        boxShadow: '0 4px 15px rgba(242, 108, 41, 0.25)'
-                    }}>
+                <div className="text-center mb-6 md:mb-10 px-4">
+                    <span 
+                        className="bg-[#F26C29] text-white rounded-full font-bold inline-block shadow-lg"
+                        style={{
+                            fontSize: 'max(1rem, min(1.25rem, 4vw))',
+                            padding: '0.6rem 1.5rem',
+                            boxShadow: '0 4px 15px rgba(242, 108, 41, 0.25)'
+                        }}
+                    >
                         Trusted Security Partner For Leading Enterprises
                     </span>
                 </div>
