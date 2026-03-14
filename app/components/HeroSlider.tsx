@@ -242,9 +242,9 @@ export default function HeroSlider() {
                                 <Link
                                     key={tag.label}
                                     href={tag.href}
-                                    className="rounded-full border-2 border-[#FF6B00] text-[15px] font-semibold text-white transition-all hover:scale-105 active:scale-95 inline-block"
+                                    className="rounded-full border border-[#FF6B00] sm:border-2 text-[12px] sm:text-[14px] md:text-[15px] font-semibold text-white transition-all hover:scale-105 active:scale-95 inline-block"
                                     style={{
-                                        padding: '4px 14px',
+                                        padding: '4px 10px',
                                         background: 'rgba(255, 107, 0, 0.25)',
                                         backdropFilter: 'blur(10px)',
                                         WebkitBackdropFilter: 'blur(10px)',
@@ -259,7 +259,7 @@ export default function HeroSlider() {
                                         e.currentTarget.style.background = 'rgba(255, 107, 0, 0.25)';
                                     }}
                                 >
-                                    {tag.label}
+                                    <span className="sm:px-1">{tag.label}</span>
                                 </Link>
                             ))}
                         </div>
