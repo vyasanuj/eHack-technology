@@ -1176,9 +1176,23 @@ h6 {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
+  grid-template-columns: 2fr 1.2fr 1.2fr 0.8fr;
   gap: 3rem;
   margin-bottom: 3rem;
+}
+
+@media (max-width: 1200px) {
+  .footer-grid {
+    gap: 2rem;
+    grid-template-columns: 1.5fr 1fr 1fr 0.8fr;
+  }
+}
+
+@media (max-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
 }
 
 .footer-brand p {
@@ -1206,6 +1220,12 @@ h6 {
   display: flex;
   gap: 0.5rem;
   margin-top: 0.75rem;
+}
+
+@media (max-width: 480px) {
+  .footer-newsletter {
+    flex-direction: column;
+  }
 }
 
 .footer-newsletter input {
@@ -1313,12 +1333,17 @@ h6 {
 @media (max-width: 768px) {
   .footer-grid {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 2.5rem;
+  }
+  
+  .footer-brand {
+    order: -1; /* Keep brand at top on mobile */
   }
 
   .footer-bottom {
     flex-direction: column;
     text-align: center;
+    padding-bottom: 1rem;
   }
 }
 
@@ -2060,9 +2085,9 @@ h6 {
   background-clip: text;
   max-width: 800px;
   margin-bottom: 0;
-  font-size: 1.5rem;
+  font-size: clamp(1rem, 4vw, 1.5rem);
   font-weight: 800;
-  line-height: 1.5;
+  line-height: 1.4;
   display: inline-block;
 }
 
