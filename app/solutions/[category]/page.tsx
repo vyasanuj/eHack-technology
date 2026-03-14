@@ -10,6 +10,17 @@ import CaseStudySection from '@/app/components/CaseStudySection';
 import IndustriesSection from '@/app/components/IndustriesSection';
 
 import InquiryForm from '../../components/InquiryForm';
+import StickySectionNav, { NavSection } from '../../components/StickySectionNav';
+
+const SOLUTION_SECTIONS: NavSection[] = [
+    { id: 'overview', label: 'Overview' },
+    { id: 'services', label: 'Services' },
+    { id: 'industries', label: 'Industries' },
+    { id: 'case-studies', label: 'Case Studies' },
+    { id: 'global-defense', label: 'Global Defense' },
+    { id: 'why-choose', label: 'Why Choose Us' },
+    { id: 'contact', label: 'Contact' },
+];
 
 // Using Next.js 15+ async params
 export default async function CategoryLandingPage({ params }: { params: Promise<{ category: string }> }) {
@@ -22,6 +33,7 @@ export default async function CategoryLandingPage({ params }: { params: Promise<
 
     return (
         <main>
+            <StickySectionNav sections={SOLUTION_SECTIONS} />
             {/* Authentic Hero Section from ehack_new */}
             <section className="hero-section" id="overview">
                 <div className="hero-background">
@@ -182,7 +194,7 @@ export default async function CategoryLandingPage({ params }: { params: Promise<
             </div>
 
             {/* Why Choose Us for this Category */}
-            <section className="section py-12 md:py-24 bg-white overflow-hidden">
+            <section id="why-choose" className="section py-12 md:py-24 bg-white overflow-hidden">
                 <div className="container px-4 md:px-6">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
                         <div className="order-2 lg:order-1">

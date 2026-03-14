@@ -5,6 +5,18 @@ import Link from 'next/link';
 import InquiryForm from './InquiryForm';
 import ServiceOperationsPanel from './ServiceOperationsPanel';
 import type { Capability, RelatedService, Benefit } from '../data/services';
+import StickySectionNav, { NavSection } from './StickySectionNav';
+
+const SERVICE_SECTIONS: NavSection[] = [
+    { id: 'overview', label: 'Overview' },
+    { id: 'details', label: 'Details' },
+    { id: 'capabilities', label: 'Features' },
+    { id: 'coverage', label: 'Coverage' },
+    { id: 'importance', label: 'Importance' },
+    { id: 'choose-us', label: 'Benefits' },
+    { id: 'related', label: 'Related' },
+    { id: 'contact', label: 'Contact' },
+];
 
 interface ServicePageLayoutProps {
     title: string;
@@ -36,6 +48,7 @@ export default function ServicePageLayout({
 }: ServicePageLayoutProps) {
     return (
         <main>
+            <StickySectionNav sections={SERVICE_SECTIONS} />
             {/* Synchronized Hero Section */}
             <section className="hero-section" id="overview">
                 <div className="hero-background">
@@ -163,7 +176,7 @@ export default function ServicePageLayout({
             </section>
 
             {/* Core Capabilities Section (Auto-scrolling Marquee) */}
-            <section style={{ padding: '3rem 0', background: 'var(--gray-50)', overflow: 'hidden', borderTop: '1px solid #ff6b00' }}>
+            <section id="capabilities" style={{ padding: '3rem 0', background: 'var(--gray-50)', overflow: 'hidden', borderTop: '1px solid #ff6b00' }}>
                 <div className="container" style={{ marginBottom: '4rem' }}>
                     <div style={{ textAlign: 'center' }}>
                         <div className="hero-capsule-badge" style={{ marginBottom: '1rem' }}>Features</div>
@@ -277,7 +290,7 @@ export default function ServicePageLayout({
             </section>
 
             {/* Vulnerability Coverage Section (Full-width) */}
-            <section style={{ padding: '3rem 0', background: '#fff', borderTop: '1px solid #ff6b00' }}>
+            <section id="coverage" style={{ padding: '3rem 0', background: '#fff', borderTop: '1px solid #ff6b00' }}>
                 <div className="container">
                     <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
                         <div className="hero-capsule-badge" style={{ marginBottom: '1rem' }}>Detection</div>
@@ -367,7 +380,7 @@ export default function ServicePageLayout({
             </section>
 
             {/* Strategic Importance (Gradient Box) */}
-            <section style={{ padding: 'clamp(3rem, 8vw, 6rem) 0', borderTop: '1px solid #ff6b00', background: '#fff' }}>
+            <section id="importance" style={{ padding: 'clamp(3rem, 8vw, 6rem) 0', borderTop: '1px solid #ff6b00', background: '#fff' }}>
                 <div className="container">
                     <div style={{
                         display: 'grid',
@@ -406,7 +419,7 @@ export default function ServicePageLayout({
             </section>
 
             {/* Why Choose Us & Benefits */}
-            <section style={{ padding: 'clamp(2.5rem, 5vw, 4rem) 0', background: 'var(--gray-50)', borderTop: '1px solid #ff6b00' }}>
+            <section id="choose-us" style={{ padding: 'clamp(2.5rem, 5vw, 4rem) 0', background: 'var(--gray-50)', borderTop: '1px solid #ff6b00' }}>
                 <div className="container">
                     <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center', marginBottom: 'clamp(2rem, 4vw, 3rem)' }}>
                         <h2 style={{ fontSize: 'clamp(1.75rem, 5vw, 2.5rem)', fontWeight: '800', marginBottom: '1.5rem', color: 'var(--gray-900)' }}>
@@ -608,7 +621,7 @@ export default function ServicePageLayout({
             {/* Related Services */}
             {
                 relatedServices && relatedServices.length > 0 && (
-                    <section style={{ padding: '3rem 0', background: '#fff', borderTop: '1px solid #ff6b00' }}>
+                    <section id="related" style={{ padding: '3rem 0', background: '#fff', borderTop: '1px solid #ff6b00' }}>
                         <div className="container">
                             <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
                                 <div className="hero-capsule-badge" style={{ marginBottom: '1rem' }}>Explore More</div>

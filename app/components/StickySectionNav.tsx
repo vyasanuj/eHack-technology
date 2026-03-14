@@ -3,7 +3,16 @@ import { useState, useEffect, useCallback } from 'react';
 import { Phone } from 'lucide-react';
 import './StickySectionNav.css';
 
-const NAV_SECTIONS = [
+export interface NavSection {
+    id: string;
+    label: string;
+}
+
+interface StickySectionNavProps {
+    sections?: NavSection[];
+}
+
+const DEFAULT_SECTIONS: NavSection[] = [
     { id: 'overview', label: 'Overview' },
     { id: 'partnership', label: 'Partnership' },
     { id: 'services', label: 'Services' },
@@ -15,8 +24,8 @@ const NAV_SECTIONS = [
     { id: 'social-impact', label: 'Social Impact' },
 ];
 
-export default function StickySectionNav() {
-    const [activeSection, setActiveSection] = useState('overview');
+export default function StickySectionNav({ sections = DEFAULT_SECTIONS }: StickySectionNavProps) {
+    const [activeSection, setActiveSection] = useState(sections[0]?.id || 'overview');
     const [showStickyNav, setShowStickyNav] = useState(false);
 
     useEffect(() => {
@@ -24,7 +33,7 @@ export default function StickySectionNav() {
             const scrollY = window.scrollY;
             setShowStickyNav(scrollY > 400);
 
-            const sectionElements = NAV_SECTIONS.map(section => ({
+            const sectionElements = sections.map(section => ({
                 id: section.id,
                 element: document.getElementById(section.id),
             })).filter(s => s.element);
@@ -47,12 +56,12 @@ export default function StickySectionNav() {
         handleScroll();
 
         return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+    }, [sections]);
 
     const scrollToSection = useCallback((sectionId: string) => {
         const element = document.getElementById(sectionId);
         if (element) {
-            const offset = 80;
+            const offset = 100; // Increased offset to account for sticky nav height
             const elementPosition = element.getBoundingClientRect().top;
             const offsetPosition = elementPosition + window.pageYOffset - offset;
 
@@ -67,7 +76,7 @@ export default function StickySectionNav() {
         <nav className={`sticky-section-nav ${showStickyNav ? 'visible' : ''}`}>
             <div className="sticky-nav-container">
                 <div className="sticky-nav-links">
-                    {NAV_SECTIONS.map((section) => (
+                    {sections.map((section) => (
                         <button
                             key={section.id}
                             className={`sticky-nav-link ${activeSection === section.id ? 'active' : ''}`}
