@@ -1,4 +1,4 @@
-﻿@import "tailwindcss";
+@import "tailwindcss";
 
 /* ===== CSS VARIABLES & DESIGN TOKENS ===== */
 :root {
@@ -1079,46 +1079,83 @@ h6 {
 .mobile-toggle {
   display: none;
   flex-direction: column;
-  gap: 5px;
+  gap: 6px;
   cursor: pointer;
   padding: 0.5rem;
+  z-index: 1001;
 }
 
 .mobile-toggle span {
   width: 24px;
   height: 2px;
   background: var(--gray-700);
-  transition: all var(--transition-fast);
+  transition: all 0.3s ease;
+  transform-origin: left center;
+}
+
+.mobile-toggle.open span:nth-child(1) {
+  transform: rotate(45deg);
+}
+
+.mobile-toggle.open span:nth-child(2) {
+  opacity: 0;
+  width: 0;
+}
+
+.mobile-toggle.open span:nth-child(3) {
+  transform: rotate(-45deg);
 }
 
 @media (max-width: 1280px) {
-  .nav-links {
-    display: none;
-  }
-
   .mobile-toggle {
     display: flex;
   }
 
   .nav-links.active {
-    display: flex;
-    flex-direction: column;
     position: absolute;
     top: 100%;
     left: 0;
     right: 0;
     background: var(--white);
-    padding: 1rem;
+    padding: 1.5rem;
     box-shadow: var(--shadow-lg);
-    gap: 0.5rem;
+    gap: 1rem;
+    max-height: calc(100vh - 80px);
+    overflow-y: auto;
+    border-top: 1px solid var(--gray-100);
+    z-index: 1000;
   }
 
-  .nav-dropdown-menu {
-    position: static;
-    transform: none;
-    min-width: 100%;
-    box-shadow: none;
-    padding: 1rem;
+  /* Make dropdown menus hidden by default on mobile, expanding when .mobile-expanded is active */
+  .nav-dropdown-menu,
+  .dropdown-menu {
+    position: static !important;
+    transform: none !important;
+    min-width: 100% !important;
+    box-shadow: none !important;
+    padding: 0.5rem 0 0.5rem 1rem !important; /* indented for hierarchy */
+    opacity: 1 !important;
+    visibility: visible !important;
+    border: none !important;
+    border-left: 2px solid rgba(242, 108, 41, 0.2) !important;
+    margin-top: 0.5rem;
+    display: none; /* hidden by default */
+  }
+
+  .nav-dropdown.mobile-expanded .nav-dropdown-menu,
+  .dropdown-wrapper.mobile-expanded .dropdown-menu {
+    display: block;
+  }
+
+  /* prevent hover showing on mobile incorrectly */
+  .nav-dropdown:hover .nav-dropdown-menu,
+  .dropdown-wrapper:hover .dropdown-menu {
+    display: none;
+  }
+  
+  .nav-dropdown.mobile-expanded:hover .nav-dropdown-menu,
+  .dropdown-wrapper.mobile-expanded:hover .dropdown-menu {
+    display: block;
   }
 }
 

@@ -3,9 +3,21 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
+import SecurityAssessmentModal from './SecurityAssessmentModal';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+
+  const toggleDropdown = (dropdown: string) => {
+    setActiveDropdown((prev) => (prev === dropdown ? null : dropdown));
+  };
+
+  const closeMobileMenu = () => {
+    setMobileMenuOpen(false);
+    setActiveDropdown(null);
+  };
 
   return (
     <header>
@@ -27,23 +39,36 @@ export default function Header() {
               </svg>
               +91-9886035330
             </a>
+            <span style={{ color: 'rgba(255,255,255,0.5)' }}>|</span>
+            <button
+              onClick={() => setIsModalOpen(true)}
+              style={{
+                fontWeight: '800',
+                textDecoration: 'underline',
+                background: 'none',
+                border: 'none',
+                color: 'white',
+                cursor: 'pointer',
+                padding: 0,
+                fontFamily: 'inherit',
+                fontSize: 'inherit'
+              }}
+            >
+              Get a Free Security Assessment
+            </button>
           </div>
         </div>
       </div>
 
-      <div className="promo-bar">
-        <span>
-          Protect your enterprise with industry-leading cybersecurity solutions —
-          <Link href="/contact" style={{ fontWeight: '800', textDecoration: 'underline', marginLeft: '0.5rem' }}>
-            Get a Free Security Assessment
-          </Link>
-        </span>
-      </div>
+      <SecurityAssessmentModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
 
       {/* Main Navigation */}
       <nav className="main-nav">
         <div className="nav-container !px-4 md:!px-8">
-          <Link href="/" className="logo" style={{ flexShrink: 0 }}>
+          <Link href="/" className="logo" style={{ flexShrink: 0 }} onClick={closeMobileMenu}>
             <Image
               src="/eHack.png"
               alt="Ehack Group of Technologies"
@@ -55,103 +80,109 @@ export default function Header() {
             />
           </Link>
 
-          <ul className={`nav-links hidden xl:flex ${mobileMenuOpen ? 'active' : ''}`}>
+          <ul className={`nav-links ${mobileMenuOpen ? 'active flex flex-col' : 'hidden xl:flex'}`}>
             {/* Security Assessment Dropdown */}
-            <li className="nav-dropdown">
+            <li className={`nav-dropdown ${activeDropdown === 'security' ? 'mobile-expanded' : ''}`}>
               <div
-                className="nav-link nav-dropdown-trigger nav-capsule"
+                className="nav-link nav-dropdown-trigger nav-capsule w-full flex justify-between xl:justify-start"
+                onClick={() => toggleDropdown('security')}
               >
                 Security Assessment
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={`transition-transform duration-200 ${activeDropdown === 'security' ? 'rotate-180 xl:rotate-0' : ''}`}>
                   <path d="M6 9l6 6 6-6" />
                 </svg>
               </div>
               <div className="nav-dropdown-menu">
                 <div>
                   <ul className="dropdown-list-simple">
-                    <li><Link href="/services/web-application-security">Web Application Security</Link></li>
-                    <li><Link href="/services/mobile-application-security">Mobile App Security</Link></li>
-                    <li><Link href="/services/api-security">API Security Assessment</Link></li>
-                    <li><Link href="/services/source-code-review">Source Code Review</Link></li>
-                    <li><Link href="/services/red-team-assessment">Red Team Assessment</Link></li>
-                    <li><Link href="/services/infrastructure-security">Infrastructure Security</Link></li>
-                    <li><Link href="/services/thick-client-security">Thick Client Security</Link></li>
-                    <li><Link href="/services/firewall-security">Firewall Security</Link></li>
+                    <li><Link href="/services/web-application-security" onClick={closeMobileMenu}>Web Application Security</Link></li>
+                    <li><Link href="/services/mobile-application-security" onClick={closeMobileMenu}>Mobile App Security</Link></li>
+                    <li><Link href="/services/api-security" onClick={closeMobileMenu}>API Security Assessment</Link></li>
+                    <li><Link href="/services/source-code-review" onClick={closeMobileMenu}>Source Code Review</Link></li>
+                    <li><Link href="/services/red-team-assessment" onClick={closeMobileMenu}>Red Team Assessment</Link></li>
+                    <li><Link href="/services/infrastructure-security" onClick={closeMobileMenu}>Infrastructure Security</Link></li>
+                    <li><Link href="/services/thick-client-security" onClick={closeMobileMenu}>Thick Client Security</Link></li>
+                    <li><Link href="/services/firewall-security" onClick={closeMobileMenu}>Firewall Security</Link></li>
                   </ul>
                 </div>
               </div>
             </li>
 
             {/* Compliance Audit Dropdown */}
-            <li className="nav-dropdown">
+            <li className={`nav-dropdown ${activeDropdown === 'compliance' ? 'mobile-expanded' : ''}`}>
               <div
-                className="nav-link nav-dropdown-trigger nav-capsule"
+                className="nav-link nav-dropdown-trigger nav-capsule w-full flex justify-between xl:justify-start"
+                onClick={() => toggleDropdown('compliance')}
               >
                 Compliance Audit
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={`transition-transform duration-200 ${activeDropdown === 'compliance' ? 'rotate-180 xl:rotate-0' : ''}`}>
                   <path d="M6 9l6 6 6-6" />
                 </svg>
               </div>
               <div className="nav-dropdown-menu">
                 <div>
                   <ul className="dropdown-list-simple">
-                    <li><Link href="/services/gdpr-consulting">GDPR Consulting</Link></li>
-                    <li><Link href="/services/pci-dss-compliance">PCI DSS Compliance</Link></li>
-                    <li><Link href="/services/iso-certification">ISO Certification</Link></li>
+                    <li><Link href="/services/gdpr-consulting" onClick={closeMobileMenu}>GDPR Consulting</Link></li>
+                    <li><Link href="/services/pci-dss-compliance" onClick={closeMobileMenu}>PCI DSS Compliance</Link></li>
+                    <li><Link href="/services/iso-certification" onClick={closeMobileMenu}>ISO Certification</Link></li>
                   </ul>
                 </div>
               </div>
             </li>
 
             {/* Forensics & Malware Dropdown */}
-            <li className="nav-dropdown">
+            <li className={`nav-dropdown ${activeDropdown === 'forensics' ? 'mobile-expanded' : ''}`}>
               <div
-                className="nav-link nav-dropdown-trigger nav-capsule"
+                className="nav-link nav-dropdown-trigger nav-capsule w-full flex justify-between xl:justify-start"
+                onClick={() => toggleDropdown('forensics')}
               >
                 Forensics & Malware
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={`transition-transform duration-200 ${activeDropdown === 'forensics' ? 'rotate-180 xl:rotate-0' : ''}`}>
                   <path d="M6 9l6 6 6-6" />
                 </svg>
               </div>
               <div className="nav-dropdown-menu">
                 <div>
                   <ul className="dropdown-list-simple">
-                    <li><Link href="/services/digital-forensics">Digital Forensics</Link></li>
-                    <li><Link href="/services/malware-analysis">Malware Analysis</Link></li>
+                    <li><Link href="/services/digital-forensics" onClick={closeMobileMenu}>Digital Forensics</Link></li>
+                    <li><Link href="/services/malware-analysis" onClick={closeMobileMenu}>Malware Analysis</Link></li>
                   </ul>
                 </div>
               </div>
             </li>
             {/* About eHack Dropdown */}
-            <li className="dropdown-wrapper">
-              <button className="nav-link nav-dropdown-btn">
+            <li className={`dropdown-wrapper ${activeDropdown === 'about' ? 'mobile-expanded' : ''}`}>
+              <button 
+                className="nav-link nav-dropdown-btn w-full flex justify-between xl:justify-start"
+                onClick={() => toggleDropdown('about')}
+              >
                 About eHack
-                <svg width="10" height="6" viewBox="0 0 10 6" fill="none">
+                <svg width="10" height="6" viewBox="0 0 10 6" fill="none" className={`transition-transform duration-200 ${activeDropdown === 'about' ? 'rotate-180 xl:rotate-0' : ''}`}>
                   <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </button>
               <div className="dropdown-menu">
-                <Link href="/about" className="dropdown-item dropdown-item-main">About Us Overview</Link>
+                <Link href="/about" className="dropdown-item dropdown-item-main" onClick={closeMobileMenu}>About Us Overview</Link>
                 <div className="dropdown-divider"></div>
-                <Link href="/about#mission" className="dropdown-item">Our Mission</Link>
-                <Link href="/about#why-choose-us" className="dropdown-item">Why Choose Us</Link>
-                <Link href="/about#leadership" className="dropdown-item">Leadership</Link>
-                <Link href="/about#advisory" className="dropdown-item">Advisory Board</Link>
-                <Link href="/contact" className="dropdown-item">Contact Us</Link>
+                <Link href="/about#mission" className="dropdown-item" onClick={closeMobileMenu}>Our Mission</Link>
+                <Link href="/about#why-choose-us" className="dropdown-item" onClick={closeMobileMenu}>Why Choose Us</Link>
+                <Link href="/about#leadership" className="dropdown-item" onClick={closeMobileMenu}>Leadership</Link>
+                <Link href="/about#advisory" className="dropdown-item" onClick={closeMobileMenu}>Advisory Board</Link>
+                <Link href="/contact" className="dropdown-item" onClick={closeMobileMenu}>Contact Us</Link>
               </div>
             </li>
             <li>
-              <Link href="/careers" className="nav-link">Careers</Link>
+              <Link href="/careers" className="nav-link block py-2 xl:py-0" onClick={closeMobileMenu}>Careers</Link>
             </li>
-            <li className="xl:hidden">
-              <Link href="/contact" className="nav-link nav-cta inline-flex">Get a Quote</Link>
+            <li className="xl:hidden mt-2 border-t pt-4 border-gray-100">
+              <Link href="/contact" className="nav-link nav-cta flex justify-center w-full" onClick={closeMobileMenu}>Get a Quote</Link>
             </li>
           </ul>
 
           <Link href="/contact" className="nav-cta hidden xl:inline-flex" style={{ whiteSpace: 'nowrap' }}>Get a Quote</Link>
 
           <div
-            className="mobile-toggle"
+            className={`mobile-toggle ${mobileMenuOpen ? 'open' : ''}`}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             <span></span>
