@@ -95,20 +95,15 @@ export default async function CategoryLandingPage({ params }: { params: Promise<
             {/* Trusted By Section */}
             <TrustedCompanies />
 
-            {/* Services Grid Section */}
-            <section id="services" className="section" style={{ padding: '6rem 0', background: '#f8f9fa' }}>
-                <div className="container">
-                    <div className="section-header" style={{ textAlign: 'center', marginBottom: '4rem' }}>
-                        <span className="section-label" style={{ background: '#F26C29', color: 'white', padding: '0.5rem 1.5rem', borderRadius: '50px' }}>Our Capabilities</span>
-                        <h2 className="section-title" style={{ marginTop: '1rem' }}>Specialized <span style={{ color: '#F26C29' }}>{catData.label}</span> Services</h2>
-                        <p className="section-subtitle">Tailored solutions designed to address specific security challenges</p>
+            <section id="services" className="section py-12 md:py-24 bg-gray-50">
+                <div className="container px-4 md:px-6">
+                    <div className="section-header text-center mb-12 md:mb-16">
+                        <span className="section-label bg-primary text-white px-6 py-2 rounded-full inline-block">Our Capabilities</span>
+                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-4 mb-4">Specialized <span className="text-primary">{catData.label}</span> Services</h2>
+                        <p className="section-subtitle text-gray-600 max-w-2xl mx-auto">Tailored solutions designed to address specific security challenges</p>
                     </div>
 
-                    <div className="services-grid" style={{
-                        display: 'grid',
-                        gridTemplateColumns: 'repeat(auto-fill, minmax(350px, 1fr))',
-                        gap: '2rem'
-                    }}>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                         {catData.services.map((service, index) => (
                             <div key={index} className="group" style={{
                                 background: 'white',
@@ -187,47 +182,36 @@ export default async function CategoryLandingPage({ params }: { params: Promise<
             </div>
 
             {/* Why Choose Us for this Category */}
-            <section className="section" style={{ padding: '6rem 0' }}>
-                <div className="container">
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'center' }}>
-                        <div>
-                            <h2 style={{ fontSize: '2.5rem', fontWeight: '800', marginBottom: '2rem', lineHeight: '1.2' }}>
-                                Why Leading Enterprises Choose Our <span style={{ color: '#F26C29' }}>{catData.label}</span>
+            <section className="section py-12 md:py-24 bg-white overflow-hidden">
+                <div className="container px-4 md:px-6">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                        <div className="order-2 lg:order-1">
+                            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-8 leading-tight">
+                                Why Leading Enterprises Choose Our <span className="text-primary">{catData.label}</span>
                             </h2>
-                            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                            <div className="flex flex-col gap-6">
                                 {[
                                     'Certified Experts (CISSP, CEH, OSCP)',
                                     'Detailed Methodologies & Reporting',
                                     'Zero False Positives Guarantee',
                                     '24/7 Dedicated Support & Re-testing'
                                 ].map((item, i) => (
-                                    <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                                        <div style={{
-                                            background: '#FFF5F2',
-                                            padding: '0.5rem',
-                                            borderRadius: '50%',
-                                            color: '#F26C29'
-                                        }}>
+                                    <div key={i} className="flex items-center gap-4">
+                                        <div className="bg-orange-50 p-2 rounded-full text-primary shrink-0">
                                             <CheckCircle2 size={24} />
                                         </div>
-                                        <span style={{ fontSize: '1.1rem', fontWeight: '500', color: '#333' }}>{item}</span>
+                                        <span className="text-lg font-medium text-gray-700">{item}</span>
                                     </div>
                                 ))}
                             </div>
                         </div>
-                        <div style={{
-                            position: 'relative',
-                            height: '500px',
-                            background: '#f1f1f1',
-                            borderRadius: '24px',
-                            overflow: 'hidden'
-                        }}>
-                            {/* Placeholder for a feature image - using first service image or generic */}
+                        <div className="relative h-[300px] md:h-[400px] lg:h-[500px] bg-gray-100 rounded-3xl overflow-hidden order-1 lg:order-2 shadow-xl">
                             <Image
                                 src={catData.services[0]?.image || '/service-web-hero.png'}
                                 alt={`${catData.label} Feature`}
                                 fill
                                 style={{ objectFit: 'cover' }}
+                                className="hover:scale-105 transition-transform duration-700"
                             />
                         </div>
                     </div>
