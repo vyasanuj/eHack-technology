@@ -4,6 +4,7 @@ import type { ReactNode } from 'react';
 import Link from 'next/link';
 import InquiryForm from './InquiryForm';
 import ServiceOperationsPanel from './ServiceOperationsPanel';
+import { useModal } from '../context/ModalContext';
 import type { Capability, RelatedService, Benefit } from '../data/services';
 import StickySectionNav, { NavSection } from './StickySectionNav';
 
@@ -46,6 +47,7 @@ export default function ServicePageLayout({
     serviceName,
     heroImage
 }: ServicePageLayoutProps) {
+    const { openSecurityModal } = useModal();
     return (
         <main>
             <StickySectionNav sections={SERVICE_SECTIONS} />
@@ -722,12 +724,16 @@ export default function ServicePageLayout({
                         Get a comprehensive {title.toLowerCase()} from our certified experts. Our team is ready to help you identify and mitigate risks.
                     </p>
                     <div className="cta-buttons">
-                        <Link href="/contact" className="btn btn-white btn-lg" style={{ color: '#ff6b00', border: 'none' }}>
+                        <button 
+                            onClick={openSecurityModal} 
+                            className="btn btn-white btn-lg bg-transparent border-none cursor-pointer" 
+                            style={{ color: '#ff6b00' }}
+                        >
                             Request Assessment
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ marginLeft: '10px' }}>
                                 <path d="M5 12h14M12 5l7 7-7 7" />
                             </svg>
-                        </Link>
+                        </button>
                         <a href="tel:+919886035330" className="btn btn-white btn-lg" style={{ border: '1px solid #ddd' }}>
                             Speak with Lead Consultant
                         </a>

@@ -3,11 +3,11 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
-import SecurityAssessmentModal from './SecurityAssessmentModal';
+import { useModal } from '../context/ModalContext';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const { openSecurityModal } = useModal();
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   const toggleDropdown = (dropdown: string) => {
@@ -21,7 +21,6 @@ export default function Header() {
 
   return (
     <header>
-      {/* Top Bar */}
       <div className="top-bar">
         <div className="container">
           <div className="flex flex-col xl:flex-row justify-center items-center gap-2 xl:gap-4 flex-wrap w-full py-2 xl:py-0">
@@ -44,7 +43,7 @@ export default function Header() {
             <div className="flex items-center justify-center gap-2 sm:gap-4 mt-2 xl:mt-0">
               <span className="hidden xl:inline" style={{ color: 'rgba(255,255,255,0.5)' }}>|</span>
               <button
-                onClick={() => setIsModalOpen(true)}
+                onClick={openSecurityModal}
                 style={{
                   fontWeight: '800',
                   textDecoration: 'underline',
@@ -63,11 +62,6 @@ export default function Header() {
           </div>
         </div>
       </div>
-
-      <SecurityAssessmentModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-      />
 
       {/* Main Navigation */}
       <nav className="main-nav">
@@ -172,18 +166,34 @@ export default function Header() {
                 <Link href="/about#why-choose-us" className="dropdown-item" onClick={closeMobileMenu}>Why Choose Us</Link>
                 <Link href="/about#leadership" className="dropdown-item" onClick={closeMobileMenu}>Leadership</Link>
                 <Link href="/about#advisory" className="dropdown-item" onClick={closeMobileMenu}>Advisory Board</Link>
-                <Link href="/contact" className="dropdown-item" onClick={closeMobileMenu}>Contact Us</Link>
+                <button 
+                  className="dropdown-item w-full text-left bg-transparent border-none cursor-pointer" 
+                  onClick={() => { openSecurityModal(); closeMobileMenu(); }}
+                >
+                  Contact Us
+                </button>
               </div>
             </li>
             <li>
               <Link href="/careers" className="nav-link block py-2 xl:py-0" onClick={closeMobileMenu}>Careers</Link>
             </li>
             <li className="xl:hidden mt-2 border-t pt-4 border-gray-100">
-              <Link href="/contact" className="nav-link nav-cta flex justify-center w-full" onClick={closeMobileMenu}>Get a Quote</Link>
+              <button 
+                className="nav-link nav-cta flex justify-center w-full bg-transparent border-none cursor-pointer" 
+                onClick={() => { openSecurityModal(); closeMobileMenu(); }}
+              >
+                Get a Quote
+              </button>
             </li>
           </ul>
 
-          <Link href="/contact" className="nav-cta hidden xl:inline-flex" style={{ whiteSpace: 'nowrap' }}>Get a Quote</Link>
+          <button 
+            className="nav-cta hidden xl:inline-flex bg-transparent border-none cursor-pointer" 
+            style={{ whiteSpace: 'nowrap' }}
+            onClick={openSecurityModal}
+          >
+            Get a Quote
+          </button>
 
           <div
             className={`mobile-toggle ${mobileMenuOpen ? 'open' : ''}`}

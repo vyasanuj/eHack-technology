@@ -1,6 +1,10 @@
+'use client';
+
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useModal } from '../../context/ModalContext';
+import React from 'react';
 import { categories } from '../../data/categories';
 import LeadForm from '../../components/LeadForm';
 import TrustedCompanies from '../../components/TrustedCompanies';
@@ -23,8 +27,9 @@ const SOLUTION_SECTIONS: NavSection[] = [
 ];
 
 // Using Next.js 15+ async params
-export default async function CategoryLandingPage({ params }: { params: Promise<{ category: string }> }) {
-    const { category } = await params;
+export default function CategoryLandingPage({ params }: { params: React.Usable<{ category: string }> }) {
+    const { category } = React.use(params);
+    const { openSecurityModal } = useModal();
     const catData = categories[category as keyof typeof categories];
 
     if (!catData) {
@@ -237,18 +242,20 @@ export default async function CategoryLandingPage({ params }: { params: Promise<
                     <p style={{ fontSize: '1.2rem', maxWidth: '700px', margin: '0 auto 2.5rem', opacity: 0.9 }}>
                         Get a comprehensive {catData.label.toLowerCase()} today. Our experts are ready to help.
                     </p>
-                    <Link href="/contact" className="btn btn-white btn-lg" style={{
-                        background: 'white',
-                        color: '#F26C29',
-                        padding: '1rem 3rem',
-                        fontSize: '1.125rem',
-                        fontWeight: '700',
-                        borderRadius: '50px',
-                        border: 'none',
-                        display: 'inline-block'
-                    }}>
+                    <button 
+                        onClick={openSecurityModal} 
+                        className="btn btn-white btn-lg bg-white border-none cursor-pointer" 
+                        style={{
+                            color: '#F26C29',
+                            padding: '1rem 3rem',
+                            fontSize: '1.125rem',
+                            fontWeight: '700',
+                            borderRadius: '50px',
+                            display: 'inline-block'
+                        }}
+                    >
                         Schedule a Free Consultation
-                    </Link>
+                    </button>
                 </div>
             </section>
         </main>

@@ -12,102 +12,83 @@ export interface Job {
 
 export const jobCategories = [
     { id: 'all', name: 'All Roles' },
-    { id: 'security', name: 'Security & Research' },
-    { id: 'engineering', name: 'Engineering' },
-    { id: 'compliance', name: 'Compliance & Consulting' },
-    { id: 'sales', name: 'Sales & Business' },
-    { id: 'operations', name: 'Operations & HR' },
+    { id: 'offensive', name: 'Offensive Security' },
+    { id: 'ops', name: 'Security Operations' },
+    { id: 'grc', name: 'GRC & Compliance' },
+    { id: 'forensics', name: 'Digital Forensics & IR' },
+    { id: 'eng', name: 'Software Engineering' },
+    { id: 'biz', name: 'Sales & Marketing' },
 ];
 
 export const dummyJobs: Job[] = [
     {
         id: '1',
-        title: 'Senior Penetration Tester',
-        category: 'security',
+        title: 'Senior VAPT Analyst',
+        category: 'offensive',
         location: 'Bangalore, India (Hybrid)',
         type: 'Full-time',
-        description: 'Lead complex VAPT engagements for enterprise clients across web, mobile, and infrastructure. Must hold CEH/OSCP certification with 4+ years of hands-on penetration testing experience.',
-        postedDate: '2026-02-10',
+        description: 'Lead offensive security assessments, including web, mobile, and network penetration testing for enterprise clients. CEH/OSCP certification required.',
+        postedDate: '2025-01-20',
         salary: '₹15L - ₹22L PA'
     },
     {
         id: '2',
-        title: 'Security Researcher — Malware Analysis',
-        category: 'security',
-        location: 'Bangalore, India',
-        type: 'Full-time',
-        description: 'Perform deep malware reverse engineering, root cause analysis, and threat intelligence research. Proficiency with IDA Pro, Ghidra, and sandbox environments required.',
-        postedDate: '2026-02-12',
-        salary: '₹12L - ₹18L PA'
-    },
-    {
-        id: '3',
-        title: 'DevSecOps Engineer',
-        category: 'engineering',
-        location: 'Remote',
-        type: 'Full-time',
-        description: 'Integrate security tooling into CI/CD pipelines, manage SAST/DAST automation, and champion secure coding practices across development teams. Experience with Docker, Kubernetes, and Jenkins is essential.',
-        postedDate: '2026-02-08',
-        salary: '₹14L - ₹20L PA'
-    },
-    {
-        id: '4',
-        title: 'Full-Stack Developer (React/Next.js)',
-        category: 'engineering',
-        location: 'Remote',
-        type: 'Contract',
-        description: 'Build and maintain internal dashboards, client portals, and marketing platforms. Strong proficiency with Next.js, TypeScript, and modern UI libraries is required.',
-        postedDate: '2026-02-05',
-        salary: 'Competitive'
-    },
-    {
-        id: '5',
-        title: 'Compliance Consultant — PCI DSS & ISO 27001',
-        category: 'compliance',
+        title: 'SOC Analyst L2',
+        category: 'ops',
         location: 'Mumbai, India',
         type: 'Full-time',
-        description: 'Conduct compliance audits, gap assessments, and remediation advisory for clients seeking PCI DSS, ISO 27001, and GDPR certifications. Prior QSA/Lead Auditor experience preferred.',
-        postedDate: '2026-02-14',
-        salary: '₹10L - ₹16L PA'
-    },
-    {
-        id: '6',
-        title: 'Digital Forensics Analyst',
-        category: 'security',
-        location: 'Bangalore, India',
-        type: 'Full-time',
-        description: 'Investigate cyber incidents, perform disk and memory forensics, and prepare court-admissible evidence reports. CHFI certification and experience with EnCase/FTK are a plus.',
-        postedDate: '2026-02-11',
+        description: 'Monitor, analyze, and respond to security threats in real-time. Experience with SIEM tools and incident response protocols is essential.',
+        postedDate: '2025-01-22',
         salary: '₹8L - ₹14L PA'
     },
     {
+        id: '3',
+        title: 'GRC Consultant (ISO/GDPR)',
+        category: 'grc',
+        location: 'Remote',
+        type: 'Contract',
+        description: 'Help global enterprises achieve and maintain compliance with ISO 27001, GDPR, and PCI DSS standards through rigorous audits and framework development.',
+        postedDate: '2025-01-18',
+        salary: 'Competitive'
+    },
+    {
+        id: '4',
+        title: 'Digital Forensics Lead',
+        category: 'forensics',
+        location: 'Bangalore, India',
+        type: 'Full-time',
+        description: 'Direct digital forensic investigations and incident response activities. Deep expertise in data recovery and legal evidence handling required.',
+        postedDate: '2025-01-15',
+        salary: '₹18L - ₹25L PA'
+    },
+    {
+        id: '5',
+        title: 'Security Software Engineer',
+        category: 'eng',
+        location: 'Bangalore, India',
+        type: 'Full-time',
+        description: 'Develop and maintain secure-by-default applications and internal security tools. Experience with Python, Next.js, and cloud security is preferred.',
+        postedDate: '2025-01-24',
+        salary: '₹12L - ₹18L PA'
+    },
+    {
+        id: '6',
+        title: 'Cybersecurity Sales Lead',
+        category: 'biz',
+        location: 'Pune, India',
+        type: 'Full-time',
+        description: 'Drive growth for our enterprise security services. Strong understanding of the cybersecurity landscape and experience in B2B technology sales required.',
+        postedDate: '2025-01-16',
+        salary: '₹10L - ₹15L PA + Commission'
+    },
+    {
         id: '7',
-        title: 'Business Development Manager',
-        category: 'sales',
-        location: 'Delhi, India',
-        type: 'Full-time',
-        description: 'Drive enterprise sales of cybersecurity services. Build relationships with CISOs and IT decision-makers, manage the sales pipeline, and close high-value consulting engagements.',
-        postedDate: '2026-02-15',
-        salary: '₹10L - ₹15L PA + Incentives'
-    },
-    {
-        id: '8',
-        title: 'SOC Analyst (L2)',
-        category: 'security',
+        title: 'Junior Penetration Tester',
+        category: 'offensive',
         location: 'Bangalore, India',
-        type: 'Full-time',
-        description: 'Monitor SIEM alerts, triage security incidents, and coordinate incident response for managed security clients. Familiarity with Splunk, QRadar, or ELK stack is required.',
-        postedDate: '2026-02-13',
-        salary: '₹6L - ₹10L PA'
-    },
-    {
-        id: '9',
-        title: 'HR & Talent Acquisition Executive',
-        category: 'operations',
-        location: 'Bangalore, India',
-        type: 'Full-time',
-        description: 'Manage end-to-end recruitment for cybersecurity professionals, handle employee engagement initiatives, and support day-to-day HR operations in a fast-growing security firm.',
-        postedDate: '2026-02-16',
-        salary: '₹5L - ₹8L PA'
-    },
+        type: 'Internship',
+        description: 'Kickstart your career in ethical hacking by assisting our senior team with vulnerability assessments and research. Basic security knowledge required.',
+        postedDate: '2025-01-24',
+        salary: 'Stipend ₹20k/month'
+    }
 ];

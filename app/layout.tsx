@@ -4,6 +4,8 @@ import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import BackToTop from "./components/BackToTop";
+import { ModalProvider } from "./context/ModalContext";
+import GlobalModals from "./components/GlobalModals";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -44,10 +46,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${montserrat.variable} overflow-x-hidden`} style={{ fontFamily: 'var(--font-body)' }}>
-        <Header />
-        <main className="overflow-x-hidden">{children}</main>
-        <Footer />
-        <BackToTop />
+        <ModalProvider>
+          <Header />
+          <main className="overflow-x-hidden">{children}</main>
+          <Footer />
+          <BackToTop />
+          <GlobalModals />
+        </ModalProvider>
       </body>
     </html>
   );

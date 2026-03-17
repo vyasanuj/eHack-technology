@@ -1,5 +1,8 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
+import { useModal } from './context/ModalContext';
 import { ArrowRight } from 'lucide-react';
 import styles from './components/AcademySection.module.css';
 import bentoStyles from './components/CertificateBento.module.css';
@@ -43,6 +46,7 @@ import GlobalDefenseSection from './components/GlobalDefenseSection';
 import AcademySection from './components/AcademySection';
 
 export default function Home() {
+  const { openSecurityModal } = useModal();
   const features = [
     {
       image: '/images/features/global-expertise.png',
@@ -338,10 +342,12 @@ export default function Home() {
             Identify vulnerabilities before hackers do.
           </p>
           <div className="cta-buttons">
-            <Link href="/contact" className="btn btn-primary btn-lg">
-              Schedule Consultation
-              <ArrowRight size={16} />
-            </Link>
+            <button
+              onClick={openSecurityModal} // Assuming openSecurityModal is defined from useModal()
+              className="btn btn-primary btn-lg bg-transparent border-none cursor-pointer"
+            >
+              Contact Us Now <ArrowRight size={16} />
+            </button>
             <Link href="/about" className="btn btn-white btn-lg">
               Learn About Us
             </Link>
