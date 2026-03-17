@@ -5,7 +5,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import BackToTop from "./components/BackToTop";
 import { ModalProvider } from "./context/ModalContext";
-import GlobalModals from "./components/GlobalModals";
+import GlobalModals from "@/app/components/GlobalModals";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -13,6 +13,7 @@ const montserrat = Montserrat({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   display: 'swap',
 });
+
 
 
 
