@@ -135,7 +135,7 @@ export default function Home() {
         <div className="container">
           <div className="section-header">
             <span className="section-label" style={{
-              background: '#D45A1F',
+              background: '#ff6b00',
               color: 'white',
               fontSize: '1.1rem',
               padding: '0.75rem 2rem',

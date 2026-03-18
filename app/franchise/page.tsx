@@ -175,7 +175,7 @@ export default function FranchisePage() {
             setIsNavVisible(window.scrollY > 100);
 
             // Determine active section
-            const sections = ['programs', 'why-choose', 'sop-framework', 'business-model', 'apply', 'enquire'];
+            const sections = ['programs', 'why-choose', 'business-model', 'sop-framework', 'apply', 'enquire'];
             let currentSection = '';
 
             for (const sectionId of sections) {
@@ -234,16 +234,16 @@ export default function FranchisePage() {
                             Why Choose
                         </button>
                         <button
-                            className={`section-nav-link ${activeSection === 'sop-framework' ? 'active' : ''}`}
-                            onClick={() => scrollToSection('sop-framework')}
-                        >
-                            SOPs
-                        </button>
-                        <button
                             className={`section-nav-link ${activeSection === 'business-model' ? 'active' : ''}`}
                             onClick={() => scrollToSection('business-model')}
                         >
-                            Business Model
+                            Business Modal
+                        </button>
+                        <button
+                            className={`section-nav-link ${activeSection === 'sop-framework' ? 'active' : ''}`}
+                            onClick={() => scrollToSection('sop-framework')}
+                        >
+                            sops
                         </button>
                         <button
                             className={`section-nav-link ${activeSection === 'apply' ? 'active' : ''}`}

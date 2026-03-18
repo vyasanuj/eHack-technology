@@ -39,10 +39,10 @@ export default function AcademySection() {
                     }}>
                         eHack Global Technology
                     </span>
-                    <p style={{ 
-                        color: '#1f2937', 
-                        fontSize: 'clamp(0.95rem, 2vw, 1.1rem)', 
-                        maxWidth: '700px', 
+                    <p style={{
+                        color: '#1f2937',
+                        fontSize: 'clamp(0.95rem, 2vw, 1.1rem)',
+                        maxWidth: '700px',
                         margin: '0 auto',
                         lineHeight: '1.5'
                     }}>
@@ -65,20 +65,20 @@ export default function AcademySection() {
                             <span style={{ color: '#ff6b00' }}>Real-World Defense</span>
                         </h2>
 
-                        <p style={{ 
-                            color: '#1f2937', 
-                            fontSize: 'clamp(1rem, 2vw, 1.1rem)', 
-                            lineHeight: '1.7', 
-                            marginBottom: '1.5rem' 
+                        <p style={{
+                            color: '#1f2937',
+                            fontSize: 'clamp(1rem, 2vw, 1.1rem)',
+                            lineHeight: '1.7',
+                            marginBottom: '1.5rem'
                         }}>
                             At eHack Global Technology, we don't just teach cybersecurity; we train the next generation of digital architects to <strong>defend</strong>, <strong>respond to</strong>, and <strong>lead</strong> in an increasingly hostile digital landscape.
                         </p>
 
-                        <p style={{ 
-                            color: '#1f2937', 
-                            fontSize: 'clamp(1rem, 2vw, 1.1rem)', 
-                            lineHeight: '1.7', 
-                            marginBottom: '2.5rem' 
+                        <p style={{
+                            color: '#1f2937',
+                            fontSize: 'clamp(1rem, 2vw, 1.1rem)',
+                            lineHeight: '1.7',
+                            marginBottom: '2.5rem'
                         }}>
                             Our curriculum goes beyond theoretical frameworks to deliver <strong>battle-tested, actionable skills</strong> that are immediately applicable in high-stakes environments. We believe that in a world of evolving threats, education must keep pace with the speed of innovation.
                         </p>
@@ -87,7 +87,7 @@ export default function AcademySection() {
                             padding: '1rem 2.5rem',
                             fontSize: '1.1rem',
                             borderRadius: '8px',
-                            background: '#d64912' // Slightly darker orange for better contrast on dark
+                            background: '#ff6b00' // Slightly darker orange for better contrast on dark
                         }}>
                             Explore Programs
                         </Link>

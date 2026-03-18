@@ -108,13 +108,11 @@
     border-radius: 6px;
     text-decoration: none;
     transition: all 0.2s ease;
-    box-shadow: 0 2px 8px rgba(223, 103, 24, 0.3);
 }
 
 .nav-call-btn:hover {
     background: #cc5600;
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(223, 103, 24, 0.4);
 }
 
 /* Responsive for section nav */
