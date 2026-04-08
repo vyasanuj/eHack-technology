@@ -28,7 +28,7 @@ export default function TrustedCompanies() {
             <div className="container">
                 <div className="text-center px-4" style={{ marginBottom: '2rem' }}>
                     <span
-                        className="bg-[#F26C29] text-white rounded-full font-bold inline-block shadow-lg"
+                        className="bg-[#FF6B00] text-white rounded-full font-bold inline-block shadow-lg"
                         style={{
                             fontSize: 'max(1rem, min(1.25rem, 4vw))',
                             padding: '0.6rem 1.5rem',

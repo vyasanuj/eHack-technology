@@ -115,8 +115,15 @@ export default function CategoryLandingPage({ params }: { params: React.Usable<{
             <section id="services" className="section py-12 md:py-24 bg-gray-50">
                 <div className="container px-4 md:px-6">
                     <div className="section-header text-center mb-12 md:mb-16">
-                        <span className="section-label bg-primary text-white px-6 py-2 rounded-full inline-block">Our Capabilities</span>
-                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-4 mb-4">Specialized <span className="text-primary">{catData.label}</span> Services</h2>
+                        <span className="section-label inline-block" style={{
+                            background: '#FF6B00',
+                            color: 'white',
+                            fontSize: '1.1rem',
+                            padding: '0.6rem 1.8rem',
+                            fontWeight: '700',
+                            borderRadius: '50px'
+                        }}>Our Capabilities</span>
+                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-4 mb-4">Specialized <span style={{ color: '#FF6B00' }}>{catData.label}</span> Services</h2>
                         <p className="section-subtitle text-gray-600 max-w-2xl mx-auto">Tailored solutions designed to address specific security challenges</p>
                     </div>
 
@@ -204,7 +211,7 @@ export default function CategoryLandingPage({ params }: { params: React.Usable<{
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
                         <div className="order-2 lg:order-1">
                             <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-8 leading-tight">
-                                Why Leading Enterprises Choose Our <span className="text-primary">{catData.label}</span>
+                                Why Leading Enterprises Choose Our <span style={{ color: '#FF6B00' }}>{catData.label}</span>
                             </h2>
                             <div className="flex flex-col gap-6">
                                 {[
@@ -235,27 +242,123 @@ export default function CategoryLandingPage({ params }: { params: React.Usable<{
                 </div>
             </section>
 
-            {/* Bottom CTA */}
-            <section id="contact" style={{ background: '#F26C29', padding: '5rem 0', color: 'white', textAlign: 'center' }}>
-                <div className="container">
-                    <h2 style={{ fontSize: '2.5rem', fontWeight: '800', marginBottom: '1.5rem' }}>Ready to Secure Your Infrastructure?</h2>
-                    <p style={{ fontSize: '1.2rem', maxWidth: '700px', margin: '0 auto 2.5rem', opacity: 0.9 }}>
-                        Get a comprehensive {catData.label.toLowerCase()} today. Our experts are ready to help.
-                    </p>
-                    <button 
-                        onClick={openSecurityModal} 
-                        className="btn btn-white btn-lg bg-white border-none cursor-pointer" 
+            {/* Premium CTA Section */}
+            <section 
+                id="contact" 
+                className="relative overflow-hidden" 
+                style={{ 
+                    background: 'linear-gradient(135deg, #ff6b00 0%, #e65c00 100%)', 
+                    padding: '1.5rem 1rem',
+                    color: '#ffffff',
+                }}
+            >
+                {/* Architectural Background Pattern */}
+                <div 
+                    className="absolute inset-0 opacity-[0.15] pointer-events-none"
+                    style={{
+                        backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+                    }}
+                ></div>
+                
+                {/* Glowing Orbs */}
+                <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+                    <div style={{ position: 'absolute', top: '-10%', left: '-5%', width: '400px', height: '400px', background: 'radial-gradient(circle, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 70%)', borderRadius: '50%'}}></div>
+                    <div style={{ position: 'absolute', bottom: '-20%', right: '-5%', width: '500px', height: '500px', background: 'radial-gradient(circle, rgba(255,215,0,0.25) 0%, rgba(255,255,255,0) 70%)', borderRadius: '50%'}}></div>
+                </div>
+
+                <div className="container relative z-10 mx-auto" style={{ maxWidth: '900px', textAlign: 'center' }}>
+                    <span 
                         style={{
-                            color: '#F26C29',
-                            padding: '1rem 3rem',
-                            fontSize: '1.125rem',
-                            fontWeight: '700',
+                            display: 'inline-block',
+                            padding: '0.3rem 1rem',
+                            backgroundColor: 'rgba(255,255,255,0.15)',
+                            border: '1px solid rgba(255,255,255,0.3)',
                             borderRadius: '50px',
-                            display: 'inline-block'
+                            fontSize: '0.75rem',
+                            fontWeight: '700',
+                            letterSpacing: '0.12em',
+                            textTransform: 'uppercase',
+                            marginBottom: '0.5rem',
+                            backdropFilter: 'blur(10px)',
+                            boxShadow: '0 4px 15px rgba(0,0,0,0.1)'
                         }}
                     >
-                        Schedule a Free Consultation
-                    </button>
+                        Secure Your Future
+                    </span>
+
+                    <h2 style={{ 
+                        fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', 
+                        fontWeight: '800', 
+                        lineHeight: '1.05', 
+                        color: '#ffffff', 
+                        marginBottom: '0.25rem',
+                        letterSpacing: '-0.02em',
+                        textShadow: '0 2px 10px rgba(0,0,0,0.1)'
+                    }}>
+                        Ready to Secure Your Infrastructure?
+                    </h2>
+                    
+                    <p style={{ 
+                        fontSize: 'clamp(1.1rem, 2vw, 1.35rem)', 
+                        color: 'rgba(255,255,255,0.95)', 
+                        lineHeight: '1.4',
+                        fontWeight: '500',
+                        maxWidth: '700px',
+                        margin: '0 auto 1rem auto'
+                    }}>
+                        Get a comprehensive {catData.label.toLowerCase()} today. Our world-class experts operate around the clock to defend your digital assets against evolving threats.
+                    </p>
+                    
+                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                        <button
+                            onClick={openSecurityModal}
+                            className="group"
+                            style={{
+                                backgroundColor: '#ffffff',
+                                color: '#e65c00',
+                                padding: '1rem 3rem',
+                                fontSize: '1.15rem',
+                                fontWeight: '800',
+                                borderRadius: '50px',
+                                border: 'none',
+                                cursor: 'pointer',
+                                display: 'inline-flex',
+                                alignItems: 'center',
+                                gap: '0.75rem',
+                                boxShadow: '0 10px 25px rgba(0,0,0,0.2)',
+                                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                            }}
+                            onMouseOver={(e) => {
+                                e.currentTarget.style.transform = 'translateY(-3px)';
+                                e.currentTarget.style.boxShadow = '0 15px 30px rgba(0,0,0,0.3)';
+                            }}
+                            onMouseOut={(e) => {
+                                e.currentTarget.style.transform = 'translateY(0)';
+                                e.currentTarget.style.boxShadow = '0 10px 25px rgba(0,0,0,0.2)';
+                            }}
+                        >
+                            Schedule a Free Consultation
+                            <ArrowRight 
+                                size={22} 
+                                style={{ transition: 'transform 0.3s ease' }}
+                                className="group-hover:translate-x-1.5"
+                            />
+                        </button>
+                        
+                        <div style={{ 
+                            marginTop: '0.5rem', 
+                            fontSize: '0.8rem', 
+                            color: 'rgba(255,255,255,0.85)', 
+                            display: 'flex', 
+                            alignItems: 'center', 
+                            justifyContent: 'center', 
+                            gap: '0.4rem',
+                            fontWeight: '600'
+                        }}>
+                            <CheckCircle2 size={14} style={{ color: 'rgba(255,255,255,0.9)' }} /> 
+                            Guaranteed precision. No obligation.
+                        </div>
+                    </div>
                 </div>
             </section>
         </main>

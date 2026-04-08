@@ -276,7 +276,7 @@ export default function Home() {
       <section id="social-impact" style={{ borderBottom: '1px solid #ff6b00', padding: '2rem 0', borderTop: '1px solid #ff6b00', marginTop: '2rem' }}>
         <div className="container">
           <div className="section-header" style={{ marginBottom: '3rem' }}>
-            <h2 className="section-title">Social Impact & <span style={{ color: '#F26C29' }}>Strategic Growth</span></h2>
+            <h2 className="section-title">Social Impact & <span style={{ color: '#ff6b00' }}>Strategic Growth</span></h2>
             <p className="section-subtitle">
               Driving positive change through cyber literacy while expanding our global footprint through strategic partnerships.
             </p>
@@ -344,7 +344,8 @@ export default function Home() {
           <div className="cta-buttons">
             <button
               onClick={openSecurityModal} // Assuming openSecurityModal is defined from useModal()
-              className="btn btn-primary btn-lg bg-transparent border-none cursor-pointer"
+              className="btn btn-primary btn-lg border-none cursor-pointer"
+              style={{ backgroundColor: '#ff6b00', backgroundImage: 'none' }}
             >
               Contact Us Now <ArrowRight size={16} />
             </button>

@@ -150,7 +150,7 @@ export default function Header() {
             </li>
             {/* About eHack Dropdown */}
             <li className={`dropdown-wrapper ${activeDropdown === 'about' ? 'mobile-expanded' : ''}`}>
-              <button 
+              <button
                 className="nav-link nav-dropdown-btn w-full flex justify-between xl:justify-start"
                 onClick={() => toggleDropdown('about')}
               >
@@ -166,8 +166,8 @@ export default function Header() {
                 <Link href="/about#why-choose-us" className="dropdown-item" onClick={closeMobileMenu}>Why Choose Us</Link>
                 <Link href="/about#leadership" className="dropdown-item" onClick={closeMobileMenu}>Leadership</Link>
                 <Link href="/about#advisory" className="dropdown-item" onClick={closeMobileMenu}>Advisory Board</Link>
-                <button 
-                  className="dropdown-item w-full text-left bg-transparent border-none cursor-pointer" 
+                <button
+                  className="dropdown-item w-full text-left bg-transparent border-none cursor-pointer"
                   onClick={() => { openSecurityModal(); closeMobileMenu(); }}
                 >
                   Contact Us
@@ -178,8 +178,9 @@ export default function Header() {
               <Link href="/careers" className="nav-link block py-2 xl:py-0" onClick={closeMobileMenu}>Careers</Link>
             </li>
             <li className="xl:hidden mt-2 border-t pt-4 border-gray-100">
-              <button 
-                className="nav-link nav-cta flex justify-center w-full bg-transparent border-none cursor-pointer" 
+              <button
+                className="nav-link flex justify-center w-full border-none cursor-pointer"
+                style={{ backgroundColor: '#ff6b00', color: 'white', padding: '0.625rem 1.25rem', borderRadius: '9999px', fontWeight: '600', alignItems: 'center' }}
                 onClick={() => { openSecurityModal(); closeMobileMenu(); }}
               >
                 Get a Quote
@@ -187,9 +188,9 @@ export default function Header() {
             </li>
           </ul>
 
-          <button 
-            className="nav-cta hidden xl:inline-flex bg-transparent border-none cursor-pointer" 
-            style={{ whiteSpace: 'nowrap' }}
+          <button
+            className="hidden xl:inline-flex border-none cursor-pointer"
+            style={{ whiteSpace: 'nowrap', backgroundColor: '#ff6b00', color: 'white', padding: '0.625rem 1.25rem', borderRadius: '9999px', fontWeight: '600', alignItems: 'center' }}
             onClick={openSecurityModal}
           >
             Get a Quote

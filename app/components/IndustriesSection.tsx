@@ -118,14 +118,14 @@ export default function IndustriesSection() {
             <div className="container" style={{ maxWidth: '1400px' }}>
                 <div className="section-header" style={{ marginBottom: '4rem' }}>
                     <span className="section-label" style={{
-                        background: '#F26C29',
+                        background: '#FF6B00',
                         color: 'white',
                         fontSize: '1.1rem',
                         padding: '0.6rem 1.8rem',
                         fontWeight: '700',
                         borderRadius: '50px'
                     }}>Industries We Serve</span>
-                    <h2 className="section-title">Trusted Across <span style={{ color: '#ec7c00' }}>Industries</span></h2>
+                    <h2 className="section-title">Trusted Across <span style={{ color: '#FF6B00' }}>Industries</span></h2>
                     <p className="text-[#1f2937] text-[20px]">
                         From fintech to healthcare, we secure organizations across all sectors
                     </p>

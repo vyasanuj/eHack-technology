@@ -60,7 +60,7 @@ export default function GlobalDefenseSection() {
                 {/* Header */}
                 <div className="section-header" style={{ marginBottom: '2rem' }}>
                     <span className="section-label" style={{
-                        background: '#F26C29',
+                        background: '#FF6B00',
                         color: 'white',
                         fontSize: '1rem',
                         padding: '0.5rem 1.5rem',
@@ -69,7 +69,7 @@ export default function GlobalDefenseSection() {
                         marginBottom: '1rem',
                         fontWeight: '600'
                     }}>Global Reach</span>
-                    <h2 className="section-title">Around-the-World <span style={{ color: '#EC7C00' }}>Protection</span></h2>
+                    <h2 className="section-title">Around-the-World <span style={{ color: '#FF6B00' }}>Protection</span></h2>
                     <p className="text-[#1f2937]">
                         Built on 18+ Advanced Cyber Defense Centres ensuring seamless 24/7 security.
                     </p>

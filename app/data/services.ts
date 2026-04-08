@@ -45,7 +45,7 @@ export const services: Record<string, ServiceData> = {
         heroImage: '/images/API_service_image.png',
         whatIs: "Increased API services with web applications and mobiles make them vulnerable to various attack vectors. Integration of these APIs into your system can make the system prone to known vulnerabilities or unknown vulnerabilities if the functionality and endpoints are not secured. API loophole detection can take time, and by the time it is known, the next challenge lies in patches and remediation. At Ehack Technology, a comprehensive API security assessment ensures that all the organization's primary concerns are addressed and remediations are deployed on a priority basis.",
         features: [
-            { title: 'API Discovery', image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc48?q=80&w=2000&auto=format&fit=crop' },
+            { title: 'API Discovery', image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=2000&auto=format&fit=crop' },
             { title: 'API Design Review', image: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=2000&auto=format&fit=crop' },
             { title: 'API Secure Code Review', image: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2000&auto=format&fit=crop' },
             { title: 'API Penetration Testing', image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=2000&auto=format&fit=crop' }
@@ -68,7 +68,7 @@ export const services: Record<string, ServiceData> = {
         benefits: [
             { icon: '🔗', title: 'Complete Coverage', description: 'REST, GraphQL, SOAP, and webhook testing', image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=600&auto=format&fit=crop' },
             { icon: '🔒', title: 'Auth & Access', description: 'OAuth, JWT, and authorization testing', image: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=600&auto=format&fit=crop' },
-            { icon: '📈', title: 'Rate Limiting', description: 'Resource exhaustion and DoS prevention', image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc48?q=80&w=600&auto=format&fit=crop' },
+            { icon: '📈', title: 'Rate Limiting', description: 'Resource exhaustion and DoS prevention', image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=600&auto=format&fit=crop' },
             { icon: '📝', title: 'Documentation', description: 'API security best practices guide', image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=600&auto=format&fit=crop' }
         ],
         whyChooseUs: "Ehack Technology is one of the pioneers in API Security Assessments since we take pride in providing secured API infrastructure. From the staging and development of the API process to the black box testing without any knowledge of the functioning, every aspect is considered, and custom-made tests and approaches are provided. Our coverage follows standard methodologies to detect common vulnerabilities and provide unique business logic flaws in a petite time frame.",
@@ -106,7 +106,7 @@ export const services: Record<string, ServiceData> = {
         whatIs: "Web application security evaluation combines industry-standard information security practices with tools explicitly designed to test websites, web-based services, and web applications. Web application security assessments can be carried out manually or automatically and carried out throughout the software development lifecycle (SDLC). It will typically include security measures, security audits, periodic inspections, secure coding practices, secure firewalls, vulnerability scanning, and the implementation of protocols that ensure safe operation.",
         features: [
             { title: 'Security Assessment', image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2000&auto=format&fit=crop' },
-            { title: 'API & Web Services', image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc48?q=80&w=2000&auto=format&fit=crop' },
+            { title: 'API & Web Services', image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=2000&auto=format&fit=crop' },
             { title: 'Source Code Review', image: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2000&auto=format&fit=crop' },
             { title: 'SDLC Integration', image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=2000&auto=format&fit=crop' }
         ],
@@ -249,7 +249,7 @@ export const services: Record<string, ServiceData> = {
         whyAssessment: "For most organizations that do not use a multi-layer of security, a firewall device acts as the gatekeeper to the network and is often the first and last line of defense. The Firewall is a device that sits between the inside and outside of your network and regulates who can enter and exit it. A firewall that is incorrectly configured or has a software vulnerability due to a lack of patching can significantly impact your organization's security posture and allow a complete hacker access to the network.",
         benefits: [
             { icon: '🛡️', title: 'Perimeter Defense', description: 'Ensure your first line of defense is solid', image: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=600&auto=format&fit=crop' },
-            { icon: '📋', title: 'Rule Optimization', description: 'Remove redundant and risky rules', image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc48?q=80&w=600&auto=format&fit=crop' },
+            { icon: '📋', title: 'Rule Optimization', description: 'Remove redundant and risky rules', image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=600&auto=format&fit=crop' },
             { icon: '🔐', title: 'VPN Security', description: 'Secure remote access verification', image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=600&auto=format&fit=crop' },
             { icon: '📊', title: 'Compliance', description: 'Meet industry standards requirements', image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=600&auto=format&fit=crop' }
         ],
@@ -347,7 +347,7 @@ export const services: Record<string, ServiceData> = {
         heroImage: '/images/services/security.png',
         whatIs: "The IT facilities of a company are pillared over the network components they use. It's just as important to plan where each unit will go to configure it safely. The bugs are exploited as much for their design flaws as they are for their misconfiguration. Daily enforcement, configuration, and security reviews of the network assist the company in maintaining a current view of the network and IT infrastructure. Modern-day attacks are also looking for non-traditional entry points, such as wireless and VoIP infrastructure.",
         features: [
-            { title: 'Network Security', image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc48?q=80&w=2000&auto=format&fit=crop' },
+            { title: 'Network Security', image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=2000&auto=format&fit=crop' },
             { title: 'Cloud Security', image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2000&auto=format&fit=crop' },
             { title: 'Active Directory', image: 'https://images.unsplash.com/photo-1526374865035-7fb7e60155b1?q=80&w=2000&auto=format&fit=crop' },
             { title: 'Attack Simulation', image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2000&auto=format&fit=crop' }
@@ -430,7 +430,7 @@ export const services: Record<string, ServiceData> = {
         ],
         whyAssessment: "All major industries like Healthcare, Education, Fintech, and Hospitality require ISO 27001 adherence and enforcement due to the large volumes of data that must be properly managed. If this data becomes available or is compromised, the financial, legal, and other consequences could be disastrous. Strict compliance with ISO 27001 standards ensures that a company is not vulnerable to bugs that could compromise the organization's information security.",
         benefits: [
-            { icon: '🏆', title: 'Global Recognition', description: 'Internationally recognized certification', image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc48?q=80&w=600&auto=format&fit=crop' },
+            { icon: '🏆', title: 'Global Recognition', description: 'Internationally recognized certification', image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=600&auto=format&fit=crop' },
             { icon: '🔒', title: 'Security Framework', description: 'Structured approach to information security', image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=600&auto=format&fit=crop' },
             { icon: '📈', title: 'Business Growth', description: 'Win contracts requiring ISO certification', image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=600&auto=format&fit=crop' },
             { icon: '✅', title: 'Compliance', description: 'Meet regulatory and contractual requirements', image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=600&auto=format&fit=crop' }
@@ -530,7 +530,7 @@ export const services: Record<string, ServiceData> = {
         whatIs: "Over the last few years, mobile technology has accelerated its growth and seen a massive increase in its user base. Mobile applications store and process a wide variety of sensitive data, from credit card information to intellectual property to medical records. Malicious attackers easily target this sensitive information. Due to the blurring of the lines between secure and exposed data, Mobile Application Security Testing evaluates an application's security and a large pool of mobile application threat vectors to identify inherent vulnerabilities and ensure the application's secure state while in use.",
         features: [
             { title: 'Mobile Assessment', image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=2000&auto=format&fit=crop' },
-            { title: 'API Security', image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc48?q=80&w=2000&auto=format&fit=crop' },
+            { title: 'API Security', image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=2000&auto=format&fit=crop' },
             { title: 'Secure Code Review', image: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2000&auto=format&fit=crop' },
             { title: 'Binary Hardening', image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=2000&auto=format&fit=crop' }
         ],
@@ -553,7 +553,7 @@ export const services: Record<string, ServiceData> = {
             { icon: '📱', title: 'Platform Coverage', description: 'iOS and Android comprehensive testing', image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=600&auto=format&fit=crop' },
             { icon: '🔐', title: 'Data Protection', description: 'Ensure sensitive data is properly secured', image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=600&auto=format&fit=crop' },
             { icon: '🛡️', title: 'Tamper Resistance', description: 'Protect against reverse engineering', image: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=600&auto=format&fit=crop' },
-            { icon: '📊', title: 'Detailed Reporting', description: 'Clear remediation steps for developers', image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc48?q=80&w=600&auto=format&fit=crop' }
+            { icon: '📊', title: 'Detailed Reporting', description: 'Clear remediation steps for developers', image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=600&auto=format&fit=crop' }
         ],
         whyChooseUs: "At Ehack Technology, we employ advanced methodologies tailored to specific applications. We have a sophisticated approach to detecting bugs, ensuring no vulnerability goes unnoticed, and expert guidance can help mitigate issues without interfering with existing systems. Our expert team works quickly to identify flaws in source code, binary files, applications, back-end integrations, and platform workflow.",
         serviceName: 'mobile-security',
@@ -724,7 +724,7 @@ export const services: Record<string, ServiceData> = {
         benefits: [
             { icon: '🔍', title: 'Deep Analysis', description: 'Find vulnerabilities invisible to dynamic testing', image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=600&auto=format&fit=crop' },
             { icon: '📚', title: '30+ Languages', description: 'Comprehensive technology coverage', image: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=600&auto=format&fit=crop' },
-            { icon: '✅', title: 'Compliance', description: 'CWE, OWASP, PCI, CERT, SANS compliant', image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc48?q=80&w=600&auto=format&fit=crop' },
+            { icon: '✅', title: 'Compliance', description: 'CWE, OWASP, PCI, CERT, SANS compliant', image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=600&auto=format&fit=crop' },
             { icon: '👤', title: 'Expert Review', description: 'Manual review by experienced developers', image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=600&auto=format&fit=crop' }
         ],
         whyChooseUs: "Ehack Technology will assign one or more consultants with relevant programming experience to each engagement. Each security consultant has a great deal of experience with application security. A hybrid approach combining dynamic tooling and manual review is used to achieve both breadth and depth of coverage. Having concurrent access to a running version of the target system while conducting the code review maximizes context and verifies findings in real-time.",
@@ -762,7 +762,7 @@ export const services: Record<string, ServiceData> = {
         whatIs: "Many thick client applications are not thoroughly examined because security testing efforts are frequently focused on web and mobile applications. However, these applications could have serious security flaws like memory corruption, injection, cryptographic flaws, and client-side trust issues. These flaws can lead to complete system compromise and unauthorized access to server-side data on systems where the thick client software is installed. Thick client applications process data on both the client and server sides and use proprietary protocols to communicate.",
         features: [
             { title: 'Thick Client Pentest', image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2000&auto=format&fit=crop' },
-            { title: 'API & Web Services', image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc48?q=80&w=2000&auto=format&fit=crop' },
+            { title: 'API & Web Services', image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=2000&auto=format&fit=crop' },
             { title: 'Source Code Review', image: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2000&auto=format&fit=crop' },
             { title: 'Binary Hardening', image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=2000&auto=format&fit=crop' }
         ],

@@ -235,7 +235,7 @@ export default function CaseStudySection() {
                 {/* Section Header */}
                 <div className="section-header" style={{ marginBottom: 'clamp(2rem, 5vw, 3rem)' }}>
                     <span className="section-label" style={{
-                        background: '#F26C29',
+                        background: '#FF6B00',
                         color: 'white',
                         fontSize: '1rem',
                         padding: '0.5rem 1.5rem',
@@ -244,7 +244,7 @@ export default function CaseStudySection() {
                         marginBottom: '1rem',
                         fontWeight: '600'
                     }}>Real World Impact</span>
-                    <h2 className="section-title" style={{ fontSize: 'clamp(2rem, 5vw, 3rem)' }}>Security in <span style={{ color: '#ec7c00' }}>Action</span></h2>
+                    <h2 className="section-title" style={{ fontSize: 'clamp(2rem, 5vw, 3rem)' }}>Security in <span style={{ color: '#FF6B00' }}>Action</span></h2>
                     <p className="section-subtitle" style={{ color: '#1f2937' }}>
                         See how eHack Global Technology protects organizations from critical threats <br />
                         <span style={{ fontSize: '0.9rem', opacity: 0.8, fontStyle: 'italic' }}>(Names changed for confidentiality)</span>

@@ -10,7 +10,7 @@ export default function ServicesSection() {
                 {/* Section Header */}
                 <div className="section-header" style={{ marginBottom: '3rem', textAlign: 'center' }}>
                     <span className="section-label" style={{
-                        background: '#F26C29',
+                        background: '#FF6B00',
                         color: 'white',
                         fontSize: '1.1rem',
                         padding: '0.6rem 2rem',

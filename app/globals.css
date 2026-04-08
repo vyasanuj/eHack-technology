@@ -855,7 +855,7 @@ h6 {
 }
 
 .nav-capsule {
-  background-color: #df6718 !important;
+  background-color: #ff6b00 !important;
   color: white !important;
   border-radius: 9999px !important;
   padding: 0.4rem 0.75rem !important;
@@ -866,7 +866,7 @@ h6 {
   align-items: center !important;
   gap: 0.2rem !important;
   transition: all 0.3s ease !important;
-  box-shadow: 0 4px 6px -1px rgba(223, 103, 24, 0.2) !important;
+  box-shadow: 0 4px 6px -1px rgba(255, 107, 0, 0.2) !important;
 }
 
 @media (min-width: 1536px) {
@@ -877,7 +877,7 @@ h6 {
 }
 
 .nav-capsule:hover {
-  background-color: #c55a15 !important;
+  background-color: #e55a00 !important;
   transform: translateY(-1px);
 }
 
@@ -1062,7 +1062,7 @@ h6 {
 }
 
 .nav-cta {
-  background: var(--primary);
+  background: #ff6b00 !important;
   color: var(--white) !important;
   padding: 0.625rem 1.25rem;
   border-radius: var(--radius-full);
@@ -1071,7 +1071,7 @@ h6 {
 }
 
 .nav-cta:hover {
-  background: var(--primary-dark);
+  background: #e55a00 !important;
   color: var(--white) !important;
 }
 
@@ -1133,13 +1133,15 @@ h6 {
     transform: none !important;
     min-width: 100% !important;
     box-shadow: none !important;
-    padding: 0.5rem 0 0.5rem 1rem !important; /* indented for hierarchy */
+    padding: 0.5rem 0 0.5rem 1rem !important;
+    /* indented for hierarchy */
     opacity: 1 !important;
     visibility: visible !important;
     border: none !important;
     border-left: 2px solid rgba(242, 108, 41, 0.2) !important;
     margin-top: 0.5rem;
-    display: none; /* hidden by default */
+    display: none;
+    /* hidden by default */
   }
 
   .nav-dropdown.mobile-expanded .nav-dropdown-menu,
@@ -1152,7 +1154,7 @@ h6 {
   .dropdown-wrapper:hover .dropdown-menu {
     display: none;
   }
-  
+
   .nav-dropdown.mobile-expanded:hover .nav-dropdown-menu,
   .dropdown-wrapper.mobile-expanded:hover .dropdown-menu {
     display: block;
@@ -1335,9 +1337,10 @@ h6 {
     grid-template-columns: 1fr;
     gap: 2.5rem;
   }
-  
+
   .footer-brand {
-    order: -1; /* Keep brand at top on mobile */
+    order: -1;
+    /* Keep brand at top on mobile */
   }
 
   .footer-bottom {
