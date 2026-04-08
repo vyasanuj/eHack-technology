@@ -106,7 +106,7 @@ export const services: Record<string, ServiceData> = {
         whatIs: "Web application security evaluation combines industry-standard information security practices with tools explicitly designed to test websites, web-based services, and web applications. Web application security assessments can be carried out manually or automatically and carried out throughout the software development lifecycle (SDLC). It will typically include security measures, security audits, periodic inspections, secure coding practices, secure firewalls, vulnerability scanning, and the implementation of protocols that ensure safe operation.",
         features: [
             { title: 'Security Assessment', image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2000&auto=format&fit=crop' },
-            { title: 'API & Web Services', image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=2000&auto=format&fit=crop' },
+            { title: 'API & Web Services', image: 'https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' },
             { title: 'Source Code Review', image: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2000&auto=format&fit=crop' },
             { title: 'SDLC Integration', image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=2000&auto=format&fit=crop' }
         ],
@@ -166,7 +166,7 @@ export const services: Record<string, ServiceData> = {
         whatIs: "Today, we live in a turbulent business environment where criminals are growing toward a virulent edge, as fraud risks are on the level of a crisis, and stakeholder expectations are far away. Various fraud strategies including bribery, misconducts, cybercrimes, and other fraudulent activities are impacting every business's branding value. Forensic Investigation and Consulting Services help you address these inevitable irreparable problems. We offer a wide range of Forensic Services and acknowledge the importance of self-reliance in dealing with different areas of concern.",
         features: [
             { title: 'Fraud Investigation', image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2000&auto=format&fit=crop' },
-            { title: 'Digital Evidence', image: 'https://images.unsplash.com/photo-1556656793-062ff987850e?q=80&w=2000&auto=format&fit=crop' },
+            { title: 'Digital Evidence', image: 'https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' },
             { title: 'Data Recovery', image: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=2000&auto=format&fit=crop' },
             { title: 'Artifact Analysis', image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2000&auto=format&fit=crop' }
         ],
@@ -187,7 +187,7 @@ export const services: Record<string, ServiceData> = {
         whyAssessment: "Forensic audits are essential for investigating cyber fraud, corruption, financial statement fraud, asset embezzlement, corporate frauds, and data leakage. Our structured approach includes planning, evidence collection, report creation, and court appearance if required. Any corporation that is exposed to an incident faces a dent in their brand reputation and additional legal liability.",
         benefits: [
             { icon: '🔍', title: 'Expert Investigation', description: 'Certified forensic investigators', image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=600&auto=format&fit=crop' },
-            { icon: '📋', title: 'Legal Compliance', description: 'Court-admissible evidence collection', image: 'https://images.unsplash.com/photo-1555620920-53bc30cedcc6?q=80&w=600&auto=format&fit=crop' },
+            { icon: '📋', title: 'Legal Compliance', description: 'Court-admissible evidence collection', image: 'https://images.pexels.com/photos/430208/pexels-photo-430208.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' },
             { icon: '💾', title: 'Data Recovery', description: 'Recover deleted and encrypted data', image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=600&auto=format&fit=crop' },
             { icon: '⚡', title: 'Rapid Response', description: '24/7 incident response team', image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=600&auto=format&fit=crop' }
         ],
@@ -225,7 +225,7 @@ export const services: Record<string, ServiceData> = {
         heroImage: '/images/Firewall Security Assessment.png',
         whatIs: "Every business, regardless of size, uses firewall technology to establish limits of trust and security and access the internet for inter-business communication. Next-generation firewalls provide increasing complexity, and functionality requires you to manage firewalls appropriately. The list of regulations will be thoroughly investigated following the operational assessment and based on the level of trust needed from the security apparatus. A weak/outdated firewall may have made the target systems vulnerable to information disclosure and compromise.",
         features: [
-            { title: 'Security Audit', image: 'https://images.unsplash.com/photo-1551703599-6b3e8379aa81?q=80&w=2000&auto=format&fit=crop' },
+            { title: 'Security Audit', image: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' },
             { title: 'Rule Optimization', image: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=2000&auto=format&fit=crop' },
             { title: 'VPN Review', image: 'https://images.unsplash.com/photo-1614064641938-3bbee52942c7?q=80&w=2000&auto=format&fit=crop' },
             { title: 'Penetration Testing', image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=2000&auto=format&fit=crop' }
@@ -289,7 +289,7 @@ export const services: Record<string, ServiceData> = {
         features: [
             { title: 'Gap Analysis', image: 'https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?q=80&w=2000&auto=format&fit=crop' },
             { title: 'Risk Assessment', image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=2000&auto=format&fit=crop' },
-            { title: 'Implementation', image: 'https://images.unsplash.com/photo-1510511459019-5dee995ad335?q=80&w=2000&auto=format&fit=crop' },
+            { title: 'Implementation', image: 'https://images.pexels.com/photos/3182773/pexels-photo-3182773.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' },
             { title: 'Compliance Audit', image: 'https://images.unsplash.com/photo-1614064641938-3bbee52942c7?q=80&w=2000&auto=format&fit=crop' }
         ],
         whatWeCover: [
@@ -349,7 +349,7 @@ export const services: Record<string, ServiceData> = {
         features: [
             { title: 'Network Security', image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=2000&auto=format&fit=crop' },
             { title: 'Cloud Security', image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2000&auto=format&fit=crop' },
-            { title: 'Active Directory', image: 'https://images.unsplash.com/photo-1526374865035-7fb7e60155b1?q=80&w=2000&auto=format&fit=crop' },
+            { title: 'Active Directory', image: 'https://images.pexels.com/photos/1181359/pexels-photo-1181359.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' },
             { title: 'Attack Simulation', image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2000&auto=format&fit=crop' }
         ],
         whatWeCover: [
@@ -368,7 +368,7 @@ export const services: Record<string, ServiceData> = {
         ],
         whyAssessment: "The infrastructure security assessment is one of the most important factors of cybersecurity strategy. The assessment is the key to insight into the security framework of the network your organization has employed. It also ensures that any external and internal threats are detected in time, and the network is shielded against cyber-attacks as well as a timely remedy for the same.",
         benefits: [
-            { icon: '🏗️', title: 'Full Coverage', description: 'Network, cloud, and endpoints', image: 'https://images.unsplash.com/photo-1555620920-53bc30cedcc6?q=80&w=600&auto=format&fit=crop' },
+            { icon: '🏗️', title: 'Full Coverage', description: 'Network, cloud, and endpoints', image: 'https://images.pexels.com/photos/430208/pexels-photo-430208.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' },
             { icon: '🔐', title: 'AD Security', description: 'Comprehensive Active Directory review', image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=600&auto=format&fit=crop' },
             { icon: '☁️', title: 'Cloud Ready', description: 'AWS, Azure, GCP assessment', image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=600&auto=format&fit=crop' },
             { icon: '🦠', title: 'Ransomware Simulation', description: 'Test ransomware resilience', image: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=600&auto=format&fit=crop' }
@@ -493,7 +493,7 @@ export const services: Record<string, ServiceData> = {
             { icon: '🦠', title: 'Threat Understanding', description: 'Deep analysis of malware behavior', image: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=600&auto=format&fit=crop' },
             { icon: '🎯', title: 'IOC Extraction', description: 'Actionable indicators of compromise', image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=600&auto=format&fit=crop' },
             { icon: '⚡', title: 'Rapid Response', description: '24/7 incident response availability', image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=600&auto=format&fit=crop' },
-            { icon: '📊', title: 'Threat Intel', description: 'Integration with threat intelligence', image: 'https://images.unsplash.com/photo-1555620920-53bc30cedcc6?q=80&w=600&auto=format&fit=crop' }
+            { icon: '📊', title: 'Threat Intel', description: 'Integration with threat intelligence', image: 'https://images.pexels.com/photos/430208/pexels-photo-430208.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' }
         ],
         whyChooseUs: "Ehack Technology is committed to providing businesses worldwide with cutting-edge digital forensic solutions and incident response capabilities. We leverage the experience of a diverse team to provide services for a variety of technologies and complex cyber threats, resulting in the highest possible level of assurance. Our malware analysts are trained in the latest techniques and tools for analyzing sophisticated threats.",
         serviceName: 'malware-analysis',
@@ -591,7 +591,7 @@ export const services: Record<string, ServiceData> = {
         features: [
             { title: 'Gap analysis', image: 'https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?q=80&w=2000&auto=format&fit=crop' },
             { title: 'Penetration Testing', image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=2000&auto=format&fit=crop' },
-            { title: 'ASV Scanning', image: 'https://images.unsplash.com/photo-1551703599-6b3e8379aa81?q=80&w=2000&auto=format&fit=crop' },
+            { title: 'ASV Scanning', image: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' },
             { title: 'Compliance Monitoring', image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=2000&auto=format&fit=crop' }
         ],
         whatWeCover: [
@@ -651,7 +651,7 @@ export const services: Record<string, ServiceData> = {
         features: [
             { title: 'Red Teaming', image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2000&auto=format&fit=crop' },
             { title: 'Social Engineering', image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=2000&auto=format&fit=crop' },
-            { title: 'Physical Security', image: 'https://images.unsplash.com/photo-1555620920-53bc30cedcc6?q=80&w=2000&auto=format&fit=crop' },
+            { title: 'Physical Security', image: 'https://images.pexels.com/photos/430208/pexels-photo-430208.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' },
             { title: 'Advanced Pentesting', image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=2000&auto=format&fit=crop' }
         ],
         whatWeCover: [
@@ -672,7 +672,7 @@ export const services: Record<string, ServiceData> = {
         benefits: [
             { icon: '🎯', title: 'Real-World Simulation', description: 'Test against actual attack techniques', image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=600&auto=format&fit=crop' },
             { icon: '🔓', title: 'Multi-Vector Attack', description: 'Network, physical, and social engineering', image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=600&auto=format&fit=crop' },
-            { icon: '📊', title: 'Defense Validation', description: 'Evaluate your security team response', image: 'https://images.unsplash.com/photo-1555620920-53bc30cedcc6?q=80&w=600&auto=format&fit=crop' },
+            { icon: '📊', title: 'Defense Validation', description: 'Evaluate your security team response', image: 'https://images.pexels.com/photos/430208/pexels-photo-430208.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' },
             { icon: '🛡️', title: 'Risk Identification', description: 'Find gaps before real attackers do', image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=600&auto=format&fit=crop' }
         ],
         whyChooseUs: "Ehack Technology specializes in and is passionate about conducting large-scale attacks. Our team members are innovative problem solvers who possess a range of skills, including programming, network testing, wireless security, security code review, web application penetration testing, reverse engineering, and exploit research. Red Team Exercises shed light on an organization's simulation of a real-world threat by combining and chaining multiple domain-specific attacks.",
@@ -711,7 +711,7 @@ export const services: Record<string, ServiceData> = {
         features: [
             { title: 'Manual Review', image: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2000&auto=format&fit=crop' },
             { title: 'Automated Scan', image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2000&auto=format&fit=crop' },
-            { title: 'SCA Testing', image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc48?q=80&w=2000&auto=format&fit=crop' },
+            { title: 'SCA Testing', image: 'https://images.pexels.com/photos/270408/pexels-photo-270408.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' },
             { title: 'Architecture Review', image: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=2000&auto=format&fit=crop' }
         ],
         whatWeCover: [
