@@ -21,7 +21,7 @@ export default function ServicesSection() {
                         letterSpacing: '0.5px'
                     }}>Our Expertise</span>
                     <h2 className="section-title" style={{ fontSize: '2.5rem', fontWeight: '800', marginBottom: '1rem' }}>
-                        Comprehensive Security <span style={{ color: '#ec7c00' }}>Solutions</span>
+                        Comprehensive Security <span style={{ color: '#ff6b00' }}>Solutions</span>
                     </h2>
                     <p className="section-subtitle" style={{ maxWidth: '600px', margin: '0 auto', color: '#1f2937', fontSize: '1.1rem' }}>
                         Specialized dimensions of cybersecurity tailored to protect your assets, compliance, and future.

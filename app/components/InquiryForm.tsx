@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import { useState } from 'react';
 import './InquiryForm.css';
@@ -32,7 +32,7 @@ export default function InquiryForm({
     variant = 'hero',
     title = 'Get Course Information',
     subtitle = 'Our counselor will call you within 2 hours',
-    pipeline = 'Leads Pipeline Standard',
+    pipeline = 'Corporate Services Pipeline',
     stage = 'New Inquiry',
     onSuccess,
 }: InquiryFormProps) {
@@ -96,8 +96,33 @@ export default function InquiryForm({
         setError('');
 
         try {
-            // Simulate form submission (matching LeadForm.tsx behavior)
-            await new Promise(resolve => setTimeout(resolve, 1500));
+            const payload = {
+                firstName: formData.firstName.trim(),
+                lastName: formData.lastName.trim() || '-',
+                email: formData.email.trim(),
+                phone: formData.phone.trim(),
+                inquiryName: `Corporate Inquiry - ${formData.firstName.trim()} - ${courseName || 'General'}`,
+                serviceName: courseName,
+                serviceCode: courseCode,
+                pageName: typeof window !== 'undefined' ? window.location.pathname : '',
+                message: `Service: ${courseName || 'General Inquiry'}\nWhatsApp Opt-in: ${formData.agreeWhatsApp ? 'Yes' : 'No'}`,
+                leadSource: `Website - ${courseName ? 'Service Page' : 'Corporate Services'}`,
+                pipeline,
+                stage,
+                website: '', // Honeypot
+            };
+
+            const response = await fetch('/api/zoho/inquiry', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload),
+            });
+
+            const result = await response.json();
+
+            if (!response.ok) {
+                throw new Error(result.error || 'Failed to submit inquiry');
+            }
 
             setIsSubmitted(true);
 

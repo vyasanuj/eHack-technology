@@ -10,6 +10,7 @@ interface SecurityAssessmentModalProps {
 
 export default function SecurityAssessmentModal({ isOpen, onClose }: SecurityAssessmentModalProps) {
   const [formData, setFormData] = useState({
+    name: '',
     email: '',
     phone: '',
     business: '',
@@ -18,6 +19,7 @@ export default function SecurityAssessmentModal({ isOpen, onClose }: SecurityAss
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState('');
 
   // Close on ESC key
   useEffect(() => {
@@ -47,17 +49,56 @@ export default function SecurityAssessmentModal({ isOpen, onClose }: SecurityAss
       ...formData,
       [e.target.name]: e.target.value
     });
+    setError('');
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    setIsSubmitting(false);
-    setSubmitted(true);
+    setError('');
+
+    try {
+      // Split name into first and last
+      const nameParts = formData.name.trim().split(/\s+/);
+      const firstName = nameParts[0] || formData.business || 'Unknown';
+      const lastName = nameParts.slice(1).join(' ') || '-';
+
+      const payload = {
+        firstName,
+        lastName,
+        email: formData.email.trim(),
+        phone: formData.phone.trim(),
+        company: formData.business.trim(),
+        inquiryName: `Corporate Services - ${formData.business || firstName} - ${formData.service || 'General'}`,
+        serviceName: formData.service || 'General Security Assessment',
+        serviceCode: formData.service?.toLowerCase().replace(/\s+/g, '-') || 'general',
+        pageName: typeof window !== 'undefined' ? window.location.pathname : 'modal',
+        message: `Service Requested: ${formData.service || 'General Assessment'}\nCompany: ${formData.business || 'Not provided'}\nSource: Security Assessment Modal`,
+        leadSource: 'Website - Security Assessment Modal',
+        pipeline: 'Corporate Services Pipeline',
+        stage: 'New Inquiry',
+        website: '', // Honeypot
+      };
+
+      const response = await fetch('/api/zoho/inquiry', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Failed to submit');
+      }
+
+      setIsSubmitting(false);
+      setSubmitted(true);
+    } catch (err) {
+      console.error('Error submitting security assessment:', err);
+      setIsSubmitting(false);
+      setError('Failed to submit. Please try again or call +91 98860 35330');
+    }
   };
 
   return (
@@ -83,6 +124,29 @@ export default function SecurityAssessmentModal({ isOpen, onClose }: SecurityAss
             
             <div className="modal-content">
               <form className="modal-form" onSubmit={handleSubmit}>
+                {error && <div style={{ 
+                  color: '#dc2626', 
+                  fontSize: '0.85rem', 
+                  padding: '0.75rem 1rem', 
+                  background: '#fef2f2', 
+                  borderRadius: '8px', 
+                  marginBottom: '1rem',
+                  border: '1px solid #fecaca'
+                }}>{error}</div>}
+
+                <div className="form-group">
+                  <label className="form-label">Your Name *</label>
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="John Doe"
+                    className="form-input"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+
                 <div className="form-group">
                   <label className="form-label">Work Email *</label>
                   <input
@@ -97,7 +161,7 @@ export default function SecurityAssessmentModal({ isOpen, onClose }: SecurityAss
                 </div>
 
                 <div className="form-group">
-                  <label className="form-label">Phone Number (Optional)</label>
+                  <label className="form-label">Phone Number *</label>
                   <input
                     type="tel"
                     name="phone"
@@ -105,11 +169,12 @@ export default function SecurityAssessmentModal({ isOpen, onClose }: SecurityAss
                     className="form-input"
                     value={formData.phone}
                     onChange={handleChange}
+                    required
                   />
                 </div>
 
                 <div className="form-group">
-                  <label className="form-label">Business Name *</label>
+                  <label className="form-label">Business Name</label>
                   <input
                     type="text"
                     name="business"
@@ -117,7 +182,6 @@ export default function SecurityAssessmentModal({ isOpen, onClose }: SecurityAss
                     className="form-input"
                     value={formData.business}
                     onChange={handleChange}
-                    required
                   />
                 </div>
 

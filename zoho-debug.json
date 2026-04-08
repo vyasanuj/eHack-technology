@@ -1,0 +1,31 @@
+{
+  "timestamp": "2026-04-08T10:23:45.629Z",
+  "url": "https://www.zohoapis.in/bigin/v2/Pipelines",
+  "requestPayload": {
+    "data": [
+      {
+        "Deal_Name": "Corporate Services - affafdf - ISO Certification",
+        "Stage": "New Enquiry",
+        "Layout": {
+          "id": "1182543000000498517"
+        },
+        "Sub_Pipeline": "Sales Pipeline Standard1",
+        "Closing_Date": "2026-05-08",
+        "Description": "=== CORPORATE SERVICES INQUIRY ===\nSubmitted: 2026-04-08T10:23:44.400Z\n\n--- Contact Information ---\nName: Anuj Vyas\nEmail: vanuj616@gmail.com\nPhone: +919009590431\nCompany: affafdf\n\n--- Service Interest ---\nService: ISO Certification\nService Code: iso-certification\nPage: /\n\n--- Additional Information ---\nMessage: Service Requested: ISO Certification\nCompany: affafdf\nSource: Security Assessment Modal\nLead Source: Website - Security Assessment Modal",
+        "Contact_Name": "1182543000000557213"
+      }
+    ]
+  },
+  "dealDataInput": {
+    "Deal_Name": "Corporate Services - affafdf - ISO Certification",
+    "Pipeline": "Corporate Services Pipeline",
+    "Stage": "New Enquiry",
+    "Contact_Name": "1182543000000557213",
+    "Closing_Date": "2026-05-08",
+    "Description": "=== CORPORATE SERVICES INQUIRY ===\nSubmitted: 2026-04-08T10:23:44.400Z\n\n--- Contact Information ---\nName: Anuj Vyas\nEmail: vanuj616@gmail.com\nPhone: +919009590431\nCompany: affafdf\n\n--- Service Interest ---\nService: ISO Certification\nService Code: iso-certification\nPage: /\n\n--- Additional Information ---\nMessage: Service Requested: ISO Certification\nCompany: affafdf\nSource: Security Assessment Modal\nLead Source: Website - Security Assessment Modal",
+    "Lead_Source": "Website - Security Assessment Modal"
+  },
+  "responseStatus": 400,
+  "responseBody": "{\"data\":[{\"code\":\"MAPPING_MISMATCH\",\"details\":{\"mapped_field\":\"Layout\",\"api_name\":\"Sub_Pipeline\",\"json_path\":\"$.data[0].Sub_Pipeline\"},\"message\":\"Layout doesn't contain the Pipeline\",\"status\":\"error\"}]}",
+  "error": "Error: Failed to create deal: 400 - {\"data\":[{\"code\":\"MAPPING_MISMATCH\",\"details\":{\"mapped_field\":\"Layout\",\"api_name\":\"Sub_Pipeline\",\"json_path\":\"$.data[0].Sub_Pipeline\"},\"message\":\"Layout doesn't contain the Pipeline\",\"status\":\"error\"}]}"
+}
