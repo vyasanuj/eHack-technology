@@ -111,7 +111,7 @@ Lead Source: ${leadSource || 'Website'}
         const dealData = {
             Deal_Name: inquiryName || `Corporate Inquiry - ${cleanFirstName} ${cleanLastName} - ${serviceName || 'General'}`,
             Pipeline: pipeline || 'Corporate Services Pipeline',
-            Stage: stage || 'New Inquiry',
+            Stage: stage || 'New Enquiry',
             Contact_Name: contactId,
             Closing_Date: closingDate.toISOString().split('T')[0],
             Description: description,

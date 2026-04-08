@@ -169,14 +169,18 @@ export async function createZohoDeal(dealData: ZohoDeal): Promise<string> {
                 subPipeline: 'Sales Pipeline Standard'
             },
             // Corporate Services Pipeline — used by eHack Technology website
-            // Uses dynamic pipeline resolution if Layout ID is not known
+            // Display: "corporate services Pipeline", Sub_Pipeline actual_value: "Sales Pipeline Standard1"
             'Corporate Services Pipeline': {
-                layoutId: '1182543000000442086', // Default to Leads Pipeline layout
-                subPipeline: 'Leads Pipeline Standard'
+                layoutId: '1182543000000498517',
+                subPipeline: 'Sales Pipeline Standard1'
             },
             'Corporate Services': {
-                layoutId: '1182543000000442086',
-                subPipeline: 'Leads Pipeline Standard'
+                layoutId: '1182543000000498517',
+                subPipeline: 'Sales Pipeline Standard1'
+            },
+            'corporate services Pipeline': {
+                layoutId: '1182543000000498517',
+                subPipeline: 'Sales Pipeline Standard1'
             },
         };
 
@@ -191,7 +195,11 @@ export async function createZohoDeal(dealData: ZohoDeal): Promise<string> {
                 );
 
                 if (matchedPipeline) {
-                    console.log(`Found dynamic match for pipeline: ${dealData.Pipeline}`);
+                    console.log(`Found dynamic match for pipeline: ${dealData.Pipeline}`, matchedPipeline);
+                    pipelineConfig[dealData.Pipeline] = {
+                        layoutId: matchedPipeline.maps?.[0]?.layout?.id || matchedPipeline.id,
+                        subPipeline: matchedPipeline.actual_value || matchedPipeline.display_value
+                    };
                 }
             } catch (e) {
                 console.warn(`Could not dynamically resolve pipeline: ${dealData.Pipeline}`);

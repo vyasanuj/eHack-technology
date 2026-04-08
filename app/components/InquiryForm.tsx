@@ -33,7 +33,7 @@ export default function InquiryForm({
     title = 'Get Course Information',
     subtitle = 'Our counselor will call you within 2 hours',
     pipeline = 'Corporate Services Pipeline',
-    stage = 'New Inquiry',
+    stage = 'New Enquiry',
     onSuccess,
 }: InquiryFormProps) {
     const [formData, setFormData] = useState<FormData>({

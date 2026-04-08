@@ -76,7 +76,7 @@ export default function SecurityAssessmentModal({ isOpen, onClose }: SecurityAss
         message: `Service Requested: ${formData.service || 'General Assessment'}\nCompany: ${formData.business || 'Not provided'}\nSource: Security Assessment Modal`,
         leadSource: 'Website - Security Assessment Modal',
         pipeline: 'Corporate Services Pipeline',
-        stage: 'New Inquiry',
+        stage: 'New Enquiry',
         website: '', // Honeypot
       };
 

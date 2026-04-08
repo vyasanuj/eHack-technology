@@ -78,7 +78,7 @@ export default function JobApplicationModal({ isOpen, onClose, job }: JobApplica
                     message: `Application for ${job.title}. Category: ${job.category}. \n\nMessage: ${formData.message || 'No additional message provided.'}`,
                     agreeWhatsApp: true,
                     pipeline: 'Leads Pipeline Standard',
-                    stage: 'New Inquiry',
+                    stage: 'New Enquiry',
                 }),
             });
 
