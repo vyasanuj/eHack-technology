@@ -44,6 +44,8 @@ import ServicesSection from './components/ServicesSection';
 import StickySectionNav from './components/StickySectionNav';
 import GlobalDefenseSection from './components/GlobalDefenseSection';
 import AcademySection from './components/AcademySection';
+import InquiryFormSection from './components/InquiryFormSection';
+
 
 export default function Home() {
   const { openSecurityModal } = useModal();
@@ -333,28 +335,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="cta-section">
-        <div className="container">
-          <h2>Ready to Secure Your Enterprise?</h2>
-          <p>
-            Get a comprehensive security assessment from our certified experts.
-            Identify vulnerabilities before hackers do.
-          </p>
-          <div className="cta-buttons">
-            <button
-              onClick={openSecurityModal} // Assuming openSecurityModal is defined from useModal()
-              className="btn btn-primary btn-lg border-none cursor-pointer"
-              style={{ backgroundColor: '#ff6b00', backgroundImage: 'none' }}
-            >
-              Contact Us Now <ArrowRight size={16} />
-            </button>
-            <Link href="/about" className="btn btn-white btn-lg">
-              Learn About Us
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* Premium Embedded CTA Section */}
+      <InquiryFormSection />
+
     </>
   );
 }
