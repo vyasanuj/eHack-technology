@@ -229,7 +229,7 @@ export default function CaseStudySection() {
 
 
     return (
-        <section className="section section-dark" style={{ overflow: 'hidden', padding: 'clamp(2.5rem, 5vw, 5rem) 0' }}>
+        <section className="section section-dark" style={{ overflow: 'hidden', padding: 'clamp(2.5rem, 5vw, 5rem) 0', borderBottom: '1px solid #ff6b00', borderTop: '1px solid #ff6b00' }}>
             <div className="container">
 
                 {/* Section Header */}
