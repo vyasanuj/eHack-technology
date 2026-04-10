@@ -21,8 +21,8 @@ export default function ServicesSection() {
                         fontWeight: '600',
                         letterSpacing: '0.5px'
                     }}>Our Expertise</span>
-                    <h2 className="section-title" style={{ fontSize: '2.5rem', fontWeight: '800', marginBottom: '1rem' }}>
-                        Comprehensive Security <span style={{ color: '#ff6b00' }}>Solutions</span>
+                    <h2 className={styles.sectionTitle}>
+                        Comprehensive Security <span className={styles.orangeText}>Solutions</span>
                     </h2>
                     <p className="section-subtitle" style={{ maxWidth: '600px', margin: '0 auto', color: '#1f2937', fontSize: '1.1rem' }}>
                         Specialized dimensions of cybersecurity tailored to protect your assets, compliance, and future.
@@ -104,12 +104,12 @@ export default function ServicesSection() {
                                     flexDirection: 'column',
                                     position: 'relative'
                                 }}>
-                                    <h3 style={{ fontSize: '1.75rem', fontWeight: '800', color: '#1a1a1a', marginBottom: '1rem' }}>
+                                    <h3 className={styles.cardTitle}>
                                         {cat.label.includes(' ') ? (
                                             <>
                                                 {cat.label.substring(0, cat.label.lastIndexOf(' '))}
                                                 {' '}
-                                                <span style={{ color: '#ff6b00' }}>
+                                                <span className={styles.orangeText}>
                                                     {cat.label.substring(cat.label.lastIndexOf(' ') + 1)}
                                                 </span>
                                             </>
@@ -125,8 +125,12 @@ export default function ServicesSection() {
                                     {/* Trust Badges / Key Features */}
                                     <div className={styles.metaContainer}>
                                         <div className={styles.metaItem}>
-                                            <span className={styles.metaValue}>{cat.industriesCount} Industries</span>
-                                            <span className={styles.metaText}>Trusted by {cat.keySectors}</span>
+                                            <span className={styles.metaLabel}>Industries</span>
+                                            <span className={styles.metaValue}>{cat.industriesCount} Served</span>
+                                        </div>
+                                        <div className={styles.metaItem}>
+                                            <span className={styles.metaLabel}>Sectors</span>
+                                            <span className={styles.metaText}>{cat.keySectors}</span>
                                         </div>
                                     </div>
 

@@ -1,5 +1,5 @@
 .serviceDescription {
-    font-size: 0.9375rem;
+    font-size: 1rem;
     color: #1f2937;
     line-height: 1.5;
     font-weight: 500;
@@ -8,6 +8,7 @@
     padding-left: 1rem;
     display: flex;
     align-items: flex-start;
+    flex: 1; /* Pushes metaContainer to the bottom */
 }
 
 .serviceDescription::before {
@@ -17,23 +18,26 @@
     top: 0.5rem;
     width: 6px;
     height: 6px;
-    background-color: #df6718; /* Matches ehack_new brand primary */
+    background-color: #df6718;
+    /* Matches ehack_new brand primary */
     border-radius: 50%;
 }
 
 .metaContainer {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.75rem;
     margin-bottom: 2rem;
     border-top: 1px solid #eee;
     padding-top: 1.5rem;
+    width: 100%;
 }
 
 .metaItem {
     display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
+    flex-direction: row;
+    align-items: baseline;
+    gap: 1rem;
 }
 
 .metaLabel {
@@ -42,17 +46,59 @@
     color: #64748B;
     text-transform: uppercase;
     letter-spacing: 0.08em;
+    min-width: 90px; /* Aligns the values vertically */
+    flex-shrink: 0;
 }
 
 .metaValue {
-    font-size: 0.9375rem;
+    font-size: 1rem;
     font-weight: 700;
     color: #0a0a1a;
 }
 
 .metaText {
-    font-size: 0.9375rem;
+    font-size: 1rem;
     color: #1f2937;
     line-height: 1.5;
     font-weight: 500;
+}
+
+.sectionTitle {
+    font-size: 1.75rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    white-space: nowrap;
+}
+
+.cardTitle {
+    font-size: 1.5rem; /* Slightly reduced for single-line fit */
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-bottom: 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.orangeText {
+    color: #ff6b00;
+}
+
+@media (min-width: 768px) {
+    .sectionTitle {
+        font-size: 2.25rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .sectionTitle {
+        font-size: 2.5rem;
+    }
+}
+
+/* Extra small screens adjustment */
+@media (max-width: 480px) {
+    .sectionTitle {
+        font-size: 1.25rem;
+    }
 }

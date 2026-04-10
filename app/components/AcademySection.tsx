@@ -89,7 +89,7 @@ export default function AcademySection() {
                             borderRadius: '8px',
                             background: '#ff6b00' // Slightly darker orange for better contrast on dark
                         }}>
-                            Explore Programs
+                            Explore Services
                         </Link>
                     </div>
 

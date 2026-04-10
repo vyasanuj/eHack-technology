@@ -75,78 +75,87 @@ export default function GlobalDefenseSection() {
                     </p>
                 </div>
 
-                {/* World Map Container */}
-                <div className="animate-scaleIn relative w-full aspect-[2/1] h-auto rounded-3xl overflow-hidden mb-16">
-
-                    {/* Map Content Wrapper for Zooming */}
-                    <div style={{
-                        position: 'relative',
-                        width: '100%',
-                        height: '100%',
-                        transform: 'scale(1.05)', // Increased size slightly
-                        transformOrigin: 'center center',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center'
-                    }}>
-                        {/* Local New World Map */}
-                        <img
-                            src="/new-map.png"
-                            alt="Global Defense Network"
-                            style={{
-                                width: '100%',
-                                height: '100%',
-                                objectFit: 'contain',
-                                opacity: 1,
-                                minHeight: '300px'
-                                // Removed filter for clarity
-                            }}
-                        />
+                {/* World Map Container with Animated Dotted Border (Full Scale Restoration) */}
+                <div className="animate-scaleIn relative w-full aspect-[2/1] h-auto rounded-t-[32px] map-border-animated"
+                    style={{ borderBottom: 'none' }}>
+                    <div className="relative w-full h-full rounded-t-[28px] overflow-hidden">
+                        {/* Map Content Wrapper for Zooming */}
+                        <div style={{
+                            position: 'relative',
+                            width: '100%',
+                            height: '100%',
+                            transform: 'scale(1.05)', // Increased size slightly
+                            transformOrigin: 'center center',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center'
+                        }}>
+                            {/* Local New World Map */}
+                            <img
+                                src="/new-map.png"
+                                alt="Global Defense Network"
+                                style={{
+                                    width: '100%',
+                                    height: '100%',
+                                    objectFit: 'contain',
+                                    opacity: 1,
+                                    minHeight: '300px'
+                                }}
+                            />
+                        </div>
                     </div>
-
-
                 </div>
 
-                {/* KPI stats below map */}
-                <div style={{
+                {/* KPI stats below map - Seamlessly connected (Full Width) */}
+                <div className="w-full" style={{
                     display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-                    gap: '2rem'
+                    gridTemplateColumns: 'repeat(3, 1fr)',
+                    gap: '0px', /* No gap between boxes for unified border look */
+                    marginTop: '-2px' /* Slight overlap to ensure borders touch */
                 }}>
-                    <div className="glass-card kpi-card-animated">
+                    <div className="kpi-card-animated" style={{ borderRadius: '0 0 0 16px', borderTop: 'none' }}>
                         <h3 style={{ fontSize: '3rem', color: '#F26C29', marginBottom: '0.5rem', fontWeight: '800' }}>18+</h3>
-                        <p style={{ color: '#1f2937', margin: 0 }}>Advanced Cyber Defense Centres</p>
+                        <p style={{ color: '#1f2937', margin: 0 }}>Advanced Defense Centres</p>
                     </div>
-                    <div className="glass-card kpi-card-animated">
+                    <div className="kpi-card-animated" style={{ borderRadius: '0', borderLeft: 'none', borderRight: 'none', borderTop: 'none' }}>
                         <h3 style={{ fontSize: '3rem', color: '#F26C29', marginBottom: '0.5rem', fontWeight: '800' }}>24/7</h3>
-                        <p style={{ color: '#1f2937', margin: 0 }}>Continuous Threat Monitoring</p>
+                        <p style={{ color: '#1f2937', margin: 0 }}>Continuous Monitoring</p>
                     </div>
-                    <div className="glass-card kpi-card-animated">
+                    <div className="kpi-card-animated" style={{ borderRadius: '0 0 16px 0', borderTop: 'none' }}>
                         <h3 style={{ fontSize: '3rem', color: '#F26C29', marginBottom: '0.5rem', fontWeight: '800' }}>200+</h3>
-                        <p style={{ color: '#1f2937', margin: 0 }}>Countries & Regions Covered</p>
+                        <p style={{ color: '#1f2937', margin: 0 }}>Countries Covered</p>
                     </div>
                 </div>
 
                 <style jsx>{`
-
                     .kpi-card-animated {
                         padding: 2rem;
                         text-align: center;
                         position: relative;
-                        border-radius: 16px;
                         background-color: rgba(255,255,255,0.03);
                         background-image: linear-gradient(90deg, #F26C29 50%, transparent 50%), linear-gradient(90deg, #F26C29 50%, transparent 50%), linear-gradient(0deg, #F26C29 50%, transparent 50%), linear-gradient(0deg, #F26C29 50%, transparent 50%);
                         background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
-                        background-size: 15px 2px, 15px 2px, 2px 15px, 2px 15px;
+                        background-size: 10px 1.5px, 10px 1.5px, 1.5px 10px, 1.5px 10px;
                         background-position: 0 0, 100% 100%, 0 100%, 100% 0;
                         animation: border-dance 4s infinite linear;
                     }
+
+                    .map-border-animated {
+                        padding: 3px;
+                        position: relative;
+                        background-image: linear-gradient(90deg, #F26C29 50%, transparent 50%), linear-gradient(90deg, #F26C29 50%, transparent 50%), linear-gradient(0deg, #F26C29 50%, transparent 50%), linear-gradient(0deg, #F26C29 50%, transparent 50%);
+                        background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+                        background-size: 10px 1.5px, 10px 1.5px, 1.5px 10px, 1.5px 10px;
+                        background-position: 0 0, 100% 100%, 0 100%, 100% 0;
+                        animation: border-dance 4s infinite linear;
+                    }
+
                     @keyframes border-dance {
                         0% {
                             background-position: 0 0, 100% 100%, 0 100%, 100% 0;
                         }
                         100% {
-                            background-position: 30px 0, calc(100% - 30px) 100%, 0 calc(100% - 30px), 100% 30px;
+                            background-position: 20px 0, calc(100% - 20px) 100%, 0 calc(100% - 30px), 100% 20px;
                         }
                     }
                     @keyframes pulse-ring {

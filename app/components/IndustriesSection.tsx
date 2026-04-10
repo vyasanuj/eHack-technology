@@ -187,12 +187,13 @@ export default function IndustriesSection() {
                                     className="industry-btn"
                                     style={{
                                         textAlign: 'left',
-                                        padding: '1rem 1.25rem',
+                                        padding: '1.25rem 1.5rem',
                                         borderRadius: '12px',
                                         background: activeIndustry.id === ind.id ? '#fff5f0' : 'transparent',
                                         border: activeIndustry.id === ind.id ? '1px solid #F26C29' : '1px solid #b6b4b4ff',
                                         color: activeIndustry.id === ind.id ? '#F26C29' : '#1f2937',
                                         fontWeight: activeIndustry.id === ind.id ? '700' : '500',
+                                        fontSize: '1.2rem',
                                         cursor: 'pointer',
                                         transition: 'all 0.3s ease',
                                         display: 'flex',

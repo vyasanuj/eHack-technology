@@ -158,7 +158,7 @@ export default function Home() {
                 flexDirection: 'column'
               }}>
                 <div style={{
-                  background: '#F26C29',
+                  background: '#FF6B00',
                   padding: '1rem 1.5rem',
                   display: 'flex',
                   alignItems: 'center',
