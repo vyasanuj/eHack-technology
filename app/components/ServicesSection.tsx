@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import { categories } from '../data/categories';
 import { ArrowRight } from 'lucide-react';
+import styles from './ServicesSection.module.css';
 
 export default function ServicesSection() {
     return (
@@ -117,24 +118,15 @@ export default function ServicesSection() {
                                         )}
                                     </h3>
 
-                                    <p style={{ color: '#1f2937', lineHeight: '1.6', marginBottom: '2rem', flex: 1 }}>
-                                        {cat.description}
-                                    </p>
+                                    <div className={styles.serviceDescription}>
+                                        <span>{cat.description}</span>
+                                    </div>
 
                                     {/* Trust Badges / Key Features */}
-                                    <div style={{
-                                        display: 'flex',
-                                        gap: '1rem',
-                                        marginBottom: '2rem',
-                                        flexWrap: 'wrap',
-                                        borderTop: '1px solid #eee',
-                                        paddingTop: '1.5rem',
-                                        fontSize: '0.9rem',
-                                        color: '#1f2937'
-                                    }}>
-                                        <div style={{ display: 'flex', flexDirection: 'column' }}>
-                                            <span style={{ fontWeight: '700', color: '#1f2937', fontSize: '1.1rem' }}>{cat.industriesCount} Industries</span>
-                                            <span style={{ fontSize: '0.8rem', color: '#1f2937' }}>Trusted by {cat.keySectors}</span>
+                                    <div className={styles.metaContainer}>
+                                        <div className={styles.metaItem}>
+                                            <span className={styles.metaValue}>{cat.industriesCount} Industries</span>
+                                            <span className={styles.metaText}>Trusted by {cat.keySectors}</span>
                                         </div>
                                     </div>
 

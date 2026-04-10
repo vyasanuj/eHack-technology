@@ -45,7 +45,7 @@ export default function TrustedCompanies() {
                         <div
                             key={index}
                             style={{
-                                border: '2px solid #F26C29',
+                                border: '2px solid #ff6b00',
                                 borderRadius: '15px',
                                 overflow: 'hidden',
                                 background: 'white',
@@ -90,7 +90,7 @@ export default function TrustedCompanies() {
 
                             {/* Name Area */}
                             <div style={{
-                                background: '#ec7c00',
+                                background: '#ff6b00',
                                 color: 'white',
                                 padding: '0.8rem 0.5rem',
                                 textAlign: 'center',
