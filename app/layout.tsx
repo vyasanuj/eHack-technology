@@ -6,6 +6,7 @@ import Footer from "./components/Footer";
 import BackToTop from "./components/BackToTop";
 import { ModalProvider } from "./context/ModalContext";
 import GlobalModals from "@/app/components/GlobalModals";
+import WhatsAppButton from "./components/WhatsAppButton";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -52,6 +53,7 @@ export default function RootLayout({
           <main className="overflow-x-hidden">{children}</main>
           <Footer />
           <BackToTop />
+          <WhatsAppButton />
           <GlobalModals />
         </ModalProvider>
       </body>
