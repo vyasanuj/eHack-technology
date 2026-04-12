@@ -263,4 +263,28 @@
         letter-spacing: 0.5px;
         margin-bottom: 1rem;
     }
+
+    .csrRibbon .ribbonContent,
+    .franchiseRibbon .ribbonContent {
+        padding: 1.5rem;
+    }
+
+    .ribbonTitle {
+        font-size: 1.5rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .ribbonText {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .ribbonImage {
+        height: 200px;
+    }
+
+    .ribbonTitleStrip {
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+    }
 }

@@ -275,11 +275,11 @@ export default function Home() {
       </section> */}
 
       {/* Ribbons Section */}
-      <section id="social-impact" style={{ borderBottom: '1px solid #ff6b00', padding: '2rem 0', borderTop: '1px solid #ff6b00', marginTop: '2rem' }}>
+      <section id="social-impact" className="py-8 md:py-16 mt-8 md:mt-12 border-t border-b border-[#ff6b00]">
         <div className="container">
-          <div className="section-header" style={{ marginBottom: '3rem' }}>
-            <h2 className="section-title">Social Impact & <span style={{ color: '#ff6b00' }}>Strategic Growth</span></h2>
-            <p className="section-subtitle">
+          <div className="section-header text-center mb-8 md:mb-12">
+            <h2 className="section-title text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4">Social Impact & <span className="text-[#ff6b00]">Strategic Growth</span></h2>
+            <p className="text-[#1f2937] text-sm md:text-base max-w-2xl mx-auto">
               Driving positive change through cyber literacy while expanding our global footprint through strategic partnerships.
             </p>
           </div>
