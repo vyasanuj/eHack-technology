@@ -58,19 +58,14 @@ export default function GlobalDefenseSection() {
             <div className="container" style={{ position: 'relative', zIndex: 1 }}>
 
                 {/* Header */}
-                <div className="section-header" style={{ marginBottom: '2rem' }}>
-                    <span className="section-label" style={{
-                        background: '#FF6B00',
-                        color: 'white',
-                        fontSize: '1rem',
-                        padding: '0.5rem 1.5rem',
-                        borderRadius: '50px',
-                        display: 'inline-block',
-                        marginBottom: '1rem',
-                        fontWeight: '600'
-                    }}>Global Reach</span>
-                    <h2 className="section-title">Around-the-World <span style={{ color: '#FF6B00' }}>Protection</span></h2>
-                    <p className="text-[#1f2937]">
+                <div className="section-header text-center mb-6 md:mb-8">
+                    <span className="section-label bg-[#FF6B00] text-white text-sm md:text-base px-4 py-2 md:px-6 md:py-2 rounded-full inline-block mb-3 md:mb-4 font-semibold">
+                        Global Reach
+                    </span>
+                    <h2 className="section-title text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4">
+                        Around-the-World <span className="text-[#FF6B00]">Protection</span>
+                    </h2>
+                    <p className="text-[#1f2937] text-sm md:text-base max-w-2xl mx-auto">
                         Built on 18+ Advanced Cyber Defense Centres ensuring seamless 24/7 security.
                     </p>
                 </div>
@@ -94,36 +89,25 @@ export default function GlobalDefenseSection() {
                             <img
                                 src="/new-map.png"
                                 alt="Global Defense Network"
-                                style={{
-                                    width: '100%',
-                                    height: '100%',
-                                    objectFit: 'contain',
-                                    opacity: 1,
-                                    minHeight: '300px'
-                                }}
+                                className="w-full h-full object-contain opacity-100 min-h-[150px] sm:min-h-[200px] md:min-h-[300px]"
                             />
                         </div>
                     </div>
                 </div>
 
                 {/* KPI stats below map - Seamlessly connected (Full Width) */}
-                <div className="w-full" style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(3, 1fr)',
-                    gap: '0px', /* No gap between boxes for unified border look */
-                    marginTop: '-2px' /* Slight overlap to ensure borders touch */
-                }}>
-                    <div className="kpi-card-animated" style={{ borderRadius: '0 0 0 16px', borderTop: 'none' }}>
-                        <h3 style={{ fontSize: '3rem', color: '#F26C29', marginBottom: '0.5rem', fontWeight: '800' }}>18+</h3>
-                        <p style={{ color: '#1f2937', margin: 0 }}>Advanced Defense Centres</p>
+                <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-0 -mt-[2px]">
+                    <div className="kpi-card-animated rounded-none md:rounded-bl-2xl">
+                        <h3 className="text-4xl md:text-5xl lg:text-[3rem] font-extrabold text-[#F26C29] mb-2">18+</h3>
+                        <p className="text-[#1f2937] m-0 text-sm md:text-base font-medium">Advanced Defense Centres</p>
                     </div>
-                    <div className="kpi-card-animated" style={{ borderRadius: '0', borderLeft: 'none', borderRight: 'none', borderTop: 'none' }}>
-                        <h3 style={{ fontSize: '3rem', color: '#F26C29', marginBottom: '0.5rem', fontWeight: '800' }}>24/7</h3>
-                        <p style={{ color: '#1f2937', margin: 0 }}>Continuous Monitoring</p>
+                    <div className="kpi-card-animated rounded-none">
+                        <h3 className="text-4xl md:text-5xl lg:text-[3rem] font-extrabold text-[#F26C29] mb-2">24/7</h3>
+                        <p className="text-[#1f2937] m-0 text-sm md:text-base font-medium">Continuous Monitoring</p>
                     </div>
-                    <div className="kpi-card-animated" style={{ borderRadius: '0 0 16px 0', borderTop: 'none' }}>
-                        <h3 style={{ fontSize: '3rem', color: '#F26C29', marginBottom: '0.5rem', fontWeight: '800' }}>200+</h3>
-                        <p style={{ color: '#1f2937', margin: 0 }}>Countries Covered</p>
+                    <div className="kpi-card-animated rounded-b-2xl md:rounded-b-none md:rounded-br-2xl">
+                        <h3 className="text-4xl md:text-5xl lg:text-[3rem] font-extrabold text-[#F26C29] mb-2">200+</h3>
+                        <p className="text-[#1f2937] m-0 text-sm md:text-base font-medium">Countries Covered</p>
                     </div>
                 </div>
 
