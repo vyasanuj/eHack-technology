@@ -7,6 +7,7 @@ import BackToTop from "./components/BackToTop";
 import { ModalProvider } from "./context/ModalContext";
 import GlobalModals from "@/app/components/GlobalModals";
 import WhatsAppButton from "./components/WhatsAppButton";
+import FranchisePopup from "./components/FranchisePopup";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -54,6 +55,7 @@ export default function RootLayout({
           <Footer />
           <BackToTop />
           <WhatsAppButton />
+          <FranchisePopup />
           <GlobalModals />
         </ModalProvider>
       </body>

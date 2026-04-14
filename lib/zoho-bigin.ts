@@ -150,15 +150,25 @@ export async function createZohoDeal(dealData: ZohoDeal): Promise<string> {
     }
 
     // Map pipeline names to Layout IDs and Sub_Pipeline values
+    // Verified against Zoho Bigin API on 2026-04-12:
+    //   - Layout "eHack Academy Leads" (ID: 1182543000000442086)
+    //       Sub_Pipeline actual_value: "Leads Pipeline Standard"
+    //   - Layout "Global Services Leads" (ID: 1182543000000498517)
+    //       Sub_Pipeline display: "corporate services Pipeline", actual_value: "Sales Pipeline Standard1"
+    //       Stage "New Inquiry" → actual_value: "New Enquiry"
+    //   - Layout "Sales Pipeline" (ID: 1182543000000000173)
+    //       Sub_Pipeline actual_value: "Sales Pipeline Standard"
     if (dealData.Pipeline) {
-        const pipelineConfig: { [key: string]: { layoutId: string; subPipeline: string } } = {
+        const pipelineConfig: { [key: string]: { layoutId: string; subPipeline: string; stageMap?: { [key: string]: string } } } = {
             'Leads Pipeline Standard': {
                 layoutId: '1182543000000442086',
-                subPipeline: 'Leads Pipeline Standard'
+                subPipeline: 'Leads Pipeline Standard',
+                stageMap: { 'New Inquiry': 'New Enquiry', 'New inquiry': 'New Enquiry' }
             },
             'Leads Pipeline': {
                 layoutId: '1182543000000442086',
-                subPipeline: 'Leads Pipeline Standard'
+                subPipeline: 'Leads Pipeline Standard',
+                stageMap: { 'New Inquiry': 'New Enquiry', 'New inquiry': 'New Enquiry' }
             },
             'Sales Pipeline Standard': {
                 layoutId: '1182543000000000173',
@@ -169,18 +179,22 @@ export async function createZohoDeal(dealData: ZohoDeal): Promise<string> {
                 subPipeline: 'Sales Pipeline Standard'
             },
             // Corporate Services Pipeline — used by eHack Technology website
-            // Display: "corporate services Pipeline", Sub_Pipeline actual_value: "Sales Pipeline Standard1"
+            // Layout: "Global Services Leads" (1182543000000498517)
+            // Sub_Pipeline display: "corporate services Pipeline", actual_value: "Sales Pipeline Standard1"
             'Corporate Services Pipeline': {
                 layoutId: '1182543000000498517',
-                subPipeline: 'Sales Pipeline Standard1'
+                subPipeline: 'Sales Pipeline Standard1',
+                stageMap: { 'New Inquiry': 'New Enquiry', 'New inquiry': 'New Enquiry' }
             },
             'Corporate Services': {
                 layoutId: '1182543000000498517',
-                subPipeline: 'Sales Pipeline Standard1'
+                subPipeline: 'Sales Pipeline Standard1',
+                stageMap: { 'New Inquiry': 'New Enquiry', 'New inquiry': 'New Enquiry' }
             },
             'corporate services Pipeline': {
                 layoutId: '1182543000000498517',
-                subPipeline: 'Sales Pipeline Standard1'
+                subPipeline: 'Sales Pipeline Standard1',
+                stageMap: { 'New Inquiry': 'New Enquiry', 'New inquiry': 'New Enquiry' }
             },
         };
 
@@ -210,6 +224,11 @@ export async function createZohoDeal(dealData: ZohoDeal): Promise<string> {
         if (config) {
             biginData.Layout = { id: config.layoutId };
             biginData.Sub_Pipeline = config.subPipeline;
+            // Map stage display values to actual_values where needed
+            if (config.stageMap && biginData.Stage && config.stageMap[biginData.Stage]) {
+                console.log(`Mapping stage '${biginData.Stage}' → '${config.stageMap[biginData.Stage]}'`);
+                biginData.Stage = config.stageMap[biginData.Stage];
+            }
         } else {
             console.warn(`Pipeline '${dealData.Pipeline}' not found in static config.`);
         }
