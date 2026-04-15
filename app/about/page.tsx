@@ -656,7 +656,7 @@ export default function AboutPage() {
                                         </div>
                                         <div className="quick-action-content">
                                             <span className="quick-action-label">Email Us</span>
-                                            <span className="quick-action-value">info@ehackacademy.com</span>
+                                            <span className="quick-action-value">info@ehackglobaltechnology.com</span>
                                         </div>
                                         <div className="quick-action-arrow">
                                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">

@@ -57,6 +57,7 @@ export default function RootLayout({
           <BackToTop />
           <WhatsAppButton />
           <FranchisePopup />
+          <FloatingChat />
           <GlobalModals />
           <FloatingChat />
         </ModalProvider>
