@@ -8,6 +8,7 @@ import { ModalProvider } from "./context/ModalContext";
 import GlobalModals from "@/app/components/GlobalModals";
 import WhatsAppButton from "./components/WhatsAppButton";
 import FranchisePopup from "./components/FranchisePopup";
+import FloatingChat from "@/components/chat-bot/FloatingChat";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -57,6 +58,7 @@ export default function RootLayout({
           <WhatsAppButton />
           <FranchisePopup />
           <GlobalModals />
+          <FloatingChat />
         </ModalProvider>
       </body>
     </html>
