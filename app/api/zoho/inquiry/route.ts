@@ -109,9 +109,9 @@ Lead Source: ${leadSource || 'Website'}
         closingDate.setDate(closingDate.getDate() + 30);
 
         const dealData = {
-            Deal_Name: inquiryName || `Global services Leads - ${cleanFirstName} ${cleanLastName} - ${serviceName || 'General'}`,
-            Pipeline: pipeline || 'Global services Leads',
-            Stage: stage || 'New inquiry',
+            Deal_Name: inquiryName || `Corporate Services - ${cleanFirstName} ${cleanLastName} - ${serviceName || 'General'}`,
+            Pipeline: pipeline || 'Corporate Services Pipeline',
+            Stage: stage || 'New Enquiry',
             Contact_Name: contactId,
             Closing_Date: closingDate.toISOString().split('T')[0],
             Description: description,
