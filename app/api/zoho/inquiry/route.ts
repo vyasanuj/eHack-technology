@@ -1,174 +1,117 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createZohoDeal, createZohoNote, upsertZohoContact } from '@/lib/zoho-bigin';
+import { createZohoDeal, upsertZohoContact } from '@/lib/zoho-bigin';
 
+/**
+ * POST /api/zoho/inquiry
+ * 
+ * Creates a contact + deal in Zoho Bigin's "Global Technology Sales" pipeline.
+ * Called by: SecurityAssessmentModal (Get a Quote), InquiryFormSection, InquiryForm, ServicePageLayout
+ */
 export async function POST(request: NextRequest) {
     try {
         const body = await request.json();
 
-        // Honeypot check for bot protection
+        // --- Honeypot check ---
         if (body.website) {
-            console.log('Bot submission blocked (honeypot):', body.email);
-            return NextResponse.json(
-                { success: true, message: 'Inquiry submitted successfully' },
-                { status: 200 }
-            );
+            // Bot detected — silently return success
+            return NextResponse.json({ success: true, id: 'honeypot' });
         }
 
-        const {
-            // Contact data
-            firstName,
-            lastName,
-            email,
-            phone,
-            company,
+        // --- Validate required fields ---
+        const { firstName, lastName, email, phone } = body;
 
-            // Inquiry data
-            inquiryName,
-            serviceName,
-            serviceCode,
-            pageName,
-            message,
-            leadSource,
-
-            // Pipeline info
-            pipeline,
-            stage,
-        } = body;
-
-        // Clean and sanitize inputs
-        const cleanFirstName = firstName?.trim() || '';
-        const cleanLastName = lastName?.trim() || '-';
-        const cleanEmail = email?.trim().toLowerCase() || '';
-        const cleanPhone = phone?.trim().replace(/\s+/g, '') || '';
-        const cleanCompany = company?.trim() || '';
-
-        // Validate required fields
-        if (!cleanFirstName || !cleanEmail || !cleanPhone) {
+        if (!firstName || !email || !phone) {
             return NextResponse.json(
-                { error: 'First name, email, and phone are required' },
+                { error: 'Name, email, and phone are required.' },
                 { status: 400 }
             );
         }
 
-        // Validate email format
-        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-        if (!emailRegex.test(cleanEmail)) {
-            return NextResponse.json(
-                { error: 'Invalid email format', details: 'Please provide a valid email address' },
-                { status: 400 }
-            );
+        // --- Ensure phone has country code ---
+        let formattedPhone = phone.trim();
+        const digitsOnly = formattedPhone.replace(/\D/g, '');
+        if (!formattedPhone.startsWith('+')) {
+            if (digitsOnly.length === 10) {
+                formattedPhone = `+91${digitsOnly}`;
+            } else if (digitsOnly.length === 12 && digitsOnly.startsWith('91')) {
+                formattedPhone = `+${digitsOnly}`;
+            }
         }
 
-        // Validate phone format (10-digit Indian mobile starting with 6-9)
-        const phoneDigits = cleanPhone.replace(/^\+?91/, '').replace(/\D/g, '');
-        if (phoneDigits.length !== 10 || !/^[6-9]/.test(phoneDigits)) {
-            return NextResponse.json(
-                { error: 'Invalid phone number', details: 'Please provide a valid 10-digit phone number' },
-                { status: 400 }
-            );
+        // --- 1. Upsert Contact ---
+        let contactId: string | null = null;
+        try {
+            contactId = await upsertZohoContact({
+                First_Name: firstName.trim(),
+                Last_Name: (lastName || '-').trim(),
+                Email: email.trim(),
+                Phone: formattedPhone,
+                Mobile: formattedPhone,
+                Lead_Source: body.leadSource || 'Website - eHack Technology',
+            });
+            console.log('Contact upserted with ID:', contactId);
+        } catch (contactError) {
+            console.error('Error upserting contact (continuing to create deal):', contactError);
         }
-        const phoneWithCountryCode = `+91${phoneDigits}`;
 
-        // Build description with corporate services context
-        const description = `
-=== CORPORATE SERVICES INQUIRY ===
-Submitted: ${new Date().toISOString()}
+        // --- 2. Build deal description ---
+        const now = new Date().toISOString();
+        const description = [
+            `=== GLOBAL TECHNOLOGY INQUIRY ===`,
+            `Submitted: ${now}`,
+            ``,
+            `--- Contact Information ---`,
+            `Name: ${firstName} ${lastName || ''}`.trim(),
+            `Email: ${email}`,
+            `Phone: ${formattedPhone}`,
+            body.company ? `Company: ${body.company}` : null,
+            ``,
+            `--- Service Interest ---`,
+            body.serviceName ? `Service: ${body.serviceName}` : null,
+            body.serviceCode ? `Service Code: ${body.serviceCode}` : null,
+            body.pageName ? `Page: ${body.pageName}` : null,
+            ``,
+            `--- Additional Information ---`,
+            body.message ? `Message: ${body.message}` : null,
+            body.leadSource ? `Lead Source: ${body.leadSource}` : null,
+        ].filter(Boolean).join('\n');
 
---- Contact Information ---
-Name: ${cleanFirstName} ${cleanLastName}
-Email: ${cleanEmail}
-Phone: ${phoneWithCountryCode}
-Company: ${cleanCompany || 'Not provided'}
-
---- Service Interest ---
-Service: ${serviceName || 'General Inquiry'}
-Service Code: ${serviceCode || 'N/A'}
-Page: ${pageName || 'Not specified'}
-
---- Additional Information ---
-Message: ${message || 'None'}
-Lead Source: ${leadSource || 'Website'}
-`.trim();
-
-        // Step 1: Create or update Contact
-        const contactData = {
-            First_Name: cleanFirstName,
-            Last_Name: cleanLastName,
-            Email: cleanEmail,
-            Phone: phoneWithCountryCode,
-            Mobile: phoneWithCountryCode,
-            Description: `Corporate services inquiry received on ${new Date().toLocaleDateString()}. Interested in: ${serviceName || 'General Security Services'}`,
-            Lead_Source: leadSource || 'Website - Corporate Services',
-        };
-
-        const contactId = await upsertZohoContact(contactData);
-        console.log('Contact created/updated:', contactId);
-
-        // Step 2: Create Deal in Corporate Services Pipeline
+        // --- 3. Closing date: 30 days from now ---
         const closingDate = new Date();
         closingDate.setDate(closingDate.getDate() + 30);
+        const closingDateStr = closingDate.toISOString().split('T')[0];
 
-        const dealData = {
-            Deal_Name: inquiryName || `Corporate Services - ${cleanFirstName} ${cleanLastName} - ${serviceName || 'General'}`,
-            Pipeline: pipeline || 'Corporate Services Pipeline',
-            Stage: stage || 'New Enquiry',
-            Contact_Name: contactId,
-            Closing_Date: closingDate.toISOString().split('T')[0],
+        // --- 4. Create Deal in Global Technology Sales Pipeline ---
+        const pipeline = body.pipeline || 'Global Technology Sales';
+        const stage = body.stage || 'New Inquiry';
+
+        const dealName = body.inquiryName || 
+            `GT Inquiry - ${body.company || firstName} - ${body.serviceName || 'General'}`;
+
+        const dealId = await createZohoDeal({
+            Deal_Name: dealName,
+            Pipeline: pipeline,
+            Stage: stage,
+            Contact_Name: contactId || undefined,
+            Closing_Date: closingDateStr,
             Description: description,
-            Lead_Source: leadSource || 'Website - Corporate Services',
-        };
-
-        const dealId = await createZohoDeal(dealData);
-        console.log('Deal created:', dealId);
-
-        // Step 3: Create a Note on the deal with detailed info
-        try {
-            const noteTitle = `Lead Details - ${leadSource || 'Corporate Services Website'}`;
-
-            const noteContentParts: string[] = [
-                'CORPORATE SERVICES LEAD DETAILS',
-                '===========================',
-                '',
-                `Name: ${cleanFirstName} ${cleanLastName}`,
-                `Email: ${cleanEmail}`,
-                `Phone: ${phoneWithCountryCode}`,
-                `Company: ${cleanCompany || 'Not provided'}`,
-                '',
-                `Service Interested: ${serviceName || 'General'}`,
-                `Service Code: ${serviceCode || 'N/A'}`,
-                `Page Source: ${pageName || 'Not specified'}`,
-                '',
-            ];
-
-            if (message) {
-                noteContentParts.push(`Additional Message: ${message}`);
-                noteContentParts.push('');
-            }
-
-            noteContentParts.push(`Lead Source: ${leadSource || 'Website'}`);
-            noteContentParts.push(`Submitted: ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}`);
-
-            const noteContent = noteContentParts.join('\n');
-            const noteId = await createZohoNote(dealId, noteTitle, noteContent);
-            console.log('Note created on deal:', noteId);
-        } catch (noteError) {
-            console.error('Failed to create note (non-critical):', noteError);
-        }
+            Lead_Source: body.leadSource || 'Website - eHack Technology',
+        });
 
         return NextResponse.json({
             success: true,
+            id: dealId,
             contactId,
-            dealId,
             message: 'Inquiry submitted successfully',
-            inquiryName: dealData.Deal_Name,
         });
 
-    } catch (error) {
-        console.error('Error in corporate services inquiry API:', error);
+    } catch (error: any) {
+        console.error('Error in /api/zoho/inquiry:', error);
+
         return NextResponse.json(
             {
-                error: 'Failed to submit inquiry',
-                details: error instanceof Error ? error.message : 'Unknown error',
+                error: error.message || 'Failed to submit inquiry',
+                details: process.env.NODE_ENV === 'development' ? error.stack : undefined,
             },
             { status: 500 }
         );

@@ -42,14 +42,14 @@ export default function InquiryFormSection() {
                 email: formData.email.trim(),
                 phone: formData.phone.trim(),
                 company: formData.business.trim(),
-                inquiryName: `Embedded CTA - ${formData.business || firstName} - ${formData.service || 'General'}`,
+                inquiryName: `GT Inquiry - ${formData.business || firstName} - ${formData.service || 'General'}`,
                 serviceName: formData.service || 'General Security Inquiry',
                 serviceCode: formData.service?.toLowerCase().replace(/\s+/g, '-') || 'general',
                 pageName: typeof window !== 'undefined' ? window.location.pathname : 'home',
                 message: `Service Requested: ${formData.service || 'General'}\nCompany: ${formData.business || 'Not provided'}\nSource: Home Page Bottom CTA`,
                 leadSource: 'Website - Home Embedded CTA',
-                pipeline: 'Corporate Services Pipeline',
-                stage: 'New Enquiry',
+                pipeline: 'Global Technology Sales',
+                stage: 'New Inquiry',
                 website: '', // Honeypot
             };
 

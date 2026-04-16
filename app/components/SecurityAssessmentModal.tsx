@@ -69,14 +69,14 @@ export default function SecurityAssessmentModal({ isOpen, onClose }: SecurityAss
         email: formData.email.trim(),
         phone: formData.phone.trim(),
         company: formData.business.trim(),
-        inquiryName: `Corporate Services - ${formData.business || firstName} - ${formData.service || 'General'}`,
+        inquiryName: `GT Inquiry - ${formData.business || firstName} - ${formData.service || 'General'}`,
         serviceName: formData.service || 'General Security Assessment',
         serviceCode: formData.service?.toLowerCase().replace(/\s+/g, '-') || 'general',
         pageName: typeof window !== 'undefined' ? window.location.pathname : 'modal',
         message: `Service Requested: ${formData.service || 'General Assessment'}\nCompany: ${formData.business || 'Not provided'}\nSource: Security Assessment Modal`,
         leadSource: 'Website - Security Assessment Modal',
-        pipeline: 'Corporate Services Pipeline',
-        stage: 'New Enquiry',
+        pipeline: 'Global Technology Sales',
+        stage: 'New Inquiry',
         website: '', // Honeypot
       };
 

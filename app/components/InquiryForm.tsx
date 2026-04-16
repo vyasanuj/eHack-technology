@@ -32,8 +32,8 @@ export default function InquiryForm({
     variant = 'hero',
     title = 'Get Course Information',
     subtitle = 'Our counselor will call you within 2 hours',
-    pipeline = 'Corporate Services Pipeline',
-    stage = 'New Enquiry',
+    pipeline = 'Global Technology Sales',
+    stage = 'New Inquiry',
     onSuccess,
 }: InquiryFormProps) {
     const [formData, setFormData] = useState<FormData>({
@@ -101,7 +101,7 @@ export default function InquiryForm({
                 lastName: formData.lastName.trim() || '-',
                 email: formData.email.trim(),
                 phone: formData.phone.trim(),
-                inquiryName: `Corporate Inquiry - ${formData.firstName.trim()} - ${courseName || 'General'}`,
+                inquiryName: `GT Inquiry - ${formData.firstName.trim()} - ${courseName || 'General'}`,
                 serviceName: courseName,
                 serviceCode: courseCode,
                 pageName: typeof window !== 'undefined' ? window.location.pathname : '',
