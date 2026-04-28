@@ -96,7 +96,7 @@ export default function FranchisePopup() {
                     message: formData.message || `City: ${formData.city}`,
                     leadSource: 'Franchise Popup',
                     pipeline: 'Global services Leads',
-                    stage: 'New inquiry',
+                    stage: 'New Inquiry',
                 }),
             });
 

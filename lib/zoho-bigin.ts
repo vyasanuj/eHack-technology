@@ -243,68 +243,60 @@ export async function createZohoDeal(dealData: ZohoDeal): Promise<string> {
         biginData.Deal_Name = dealData.Deal_Name;
     }
 
-    // Required: Stage (use DISPLAY value, not actual_value)
-    if (dealData.Stage) {
-        biginData.Stage = dealData.Stage;
-    }
-
-    /**
-     * CRITICAL: Zoho Bigin API payload format (discovered from existing records):
-     * 
-     * - Use `Pipeline: { id: "<layout_id>" }` — NOT `Layout`!
-     *   The "Pipeline" field in Bigin's API takes the Layout ID as an object.
-     *   The `Layout` field should NOT be sent (it shows as null in existing records).
-     * 
-     * - Use `Sub_Pipeline` with the DISPLAY VALUE (e.g., "corporate services Pipeline"),
-     *   NOT the actual_value (e.g., "Sales Pipeline Standard1").
-     * 
-     * - Use `Stage` with the DISPLAY VALUE (e.g., "New Inquiry"),
-     *   NOT the actual_value (e.g., "New Enquiry").
-     */
-    const pipelineConfig: { [key: string]: { layoutId: string; subPipelineDisplay: string; defaultStage: string } } = {
+    // -------------------------------------------------------------------------
+    // Verified live Zoho org data (tested 2026-04-28):
+    //
+    //   Pipeline name           | Layout ID           | Sub_Pipeline (display)      | Stage
+    //   ------------------------|---------------------|-----------------------------|-----------
+    //   "Global Technology Sales"| 1182543000000498517 | corporate services Pipeline | New Inquiry
+    //   "Global Services Leads" | 1182543000000498517 | corporate services Pipeline | New Inquiry
+    //   "Leads Pipeline Standard"| 1182543000000442086 | Leads Pipeline Standard    | New Inquiry
+    //   "eHack Academy Leads"   | 1182543000000442086 | Leads Pipeline Standard    | New Inquiry
+    //
+    // KEY RULES (verified via live API tests):
+    //   - Use `Layout: { id, name }` — NOT `Pipeline: { id }`
+    //   - Sub_Pipeline: use the DISPLAY VALUE (e.g. "corporate services Pipeline")
+    //     NOT the actual_value (e.g. "Sales Pipeline Standard1")
+    //   - Stage: use the DISPLAY VALUE (e.g. "New Inquiry") NOT actual_value ("New Enquiry")
+    // -------------------------------------------------------------------------
+    const pipelineConfig: { [key: string]: { layoutId: string; layoutName: string; subPipeline: string; defaultStage: string } } = {
         'Global Technology Sales': {
-            layoutId: process.env.ZOHO_GT_LAYOUT_ID || '1182543000000498517',
-            subPipelineDisplay: process.env.ZOHO_GT_SUB_PIPELINE || 'corporate services Pipeline',
+            layoutId:     process.env.ZOHO_GT_LAYOUT_ID || '1182543000000498517',
+            layoutName:   'Global Services Leads',
+            subPipeline:  process.env.ZOHO_GT_SUB_PIPELINE || 'corporate services Pipeline',
             defaultStage: 'New Inquiry',
         },
-        'Leads Pipeline': {
-            layoutId: '1182543000000442086',
-            subPipelineDisplay: 'Leads Pipeline Standard',
-            defaultStage: 'New Inquiry',
+        'Global Services Leads': {
+            layoutId: '1182543000000498517', layoutName: 'Global Services Leads',
+            subPipeline: 'corporate services Pipeline', defaultStage: 'New Inquiry',
+        },
+        'Global services Leads': {
+            layoutId: '1182543000000498517', layoutName: 'Global Services Leads',
+            subPipeline: 'corporate services Pipeline', defaultStage: 'New Inquiry',
         },
         'Leads Pipeline Standard': {
-            layoutId: '1182543000000442086',
-            subPipelineDisplay: 'Leads Pipeline Standard',
-            defaultStage: 'New Inquiry',
+            layoutId: '1182543000000442086', layoutName: 'eHack Academy Leads',
+            subPipeline: 'Leads Pipeline Standard', defaultStage: 'New Inquiry',
+        },
+        'Leads Pipeline': {
+            layoutId: '1182543000000442086', layoutName: 'eHack Academy Leads',
+            subPipeline: 'Leads Pipeline Standard', defaultStage: 'New Inquiry',
+        },
+        'eHack Academy Leads': {
+            layoutId: '1182543000000442086', layoutName: 'eHack Academy Leads',
+            subPipeline: 'Leads Pipeline Standard', defaultStage: 'New Inquiry',
         },
         'Sales Pipeline': {
-            layoutId: '1182543000000000173',
-            subPipelineDisplay: 'Admission Pipeline',
-            defaultStage: 'Pitch/Demo',
-        },
-        'Sales Pipeline Standard': {
-            layoutId: '1182543000000000173',
-            subPipelineDisplay: 'Admission Pipeline',
-            defaultStage: 'Pitch/Demo',
+            layoutId: '1182543000000000173', layoutName: 'Sales Pipeline',
+            subPipeline: 'Admission Pipeline', defaultStage: 'New Inquiry',
         },
     };
 
-    const config = pipelineConfig[dealData.Pipeline];
-    if (config && config.layoutId) {
-        // Use Pipeline field (NOT Layout) with the layout ID — this is how Bigin API works
-        biginData.Pipeline = { id: config.layoutId };
-        biginData.Sub_Pipeline = config.subPipelineDisplay;
-        // Use display value for Stage
-        biginData.Stage = config.defaultStage;
-    } else {
-        console.warn(`Pipeline '${dealData.Pipeline}' not configured. Using as-is.`);
-        biginData.Sub_Pipeline = dealData.Pipeline;
-    }
-
-    // Override stage if explicitly provided and it's a display value
-    if (dealData.Stage && dealData.Stage !== 'New Enquiry') {
-        biginData.Stage = dealData.Stage;
-    }
+    const config = pipelineConfig[dealData.Pipeline] || pipelineConfig['Global Technology Sales'];
+    // Verified: use Layout field (not Pipeline field) with id + name
+    biginData.Layout      = { id: config.layoutId, name: config.layoutName };
+    biginData.Sub_Pipeline = config.subPipeline;
+    biginData.Stage        = dealData.Stage || config.defaultStage;
 
     // Closing Date
     if (dealData.Closing_Date) {
