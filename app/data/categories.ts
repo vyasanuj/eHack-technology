@@ -110,7 +110,7 @@ export const categories = {
         icon: Search,
         headline: 'Incident Response & Forensics',
         description: 'Rapid response capabilities to contain threats, analyze breaches, and recover operations.',
-        image: '/Forensics & Malware.png',
+        image: '/Forensics-Malware.png',
         industriesCount: '8+',
         keySectors: 'Govt, Law Enforcement & Legal',
         longDescription: 'In the event of a breach, time is of the essence. Our incident response and forensics team is available 24/7 to help you contain attacks, analyze the root cause, and recover your systems.',
